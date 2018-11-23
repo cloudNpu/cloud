@@ -1,0 +1,15 @@
+rootProject.name='cloud'
+include 'eureka-client',
+        'eureka-client-jersey2',
+        'eureka-client-archaius2',
+        'eureka-server',
+        'eureka-server-governator',
+        'eureka-core',
+        'eureka-core-jersey2',
+        'eureka-resources',
+        'eureka-examples',
+        'eureka-test-utils'
+include 'spring-cloud-netflix-eureka-server'
+include 'cloud-gateway'
+include 'spring-cloud-netflix-eureka-client'
+
