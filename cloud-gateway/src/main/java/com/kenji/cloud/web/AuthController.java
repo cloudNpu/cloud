@@ -37,7 +37,7 @@ public class AuthController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ResponseEntity<?> refreshAndgetAuthenticationToken(HttpServletRequest request) {
+    public ResponseEntity<?> refreshAuthenticationToken(HttpServletRequest request) {
         String token = request.getHeader(tokenHeader);
         String refreshedToken = authService.refresh(token);
         if (refreshedToken == null)
