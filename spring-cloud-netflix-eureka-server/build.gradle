@@ -41,6 +41,7 @@ dependencies {
     compile('org.springframework.cloud:spring-cloud-context:2.0.2.RELEASE')
     compile('org.springframework.cloud:spring-cloud-netflix-eureka-client:2.0.2.RELEASE')
     compile('org.springframework.cloud:spring-cloud-commons:2.0.2.RELEASE')
+    compile('org.springframework.cloud:spring-cloud-config-server:2.0.2.RELEASE')
     compile('org.springframework:spring-context-support:5.0.7.RELEASE')
     compile('javax.xml.bind:jaxb-api:2.3.0')
     compile('com.sun.jersey:jersey-servlet')

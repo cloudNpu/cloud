@@ -30,6 +30,4 @@ public class CloudGateway
     RestTemplate restTemplate() {
         return new RestTemplate();
     }
-
-
 }
