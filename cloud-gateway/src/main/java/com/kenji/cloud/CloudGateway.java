@@ -25,9 +25,4 @@ public class CloudGateway
         return context;
     }
 
-    @Bean
-    @LoadBalanced
-    RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
 }

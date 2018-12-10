@@ -52,19 +52,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity.csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll();
-//                .antMatchers(
-//                        HttpMethod.GET,
-//                        "/",
-//                        "/*.html",
-//                        "/favicon.ico",
-//                        "/**/*.html",
-//                        "/**/*.css",
-//                        "/**/*.js").permitAll()
-//                .antMatchers("/auth/**").permitAll()
-//                .antMatchers("/eureka/apps/**").permitAll()
-//                .antMatchers("/admin/**").access("hasAnyAuthority('ROLE_ADMIN')")
-//                .anyRequest().authenticated();
+//                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                .antMatchers(
+                        HttpMethod.GET,
+                        "/",
+                        "/*.html",
+                        "/favicon.ico",
+                        "/**/*.html",
+                        "/**/*.css",
+                        "/**/*.js").permitAll()
+                .antMatchers("/auth/**").permitAll()
+                .antMatchers("/eureka/apps/**").permitAll()
+                .antMatchers("/admin/**").access("hasAnyAuthority('ROLE_ADMIN')")
+                .anyRequest().authenticated();
 //                .anyRequest().authenticated().and().formLogin().loginPage("/login")
 //                .failureUrl("/login?error").permitAll().and().logout().permitAll();
         httpSecurity.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);

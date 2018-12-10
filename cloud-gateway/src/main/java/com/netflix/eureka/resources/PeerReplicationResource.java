@@ -16,16 +16,9 @@
 
 package com.netflix.eureka.resources;
 
-import javax.inject.Inject;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
-
 import com.netflix.appinfo.InstanceInfo;
-import com.netflix.eureka.EurekaServerContext;
 import com.netflix.eureka.EurekaServerConfig;
+import com.netflix.eureka.EurekaServerContext;
 import com.netflix.eureka.EurekaServerContextHolder;
 import com.netflix.eureka.cluster.protocol.ReplicationInstance;
 import com.netflix.eureka.cluster.protocol.ReplicationInstanceResponse;
@@ -35,6 +28,13 @@ import com.netflix.eureka.cluster.protocol.ReplicationListResponse;
 import com.netflix.eureka.registry.PeerAwareInstanceRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.inject.Inject;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 /**
  * A <em>jersey</em> resource that handles requests for replication purposes.
