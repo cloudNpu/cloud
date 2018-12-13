@@ -23,13 +23,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            $('table.stripeable tr:even').addClass('even');
            $('#instances thead th').each(function () {
                var title = $('#instances thead th').eq($(this).index()).text();
-               $(this).html(title + '</br><input type="text" placeholder="Search ' + title + '" />');
+               $(this).html(title + '</br><inputParams type="text" placeholder="Search ' + title + '" />');
            });
            // DataTable
            var table = $('#instances').DataTable({"paging": false, "bInfo": false, "sDom": 'ltipr', "bSort": false});
            // Apply the search
            table.columns().eq(0).each(function (colIdx) {
-               $('input', table.column(colIdx).header()).on('keyup change', function () {
+               $('inputParams', table.column(colIdx).header()).on('keyup change', function () {
                    table.column(colIdx).search(this.value).draw();
                });
            });

@@ -155,9 +155,12 @@ public class InstanceInfo {
     private volatile String asgName;
     private String version = VERSION_UNKNOWN;
     @Auto
-    private volatile String input;
+    private volatile String inputParams;
     @Auto
-    private volatile String output;
+    private volatile String outputParams;
+    @Auto
+    private volatile String complexType;
+
 
     private InstanceInfo() {
         this.metadata = new ConcurrentHashMap<String, String>();
@@ -194,7 +197,9 @@ public class InstanceInfo {
             @JsonProperty("lastDirtyTimestamp") Long lastDirtyTimestamp,
             @JsonProperty("actionType") ActionType actionType,
             @JsonProperty("asgName") String asgName,
-            @JsonProperty("input") String input) {
+            @JsonProperty("inputParams") String inputParams,
+            @JsonProperty("outputParams") String outputParams,
+            @JsonProperty("complexType") String complexType) {
         this.instanceId = instanceId;
         this.sid = sid;
         this.appName = StringCache.intern(appName);
@@ -221,8 +226,9 @@ public class InstanceInfo {
         this.lastDirtyTimestamp = lastDirtyTimestamp;
         this.actionType = actionType;
         this.asgName = StringCache.intern(asgName);
-        this.input = input;
-
+        this.inputParams = inputParams;
+        this.outputParams = outputParams;
+        this.complexType = complexType;
         // ---------------------------------------------------------------
         // for compatibility
 
@@ -371,7 +377,7 @@ public class InstanceInfo {
         private static final String COLON = ":";
         private static final String HTTPS_PROTOCOL = "https://";
         private static final String HTTP_PROTOCOL = "http://";
-        private final Function<String,String> intern;
+        private final Function<String, String> intern;
 
         private static final class LazyHolder {
             private static final VipAddressResolver DEFAULT_VIP_ADDRESS_RESOLVER = new Archaius1VipAddressResolver();
@@ -385,7 +391,7 @@ public class InstanceInfo {
 
         private String namespace;
 
-        private Builder(InstanceInfo result, VipAddressResolver vipAddressResolver, Function<String,String> intern) {
+        private Builder(InstanceInfo result, VipAddressResolver vipAddressResolver, Function<String, String> intern) {
             this.vipAddressResolver = vipAddressResolver;
             this.result = result;
             this.intern = intern != null ? intern : StringCache::intern;
@@ -399,7 +405,7 @@ public class InstanceInfo {
             return new Builder(new InstanceInfo(), LazyHolder.DEFAULT_VIP_ADDRESS_RESOLVER, null);
         }
 
-        public static Builder newBuilder(Function<String,String> intern) {
+        public static Builder newBuilder(Function<String, String> intern) {
             return new Builder(new InstanceInfo(), LazyHolder.DEFAULT_VIP_ADDRESS_RESOLVER, intern);
         }
 
@@ -423,12 +429,12 @@ public class InstanceInfo {
             result.appName = intern.apply(appName.toUpperCase(Locale.ROOT));
             return this;
         }
-        
+
         public Builder setAppNameForDeser(String appName) {
             result.appName = appName;
             return this;
         }
-        
+
 
         public Builder setAppGroupName(String appGroupName) {
             if (appGroupName != null) {
@@ -438,6 +444,7 @@ public class InstanceInfo {
             }
             return this;
         }
+
         public Builder setAppGroupNameForDeser(String appGroupName) {
             result.appGroupName = appGroupName;
             return this;
@@ -903,12 +910,12 @@ public class InstanceInfo {
     /**
      * Return the default network address to connect to this instance. Typically this would be the fully
      * qualified public hostname.
-     *
+     * <p>
      * However the user can configure the {@link EurekaInstanceConfig} to change the default value used
      * to populate this field using the {@link EurekaInstanceConfig#getDefaultAddressResolutionOrder()} property.
-     *
+     * <p>
      * If a use case need more specific hostnames or ips, please use data from {@link #getDataCenterInfo()}.
-     *
+     * <p>
      * For legacy reasons, it is difficult to introduce a new address-type field that is agnostic to hostname/ip.
      *
      * @return the default address (by default the public hostname)
@@ -1338,22 +1345,31 @@ public class InstanceInfo {
         return version;
     }
 
-    @JsonProperty("input")
-    public String getInput() {
-        return input;
+    @JsonProperty("inputParams")
+    public String getInputParams() {
+        return inputParams;
     }
 
-    public void setInput(String input) {
-        this.input = input;
+    public void setInputParams(String inputParams) {
+        this.inputParams = inputParams;
     }
 
-    @JsonProperty("output")
-    public String getOutput() {
-        return output;
+    @JsonProperty("outputParams")
+    public String getOutputParams() {
+        return outputParams;
     }
 
-    public void setOutput(String output) {
-        this.output = output;
+    public void setOutputParams(String outputParams) {
+        this.outputParams = outputParams;
+    }
+
+    @JsonIgnore
+    public String getComplexType() {
+        return complexType;
+    }
+
+    public void setComplexType(String complexType) {
+        this.complexType = complexType;
     }
 
     public enum ActionType {
@@ -1367,8 +1383,7 @@ public class InstanceInfo {
      * Register application specific metadata to be sent to the discovery
      * server.
      *
-     * @param runtimeMetadata
-     *            Map containing key/value pairs.
+     * @param runtimeMetadata Map containing key/value pairs.
      */
     synchronized void registerRuntimeMetadata(
             Map<String, String> runtimeMetadata) {
@@ -1382,8 +1397,7 @@ public class InstanceInfo {
      * the AWS zone of the instance, and availZones is ignored.
      *
      * @param availZones the list of available zones for non-AWS deployments
-     * @param myInfo
-     *            - The InstanceInfo object of the instance.
+     * @param myInfo     - The InstanceInfo object of the instance.
      * @return - The zone in which the particular instance belongs to.
      */
     public static String getZone(String[] availZones, InstanceInfo myInfo) {

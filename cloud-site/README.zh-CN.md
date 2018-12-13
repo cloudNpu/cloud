@@ -1,1 +1,1 @@
-cloud-site
+cloud
