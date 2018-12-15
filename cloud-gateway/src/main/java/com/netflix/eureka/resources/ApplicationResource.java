@@ -172,7 +172,11 @@ public class ApplicationResource {
             }
         }
 
-        registry.register(info, "true".equals(isReplication));
+        registry.register(info, "true".equals(isReplication));   //真正的服务注册在这，前面都是對註冊信息校验
+        //在下面写jpa将instancInfo存入数据库cloud的实际语句，借助addInsance这个函数的动作，不用考虑太多，只要完成所需功能即可
+
+
+
         return Response.status(204).build();  // 204 to be backwards compatible
     }
 

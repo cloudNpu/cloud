@@ -22,7 +22,7 @@ public class InvokeController {
         return restTemplate.getForObject("http://" + serviceName + "/" + param, String.class) + "--this client 8764";
     }
 
-    //注意请求的数据为x-wwww-form
+    //注意请求的数据为x-www-form
     @RequestMapping(value = "/invoke", method = RequestMethod.POST)
     public String invoke(@RequestParam Map<String, String> requestParams) {
         HttpHeaders headers = new HttpHeaders();
