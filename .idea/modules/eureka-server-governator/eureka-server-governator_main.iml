@@ -8,6 +8,9 @@
         </descriptors>
         <webroots>
           <root url="file://$MODULE_DIR$/../../../eureka-server-governator/src/main/webapp" relative="/" />
+          <root url="file://$MODULE_DIR$/../../../eureka-resources/build/resources/main/css" relative="/css" />
+          <root url="file://$MODULE_DIR$/../../../eureka-resources/build/resources/main/js" relative="/js" />
+          <root url="file://$MODULE_DIR$/../../../eureka-resources/build/resources/main/jsp" relative="/jsp" />
         </webroots>
       </configuration>
     </facet>

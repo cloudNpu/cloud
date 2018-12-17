@@ -8,6 +8,9 @@
         </descriptors>
         <webroots>
           <root url="file://$MODULE_DIR$/../../../eureka-server/src/main/webapp" relative="/" />
+          <root url="file://$MODULE_DIR$/../../../eureka-resources/build/resources/main/css" relative="/css" />
+          <root url="file://$MODULE_DIR$/../../../eureka-resources/build/resources/main/js" relative="/js" />
+          <root url="file://$MODULE_DIR$/../../../eureka-resources/build/resources/main/jsp" relative="/jsp" />
         </webroots>
       </configuration>
     </facet>
@@ -15,7 +18,11 @@
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/../../../eureka-server/out/production/classes" />
     <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../eureka-resources/build/resources/main/css" />
+    <content url="file://$MODULE_DIR$/../../../eureka-resources/build/resources/main/js" />
+    <content url="file://$MODULE_DIR$/../../../eureka-resources/build/resources/main/jsp" />
     <content url="file://$MODULE_DIR$/../../../eureka-server/src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../../eureka-server/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../eureka-server/src/main/resources" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />

@@ -3,7 +3,10 @@
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output-test url="file://$MODULE_DIR$/../../../eureka-examples/out/test/classes" />
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../../../eureka-examples/src/test" />
+    <content url="file://$MODULE_DIR$/../../../eureka-examples/src/test">
+      <sourceFolder url="file://$MODULE_DIR$/../../../eureka-examples/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../eureka-examples/src/test/resources" type="java-test-resource" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="eureka-examples_main" />
@@ -20,8 +23,8 @@
     <orderEntry type="library" name="Gradle: com.netflix.governator:governator:1.17.5" level="project" />
     <orderEntry type="library" name="Gradle: com.netflix.netflix-commons:netflix-eventbus:0.3.0" level="project" />
     <orderEntry type="library" name="Gradle: com.thoughtworks.xstream:xstream:1.4.10" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.slf4j:slf4j-simple:1.7.7" level="project" />
     <orderEntry type="library" name="Gradle: com.netflix.archaius:archaius-core:0.7.6" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.slf4j:slf4j-simple:1.7.7" level="project" />
     <orderEntry type="library" name="Gradle: com.sun.jersey.contribs:jersey-apache-client4:1.19.1" level="project" />
     <orderEntry type="library" name="Gradle: com.sun.jersey:jersey-client:1.19.1" level="project" />
     <orderEntry type="library" name="Gradle: com.sun.jersey:jersey-core:1.19.1" level="project" />
