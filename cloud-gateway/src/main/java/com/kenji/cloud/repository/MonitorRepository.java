@@ -1,6 +1,6 @@
 package com.kenji.cloud.repository;
 
-import com.kenji.cloud.entity.InstanceInfo;
+import com.netflix.appinfo.InstanceInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

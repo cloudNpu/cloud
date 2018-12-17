@@ -1,6 +1,6 @@
 package com.kenji.cloud.web;
 
-import com.kenji.cloud.entity.InstanceInfo;
+import com.netflix.appinfo.InstanceInfo;
 import com.kenji.cloud.service.impl.MonitorServiceImpl;
 import com.kenji.cloud.vo.ServiceInfoVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,8 @@ public class MonitorController {
     }
     @PutMapping("/update/{serviceName}/{serviceStatus}")
     public ServiceInfoVO updateServiceStatus(@PathVariable String serviceName, @PathVariable String serviceStatus){
-        monitorService.updateStatus(serviceName, serviceStatus);
+        InstanceInfo.InstanceStatus instanceStatus = InstanceInfo.InstanceStatus.toEnum(serviceStatus);
+        monitorService.updateStatus(serviceName, instanceStatus);
         return new ServiceInfoVO(1, "更新成功");
     }
 }

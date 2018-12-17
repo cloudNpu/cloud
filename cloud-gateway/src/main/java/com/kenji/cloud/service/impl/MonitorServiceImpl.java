@@ -1,6 +1,6 @@
 package com.kenji.cloud.service.impl;
 
-import com.kenji.cloud.entity.InstanceInfo;
+import com.netflix.appinfo.InstanceInfo;
 import com.kenji.cloud.repository.MonitorRepository;
 import com.kenji.cloud.service.MonitorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class MonitorServiceImpl implements MonitorService {
         return repository.findByAppName(appName);
     }
     @Override
-    public void updateStatus(String appName, String status) {
+    public void updateStatus(String appName, InstanceInfo.InstanceStatus status) {
         InstanceInfo service = repository.findByAppName(appName);
         service.setStatus(status);
         repository.save(service);

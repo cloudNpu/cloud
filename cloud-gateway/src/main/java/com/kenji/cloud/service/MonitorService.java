@@ -1,6 +1,6 @@
 package com.kenji.cloud.service;
 
-import com.kenji.cloud.entity.InstanceInfo;
+import com.netflix.appinfo.InstanceInfo;
 
 /**
  * @Author: Cjmmy
@@ -19,5 +19,5 @@ public interface MonitorService {
      * @param appName
      * @param status
      */
-    void updateStatus(String appName, String status);
+    void updateStatus(String appName, InstanceInfo.InstanceStatus status);
 }

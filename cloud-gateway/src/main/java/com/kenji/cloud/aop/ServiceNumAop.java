@@ -1,6 +1,6 @@
 package com.kenji.cloud.aop;
 
-import com.kenji.cloud.entity.InstanceInfo;
+import com.netflix.appinfo.InstanceInfo;
 import com.kenji.cloud.repository.MonitorRepository;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
@@ -26,7 +26,7 @@ public class ServiceNumAop {
     private Map<String, String> map = new HashMap<>();
     @Autowired
     private MonitorRepository repository;
-    @Pointcut("execution(* com.kenji.cloud.web.InvokeController.invoke(..))")
+    @Pointcut("execution(* com.kenji.cloud.web.InvokeController.*(..))")
     public void excuteAop(){}
     @Before("excuteAop()")
     public void doBefore(){
