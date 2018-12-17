@@ -31,7 +31,7 @@ const passwordStatusMap = {
 const passwordProgressMap = {
   ok: 'success',
   pass: 'normal',
-  poor: 'exception',
+  poor: 'exception'
 };
 
 @connect(({ register, loading }) => ({

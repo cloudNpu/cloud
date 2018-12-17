@@ -71,6 +71,12 @@ export default {
       address: 'Sidney No. 1 Lake Park',
     },
   ],
+
+  'POST /api/role/add': (req, res) => {
+    const { roleName } = req.body;
+    console.log(roleName);
+  },
+
   'POST /api/login/account': (req, res) => {
     const { password, userName, type } = req.body;
     if (password === '888888' && userName === 'admin') {

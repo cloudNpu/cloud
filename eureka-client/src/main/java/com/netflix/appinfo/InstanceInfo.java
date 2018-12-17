@@ -160,6 +160,8 @@ public class InstanceInfo {
     private volatile String outputParams;
     @Auto
     private volatile String complexType;
+    @Auto
+    private volatile String invokeCount;
 
 
     private InstanceInfo() {
@@ -199,7 +201,8 @@ public class InstanceInfo {
             @JsonProperty("asgName") String asgName,
             @JsonProperty("inputParams") String inputParams,
             @JsonProperty("outputParams") String outputParams,
-            @JsonProperty("complexType") String complexType) {
+            @JsonProperty("complexType") String complexType,
+            @JsonProperty("invokeCount") String invokeCount) {
         this.instanceId = instanceId;
         this.sid = sid;
         this.appName = StringCache.intern(appName);
@@ -229,6 +232,7 @@ public class InstanceInfo {
         this.inputParams = inputParams;
         this.outputParams = outputParams;
         this.complexType = complexType;
+        this.invokeCount = invokeCount;
         // ---------------------------------------------------------------
         // for compatibility
 
@@ -1363,13 +1367,22 @@ public class InstanceInfo {
         this.outputParams = outputParams;
     }
 
-    @JsonIgnore
+
     public String getComplexType() {
         return complexType;
     }
 
     public void setComplexType(String complexType) {
         this.complexType = complexType;
+    }
+
+
+    public String getInvokeCount() {
+        return invokeCount;
+    }
+
+    public void setInvokeCount(String invokeCount) {
+        this.invokeCount = invokeCount;
     }
 
     public enum ActionType {
