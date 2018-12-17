@@ -12,4 +12,5 @@ public class GatewayConfig {
     RestTemplate restTemplate() {
         return new RestTemplate();
     }
+
 }
