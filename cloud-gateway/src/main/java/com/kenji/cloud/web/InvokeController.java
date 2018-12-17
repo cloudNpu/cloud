@@ -30,7 +30,17 @@ public class InvokeController {
         headers.setContentType(type);
         HttpEntity<String> entity = new HttpEntity<String>(requestParams.get("params"), headers);
         String result = restTemplate.postForObject("http://" + requestParams.get("serviceName"), entity, String.class);
-        System.out.println(result);
+        return result;
+    }
+
+    //注意请求的数据为x-wwww-form
+    @RequestMapping(value = "/invokeForJson", method = RequestMethod.POST)
+    public String invokeForJson(@RequestBody Map<String, String> requestParams) {
+        HttpHeaders headers = new HttpHeaders();
+        MediaType type = MediaType.parseMediaType("application/json; charset=UTF-8");
+        headers.setContentType(type);
+        HttpEntity<String> entity = new HttpEntity<String>(requestParams.get("params"), headers);
+        String result = restTemplate.postForObject("http://" + requestParams.get("serviceName"), entity, String.class);
         return result;
     }
 
