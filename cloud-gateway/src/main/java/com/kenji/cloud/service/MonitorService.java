@@ -1,6 +1,6 @@
 package com.kenji.cloud.service;
 
-import com.kenji.cloud.entity.ServiceInfo;
+import com.kenji.cloud.entity.InstanceInfo;
 
 /**
  * @Author: Cjmmy
@@ -9,15 +9,15 @@ import com.kenji.cloud.entity.ServiceInfo;
 public interface MonitorService {
     /**
      * 根据服务名查询服务
-     * @param serviceName
+     * @param appName
      * @return
      */
-    ServiceInfo findByServiceName(String serviceName);
+    InstanceInfo findByAppName(String appName);
 
     /**
      * 根据服务名和服务状态更新服务的服务状态
-     * @param serviceName
-     * @param serviceStatus
+     * @param appName
+     * @param status
      */
-    void updateServiceStatus(String serviceName, String serviceStatus);
+    void updateStatus(String appName, String status);
 }

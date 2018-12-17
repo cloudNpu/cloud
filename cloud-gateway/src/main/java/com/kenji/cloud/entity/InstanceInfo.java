@@ -7,18 +7,18 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * 大致定义了服务实体，有待完善
+ * 服务实体几个关键字段用于测试接口，有待完善
  * @Author: Cjmmy
  * @Date: 2018/12/6 4:55 PM
  */
 @Entity
 @Data
-public class ServiceInfo implements Serializable {
+public class InstanceInfo implements Serializable {
     @Id
-    private Long id;
-    private String serviceName;
+    private Integer id;
+    private String appName;
     /** 服务调用次数 */
-    private Integer callNumber;
+    private Integer invokeCount ;
     /** 服务状态 */
     private String status;
 }

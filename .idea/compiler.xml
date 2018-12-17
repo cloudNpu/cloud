@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="cloud-gateway_main" target="1.8" />
       <module name="cloud-gateway_test" target="1.8" />
+      <module name="cloud-site_main" target="1.8" />
+      <module name="cloud-site_test" target="1.8" />
       <module name="eureka-client-archaius2_main" target="1.8" />
       <module name="eureka-client-archaius2_test" target="1.8" />
       <module name="eureka-client-jersey2_main" target="1.8" />

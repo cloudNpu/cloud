@@ -1,7 +1,7 @@
 package com.kenji.cloud.service.impl;
 
-import com.kenji.cloud.entity.ServiceInfo;
-import com.kenji.cloud.repository.ServiceRepository;
+import com.kenji.cloud.entity.InstanceInfo;
+import com.kenji.cloud.repository.MonitorRepository;
 import com.kenji.cloud.service.MonitorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,15 +15,15 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class MonitorServiceImpl implements MonitorService {
     @Autowired
-    private ServiceRepository repository;
+    private MonitorRepository repository;
     @Override
-    public ServiceInfo findByServiceName(String serviceName) {
-        return repository.findByServiceName(serviceName);
+    public InstanceInfo findByAppName(String appName) {
+        return repository.findByAppName(appName);
     }
     @Override
-    public void updateServiceStatus(String serviceName, String serviceStatus) {
-        ServiceInfo service = repository.findByServiceName(serviceName);
-        service.setStatus(serviceStatus);
+    public void updateStatus(String appName, String status) {
+        InstanceInfo service = repository.findByAppName(appName);
+        service.setStatus(status);
         repository.save(service);
     }
 }

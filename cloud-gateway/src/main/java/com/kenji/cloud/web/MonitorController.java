@@ -1,6 +1,6 @@
 package com.kenji.cloud.web;
 
-import com.kenji.cloud.entity.ServiceInfo;
+import com.kenji.cloud.entity.InstanceInfo;
 import com.kenji.cloud.service.impl.MonitorServiceImpl;
 import com.kenji.cloud.vo.ServiceInfoVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,22 +14,22 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/service")
-public class ServiceController {
+public class MonitorController {
     @Autowired
     private MonitorServiceImpl monitorService;
     @GetMapping("/status/{serviceName}")
     public ServiceInfoVO getServiceStatus(@PathVariable String serviceName){
-        ServiceInfo service = monitorService.findByServiceName(serviceName);
+        InstanceInfo service = monitorService.findByAppName(serviceName);
         return new ServiceInfoVO(1, "查询成功", service.getStatus());
     }
     @GetMapping("/callNumber/{serviceName}")
     public ServiceInfoVO getServiceCallNumber(@PathVariable String serviceName){
-        ServiceInfo service = monitorService.findByServiceName(serviceName);
-        return new ServiceInfoVO(1, "查询成功", service.getCallNumber());
+        InstanceInfo service = monitorService.findByAppName(serviceName);
+        return new ServiceInfoVO(1, "查询成功", service.getInvokeCount());
     }
     @PutMapping("/update/{serviceName}/{serviceStatus}")
     public ServiceInfoVO updateServiceStatus(@PathVariable String serviceName, @PathVariable String serviceStatus){
-        monitorService.updateServiceStatus(serviceName, serviceStatus);
+        monitorService.updateStatus(serviceName, serviceStatus);
         return new ServiceInfoVO(1, "更新成功");
     }
 }

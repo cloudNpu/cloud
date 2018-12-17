@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/cloud-gateway" />
+            <option value="$PROJECT_DIR$/cloud-site" />
             <option value="$PROJECT_DIR$/eureka-client" />
             <option value="$PROJECT_DIR$/eureka-client-archaius2" />
             <option value="$PROJECT_DIR$/eureka-client-jersey2" />

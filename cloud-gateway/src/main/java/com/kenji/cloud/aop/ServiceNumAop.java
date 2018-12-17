@@ -1,7 +1,7 @@
 package com.kenji.cloud.aop;
 
-import com.kenji.cloud.entity.ServiceInfo;
-import com.kenji.cloud.repository.ServiceRepository;
+import com.kenji.cloud.entity.InstanceInfo;
+import com.kenji.cloud.repository.MonitorRepository;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -25,7 +25,7 @@ import java.util.Map;
 public class ServiceNumAop {
     private Map<String, String> map = new HashMap<>();
     @Autowired
-    private ServiceRepository repository;
+    private MonitorRepository repository;
     @Pointcut("execution(* com.kenji.cloud.web.InvokeController.invoke(..))")
     public void excuteAop(){}
     @Before("excuteAop()")
@@ -34,15 +34,22 @@ public class ServiceNumAop {
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = requestAttributes.getRequest();
         //获取请求参数，服务名
-        String serviceName = request.getParameter("serviceName");
-        map.put("name",serviceName);
+        String appName = null;
+        if ("get".equalsIgnoreCase(request.getMethod())){
+            appName = request.getParameter("serviceName");
+        } else {
+            Map<String, String[]> parameterMap = request.getParameterMap();
+            String[] serviceNames = parameterMap.get("serviceName");
+            appName = serviceNames[0];
+        }
+        map.put("name",appName);
     }
     @AfterReturning(value = "excuteAop()",returning = "invokeResult")
     public void doAfter(String invokeResult){
         //System.out.println("后置通知执行！！！")
-        String serviceName = map.get("name");
-        ServiceInfo service = repository.findByServiceName(serviceName);
-        service.setCallNumber(service.getCallNumber()+1);
+        String appName = map.get("name");
+        InstanceInfo service = repository.findByAppName(appName);
+        service.setInvokeCount(service.getInvokeCount()+1);
         repository.save(service);
     }
 }
