@@ -30,7 +30,7 @@ public class ServiceNumAop {
     public void excuteAop(){}
     @Before("excuteAop()")
     public void doBefore(){
-        //System.out.println("前置通知执行！！！");
+        //System.out.println("前置通知执行！！！")
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = requestAttributes.getRequest();
         //获取请求参数，服务名
@@ -39,7 +39,7 @@ public class ServiceNumAop {
     }
     @AfterReturning(value = "excuteAop()",returning = "invokeResult")
     public void doAfter(String invokeResult){
-        //System.out.println("后置通知执行！！！");
+        //System.out.println("后置通知执行！！！")
         String serviceName = map.get("name");
         ServiceInfo service = repository.findByServiceName(serviceName);
         service.setCallNumber(service.getCallNumber()+1);
