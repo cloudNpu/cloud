@@ -15,5 +15,4 @@ public class LoginController {
         System.out.println(param.get("userName"));
         return "ok";
     }
-
 }
