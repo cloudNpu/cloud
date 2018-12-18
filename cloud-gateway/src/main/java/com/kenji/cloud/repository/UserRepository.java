@@ -1,6 +1,5 @@
 package com.kenji.cloud.repository;
 
-import com.kenji.cloud.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

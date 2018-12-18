@@ -8,14 +8,15 @@ import java.util.Date;
 
 /**
  * @Author: Cjmmy
- * @Date: 2018/12/18 2:05 PM
+ * @Date: 2018/12/18 8:00 PM
  */
 @Entity
 @Data
-public class Role {
+public class UserRole {
     @Id
     private Integer id;
-    private String name;
-    private String description;
+    private Integer userid;
+    private Integer roleid;
+    private Integer operatorid;
     private Date createdate;
 }

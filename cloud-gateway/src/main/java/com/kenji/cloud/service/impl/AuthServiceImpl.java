@@ -1,6 +1,5 @@
 package com.kenji.cloud.service.impl;
 
-import com.kenji.cloud.entity.User;
 import com.kenji.cloud.repository.UserRepository;
 import com.kenji.cloud.service.AuthService;
 import com.kenji.cloud.util.JwtTokenUtil;
