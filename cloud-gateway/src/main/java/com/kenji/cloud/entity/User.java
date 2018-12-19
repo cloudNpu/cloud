@@ -1,56 +1,55 @@
 package com.kenji.cloud.entity;
 
-
 import lombok.Data;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Date;
-import java.util.List;
 
+/**
+ * @Author: Cjmmy
+ * @Date: 2018/12/18 1:35 PM
+ * create table `USER` (
+ * 	`ID` bigint(20) not null,
+ * 	`DEPTID` bigint(20) not null comment '部门ID',
+ * 	`OPERATORID` bigint(20) comment '操作人',
+ * 	`USERNAME` varchar(200) not null,
+ * 	`SEX` varchar(2) not null comment '男或女',
+ * 	`BIRTHDAY` datetime not null,
+ * 	`ICONURL` varchar(100),
+ * 	`MOBILE` varchar(20) comment '移动电话',
+ * 	`OFFICETEL` varchar(20) comment '办公电话',
+ * 	`CREATEDATE` timestamp not null default current_timestamp comment '创建时间',
+ * 	primary key (`ID`),
+ * 	constraint `USER_DEPTID` foreign key (`DEPTID`) references `DEPT` (`ID`),
+ * 	constraint `USER_OPERATORID` foreign key (`OPERATORID`) references `USER` (`ID`)
+ * )ENGINE=InnoDB DEFAULT CHARSET=utf8 comment '用户表';
+ */
 @Entity
 @Data
-public class User implements UserDetails {
+public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
+    /**
+     * 部门ID
+     */
+    private Integer deptid;
+    /**
+     * 操作人
+     */
+    private Integer operatorid;
     private String username;
     private String password;
-    private Date lastPasswordResetDate;
-    @ManyToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.EAGER)
-    private List<Role> roles;
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> authorities = new ArrayList<>();
-        List<Role> roles = this.getRoles();
-        for (Role role : roles) {
-            authorities.add(new SimpleGrantedAuthority(role.getName()));
-        }
-        return authorities;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
+    private String sex;
+    private Date birthday;
+    private String iconurl;
+    /**
+     * 移动电话
+     */
+    private String mobile;
+    /**
+     * 办公电话
+     */
+    private String officetel;
+    private Date createdate;
 }
