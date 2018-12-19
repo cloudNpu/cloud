@@ -1,391 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8755bc17-76f7-4b73-8ec1-05423341ce90" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/data/document.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/data/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/主页/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/主页/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/保存成功/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/保存成功/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/删除成功/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/删除成功/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/删除成功_1/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/删除成功_1/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/删除成功_2/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/删除成功_2/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/授权服务/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/授权服务/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/服务授权/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/服务授权/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/服务授权用户表/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/服务授权用户表/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/服务注册/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/服务注册/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/服务注销_发布_撤回/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/服务注销_发布_撤回/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/服务管理首页/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/服务管理首页/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/检索用户/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/检索用户/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/检索角色/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/检索角色/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/添加用户/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/添加用户/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/添加菜单/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/添加菜单/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/添加角色/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/添加角色/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/添加部门/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/添加部门/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/用户管理所有保存成功/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/用户管理所有保存成功/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/用户管理首页/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/用户管理首页/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/编辑服务/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/编辑服务/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/编辑用户/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/编辑用户/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/编辑菜单/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/编辑菜单/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/编辑角色/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/编辑角色/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/菜单信息列表/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/菜单信息列表/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/菜单列表/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/菜单列表/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/菜单管理首页/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/菜单管理首页/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/表格/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/表格/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/表格_1/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/表格_1/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/表格主页/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/表格主页/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/角色授权/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/角色授权/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/角色管理所有保存成功/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/角色管理所有保存成功/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/角色管理首页/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/角色管理首页/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/角色表格/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/角色表格/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/角色表格_1/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/角色表格_1/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/部门管理首页/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/部门管理首页/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/部门表格/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/files/部门表格/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/主页/u22.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/主页/u36.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/主页/u37.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/主页/u38.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/主页/u39.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/主页/u42.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/主页/u44.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/主页/u51.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/主页/u52.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/主页/u53.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/主页/u6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/主页/u7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/主页/u8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/删除成功/u449.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/服务授权用户表/u1414.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/服务授权用户表/u1415.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/服务授权用户表/u1416.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/服务授权用户表/u1417.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/服务授权用户表/u1418.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/服务授权用户表/u1419.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/服务授权用户表/u1429.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/服务授权用户表/u1430.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/服务授权用户表/u1431.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/服务注册/u776.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/服务注册/u783.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/服务注册/u792.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/添加用户/u1818.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/添加用户/u1830.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/添加用户/u1833.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/添加部门/u3227.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/用户管理首页/u1690.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/用户管理首页/u1694.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/用户管理首页/u1695.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/用户管理首页/u1737.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/编辑用户/u2018.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/编辑用户/u2029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/菜单信息列表/u288.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/菜单信息列表/u289.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/菜单信息列表/u290.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/菜单信息列表/u345.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/菜单信息列表/u346.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/菜单信息列表/u347.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/菜单管理首页/u105.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格/u1009.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格/u1032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格/u1055.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格/u1101.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格/u1147.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格/u1170.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格/u986.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格_1/u2234.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格_1/u2235.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格_1/u2236.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格_1/u2238.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格_1/u2239.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格_1/u2262.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格_1/u2263.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格_1/u2267.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格_1/u2270.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格_1/u2294.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格_1/u2296.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格_1/u2297.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格_1/u2298.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格_1/u2299.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格_1/u2314.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格_1/u2315.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u794.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u804.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u806.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u814.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u815.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u825.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u827.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u835.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u836.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u837.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u846.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u848.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u856.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u857.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u867.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u869.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u877.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u899.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u909.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u911.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u919.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u951.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u953.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u961.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u962.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u972.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u974.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/表格主页/u982.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格/u242.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格/u243.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格/u270.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格/u271.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u2872.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u2873.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u2874.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u2875.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u2877.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u2896.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u2897.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u2898.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u2900.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u2903.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u2924.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u2930.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u2933.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u2954.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u2957.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u2960.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u2962.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u2963.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u2966.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u2968.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u3005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u3008.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/角色表格_1/u3010.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/部门表格/u3094.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/部门表格/u3103.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/部门表格/u3112.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/部门表格/u3139.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/images/部门表格/u3166.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/debug/styles/debug.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/debug/styles/images/reset.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/debug/styles/images/reset_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/debug/styles/images/variables_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/debug/styles/images/variables_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/debug/styles/images/variables_off.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/debug/styles/images/variables_off.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/debug/styles/images/variables_on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/debug/styles/images/variables_on.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/page_notes/styles/images/back.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/page_notes/styles/images/back.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/page_notes/styles/images/back_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/page_notes/styles/images/back_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/page_notes/styles/images/footnotes.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/page_notes/styles/images/footnotes.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/page_notes/styles/images/footnotes_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/page_notes/styles/images/footnotes_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/page_notes/styles/images/footnotes_on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/page_notes/styles/images/footnotes_on.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/page_notes/styles/images/forward.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/page_notes/styles/images/forward.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/page_notes/styles/images/forward_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/page_notes/styles/images/forward_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/page_notes/styles/images/notes_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/page_notes/styles/images/notes_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/page_notes/styles/images/notes_off.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/page_notes/styles/images/notes_off.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/page_notes/styles/images/notes_on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/page_notes/styles/images/notes_on.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/page_notes/styles/page_notes.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/recordplay/recordplay.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/recordplay/styles/recordplay.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/079_page_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/086_case_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/225_responsive_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/228_togglenotes_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/229_variables_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/231_event_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/232_search_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/233_hyperlink_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/235_folderclosed_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/236_folderopen_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/adaptivecheck.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/flow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/flow.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/folder_closed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/folder_closed.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/folder_open.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/folder_open.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/hotspots.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/hotspots.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/hotspots_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/hotspots_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/hotspots_on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/hotspots_on.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/images.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/minus.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/note.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/note.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/page.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/page.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/plus.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/share.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/share.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/share_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/share_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/share_on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/share_on.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/sitemap_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/sitemap_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/sitemap_off.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/sitemap_off.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/sitemap_on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/sitemap_on.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/views.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/views.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/views_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/views_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/views_on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/images/views_on.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/plugins/sitemap/styles/sitemap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/Other.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/chrome/allow-access.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/chrome/axure-chrome-extension.crx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/chrome/axure_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/chrome/chrome.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/chrome/details.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/chrome/extensions.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/chrome/safari.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/chrome/safari_advanced.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/chrome/safari_restrictions.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/chrome/splitter.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/chrome/splitter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/css/axure_rp_page.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/css/default.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/css/images/images.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/css/images/newwindow.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/css/images/note.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/css/images/ui-bg_flat_0_aaaaaa_40x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/css/images/ui-bg_glass_55_fbf9ee_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/css/images/ui-bg_glass_65_ffffff_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/css/images/ui-bg_glass_75_dadada_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/css/images/ui-bg_glass_75_e6e6e6_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/css/images/ui-bg_glass_75_ffffff_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/css/images/ui-bg_inset-soft_95_fef1ec_1x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/css/images/ui-icons_222222_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/css/images/ui-icons_2e83ff_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/css/images/ui-icons_454545_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/css/images/ui-icons_888888_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/css/images/ui-icons_cd0a0a_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/css/jquery-ui-themes.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/css/reset.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/expand.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/images/259_close_12rollover1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/images/259_close_12rollover2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/images/260_collapse_12rollover1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/images/260_collapse_12rollover2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/images/261_expand_12rollover1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/images/261_expand_12rollover2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/images/close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/images/close.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/images/close_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/images/close_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/images/divider.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/images/divider.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/images/expand.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/images/expand.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/images/expand_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/images/expand_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/images/images.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/images/transparent.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/reload.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/scripts/jquery-1.7.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/scripts/jquery-ui-1.8.10.custom.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/scripts/messagecenter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/scripts/player/axplayer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/scripts/player/splitter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/scripts/prototypePost.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/scripts/prototypePre.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/scripts/startPost.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/resources/scripts/startPre.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/start.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/start_c_1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/start_g_0.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/主页.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/保存成功.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/删除成功.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/删除成功_1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/删除成功_2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/授权服务.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/服务授权.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/服务授权用户表.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/服务注册.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/服务注销_发布_撤回.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/服务管理首页.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/检索用户.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/检索角色.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/添加用户.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/添加菜单.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/添加角色.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/添加部门.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/用户管理所有保存成功.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/用户管理首页.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/编辑服务.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/编辑用户.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/编辑菜单.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/编辑角色.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/菜单信息列表.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/菜单列表.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/菜单管理首页.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/表格.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/表格_1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/表格主页.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/角色授权.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/角色管理所有保存成功.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/角色管理首页.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/角色表格.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/角色表格_1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/部门管理首页.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型文件设计/部门表格.html" beforeDir="false" />
-    </list>
+    <list default="true" id="8755bc17-76f7-4b73-8ec1-05423341ce90" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
     <ignored path="$PROJECT_DIR$/cloud-gateway/.gradle/" />
@@ -474,50 +90,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cloud-site/config/router.config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/AuthService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docs/prototype/原型设计终稿/data/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/AuthServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/config/WebSecurityConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="234">
+              <caret line="141" column="13" selection-start-line="141" selection-start-column="13" selection-end-line="141" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -574,7 +151,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="MIXED" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -625,9 +202,9 @@
     <option name="vmOptions" value="-DarchetypeCatalog=internal" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="187" />
-    <option name="width" value="984" />
-    <option name="height" value="731" />
+    <option name="x" value="249" />
+    <option name="width" value="1101" />
+    <option name="height" value="745" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -668,37 +245,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="cloud-site" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="cloud-site" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="cloud-site" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="cloud-site" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
@@ -710,7 +263,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -720,7 +272,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545141565599" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545190465302" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -774,13 +326,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13893000" />
+    <option name="totallyTimeSpent" value="14046000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="187" y="0" width="984" height="731" extended-state="0" />
+    <frame x="249" y="0" width="1101" height="745" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18698347" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22382325" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -801,11 +353,11 @@
       <window_info anchor="bottom" id="Build" order="9" weight="0.3291536" />
       <window_info anchor="bottom" id="sbt-shell-toolwindow" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.3299285" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50103307" side_tool="true" weight="0.22294022" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.4149856" side_tool="true" weight="0.3633388" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Spring" order="14" />
       <window_info anchor="bottom" id="Database Changes" order="15" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="16" sideWeight="0.49896693" visible="true" weight="0.22294022" />
+      <window_info anchor="bottom" id="Version Control" order="16" sideWeight="0.5850144" visible="true" weight="0.3633388" />
       <window_info anchor="bottom" id="Docker" order="17" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -955,9 +507,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1062,8 +611,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/prototype/原型设计终稿/data/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        <state relative-caret-position="234">
+          <caret line="141" column="13" selection-start-line="141" selection-start-column="13" selection-end-line="141" selection-end-column="13" />
         </state>
       </provider>
     </entry>
