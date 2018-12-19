@@ -4,7 +4,6 @@
     <output url="file://$MODULE_DIR$/../../../eureka-resources/out/production/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../eureka-resources/src/main">
-      <sourceFolder url="file://$MODULE_DIR$/../../../eureka-resources/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../eureka-resources/src/main/resources" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />

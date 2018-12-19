@@ -7,7 +7,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/cloud-gateway/cloud-gateway_main.iml" filepath="$PROJECT_DIR$/.idea/modules/cloud-gateway/cloud-gateway_main.iml" group="cloud-gateway" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/cloud-gateway/cloud-gateway_test.iml" filepath="$PROJECT_DIR$/.idea/modules/cloud-gateway/cloud-gateway_test.iml" group="cloud-gateway" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/cloud-site/cloud-site.iml" filepath="$PROJECT_DIR$/.idea/modules/cloud-site/cloud-site.iml" group="cloud-site" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cloud-site/cloud-site.iml" filepath="$PROJECT_DIR$/.idea/modules/cloud-site/cloud-site.iml" group="cloud-site" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/cloud-site/cloud-site_main.iml" filepath="$PROJECT_DIR$/.idea/modules/cloud-site/cloud-site_main.iml" group="cloud-site" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/cloud-site/cloud-site_test.iml" filepath="$PROJECT_DIR$/.idea/modules/cloud-site/cloud-site_test.iml" group="cloud-site" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/eureka-client/eureka-client.iml" filepath="$PROJECT_DIR$/.idea/modules/eureka-client/eureka-client.iml" group="eureka-client" />
