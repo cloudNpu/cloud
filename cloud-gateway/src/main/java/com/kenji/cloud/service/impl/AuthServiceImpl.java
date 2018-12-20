@@ -1,5 +1,6 @@
 package com.kenji.cloud.service.impl;
 
+import com.kenji.cloud.entity.User;
 import com.kenji.cloud.repository.UserRepository;
 import com.kenji.cloud.service.AuthService;
 import com.kenji.cloud.util.JwtTokenUtil;
@@ -55,7 +56,7 @@ public class AuthServiceImpl implements AuthService {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         final UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
         User u = userRepository.findByUsername(user.getUsername());
-        user.setRoles(u.getRoles());
+        user.setUserRoles(u.getUserRoles());
         final String token = jwtTokenUtil.generateToken(userDetails);
         return token;
     }

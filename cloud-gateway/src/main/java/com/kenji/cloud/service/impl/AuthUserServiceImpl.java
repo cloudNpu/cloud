@@ -1,5 +1,6 @@
 package com.kenji.cloud.service.impl;
 
+import com.kenji.cloud.entity.User;
 import com.kenji.cloud.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service("UserDetailsService")
-public class AuthUserService implements UserDetailsService {
+public class AuthUserServiceImpl implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
@@ -22,7 +23,7 @@ public class AuthUserService implements UserDetailsService {
         }
         System.out.println("username" + username);
         System.out.println("username" + user.getUsername() + "password" + user.getPassword());
-        System.out.println("role" + user.getRoles().get(0).getName());
+        System.out.println("role" + user.getUserRoles().get(0).getRole().getName());
         return user;
     }
 }

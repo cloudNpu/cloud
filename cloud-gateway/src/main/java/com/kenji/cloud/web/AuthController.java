@@ -1,5 +1,6 @@
 package com.kenji.cloud.web;
 
+import com.kenji.cloud.entity.User;
 import com.kenji.cloud.service.AuthService;
 import com.kenji.cloud.vo.JwtAuthenticationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class AuthController {
         final String token = authService.login(user);
         System.out.println(user);
         Map<String,Object> result = new HashMap<>();
-        result.put("currentAuthority", user.getRoles().get(0).getName());
+        result.put("currentAuthority", user.getUserRoles().get(0).getRole().getValue());
         result.put("token",token);
         return ResponseEntity.ok(result);
     }

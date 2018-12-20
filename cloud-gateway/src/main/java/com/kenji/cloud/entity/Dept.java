@@ -2,9 +2,9 @@ package com.kenji.cloud.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author: Cjmmy
@@ -14,11 +14,24 @@ import java.util.Date;
 @Data
 public class Dept {
     @Id
-    private Integer id;
-    private String deptname;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "DEPTNAME")
+    private String deptName;
     private String description;
-    /**
-     * 操作时间
-     */
-    private Date operdate;
+    //操作时间
+    @Column(name = "OPERDATE")
+    private Date operDate;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "dept")
+    private List<User> users;
+
+    @Override
+    public String toString() {
+        return "Dept{" +
+                "id=" + id +
+                ", deptName='" + deptName + '\'' +
+                ", description='" + description + '\'' +
+                ", operDate=" + operDate +
+                '}';
+    }
 }

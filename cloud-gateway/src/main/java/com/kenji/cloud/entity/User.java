@@ -1,55 +1,103 @@
 package com.kenji.cloud.entity;
 
 import lombok.Data;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
-/**
- * @Author: Cjmmy
- * @Date: 2018/12/18 1:35 PM
- * create table `USER` (
- * 	`ID` bigint(20) not null,
- * 	`DEPTID` bigint(20) not null comment '部门ID',
- * 	`OPERATORID` bigint(20) comment '操作人',
- * 	`USERNAME` varchar(200) not null,
- * 	`SEX` varchar(2) not null comment '男或女',
- * 	`BIRTHDAY` datetime not null,
- * 	`ICONURL` varchar(100),
- * 	`MOBILE` varchar(20) comment '移动电话',
- * 	`OFFICETEL` varchar(20) comment '办公电话',
- * 	`CREATEDATE` timestamp not null default current_timestamp comment '创建时间',
- * 	primary key (`ID`),
- * 	constraint `USER_DEPTID` foreign key (`DEPTID`) references `DEPT` (`ID`),
- * 	constraint `USER_OPERATORID` foreign key (`OPERATORID`) references `USER` (`ID`)
- * )ENGINE=InnoDB DEFAULT CHARSET=utf8 comment '用户表';
- */
 @Entity
 @Data
-public class User {
+public class User implements UserDetails {
     @Id
-    private Integer id;
-    /**
-     * 部门ID
-     */
-    private Integer deptid;
-    /**
-     * 操作人
-     */
-    private Integer operatorid;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String username;
     private String password;
-    private String sex;
+        private String sex;
     private Date birthday;
     private String iconurl;
-    /**
-     * 移动电话
-     */
+    //移动电话
     private String mobile;
-    /**
-     * 办公电话
-     */
-    private String officetel;
+
+    //办公电话
+    @Column(name = "OFFICETEL")
+    private String officeTel;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "DEPTID")
+    private Dept dept;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+    private List<UserRole> userRoles;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+    private List<UserApp> userApps;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "operator")
+    private List<UserApp> userAppOperators;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+    private List<AppLog> appLogs;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+    private List<SysLog> sysLogs;
+
+    @Column(name = "LASTPASSWORDRESETDATE")
+    private Date lastPasswordResetDate;
+
+    @Column(name = "CREATEDATE")
     private Date createdate;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        List<UserRole> userRoles = this.getUserRoles();
+        for (UserRole userRole : userRoles) {
+            authorities.add(new SimpleGrantedAuthority(userRole.getRole().getValue()));
+        }
+        return authorities;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", sex='" + sex + '\'' +
+                ", birthday=" + birthday +
+                ", iconurl='" + iconurl + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", officeTel='" + officeTel + '\'' +
+                ", createdate=" + createdate +
+                ", dept=" + dept +
+                ", lastPasswordResetDate=" + lastPasswordResetDate +
+                '}';
+    }
 }

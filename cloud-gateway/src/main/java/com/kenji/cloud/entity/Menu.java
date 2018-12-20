@@ -2,50 +2,64 @@ package com.kenji.cloud.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
-/**
- * @Author: Cjmmy
- * @Date: 2018/12/18 2:21 PM
- */
 @Entity
 @Data
 public class Menu {
     @Id
-    private Integer id;
-    /**
-     * 上级菜单ID
-     */
-    private Integer menufid;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    //上级菜单ID
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "MENUFID")
+    private Menu menu;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "menu")
+    private List<Menu> menus;
+
     private String name;
     private String icon;
-    /**
-     * 路径
-     */
+    //路径
     private String path;
-    /**
-     * 重定向路径
-     */
+    //重定向路径
     private String redirect;
-    /**
-     * 组件路径
-     */
+    //组件路径
     private String component;
-    /**
-     * 路由
-     */
+    //路由
     private String routes;
-    /**
-     * 权限
-     */
+    //权限
     private String authority;
-    /**
-     * 是否隐藏
-     */
-    private String hideinmenu;
-    private Date createdate;
+    //是否隐藏
+    @Column(name = "HIDEINMENU")
+    private Boolean hideInMenu;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "menu")
+    private List<RoleMenu> roleMenus;
+
+    @Column(name = "CREATEDATE")
+    private Date createDate;
+
     private String description;
 
+
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", icon='" + icon + '\'' +
+                ", path='" + path + '\'' +
+                ", redirect='" + redirect + '\'' +
+                ", component='" + component + '\'' +
+                ", routes='" + routes + '\'' +
+                ", authority='" + authority + '\'' +
+                ", hideInMenu=" + hideInMenu +
+                ", createDate=" + createDate +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

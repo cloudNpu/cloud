@@ -2,21 +2,37 @@ package com.kenji.cloud.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
-/**
- * @Author: Cjmmy
- * @Date: 2018/12/18 8:00 PM
- */
+
 @Entity
+@Table(name = "USER_ROLE")
 @Data
 public class UserRole {
     @Id
-    private Integer id;
-    private Integer userid;
-    private Integer roleid;
-    private Integer operatorid;
-    private Date createdate;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "USERID")
+    private User user;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "ROLEID")
+    private Role role;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "OPERATORID")
+    private User operator;
+    @Column(name = "CREATEDATE")
+    private Date createDate;
+
+    @Override
+    public String toString() {
+        return "UserRole{" +
+                "id=" + id +
+                ", createDate=" + createDate +
+                '}';
+    }
 }
