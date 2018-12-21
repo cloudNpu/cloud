@@ -29,5 +29,17 @@ public class AppLog {
     private String comment;
 
     @Column(name = "CREATEDATE")
-    private Date createdate;
+    private Date createDate;
+
+
+    @Override
+    public String toString() {
+        return "AppLog{" +
+                "id=" + id +
+                ", appName='" + appName + '\'' +
+                ", operation='" + operation + '\'' +
+                ", comment='" + comment + '\'' +
+                ", createDate=" + createDate +
+                '}';
+    }
 }

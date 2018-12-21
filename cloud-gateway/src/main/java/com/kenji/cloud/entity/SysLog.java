@@ -24,6 +24,16 @@ public class SysLog {
     private String comment;
 
     @Column(name = "CREATEDATE")
-    private Date createdate;
+    private Date createDate;
 
+
+    @Override
+    public String toString() {
+        return "SysLog{" +
+                "id=" + id +
+                ", operation='" + operation + '\'' +
+                ", comment='" + comment + '\'' +
+                ", createDate=" + createDate +
+                '}';
+    }
 }
