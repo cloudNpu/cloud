@@ -10,19 +10,20 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class DeptServiceImpl implements DeptService {
 
-    @Autowired
     private DeptRepository deptRepository;
 
     public DeptRepository getDeptRepository() {
         return deptRepository;
     }
 
+    @Autowired
     public void setDeptRepository(DeptRepository deptRepository) {
         this.deptRepository = deptRepository;
     }
 
-    @Override
+
     @Transactional
+    @Override
     public Dept save(Dept dept) {
         return deptRepository.save(dept);
     }

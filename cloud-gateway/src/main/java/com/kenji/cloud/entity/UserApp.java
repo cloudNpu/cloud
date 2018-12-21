@@ -30,6 +30,7 @@ public class UserApp {
 
     @Column(name = "CREATEDATE")
     private Date createDate;
+
     private String comment;
 
     @Override

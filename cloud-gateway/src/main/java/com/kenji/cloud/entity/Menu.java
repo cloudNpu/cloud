@@ -3,6 +3,7 @@ package com.kenji.cloud.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class Menu {
     private Boolean hideInMenu;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "menu")
-    private List<RoleMenu> roleMenus;
+    private List<RoleMenu> roleMenus = new ArrayList<>();
 
     @Column(name = "CREATEDATE")
     private Date createDate;

@@ -1,6 +1,7 @@
 package com.kenji.cloud.service.impl;
 
 import com.kenji.cloud.entity.Dept;
+import com.kenji.cloud.entity.User;
 import com.kenji.cloud.service.DeptService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,16 +15,17 @@ import java.util.Date;
 @SpringBootTest
 public class DeptServiceImplTest {
 
+
     @Autowired
     private DeptService deptService;
 
     @Test
     public void save() {
-
         Dept dept = new Dept();
-        dept.setDeptName("人事部");
-        dept.setDescription("人事部");
+        dept.setDeptName("装备维修部");
+        dept.setDescription("装备维修部");
         dept.setOperDate(new Date());
         deptService.save(dept);
+
     }
 }

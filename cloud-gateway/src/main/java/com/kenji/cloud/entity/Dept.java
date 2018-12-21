@@ -3,6 +3,7 @@ package com.kenji.cloud.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class Dept {
     @Column(name = "OPERDATE")
     private Date operDate;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "dept")
-    private List<User> users;
+    private List<User> users = new ArrayList<>();
 
     @Override
     public String toString() {

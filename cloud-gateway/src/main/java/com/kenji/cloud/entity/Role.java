@@ -3,6 +3,7 @@ package com.kenji.cloud.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,10 +19,10 @@ public class Role {
     private String description;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "role")
-    private List<UserRole> userRoles;
+    private List<UserRole> userRoles = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "role")
-    private List<RoleMenu> roleMenus;
+    private List<RoleMenu> roleMenus = new ArrayList<>();
 
     @Column(name = "CREATEDATE")
     private Date createDate;
