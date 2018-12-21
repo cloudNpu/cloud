@@ -19,7 +19,7 @@ public class User implements UserDetails {
     private Long id;
     private String username;
     private String password;
-        private String sex;
+    private String sex;
     private Date birthday;
     private String iconurl;
     //移动电话
@@ -52,7 +52,7 @@ public class User implements UserDetails {
     private Date lastPasswordResetDate;
 
     @Column(name = "CREATEDATE")
-    private Date createdate;
+    private Date createDate;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -95,7 +95,7 @@ public class User implements UserDetails {
                 ", iconurl='" + iconurl + '\'' +
                 ", mobile='" + mobile + '\'' +
                 ", officeTel='" + officeTel + '\'' +
-                ", createdate=" + createdate +
+                ", createdate=" + createDate +
                 ", dept=" + dept +
                 ", lastPasswordResetDate=" + lastPasswordResetDate +
                 '}';
