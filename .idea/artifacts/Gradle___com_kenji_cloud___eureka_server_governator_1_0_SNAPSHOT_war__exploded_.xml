@@ -61,8 +61,8 @@
           <element id="library" level="project" name="Gradle: org.codehaus.woodstox:stax2-api:3.1.4" />
           <element id="library" level="project" name="Gradle: javax.xml.stream:stax-api:1.0-2" />
           <element id="library" level="project" name="Gradle: commons-jxpath:commons-jxpath:1.3" />
-          <element id="library" level="project" name="Gradle: org.antlr:antlr-runtime:3.4" />
           <element id="library" level="project" name="Gradle: stax:stax-api:1.0.1" />
+          <element id="library" level="project" name="Gradle: org.antlr:antlr-runtime:3.4" />
           <element id="library" level="project" name="Gradle: com.google.code.gson:gson:2.1" />
           <element id="library" level="project" name="Gradle: commons-lang:commons-lang:2.6" />
           <element id="library" level="project" name="Gradle: org.antlr:stringtemplate:3.2.1" />

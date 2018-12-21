@@ -15,6 +15,14 @@ public class AuthUserServiceImpl implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
+    public UserRepository getUserRepository() {
+        return userRepository;
+    }
+
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);

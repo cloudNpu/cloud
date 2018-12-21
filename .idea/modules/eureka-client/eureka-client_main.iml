@@ -48,8 +48,8 @@
     <orderEntry type="library" name="Gradle: commons-jxpath:commons-jxpath:1.3" level="project" />
     <orderEntry type="library" name="Gradle: joda-time:joda-time:2.3" level="project" />
     <orderEntry type="library" name="Gradle: javax.servlet:servlet-api:2.5" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: stax:stax-api:1.0.1" level="project" />
     <orderEntry type="library" name="Gradle: org.antlr:antlr-runtime:3.4" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: stax:stax-api:1.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.1" level="project" />
     <orderEntry type="library" name="Gradle: commons-lang:commons-lang:2.6" level="project" />
     <orderEntry type="library" name="Gradle: org.antlr:stringtemplate:3.2.1" level="project" />

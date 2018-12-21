@@ -18,7 +18,7 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "LEASEINFOID")
-//    private LeaseInfo leaseInfo;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USERID")
+    private User user;
 }
