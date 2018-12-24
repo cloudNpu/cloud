@@ -23,4 +23,5 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USERID")
     private User user;
+
 }
