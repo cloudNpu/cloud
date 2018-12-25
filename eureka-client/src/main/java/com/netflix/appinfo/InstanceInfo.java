@@ -1359,11 +1359,11 @@ public class InstanceInfo {
     }
 
     @JsonProperty("visible")
-    public boolean getvisible() {
+    public boolean getVisible() {
         return visible;
     }
 
-    public void setvisible(boolean visible) {
+    public void setVisible(boolean visible) {
         this.visible = visible;
     }
 
