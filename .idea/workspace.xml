@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="73b33667-71f7-4fe9-8a5b-293636e03376" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/db/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/docs/db/database.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/db/面向监控的服务平台数据库设计说明书.docx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/db/面向监控的服务平台数据库设计说明书.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -162,25 +164,94 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docs/db/database.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="577">
-              <caret line="135" column="38" selection-start-line="135" selection-start-column="38" selection-end-line="135" selection-end-column="38" />
+            <state relative-caret-position="547">
+              <caret line="133" column="43" selection-start-line="133" selection-start-column="43" selection-end-line="133" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="1360" column="26" selection-start-line="1360" selection-start-column="26" selection-end-line="1360" selection-end-column="26" />
+            <state relative-caret-position="18448">
+              <caret line="1366" column="30" selection-start-line="1366" selection-start-column="30" selection-end-line="1366" selection-end-column="30" />
               <folding>
-                <element signature="e#47412#47413#0" expanded="true" />
+                <element signature="e#15414#15415#0" expanded="true" />
+                <element signature="e#15503#15504#0" expanded="true" />
+                <element signature="e#31603#31604#0" expanded="true" />
+                <element signature="e#31640#31641#0" expanded="true" />
+                <element signature="e#32068#32069#0" expanded="true" />
+                <element signature="e#32123#32124#0" expanded="true" />
+                <element signature="e#34261#34262#0" expanded="true" />
+                <element signature="e#34294#34295#0" expanded="true" />
+                <element signature="e#34503#34504#0" expanded="true" />
+                <element signature="e#34533#34534#0" expanded="true" />
+                <element signature="e#34572#34573#0" expanded="true" />
+                <element signature="e#34607#34608#0" expanded="true" />
+                <element signature="e#35347#35348#0" expanded="true" />
+                <element signature="e#35378#35379#0" expanded="true" />
+                <element signature="e#35555#35556#0" expanded="true" />
+                <element signature="e#35581#35582#0" expanded="true" />
+                <element signature="e#36571#36572#0" expanded="true" />
+                <element signature="e#36600#36601#0" expanded="true" />
+                <element signature="e#36780#36781#0" expanded="true" />
+                <element signature="e#36807#36808#0" expanded="true" />
+                <element signature="e#36993#36994#0" expanded="true" />
+                <element signature="e#37022#37023#0" expanded="true" />
+                <element signature="e#37253#37254#0" expanded="true" />
+                <element signature="e#37292#37293#0" expanded="true" />
+                <element signature="e#37480#37481#0" expanded="true" />
+                <element signature="e#37517#37518#0" expanded="true" />
+                <element signature="e#37698#37699#0" expanded="true" />
+                <element signature="e#37730#37731#0" expanded="true" />
+                <element signature="e#37921#37922#0" expanded="true" />
+                <element signature="e#37953#37954#0" expanded="true" />
+                <element signature="e#38140#38141#0" expanded="true" />
+                <element signature="e#38171#38172#0" expanded="true" />
+                <element signature="e#38220#38221#0" expanded="true" />
+                <element signature="e#38252#38253#0" expanded="true" />
+                <element signature="e#38425#38426#0" expanded="true" />
+                <element signature="e#38458#38459#0" expanded="true" />
+                <element signature="e#39154#39155#0" expanded="true" />
+                <element signature="e#39197#39198#0" expanded="true" />
+                <element signature="e#39331#39332#0" expanded="true" />
+                <element signature="e#39401#39402#0" expanded="true" />
+                <element signature="e#39578#39579#0" expanded="true" />
+                <element signature="e#39612#39613#0" expanded="true" />
+                <element signature="e#39795#39796#0" expanded="true" />
+                <element signature="e#39831#39832#0" expanded="true" />
+                <element signature="e#40263#40271#0" expanded="true" />
+                <element signature="e#40686#40687#0" expanded="true" />
+                <element signature="e#40723#40724#0" expanded="true" />
+                <element signature="e#40770#40771#0" expanded="true" />
+                <element signature="e#40813#40814#0" expanded="true" />
+                <element signature="e#41075#41076#0" expanded="true" />
+                <element signature="e#41108#41109#0" expanded="true" />
+                <element signature="e#41358#41359#0" expanded="true" />
+                <element signature="e#41397#41398#0" expanded="true" />
+                <element signature="e#41589#41590#0" expanded="true" />
+                <element signature="e#41630#41631#0" expanded="true" />
+                <element signature="e#41850#41851#0" expanded="true" />
+                <element signature="e#41910#41911#0" expanded="true" />
+                <element signature="e#43419#43420#0" expanded="true" />
+                <element signature="e#43461#43462#0" expanded="true" />
+                <element signature="e#46278#46279#0" expanded="true" />
+                <element signature="e#46330#46331#0" expanded="true" />
+                <element signature="e#46621#46622#0" expanded="true" />
+                <element signature="e#46654#46655#0" expanded="true" />
+                <element signature="e#46861#46862#0" expanded="true" />
+                <element signature="e#46905#46906#0" expanded="true" />
+                <element signature="e#47093#47094#0" expanded="true" />
+                <element signature="e#47128#47129#0" expanded="true" />
+                <element signature="e#47348#47349#0" expanded="true" />
+                <element signature="e#47378#47379#0" expanded="true" />
                 <element signature="e#47442#47443#0" expanded="true" />
-                <element signature="e#47489#47490#0" expanded="true" />
-                <element signature="e#47527#47528#0" expanded="true" />
+                <element signature="e#47472#47473#0" expanded="true" />
+                <element signature="e#47519#47520#0" expanded="true" />
+                <element signature="e#47557#47558#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -247,11 +318,12 @@
       <find>''</find>
       <find>appID</find>
       <find>status</find>
-      <find>visable</find>
       <find>input</find>
+      <find>visable</find>
     </findStrings>
     <replaceStrings>
       <replace>'</replace>
+      <replace>visible</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -305,8 +377,8 @@
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/AuthController.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/config/WebSecurityConfig.java" />
-        <option value="$PROJECT_DIR$/docs/db/database.sql" />
         <option value="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java" />
+        <option value="$PROJECT_DIR$/docs/db/database.sql" />
       </list>
     </option>
   </component>
@@ -567,7 +639,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545699427578" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545699685662" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
@@ -671,7 +743,7 @@
       <workItem from="1545352632078" duration="65000" />
       <workItem from="1545352722371" duration="8867000" />
       <workItem from="1545613056042" duration="66000" />
-      <workItem from="1545613136032" duration="9296000" />
+      <workItem from="1545613136032" duration="9542000" />
     </task>
     <task id="LOCAL-00001" summary="注释部分代码">
       <created>1545036948555</created>
@@ -757,7 +829,14 @@
       <option name="project" value="LOCAL" />
       <updated>1545698934341</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="类InstanceInfo中添加visiable字段">
+      <created>1545699447712</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1545699447712</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -790,7 +869,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55068000" />
+    <option name="totallyTimeSpent" value="55314000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="962" extended-state="0" />
@@ -865,7 +944,8 @@
     <MESSAGE value="修复删除代码" />
     <MESSAGE value="修改instanceInfo" />
     <MESSAGE value="在数据库中InstanceInfo中添加visiable列" />
-    <option name="LAST_COMMIT_MESSAGE" value="在数据库中InstanceInfo中添加visiable列" />
+    <MESSAGE value="类InstanceInfo中添加visiable字段" />
+    <option name="LAST_COMMIT_MESSAGE" value="类InstanceInfo中添加visiable字段" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1302,13 +1382,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/db/database.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="135" column="38" selection-start-line="135" selection-start-column="38" selection-end-line="135" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/AuthController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -1318,14 +1391,90 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="1360" column="26" selection-start-line="1360" selection-start-column="26" selection-end-line="1360" selection-end-column="26" />
+        <state relative-caret-position="18448">
+          <caret line="1366" column="30" selection-start-line="1366" selection-start-column="30" selection-end-line="1366" selection-end-column="30" />
           <folding>
-            <element signature="e#47412#47413#0" expanded="true" />
+            <element signature="e#15414#15415#0" expanded="true" />
+            <element signature="e#15503#15504#0" expanded="true" />
+            <element signature="e#31603#31604#0" expanded="true" />
+            <element signature="e#31640#31641#0" expanded="true" />
+            <element signature="e#32068#32069#0" expanded="true" />
+            <element signature="e#32123#32124#0" expanded="true" />
+            <element signature="e#34261#34262#0" expanded="true" />
+            <element signature="e#34294#34295#0" expanded="true" />
+            <element signature="e#34503#34504#0" expanded="true" />
+            <element signature="e#34533#34534#0" expanded="true" />
+            <element signature="e#34572#34573#0" expanded="true" />
+            <element signature="e#34607#34608#0" expanded="true" />
+            <element signature="e#35347#35348#0" expanded="true" />
+            <element signature="e#35378#35379#0" expanded="true" />
+            <element signature="e#35555#35556#0" expanded="true" />
+            <element signature="e#35581#35582#0" expanded="true" />
+            <element signature="e#36571#36572#0" expanded="true" />
+            <element signature="e#36600#36601#0" expanded="true" />
+            <element signature="e#36780#36781#0" expanded="true" />
+            <element signature="e#36807#36808#0" expanded="true" />
+            <element signature="e#36993#36994#0" expanded="true" />
+            <element signature="e#37022#37023#0" expanded="true" />
+            <element signature="e#37253#37254#0" expanded="true" />
+            <element signature="e#37292#37293#0" expanded="true" />
+            <element signature="e#37480#37481#0" expanded="true" />
+            <element signature="e#37517#37518#0" expanded="true" />
+            <element signature="e#37698#37699#0" expanded="true" />
+            <element signature="e#37730#37731#0" expanded="true" />
+            <element signature="e#37921#37922#0" expanded="true" />
+            <element signature="e#37953#37954#0" expanded="true" />
+            <element signature="e#38140#38141#0" expanded="true" />
+            <element signature="e#38171#38172#0" expanded="true" />
+            <element signature="e#38220#38221#0" expanded="true" />
+            <element signature="e#38252#38253#0" expanded="true" />
+            <element signature="e#38425#38426#0" expanded="true" />
+            <element signature="e#38458#38459#0" expanded="true" />
+            <element signature="e#39154#39155#0" expanded="true" />
+            <element signature="e#39197#39198#0" expanded="true" />
+            <element signature="e#39331#39332#0" expanded="true" />
+            <element signature="e#39401#39402#0" expanded="true" />
+            <element signature="e#39578#39579#0" expanded="true" />
+            <element signature="e#39612#39613#0" expanded="true" />
+            <element signature="e#39795#39796#0" expanded="true" />
+            <element signature="e#39831#39832#0" expanded="true" />
+            <element signature="e#40263#40271#0" expanded="true" />
+            <element signature="e#40686#40687#0" expanded="true" />
+            <element signature="e#40723#40724#0" expanded="true" />
+            <element signature="e#40770#40771#0" expanded="true" />
+            <element signature="e#40813#40814#0" expanded="true" />
+            <element signature="e#41075#41076#0" expanded="true" />
+            <element signature="e#41108#41109#0" expanded="true" />
+            <element signature="e#41358#41359#0" expanded="true" />
+            <element signature="e#41397#41398#0" expanded="true" />
+            <element signature="e#41589#41590#0" expanded="true" />
+            <element signature="e#41630#41631#0" expanded="true" />
+            <element signature="e#41850#41851#0" expanded="true" />
+            <element signature="e#41910#41911#0" expanded="true" />
+            <element signature="e#43419#43420#0" expanded="true" />
+            <element signature="e#43461#43462#0" expanded="true" />
+            <element signature="e#46278#46279#0" expanded="true" />
+            <element signature="e#46330#46331#0" expanded="true" />
+            <element signature="e#46621#46622#0" expanded="true" />
+            <element signature="e#46654#46655#0" expanded="true" />
+            <element signature="e#46861#46862#0" expanded="true" />
+            <element signature="e#46905#46906#0" expanded="true" />
+            <element signature="e#47093#47094#0" expanded="true" />
+            <element signature="e#47128#47129#0" expanded="true" />
+            <element signature="e#47348#47349#0" expanded="true" />
+            <element signature="e#47378#47379#0" expanded="true" />
             <element signature="e#47442#47443#0" expanded="true" />
-            <element signature="e#47489#47490#0" expanded="true" />
-            <element signature="e#47527#47528#0" expanded="true" />
+            <element signature="e#47472#47473#0" expanded="true" />
+            <element signature="e#47519#47520#0" expanded="true" />
+            <element signature="e#47557#47558#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/db/database.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="547">
+          <caret line="133" column="43" selection-start-line="133" selection-start-column="43" selection-end-line="133" selection-end-column="43" />
         </state>
       </provider>
     </entry>
