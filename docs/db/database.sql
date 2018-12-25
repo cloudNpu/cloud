@@ -133,7 +133,7 @@ create table `INSTANCEINFO` (
 	`ACTIONTYPE` varchar(20) comment 'actionType',
 	`ASGNAME` varchar(100) comment 'asgName',
 	`VERSION` varchar(200) default 'VERSION_UNKNOWN' comment 'version',
-	`VISIABLE` varchar(20) comment 'actionType',
+	`VISIABLE` varchar(20) comment '是否可见',
 	`IPUTPARAMS` varchar(100) comment 'inputParams输入参数',
 	`OUTPUTPARAMS` varchar(100) comment 'outputParams输出参数',
 	`COMPLEXTYPE` varchar(200) comment 'complexType自定义类型',
