@@ -101,7 +101,7 @@ create table `INSTANCEINFO` (
 	`LEASEINFOID` bigint(20) not null comment 'LeaseInfoID',
 	`INSTANCEID` varchar(200) not null comment '服务实例ID',
 	`APPNAME` varchar(200) not null comment '服务名',
-	`APPGROUPNAME` varchar(200) not null comment '服务组名',
+	`APPGROUPNAME` varchar(200) comment '服务组名',
 	`IPADDR` varchar(200) not null comment 'IP地址',
 	`SID` varchar(200) comment 'SID',
 	`PORT` bigint(6) not null comment '端口号',
