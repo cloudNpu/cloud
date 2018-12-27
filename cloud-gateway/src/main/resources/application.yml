@@ -19,6 +19,7 @@ spring:
   jpa:
     show-sql: true
 
+
 jwt:
   header: Authorization
   secret: mySecret

@@ -14,13 +14,15 @@ public class Menu {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //上级菜单ID
+    /**
+     * 上级菜单ID
+     */
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "MENUFID")
     private Menu menu;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "menu")
-    private List<Menu> menus;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "menu")
+    private List<Menu> menus = new ArrayList<>();
 
     private String name;
     private String icon;
