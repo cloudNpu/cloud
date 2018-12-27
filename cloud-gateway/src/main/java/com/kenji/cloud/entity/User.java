@@ -96,7 +96,6 @@ public class User implements UserDetails {
                 ", mobile='" + mobile + '\'' +
                 ", officeTel='" + officeTel + '\'' +
                 ", createdate=" + createDate +
-                ", dept=" + dept +
                 ", lastPasswordResetDate=" + lastPasswordResetDate +
                 '}';
     }
