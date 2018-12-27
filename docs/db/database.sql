@@ -118,7 +118,7 @@ create table `INSTANCEINFO` (
 	`HEALTHCHECKSECUREEXPLICITURL` varchar(200) comment 'healthCheckSecureExplicitUrl',
 	`VIPADDRESSUNRESOLVED` varchar(200) comment 'vipAddressUnresolved',
 	`SECUREVIPADDRESSUNRESOLVED` varchar(200) comment 'secureVipAddressUnresolved',
-	`HEATHCHECKEXPLICITURL` varchar(200) comment 'healthCheckExplicitUrl',
+	`HEALTHCHECKEXPLICITURL` varchar(200) comment 'healthCheckExplicitUrl',
 	`COUNTRYID` bigint(20) comment 'countryId',
 	`ISSECUREPORTENABLED` varchar(10) default 'false' comment 'isSecurePortEnabled',
 	`ISUNSECUREPORTENABLED` varchar(10) default 'true' comment 'isUnsecurePortEnabled',
