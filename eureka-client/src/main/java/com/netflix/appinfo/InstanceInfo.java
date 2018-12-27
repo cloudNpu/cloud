@@ -155,6 +155,8 @@ public class InstanceInfo {
     private volatile String asgName;
     private String version = VERSION_UNKNOWN;
     @Auto
+    private volatile boolean visible;
+    @Auto
     private volatile String inputParams;
     @Auto
     private volatile String outputParams;
@@ -199,6 +201,7 @@ public class InstanceInfo {
             @JsonProperty("lastDirtyTimestamp") Long lastDirtyTimestamp,
             @JsonProperty("actionType") ActionType actionType,
             @JsonProperty("asgName") String asgName,
+            @JsonProperty("asgName") boolean visible,
             @JsonProperty("inputParams") String inputParams,
             @JsonProperty("outputParams") String outputParams,
             @JsonProperty("complexType") String complexType,
@@ -229,6 +232,7 @@ public class InstanceInfo {
         this.lastDirtyTimestamp = lastDirtyTimestamp;
         this.actionType = actionType;
         this.asgName = StringCache.intern(asgName);
+        this.visible = visible;
         this.inputParams = inputParams;
         this.outputParams = outputParams;
         this.complexType = complexType;
@@ -320,6 +324,11 @@ public class InstanceInfo {
         this.asgName = ii.asgName;
 
         this.version = ii.version;
+
+        this.visible = ii.visible;
+        this.inputParams = ii.inputParams;
+        this.outputParams = ii.outputParams;
+        this.invokeCount = ii.invokeCount;
     }
 
 
@@ -1347,6 +1356,15 @@ public class InstanceInfo {
     @JsonIgnore
     public String getVersion() {
         return version;
+    }
+
+    @JsonProperty("visible")
+    public boolean getVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
     }
 
     @JsonProperty("inputParams")
