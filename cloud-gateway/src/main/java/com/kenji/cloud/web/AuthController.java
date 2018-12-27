@@ -38,7 +38,7 @@ public class AuthController {
         for(UserRole userRole : userRoleList) {
             userRoles += userRole.getRole().getValue() + ",";
         }
-//        userRoles.
+        userRoles = userRoles.substring(0,userRoles.length()-1);
         result.put("currentAuthority", userRoles);
         result.put("token",token);
         return ResponseEntity.ok(result);

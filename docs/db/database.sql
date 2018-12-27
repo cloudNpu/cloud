@@ -115,7 +115,6 @@ create table `INSTANCEINFO` (
 	`STATUSPAGERELATIVEURL` varchar(200) comment 'statusPageRelativeUrl',
 	`STATUSPAGEEXPLICITURL` varchar(200) comment 'statusPageExplicitUrl',
 	`HEALTHCHECKRELATIVEURL` varchar(200) comment 'healthCheckRelativeUrl',
-	`HEALTHCHECKEXPLICITURL ` varchar(200) comment 'healthCheckExplicitUrl',
 	`HEALTHCHECKSECUREEXPLICITURL` varchar(200) comment 'healthCheckSecureExplicitUrl',
 	`VIPADDRESSUNRESOLVED` varchar(200) comment 'vipAddressUnresolved',
 	`SECUREVIPADDRESSUNRESOLVED` varchar(200) comment 'secureVipAddressUnresolved',
