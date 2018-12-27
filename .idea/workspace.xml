@@ -4,6 +4,7 @@
     <list default="true" id="73b33667-71f7-4fe9-8a5b-293636e03376" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/db/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/docs/db/database.sql" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -109,23 +110,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/AuthController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+            <state relative-caret-position="208">
+              <caret line="41" column="14" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
               <folding>
-                <element signature="e#2188#2189#0" expanded="true" />
+                <element signature="e#2218#2219#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docs/db/database.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="120" column="25" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="25" />
+            <state relative-caret-position="237">
+              <caret line="118" column="8" selection-start-line="118" selection-start-column="8" selection-end-line="118" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -305,8 +306,8 @@
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/AuthUserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/docs/db/database.sql" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/AuthController.java" />
+        <option value="$PROJECT_DIR$/docs/db/database.sql" />
       </list>
     </option>
   </component>
@@ -592,7 +593,7 @@
       <workItem from="1545613056042" duration="66000" />
       <workItem from="1545613136032" duration="11824000" />
       <workItem from="1545817880713" duration="342000" />
-      <workItem from="1545821248954" duration="4647000" />
+      <workItem from="1545821248954" duration="4979000" />
     </task>
     <task id="LOCAL-00001" summary="注释部分代码">
       <created>1545036948555</created>
@@ -713,7 +714,14 @@
       <option name="project" value="LOCAL" />
       <updated>1545899151248</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="修复数据库设计INSTANCEINFO中HEALTHCHECKEXPLICITURL拼写错误">
+      <created>1545899166062</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1545899166062</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -746,7 +754,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62585000" />
+    <option name="totallyTimeSpent" value="62917000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2" y="23" width="1680" height="962" extended-state="6" />
@@ -1311,20 +1319,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/db/database.sql">
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/AuthController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="120" column="25" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="25" />
+        <state relative-caret-position="208">
+          <caret line="41" column="14" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
+          <folding>
+            <element signature="e#2218#2219#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/AuthController.java">
+    <entry file="file://$PROJECT_DIR$/docs/db/database.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
-          <folding>
-            <element signature="e#2188#2189#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="237">
+          <caret line="118" column="8" selection-start-line="118" selection-start-column="8" selection-end-line="118" selection-end-column="8" />
         </state>
       </provider>
     </entry>

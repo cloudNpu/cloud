@@ -34,11 +34,12 @@ public class AuthController {
         System.out.println(user);
         Map<String,Object> result = new HashMap<>();
         List<UserRole> userRoleList= user.getUserRoles();
-        String useRoles = "";
+        String userRoles = "";
         for(UserRole userRole : userRoleList) {
-
+            userRoles += userRole.getRole().getValue() + ",";
         }
-        result.put("currentAuthority", user.getUserRoles().get(0).getRole().getValue());
+//        userRoles.
+        result.put("currentAuthority", userRoles);
         result.put("token",token);
         return ResponseEntity.ok(result);
     }
