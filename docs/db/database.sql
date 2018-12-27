@@ -135,7 +135,7 @@ create table `INSTANCEINFO` (
 	`ASGNAME` varchar(100) comment 'asgName',
 	`VERSION` varchar(200) default 'VERSION_UNKNOWN' comment 'version',
 	`VISIBLE` varchar(20) comment '是否可见',
-	`IPUTPARAMS` varchar(100) comment 'inputParams输入参数',
+	`INPUTPARAMS` varchar(100) comment 'inputParams输入参数',
 	`OUTPUTPARAMS` varchar(100) comment 'outputParams输出参数',
 	`COMPLEXTYPE` varchar(200) comment 'complexType自定义类型',
 	`INVOKECOUNT` bigint(20) comment '调用次数',
