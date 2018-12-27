@@ -36,7 +36,7 @@ public class AuthController {
         List<UserRole> userRoleList= user.getUserRoles();
         String useRoles = "";
         for(UserRole userRole : userRoleList) {
-            use
+
         }
         result.put("currentAuthority", user.getUserRoles().get(0).getRole().getValue());
         result.put("token",token);
