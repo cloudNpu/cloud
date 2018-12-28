@@ -37,6 +37,7 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 @JsonRootName("leaseInfo")
 public class LeaseInfo {
 
+
     public static final int DEFAULT_LEASE_RENEWAL_INTERVAL = 30;
     public static final int DEFAULT_LEASE_DURATION = 90;
 
@@ -156,7 +157,7 @@ public class LeaseInfo {
         }
     }
 
-    private LeaseInfo() {
+    public LeaseInfo() {
     }
 
     /**
