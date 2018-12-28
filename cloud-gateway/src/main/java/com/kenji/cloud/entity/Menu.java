@@ -1,5 +1,7 @@
 package com.kenji.cloud.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -20,8 +22,7 @@ public class Menu {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "MENUFID")
     private Menu menu;
-
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "menu")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "menu")
     private List<Menu> menus = new ArrayList<>();
 
     private String name;

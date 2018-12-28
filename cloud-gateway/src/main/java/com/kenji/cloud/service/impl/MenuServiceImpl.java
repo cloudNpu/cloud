@@ -3,9 +3,14 @@ package com.kenji.cloud.service.impl;
 import com.kenji.cloud.entity.Menu;
 import com.kenji.cloud.repository.MenuRepository;
 import com.kenji.cloud.service.MenuService;
+import com.kenji.cloud.vo.MenuVO;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Author: Cjmmy
@@ -18,8 +23,10 @@ public class MenuServiceImpl implements MenuService {
     private MenuRepository repository;
     @Override
     public void addMenu(Menu menu) {
-        Menu menuF = menu.getMenu();
+        Long menuFId = menu.getMenu().getId();
+        Menu menuF = this.findById(menuFId);
         menuF.getMenus().add(menu);
+        menu.setMenu(menuF);
         repository.save(menu);
     }
 
@@ -35,7 +42,9 @@ public class MenuServiceImpl implements MenuService {
         Menu menu = this.findById(id);
         //将该menu的父menu的子集合减去该menu
         Menu menuF = menu.getMenu();
-        menuF.getMenus().remove(menu);
+        if (menuF != null) {
+            menuF.getMenus().remove(menu);
+        }
         //将该menu关联的父menu解绑
         menu.setMenu(null);
         //将menu和父menu重新存入数据库
@@ -43,6 +52,29 @@ public class MenuServiceImpl implements MenuService {
         repository.save(menuF);
         //才能删除
         repository.delete(menu);
+    }
+
+    @Override
+    public List<MenuVO> getAll() {
+        List<Menu> menus = repository.findAll();
+        List<MenuVO> menuVOs = new ArrayList<>();
+        for (Menu menu:menus){
+            MenuVO menuVO = new MenuVO();
+            Menu menuF = menu.getMenu();
+            Long menuFId;
+            if (menuF != null) {
+                menuFId = menuF.getId();
+                BeanUtils.copyProperties(menu,menuVO);
+                menuVO.setMenuFid(menuFId);
+
+            }else {
+                menuFId = menu.getId();
+                BeanUtils.copyProperties(menu,menuVO);
+                menuVO.setMenuFid(menuFId);
+            }
+            menuVOs.add(menuVO);
+        }
+        return menuVOs;
     }
 
 }

@@ -1,11 +1,14 @@
 package com.kenji.cloud.service.impl;
 
 import com.kenji.cloud.entity.Menu;
+import com.kenji.cloud.vo.MenuVO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
 
 
 /**
@@ -29,10 +32,18 @@ public class MenuServiceImplTest {
 
     @Test
     public void findById() {
+        Menu menu = menuService.findById(2l);
     }
 
     @Test
     public void deleteMenu() {
-        menuService.deleteMenu(6l);
+        menuService.deleteMenu(14l);
+    }
+    @Test
+    public void testAll(){
+        List<MenuVO> all = menuService.getAll();
+        for (MenuVO menuVO:all){
+            System.out.println(menuVO);
+        }
     }
 }

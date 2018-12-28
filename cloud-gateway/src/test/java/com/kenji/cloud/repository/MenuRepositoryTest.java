@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
 
 
 /**
@@ -47,5 +48,13 @@ public class MenuRepositoryTest {
     public void testFindById(){
         Menu menu = repository.findById(3l).get();
         System.out.println(menu);
+    }
+    @Test
+    public void testAll(){
+        List<Menu> all = repository.findAll();
+        for (Menu menu:all){
+            Menu menu1 = menu.getMenu();
+            System.out.println(menu1);
+        }
     }
 }
