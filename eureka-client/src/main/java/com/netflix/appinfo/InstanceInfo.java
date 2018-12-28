@@ -59,7 +59,6 @@ public class InstanceInfo {
 
     private static final String VERSION_UNKNOWN = "unknown";
 
-
     /**
      * {@link InstanceInfo} JSON and XML format for port information does not follow the usual conventions, which
      * makes its mapping complicated. This class represents the wire format for port information.
@@ -167,14 +166,12 @@ public class InstanceInfo {
     private volatile String invokeCount;
 
 
-
-
-
-    public InstanceInfo() {
+    private InstanceInfo() {
         this.metadata = new ConcurrentHashMap<String, String>();
         this.lastUpdatedTimestamp = System.currentTimeMillis();
         this.lastDirtyTimestamp = lastUpdatedTimestamp;
     }
+
 
     @JsonCreator
     public InstanceInfo(
@@ -1019,198 +1016,6 @@ public class InstanceInfo {
      */
     public DataCenterInfo getDataCenterInfo() {
         return dataCenterInfo;
-    }
-
-    public void setStatusPageUrl(String statusPageUrl) {
-        this.statusPageUrl = statusPageUrl;
-    }
-
-    public void setHealthCheckUrl(String healthCheckUrl) {
-        this.healthCheckUrl = healthCheckUrl;
-    }
-
-    public void setSecureHealthCheckUrl(String secureHealthCheckUrl) {
-        this.secureHealthCheckUrl = secureHealthCheckUrl;
-    }
-
-    public String getVipAddress() {
-        return vipAddress;
-    }
-
-    public void setVipAddress(String vipAddress) {
-        this.vipAddress = vipAddress;
-    }
-
-    public void setSecureVipAddress(String secureVipAddress) {
-        this.secureVipAddress = secureVipAddress;
-    }
-
-    public String getStatusPageRelativeUrl() {
-        return statusPageRelativeUrl;
-    }
-
-    public void setStatusPageRelativeUrl(String statusPageRelativeUrl) {
-        this.statusPageRelativeUrl = statusPageRelativeUrl;
-    }
-
-    public String getStatusPageExplicitUrl() {
-        return statusPageExplicitUrl;
-    }
-
-    public void setStatusPageExplicitUrl(String statusPageExplicitUrl) {
-        this.statusPageExplicitUrl = statusPageExplicitUrl;
-    }
-
-    public String getHealthCheckRelativeUrl() {
-        return healthCheckRelativeUrl;
-    }
-
-    public void setHealthCheckRelativeUrl(String healthCheckRelativeUrl) {
-        this.healthCheckRelativeUrl = healthCheckRelativeUrl;
-    }
-
-    public String getHealthCheckSecureExplicitUrl() {
-        return healthCheckSecureExplicitUrl;
-    }
-
-    public void setHealthCheckSecureExplicitUrl(String healthCheckSecureExplicitUrl) {
-        this.healthCheckSecureExplicitUrl = healthCheckSecureExplicitUrl;
-    }
-
-    public String getVipAddressUnresolved() {
-        return vipAddressUnresolved;
-    }
-
-    public void setVipAddressUnresolved(String vipAddressUnresolved) {
-        this.vipAddressUnresolved = vipAddressUnresolved;
-    }
-
-    public String getSecureVipAddressUnresolved() {
-        return secureVipAddressUnresolved;
-    }
-
-    public void setSecureVipAddressUnresolved(String secureVipAddressUnresolved) {
-        this.secureVipAddressUnresolved = secureVipAddressUnresolved;
-    }
-
-    public String getHealthCheckExplicitUrl() {
-        return healthCheckExplicitUrl;
-    }
-
-    public void setHealthCheckExplicitUrl(String healthCheckExplicitUrl) {
-        this.healthCheckExplicitUrl = healthCheckExplicitUrl;
-    }
-
-    public void setCountryId(int countryId) {
-        this.countryId = countryId;
-    }
-
-    public boolean isSecurePortEnabled() {
-        return isSecurePortEnabled;
-    }
-
-    public void setSecurePortEnabled(boolean securePortEnabled) {
-        isSecurePortEnabled = securePortEnabled;
-    }
-
-    public boolean isUnsecurePortEnabled() {
-        return isUnsecurePortEnabled;
-    }
-
-    public void setUnsecurePortEnabled(boolean unsecurePortEnabled) {
-        isUnsecurePortEnabled = unsecurePortEnabled;
-    }
-
-    public void setDataCenterInfo(DataCenterInfo dataCenterInfo) {
-        this.dataCenterInfo = dataCenterInfo;
-    }
-
-    public void setHostName(String hostName) {
-        this.hostName = hostName;
-    }
-
-    public boolean isInstanceInfoDirty() {
-        return isInstanceInfoDirty;
-    }
-
-    public void setInstanceInfoDirty(boolean instanceInfoDirty) {
-        isInstanceInfoDirty = instanceInfoDirty;
-    }
-
-    public Boolean getCoordinatingDiscoveryServer() {
-        return isCoordinatingDiscoveryServer;
-    }
-
-    public void setCoordinatingDiscoveryServer(Boolean coordinatingDiscoveryServer) {
-        isCoordinatingDiscoveryServer = coordinatingDiscoveryServer;
-    }
-
-    public void setMetadata(Map<String, String> metadata) {
-        this.metadata = metadata;
-    }
-
-    public void setLastUpdatedTimestamp(Long lastUpdatedTimestamp) {
-        this.lastUpdatedTimestamp = lastUpdatedTimestamp;
-    }
-
-    public String getAsgName() {
-        return asgName;
-    }
-
-    public void setAsgName(String asgName) {
-        this.asgName = asgName;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
-    public boolean isVisible() {
-        return visible;
-    }
-
-    public static String getVersionUnknown() {
-        return VERSION_UNKNOWN;
-    }
-
-    public void setInstanceId(String instanceId) {
-        this.instanceId = instanceId;
-    }
-
-    public void setAppName(String appName) {
-        this.appName = appName;
-    }
-
-    public void setAppGroupName(String appGroupName) {
-        this.appGroupName = appGroupName;
-    }
-
-    public String getIpAddr() {
-        return ipAddr;
-    }
-
-    public void setIpAddr(String ipAddr) {
-        this.ipAddr = ipAddr;
-    }
-
-    public String getSid() {
-        return sid;
-    }
-
-    public void setSid(String sid) {
-        this.sid = sid;
-    }
-
-    public void setPort(int port) {
-        this.port = port;
-    }
-
-    public void setSecurePort(int securePort) {
-        this.securePort = securePort;
-    }
-
-    public void setHomePageUrl(String homePageUrl) {
-        this.homePageUrl = homePageUrl;
     }
 
     /**

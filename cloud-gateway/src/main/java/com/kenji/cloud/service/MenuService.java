@@ -1,11 +1,9 @@
 package com.kenji.cloud.service;
 
 import com.kenji.cloud.entity.Menu;
-
 import com.kenji.cloud.vo.MenuVO;
 
 import java.util.List;
-
 
 /**
  * @Author: Cjmmy
@@ -31,11 +29,14 @@ public interface MenuService {
      */
     void deleteMenu(Long id);
 
-
+    /**
+     * 批量删除菜单
+     * @param ids
+     */
+    void deleteMenus(Long[] ids);
     /**
      * 获取所有的菜单
      * @return
      */
     List<MenuVO> getAll();
-
 }

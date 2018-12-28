@@ -16,7 +16,6 @@
 
 package com.netflix.eureka.resources;
 
-import com.kenji.cloud.service.ApplicationService;
 import com.netflix.appinfo.EurekaAccept;
 import com.netflix.eureka.EurekaServerConfig;
 import com.netflix.eureka.EurekaServerContext;
@@ -46,7 +45,6 @@ import java.util.Arrays;
 @Path("/{version}/apps")
 @Produces({"application/xml", "application/json"})
 public class ApplicationsResource {
-
     private static final String HEADER_ACCEPT = "Accept";
     private static final String HEADER_ACCEPT_ENCODING = "Accept-Encoding";
     private static final String HEADER_CONTENT_ENCODING = "Content-Encoding";
