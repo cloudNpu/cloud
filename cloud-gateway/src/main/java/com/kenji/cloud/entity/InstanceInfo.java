@@ -33,7 +33,7 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
     @JoinColumn(name = "USERID")
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "LEASEINFOID")
     private com.kenji.cloud.entity.LeaseInfo leaseInfo;
 
@@ -391,7 +391,8 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
 
     @Override
     public void setVisible(boolean visible) {
-        this.visible = visible;
+       this.visible = visible;
+
     }
 
     @Override

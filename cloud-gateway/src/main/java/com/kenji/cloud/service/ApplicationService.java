@@ -9,9 +9,9 @@ import java.util.List;
 public interface ApplicationService extends Serializable {
     String addApp(InstanceInfo info);
     String deleteApp(Long instanceInfoId);
-    String publishApp(List<InstanceInfo> infos);
-    String hideApp(List<InstanceInfo> infos);
-    InstanceInfo updateInstance(InstanceInfo info);
+    boolean publishApp(String appName);
+    boolean hideApp(String appName);
+    InstanceInfo updateInstance(Long instanceInfoId);
     InstanceInfo queryInstance(Long instanceInfoId);
     List<InstanceInfo> queryByAppName(String appName);
     List<InstanceInfo> queryByVisible(Boolean visible);

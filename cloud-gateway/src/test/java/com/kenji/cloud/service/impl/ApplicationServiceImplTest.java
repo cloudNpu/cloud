@@ -7,7 +7,8 @@ import com.kenji.cloud.entity.User;
 import com.kenji.cloud.repository.InstanceInfoRepository;
 import com.kenji.cloud.repository.LeaseInfoRepository;
 import com.kenji.cloud.repository.UserRepository;
-
+import com.kenji.cloud.service.ApplicationService;
+import com.kenji.cloud.service.impl.ApplicationServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,9 @@ public class ApplicationServiceImplTest {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private ApplicationService applicationService;
+
     @Test
     public void save(){
         InstanceInfo info = new InstanceInfo();
@@ -40,7 +44,7 @@ public class ApplicationServiceImplTest {
 
 
 
-        info.setVisible(true);
+        info.setVisible(false);
         info.setSecurePort(2222);
         info.setSid("see");
         info.setHomePageUrl("192.168.0.11");
@@ -61,10 +65,18 @@ public class ApplicationServiceImplTest {
 
     @Test
     public void delete(){
-        InstanceInfo info=instanceInfoRepository.findById(11L).get();
+        InstanceInfo info=instanceInfoRepository.findById(1L).get();
         instanceInfoRepository.delete(info);
     }
 
+    @Test
+    public void hideApp(){
+        Optional<InstanceInfo> info=instanceInfoRepository.findById(11l);
+        info.get().setVersion("5665");
+        info.get().setVisible(true);
+
+
+    }
 
     @Test
     public void update(){

@@ -2,31 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1af3c7f0-1aee-408a-847b-34166ef4a65e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_activation_activation_1_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_netflix_eureka_client_2_0_2_RELEASE.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/aop/ServiceNumAop.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/aop/ServiceNumAop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/LeaseInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/LeaseInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/UserApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/UserApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/UserRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/MenuRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/MenuRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/MonitorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/MonitorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/MenuService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/MonitorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/MonitorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/MenuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/MenuServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/MonitorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/MonitorServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/MonitorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/MonitorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/ApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/ApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/ApplicationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/ApplicationServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationsResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationsResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/InstanceResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/InstanceResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/repository/MenuRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/repository/MenuRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/MenuServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/MenuServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/LeaseInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/LeaseInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/ApplicationServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/ApplicationServiceImplTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -88,8 +71,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/ApplicationServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+            <state relative-caret-position="303">
+              <caret line="74" column="26" lean-forward="true" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4345#4346#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="80" column="29" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,30 +94,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java">
+        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/MenuServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/ApplicationService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/InstanceInfoRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="5" column="79" lean-forward="true" selection-start-line="5" selection-start-column="75" selection-end-line="5" selection-end-column="79" />
+            <state relative-caret-position="459">
+              <caret line="34" column="26" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1586#1587#0" expanded="true" />
+                <element signature="e#1655#1656#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -130,151 +109,58 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="158" column="23" lean-forward="true" selection-start-line="158" selection-start-column="23" selection-end-line="158" selection-end-column="23" />
+            <state relative-caret-position="119">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="192" column="46" lean-forward="true" selection-start-line="191" selection-start-column="8" selection-end-line="192" selection-end-column="46" />
               <folding>
-                <element signature="e#5240#5241#0" expanded="true" />
-                <element signature="e#5272#5273#0" expanded="true" />
-                <element signature="e#5325#5326#0" expanded="true" />
-                <element signature="e#5367#5368#0" expanded="true" />
-                <element signature="e#5419#5420#0" expanded="true" />
-                <element signature="e#5463#5464#0" expanded="true" />
-                <element signature="e#5509#5510#0" expanded="true" />
-                <element signature="e#5547#5548#0" expanded="true" />
-                <element signature="e#5603#5604#0" expanded="true" />
-                <element signature="e#5651#5652#0" expanded="true" />
-                <element signature="e#5684#5685#0" expanded="true" />
-                <element signature="e#5713#5714#0" expanded="true" />
-                <element signature="e#5757#5758#0" expanded="true" />
-                <element signature="e#5793#5794#0" expanded="true" />
-                <element signature="e#5837#5838#0" expanded="true" />
-                <element signature="e#5871#5872#0" expanded="true" />
-                <element signature="e#5901#5902#0" expanded="true" />
-                <element signature="e#5927#5928#0" expanded="true" />
-                <element signature="e#5965#5966#0" expanded="true" />
-                <element signature="e#5995#5996#0" expanded="true" />
-                <element signature="e#6037#6038#0" expanded="true" />
-                <element signature="e#6064#6065#0" expanded="true" />
-                <element signature="e#6101#6102#0" expanded="true" />
-                <element signature="e#6133#6134#0" expanded="true" />
-                <element signature="e#6181#6182#0" expanded="true" />
-                <element signature="e#6214#6215#0" expanded="true" />
-                <element signature="e#6263#6264#0" expanded="true" />
-                <element signature="e#6307#6308#0" expanded="true" />
-                <element signature="e#6359#6360#0" expanded="true" />
-                <element signature="e#6393#6394#0" expanded="true" />
-                <element signature="e#6447#6448#0" expanded="true" />
-                <element signature="e#6493#6494#0" expanded="true" />
-                <element signature="e#6547#6548#0" expanded="true" />
-                <element signature="e#6583#6584#0" expanded="true" />
-                <element signature="e#6641#6642#0" expanded="true" />
-                <element signature="e#6691#6692#0" expanded="true" />
-                <element signature="e#6746#6747#0" expanded="true" />
-                <element signature="e#6783#6784#0" expanded="true" />
-                <element signature="e#6843#6844#0" expanded="true" />
-                <element signature="e#6895#6896#0" expanded="true" />
-                <element signature="e#6956#6957#0" expanded="true" />
-                <element signature="e#6999#7000#0" expanded="true" />
-                <element signature="e#7172#7173#0" expanded="true" />
-                <element signature="e#7205#7206#0" expanded="true" />
-                <element signature="e#7257#7258#0" expanded="true" />
-                <element signature="e#7301#7302#0" expanded="true" />
-                <element signature="e#7358#7359#0" expanded="true" />
-                <element signature="e#7397#7398#0" expanded="true" />
-                <element signature="e#7461#7462#0" expanded="true" />
-                <element signature="e#7517#7518#0" expanded="true" />
-                <element signature="e#7565#7566#0" expanded="true" />
-                <element signature="e#7609#7610#0" expanded="true" />
-                <element signature="e#7797#7798#0" expanded="true" />
-                <element signature="e#7841#7842#0" expanded="true" />
-                <element signature="e#8030#8031#0" expanded="true" />
-                <element signature="e#8075#8076#0" expanded="true" />
-                <element signature="e#8274#8275#0" expanded="true" />
-                <element signature="e#8325#8326#0" expanded="true" />
-                <element signature="e#8540#8541#0" expanded="true" />
-                <element signature="e#8583#8584#0" expanded="true" />
-                <element signature="e#8772#8773#0" expanded="true" />
-                <element signature="e#8821#8822#0" expanded="true" />
-                <element signature="e#9030#9031#0" expanded="true" />
-                <element signature="e#9075#9076#0" expanded="true" />
-                <element signature="e#9266#9267#0" expanded="true" />
-                <element signature="e#9298#9299#0" expanded="true" />
-                <element signature="e#9345#9346#0" expanded="true" />
-                <element signature="e#9387#9388#0" expanded="true" />
-                <element signature="e#9431#9432#0" expanded="true" />
-                <element signature="e#9473#9474#0" expanded="true" />
-                <element signature="e#9540#9541#0" expanded="true" />
-                <element signature="e#9595#9596#0" expanded="true" />
-                <element signature="e#9641#9642#0" expanded="true" />
-                <element signature="e#9685#9686#0" expanded="true" />
-                <element signature="e#9756#9757#0" expanded="true" />
-                <element signature="e#9815#9816#0" expanded="true" />
-                <element signature="e#9864#9865#0" expanded="true" />
-                <element signature="e#9895#9896#0" expanded="true" />
-                <element signature="e#9943#9944#0" expanded="true" />
-                <element signature="e#9983#9984#0" expanded="true" />
-                <element signature="e#10027#10028#0" expanded="true" />
-                <element signature="e#10069#10070#0" expanded="true" />
-                <element signature="e#10136#10137#0" expanded="true" />
-                <element signature="e#10191#10192#0" expanded="true" />
-                <element signature="e#10246#10247#0" expanded="true" />
-                <element signature="e#10298#10299#0" expanded="true" />
-                <element signature="e#10494#10495#0" expanded="true" />
-                <element signature="e#10524#10525#0" expanded="true" />
-                <element signature="e#10570#10571#0" expanded="true" />
-                <element signature="e#10608#10609#0" expanded="true" />
-                <element signature="e#10656#10657#0" expanded="true" />
-                <element signature="e#10686#10687#0" expanded="true" />
-                <element signature="e#10732#10733#0" expanded="true" />
-                <element signature="e#10770#10771#0" expanded="true" />
-                <element signature="e#10804#10805#0" expanded="true" />
-                <element signature="e#10834#10835#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#7766#7767#0" expanded="true" />
+                <element signature="e#7796#7797#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/ApplicationServiceImplTest.java">
+        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationsResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="55" selection-start-line="55" selection-end-line="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/LeaseInfoRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="5" column="76" selection-start-line="5" selection-start-column="76" selection-end-line="5" selection-end-column="76" />
+            <state relative-caret-position="200">
+              <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/LeaseInfo.java">
+        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/CloudGateway.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+            <state relative-caret-position="216">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/LeaseInfo.java">
+        <entry file="file://$PROJECT_DIR$/eureka-core/src/main/java/com/netflix/eureka/Version.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="160" column="10" selection-start-line="160" selection-start-column="10" selection-end-line="160" selection-end-column="10" />
+            <state relative-caret-position="249">
+              <caret line="34" column="13" lean-forward="true" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java">
+        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/InstanceResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="167" lean-forward="true" selection-start-line="167" selection-end-line="167" />
+            <state relative-caret-position="218">
+              <caret line="288" column="54" lean-forward="true" selection-start-line="288" selection-start-column="54" selection-end-line="288" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -286,6 +172,11 @@
       <find>menuf</find>
       <find>&lt;component name=&quot;PropertiesComponent&quot;&gt;</find>
       <find>leaseinfo</find>
+      <find>visible</find>
+      <find>apache</find>
+      <find>/cloud/</find>
+      <find>/cloud</find>
+      <find>MenuVO</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -305,16 +196,21 @@
         <option value="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java" />
         <option value="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/LeaseInfo.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/LeaseInfo.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/ApplicationService.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/InstanceInfoRepository.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/ApplicationServiceImpl.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/ApplicationServiceImplTest.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/LeaseInfoRepository.java" />
+        <option value="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/LeaseInfoServiceImplTest.java" />
+        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/InstanceInfoRepository.java" />
+        <option value="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/ApplicationServiceImplTest.java" />
+        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java" />
+        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/CloudGateway.java" />
+        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/ApplicationServiceImpl.java" />
+        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/InstanceResource.java" />
+        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/ApplicationService.java" />
+        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java" />
+        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="1920" />
     <option name="height" value="1080" />
   </component>
@@ -436,6 +332,17 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="netflix" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -496,7 +403,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546066078781" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546098286040" />
     <property name="dynamic.classpath" value="true" />
     <property name="last_opened_file_path" value="A:/Git/bin/git.exe" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -523,7 +430,39 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ApplicationServiceImplTest.save">
+  <component name="RunManager" selected="Spring Boot.CloudGateway">
+    <configuration name="ApplicationServiceImplTest.delete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="com.kenji.cloud-gateway.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.kenji.cloud.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.kenji.cloud.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.kenji.cloud.service.impl.ApplicationServiceImplTest" />
+      <option name="METHOD_NAME" value="delete" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationServiceImplTest.hideApp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="com.kenji.cloud-gateway.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.kenji.cloud.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.kenji.cloud.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.kenji.cloud.service.impl.ApplicationServiceImplTest" />
+      <option name="METHOD_NAME" value="hideApp" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ApplicationServiceImplTest.save" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="com.kenji.cloud-gateway.test" />
       <extension name="coverage">
@@ -549,7 +488,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ApplicationServiceImplTest.hideApp" />
         <item itemvalue="JUnit.ApplicationServiceImplTest.save" />
+        <item itemvalue="JUnit.ApplicationServiceImplTest.delete" />
       </list>
     </recent_temporary>
   </component>
@@ -564,7 +505,7 @@
       <option name="presentableId" value="Default" />
       <updated>1546063966803</updated>
       <workItem from="1546063969791" duration="1355000" />
-      <workItem from="1546065361712" duration="648000" />
+      <workItem from="1546065361712" duration="14969000" />
     </task>
     <task id="LOCAL-00001" summary="张书玮">
       <created>1546064464696</created>
@@ -573,17 +514,63 @@
       <option name="project" value="LOCAL" />
       <updated>1546064464696</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="张书玮恢复到放假前">
+      <created>1546066126241</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1546066126241</updated>
+    </task>
+    <task id="LOCAL-00003" summary="张书玮恢复到放假前">
+      <created>1546066163634</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1546066163634</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="ApplicationServiceImplTest_save - 2018.12.29 at 18h 29m 16s.xml">
+      <configuration name="ApplicationServiceImplTest.save" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationServiceImplTest_hideApp - 2018.12.29 at 18h 29m 49s.xml">
+      <configuration name="ApplicationServiceImplTest.hideApp" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationServiceImplTest_hideApp - 2018.12.29 at 18h 30m 21s.xml">
+      <configuration name="ApplicationServiceImplTest.hideApp" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationServiceImplTest_hideApp - 2018.12.29 at 18h 31m 04s.xml">
+      <configuration name="ApplicationServiceImplTest.hideApp" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationServiceImplTest_hideApp - 2018.12.29 at 18h 31m 53s.xml">
+      <configuration name="ApplicationServiceImplTest.hideApp" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationServiceImplTest_hideApp - 2018.12.29 at 21h 15m 04s.xml">
+      <configuration name="ApplicationServiceImplTest.hideApp" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationServiceImplTest_hideApp - 2018.12.29 at 21h 15m 44s.xml">
+      <configuration name="ApplicationServiceImplTest.hideApp" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationServiceImplTest_hideApp - 2018.12.29 at 21h 34m 15s.xml">
+      <configuration name="ApplicationServiceImplTest.hideApp" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationServiceImplTest_hideApp - 2018.12.29 at 21h 35m 32s.xml">
+      <configuration name="ApplicationServiceImplTest.hideApp" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationServiceImplTest_hideApp - 2018.12.29 at 21h 36m 17s.xml">
+      <configuration name="ApplicationServiceImplTest.hideApp" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2003000" />
+    <option name="totallyTimeSpent" value="16324000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26381364" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26126608" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -593,8 +580,8 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49891657" visible="true" weight="0.32969433" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49837488" visible="true" weight="0.32334048" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3993576" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -602,11 +589,11 @@
       <window_info anchor="bottom" id="Spring" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50108343" side_tool="true" visible="true" weight="0.32969433" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4956663" weight="0.32969433" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50108343" side_tool="true" weight="0.32969433" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4956663" weight="0.32869378" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
-      <window_info anchor="bottom" id="Version Control" order="15" sideWeight="0.49945828" weight="0.32969433" />
+      <window_info anchor="bottom" id="Version Control" order="15" sideWeight="0.49891657" weight="0.32969433" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -665,23 +652,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="张书玮" />
-    <option name="LAST_COMMIT_MESSAGE" value="张书玮" />
+    <MESSAGE value="张书玮恢复到放假前" />
+    <option name="LAST_COMMIT_MESSAGE" value="张书玮恢复到放假前" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="190" selection-start-line="190" selection-end-line="190" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/AuthServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -900,28 +874,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/MenuServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="78" column="43" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
-          <folding>
-            <element signature="e#1586#1587#0" expanded="true" />
-            <element signature="e#1655#1656#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3151">
           <caret line="404" column="30" selection-start-line="404" selection-start-column="30" selection-end-line="404" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
@@ -946,149 +902,172 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/ApplicationService.java">
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/LeaseInfoRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        <state relative-caret-position="108">
+          <caret line="5" column="76" selection-start-line="5" selection-start-column="76" selection-end-line="5" selection-end-column="76" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/ApplicationServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/LeaseInfoServiceImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="533">
+          <caret line="32" column="68" lean-forward="true" selection-start-line="32" selection-start-column="68" selection-end-line="32" selection-end-column="68" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java">
+    <entry file="jar://A:/java/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="158" column="23" lean-forward="true" selection-start-line="158" selection-start-column="23" selection-end-line="158" selection-end-column="23" />
-          <folding>
-            <element signature="e#5240#5241#0" expanded="true" />
-            <element signature="e#5272#5273#0" expanded="true" />
-            <element signature="e#5325#5326#0" expanded="true" />
-            <element signature="e#5367#5368#0" expanded="true" />
-            <element signature="e#5419#5420#0" expanded="true" />
-            <element signature="e#5463#5464#0" expanded="true" />
-            <element signature="e#5509#5510#0" expanded="true" />
-            <element signature="e#5547#5548#0" expanded="true" />
-            <element signature="e#5603#5604#0" expanded="true" />
-            <element signature="e#5651#5652#0" expanded="true" />
-            <element signature="e#5684#5685#0" expanded="true" />
-            <element signature="e#5713#5714#0" expanded="true" />
-            <element signature="e#5757#5758#0" expanded="true" />
-            <element signature="e#5793#5794#0" expanded="true" />
-            <element signature="e#5837#5838#0" expanded="true" />
-            <element signature="e#5871#5872#0" expanded="true" />
-            <element signature="e#5901#5902#0" expanded="true" />
-            <element signature="e#5927#5928#0" expanded="true" />
-            <element signature="e#5965#5966#0" expanded="true" />
-            <element signature="e#5995#5996#0" expanded="true" />
-            <element signature="e#6037#6038#0" expanded="true" />
-            <element signature="e#6064#6065#0" expanded="true" />
-            <element signature="e#6101#6102#0" expanded="true" />
-            <element signature="e#6133#6134#0" expanded="true" />
-            <element signature="e#6181#6182#0" expanded="true" />
-            <element signature="e#6214#6215#0" expanded="true" />
-            <element signature="e#6263#6264#0" expanded="true" />
-            <element signature="e#6307#6308#0" expanded="true" />
-            <element signature="e#6359#6360#0" expanded="true" />
-            <element signature="e#6393#6394#0" expanded="true" />
-            <element signature="e#6447#6448#0" expanded="true" />
-            <element signature="e#6493#6494#0" expanded="true" />
-            <element signature="e#6547#6548#0" expanded="true" />
-            <element signature="e#6583#6584#0" expanded="true" />
-            <element signature="e#6641#6642#0" expanded="true" />
-            <element signature="e#6691#6692#0" expanded="true" />
-            <element signature="e#6746#6747#0" expanded="true" />
-            <element signature="e#6783#6784#0" expanded="true" />
-            <element signature="e#6843#6844#0" expanded="true" />
-            <element signature="e#6895#6896#0" expanded="true" />
-            <element signature="e#6956#6957#0" expanded="true" />
-            <element signature="e#6999#7000#0" expanded="true" />
-            <element signature="e#7172#7173#0" expanded="true" />
-            <element signature="e#7205#7206#0" expanded="true" />
-            <element signature="e#7257#7258#0" expanded="true" />
-            <element signature="e#7301#7302#0" expanded="true" />
-            <element signature="e#7358#7359#0" expanded="true" />
-            <element signature="e#7397#7398#0" expanded="true" />
-            <element signature="e#7461#7462#0" expanded="true" />
-            <element signature="e#7517#7518#0" expanded="true" />
-            <element signature="e#7565#7566#0" expanded="true" />
-            <element signature="e#7609#7610#0" expanded="true" />
-            <element signature="e#7797#7798#0" expanded="true" />
-            <element signature="e#7841#7842#0" expanded="true" />
-            <element signature="e#8030#8031#0" expanded="true" />
-            <element signature="e#8075#8076#0" expanded="true" />
-            <element signature="e#8274#8275#0" expanded="true" />
-            <element signature="e#8325#8326#0" expanded="true" />
-            <element signature="e#8540#8541#0" expanded="true" />
-            <element signature="e#8583#8584#0" expanded="true" />
-            <element signature="e#8772#8773#0" expanded="true" />
-            <element signature="e#8821#8822#0" expanded="true" />
-            <element signature="e#9030#9031#0" expanded="true" />
-            <element signature="e#9075#9076#0" expanded="true" />
-            <element signature="e#9266#9267#0" expanded="true" />
-            <element signature="e#9298#9299#0" expanded="true" />
-            <element signature="e#9345#9346#0" expanded="true" />
-            <element signature="e#9387#9388#0" expanded="true" />
-            <element signature="e#9431#9432#0" expanded="true" />
-            <element signature="e#9473#9474#0" expanded="true" />
-            <element signature="e#9540#9541#0" expanded="true" />
-            <element signature="e#9595#9596#0" expanded="true" />
-            <element signature="e#9641#9642#0" expanded="true" />
-            <element signature="e#9685#9686#0" expanded="true" />
-            <element signature="e#9756#9757#0" expanded="true" />
-            <element signature="e#9815#9816#0" expanded="true" />
-            <element signature="e#9864#9865#0" expanded="true" />
-            <element signature="e#9895#9896#0" expanded="true" />
-            <element signature="e#9943#9944#0" expanded="true" />
-            <element signature="e#9983#9984#0" expanded="true" />
-            <element signature="e#10027#10028#0" expanded="true" />
-            <element signature="e#10069#10070#0" expanded="true" />
-            <element signature="e#10136#10137#0" expanded="true" />
-            <element signature="e#10191#10192#0" expanded="true" />
-            <element signature="e#10246#10247#0" expanded="true" />
-            <element signature="e#10298#10299#0" expanded="true" />
-            <element signature="e#10494#10495#0" expanded="true" />
-            <element signature="e#10524#10525#0" expanded="true" />
-            <element signature="e#10570#10571#0" expanded="true" />
-            <element signature="e#10608#10609#0" expanded="true" />
-            <element signature="e#10656#10657#0" expanded="true" />
-            <element signature="e#10686#10687#0" expanded="true" />
-            <element signature="e#10732#10733#0" expanded="true" />
-            <element signature="e#10770#10771#0" expanded="true" />
-            <element signature="e#10804#10805#0" expanded="true" />
-            <element signature="e#10834#10835#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="200">
+          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/ApplicationServiceImplTest.java">
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/DeptServiceImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
+        <state relative-caret-position="6">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/MenuServiceImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-75">
+          <caret line="26" column="23" lean-forward="true" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/InstanceInfoRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="5" column="79" lean-forward="true" selection-start-line="5" selection-start-column="75" selection-end-line="5" selection-end-column="79" />
+          <caret line="5" column="82" selection-start-line="5" selection-start-column="82" selection-end-line="5" selection-end-column="82" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/LeaseInfoRepository.java">
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/AuthServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="5" column="76" selection-start-line="5" selection-start-column="76" selection-end-line="5" selection-end-column="76" />
+        <state relative-caret-position="-346">
+          <caret line="45" column="36" lean-forward="true" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/AuthUserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eureka-core/src/main/java/com/netflix/eureka/Version.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="34" column="13" lean-forward="true" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/CloudGateway.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/ApplicationServiceImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="72" column="26" lean-forward="true" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/InstanceResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="288" column="54" lean-forward="true" selection-start-line="288" selection-start-column="54" selection-end-line="288" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationsResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/ApplicationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="52" lean-forward="true" selection-start-line="18" selection-start-column="52" selection-end-line="18" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="192" column="46" lean-forward="true" selection-start-line="191" selection-start-column="8" selection-end-line="192" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#7766#7767#0" expanded="true" />
+            <element signature="e#7796#7797#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/MenuServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="34" column="26" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+          <folding>
+            <element signature="e#1586#1587#0" expanded="true" />
+            <element signature="e#1655#1656#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/ApplicationServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="74" column="26" lean-forward="true" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4345#4346#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="80" column="29" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

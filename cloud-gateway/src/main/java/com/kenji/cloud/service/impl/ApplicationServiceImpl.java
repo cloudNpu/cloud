@@ -33,26 +33,46 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-    public String publishApp(List<InstanceInfo> infos) {
-        for (int i = 0;i<infos.size();++i){
-        infos.get(i).setVisible(true);
+    public boolean publishApp(String appName) {
+        List<InstanceInfo> infos=instanceInfoRepository.findAll();
+        boolean flag=true;
+        for (int i = 0;i<infos.size();++i) {
+            if (infos.get(i).getAppName().equals(appName)) {
+                InstanceInfo tmp = infos.get(i);
+                tmp.setVisible(true);
+                instanceInfoRepository.delete(infos.get(i));
+                instanceInfoRepository.save(tmp);
+                flag=false;
+            }
+
         }
-//        判断是否成功，返回true或false
-        return null;
+        if (flag)
+            return false;
+        return true;
     }
 
     @Override
-    public String hideApp(List<InstanceInfo> infos) {
+    public boolean hideApp(String appName) {
+        List<InstanceInfo> infos=instanceInfoRepository.findAll();
+        boolean flag=true;
         for (int i = 0;i<infos.size();++i){
-            infos.get(i).setVisible(false);
+            if (infos.get(i).getAppName().equals(appName)){
+                InstanceInfo tmp=infos.get(i);
+                tmp.setVisible(false);
+                instanceInfoRepository.delete(infos.get(i));
+                instanceInfoRepository.save(tmp);
+                flag=false;
+            }
         }
-        return null;
+        if (flag)
+            return false;
+        return true;
     }
 
     @Override
-    public InstanceInfo updateInstance(InstanceInfo info) {
-        //想修改啥属性自己.set.
-        return info;
+    public InstanceInfo updateInstance(Long instanceInfoId) {
+        Optional<InstanceInfo> info=instanceInfoRepository.findById(instanceInfoId);
+        return info.get();
     }
 
     @Override
