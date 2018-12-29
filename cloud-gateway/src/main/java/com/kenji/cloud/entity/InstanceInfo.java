@@ -135,47 +135,58 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         return instanceId;
     }
 
-    @Override
-    public void setInstanceId(String instanceId) {
-        this.instanceId = instanceId;
-    }
+
 
     @Override
     public String getAppName() {
         return appName;
     }
 
-    @Override
-    public void setAppName(String appName) {
-        this.appName = appName;
-    }
+
 
     @Override
     public String getAppGroupName() {
         return appGroupName;
     }
 
+
     @Override
+    public LeaseInfo getLeaseInfo() {
+        return leaseInfo;
+    }
+
+    public void setLeaseInfo(LeaseInfo leaseInfo) {
+        this.leaseInfo = leaseInfo;
+    }
+
+    public void setInstanceId(String instanceId) {
+        this.instanceId = instanceId;
+    }
+
+    public void setAppName(String appName) {
+        this.appName = appName;
+    }
+
     public void setAppGroupName(String appGroupName) {
         this.appGroupName = appGroupName;
     }
 
-    @Override
     public String getIpAddr() {
         return ipAddr;
     }
 
-    @Override
     public void setIpAddr(String ipAddr) {
         this.ipAddr = ipAddr;
     }
 
-    @Override
+    public static String getSidDefault() {
+        return SID_DEFAULT;
+    }
+
     public String getSid() {
         return sid;
     }
 
-    @Override
     public void setSid(String sid) {
         this.sid = sid;
     }
@@ -185,7 +196,6 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         return port;
     }
 
-    @Override
     public void setPort(int port) {
         this.port = port;
     }
@@ -195,7 +205,6 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         return securePort;
     }
 
-    @Override
     public void setSecurePort(int securePort) {
         this.securePort = securePort;
     }
@@ -205,7 +214,6 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         return homePageUrl;
     }
 
-    @Override
     public void setHomePageUrl(String homePageUrl) {
         this.homePageUrl = homePageUrl;
     }
@@ -215,7 +223,6 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         return statusPageUrl;
     }
 
-    @Override
     public void setStatusPageUrl(String statusPageUrl) {
         this.statusPageUrl = statusPageUrl;
     }
@@ -225,7 +232,6 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         return healthCheckUrl;
     }
 
-    @Override
     public void setHealthCheckUrl(String healthCheckUrl) {
         this.healthCheckUrl = healthCheckUrl;
     }
@@ -235,17 +241,14 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         return secureHealthCheckUrl;
     }
 
-    @Override
     public void setSecureHealthCheckUrl(String secureHealthCheckUrl) {
         this.secureHealthCheckUrl = secureHealthCheckUrl;
     }
 
-    @Override
     public String getVipAddress() {
         return vipAddress;
     }
 
-    @Override
     public void setVipAddress(String vipAddress) {
         this.vipAddress = vipAddress;
     }
@@ -255,77 +258,62 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         return secureVipAddress;
     }
 
-    @Override
     public void setSecureVipAddress(String secureVipAddress) {
         this.secureVipAddress = secureVipAddress;
     }
 
-    @Override
     public String getStatusPageRelativeUrl() {
         return statusPageRelativeUrl;
     }
 
-    @Override
     public void setStatusPageRelativeUrl(String statusPageRelativeUrl) {
         this.statusPageRelativeUrl = statusPageRelativeUrl;
     }
 
-    @Override
     public String getStatusPageExplicitUrl() {
         return statusPageExplicitUrl;
     }
 
-    @Override
     public void setStatusPageExplicitUrl(String statusPageExplicitUrl) {
         this.statusPageExplicitUrl = statusPageExplicitUrl;
     }
 
-    @Override
     public String getHealthCheckRelativeUrl() {
         return healthCheckRelativeUrl;
     }
 
-    @Override
     public void setHealthCheckRelativeUrl(String healthCheckRelativeUrl) {
         this.healthCheckRelativeUrl = healthCheckRelativeUrl;
     }
 
-    @Override
     public String getHealthCheckSecureExplicitUrl() {
         return healthCheckSecureExplicitUrl;
     }
 
-    @Override
     public void setHealthCheckSecureExplicitUrl(String healthCheckSecureExplicitUrl) {
         this.healthCheckSecureExplicitUrl = healthCheckSecureExplicitUrl;
     }
 
-    @Override
     public String getVipAddressUnresolved() {
         return vipAddressUnresolved;
     }
 
-    @Override
     public void setVipAddressUnresolved(String vipAddressUnresolved) {
         this.vipAddressUnresolved = vipAddressUnresolved;
     }
 
-    @Override
     public String getSecureVipAddressUnresolved() {
         return secureVipAddressUnresolved;
     }
 
-    @Override
     public void setSecureVipAddressUnresolved(String secureVipAddressUnresolved) {
         this.secureVipAddressUnresolved = secureVipAddressUnresolved;
     }
 
-    @Override
     public String getHealthCheckExplicitUrl() {
         return healthCheckExplicitUrl;
     }
 
-    @Override
     public void setHealthCheckExplicitUrl(String healthCheckExplicitUrl) {
         this.healthCheckExplicitUrl = healthCheckExplicitUrl;
     }
@@ -335,37 +323,24 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         return countryId;
     }
 
-    @Override
     public void setCountryId(int countryId) {
         this.countryId = countryId;
     }
 
-    @Override
-    public com.kenji.cloud.entity.LeaseInfo getLeaseInfo() {
-        return leaseInfo;
-    }
-
-    public void setLeaseInfo(com.kenji.cloud.entity.LeaseInfo leaseInfo) {
-        this.leaseInfo = leaseInfo;
-    }
-    @Override
-    public boolean isUnsecurePortEnabled() {
-        return isUnsecurePortEnabled;
-    }
-
-    @Override
-    public void setUnsecurePortEnabled(boolean unsecurePortEnabled) {
-        isUnsecurePortEnabled = unsecurePortEnabled;
-    }
-
-    @Override
     public boolean isSecurePortEnabled() {
         return isSecurePortEnabled;
     }
 
-    @Override
     public void setSecurePortEnabled(boolean securePortEnabled) {
         isSecurePortEnabled = securePortEnabled;
+    }
+
+    public boolean isUnsecurePortEnabled() {
+        return isUnsecurePortEnabled;
+    }
+
+    public void setUnsecurePortEnabled(boolean unsecurePortEnabled) {
+        isUnsecurePortEnabled = unsecurePortEnabled;
     }
 
     @Override
@@ -373,37 +348,30 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         return hostName;
     }
 
-    @Override
     public void setHostName(String hostName) {
         this.hostName = hostName;
     }
 
-    @Override
     public boolean isInstanceInfoDirty() {
         return isInstanceInfoDirty;
     }
 
-    @Override
     public void setInstanceInfoDirty(boolean instanceInfoDirty) {
         isInstanceInfoDirty = instanceInfoDirty;
     }
 
-    @Override
     public Boolean getCoordinatingDiscoveryServer() {
         return isCoordinatingDiscoveryServer;
     }
 
-    @Override
     public void setCoordinatingDiscoveryServer(Boolean coordinatingDiscoveryServer) {
         isCoordinatingDiscoveryServer = coordinatingDiscoveryServer;
     }
 
-    @Override
     public String getAsgName() {
         return asgName;
     }
 
-    @Override
     public void setAsgName(String asgName) {
         this.asgName = asgName;
     }
@@ -413,12 +381,10 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         return version;
     }
 
-    @Override
     public void setVersion(String version) {
         this.version = version;
     }
 
-    @Override
     public boolean isVisible() {
         return visible;
     }

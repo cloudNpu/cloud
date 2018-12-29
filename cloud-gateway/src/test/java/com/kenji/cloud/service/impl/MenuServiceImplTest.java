@@ -1,21 +1,15 @@
 package com.kenji.cloud.service.impl;
 
 import com.kenji.cloud.entity.Menu;
-<<<<<<< HEAD
-=======
 import com.kenji.cloud.vo.MenuVO;
->>>>>>> 2d3e0e576926fc9ba2c526ff9c5877f001bd8da3
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-<<<<<<< HEAD
-=======
 import java.util.List;
 
->>>>>>> 2d3e0e576926fc9ba2c526ff9c5877f001bd8da3
 
 /**
  * @Author: Cjmmy
@@ -38,17 +32,11 @@ public class MenuServiceImplTest {
 
     @Test
     public void findById() {
-<<<<<<< HEAD
-=======
         Menu menu = menuService.findById(2l);
->>>>>>> 2d3e0e576926fc9ba2c526ff9c5877f001bd8da3
     }
 
     @Test
     public void deleteMenu() {
-<<<<<<< HEAD
-        menuService.deleteMenu(6l);
-=======
         menuService.deleteMenu(14l);
     }
     @Test
@@ -57,6 +45,5 @@ public class MenuServiceImplTest {
         for (MenuVO menuVO:all){
             System.out.println(menuVO);
         }
->>>>>>> 2d3e0e576926fc9ba2c526ff9c5877f001bd8da3
     }
 }

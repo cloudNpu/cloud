@@ -54,14 +54,14 @@ public class MenuController {
     }
 
     /**
-     * 根据id删除菜单
+     * 删除菜单,可以删除一个或多个
      * @param id
      */
     @RequestMapping(value = "/menus", method = RequestMethod.DELETE)
-    public ResponseEntity<String> deleteMenu(@RequestParam("id") Long id){
+    public ResponseEntity<String> deleteMenu(@RequestParam("id") Long[] id){
         try {
 
-            menuService.deleteMenu(id);
+            menuService.deleteMenus(id);
             return ResponseEntity.ok("删除成功");
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());

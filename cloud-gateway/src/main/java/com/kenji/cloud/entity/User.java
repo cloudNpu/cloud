@@ -64,6 +64,134 @@ public class User implements UserDetails {
         return authorities;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getIconurl() {
+        return iconurl;
+    }
+
+    public void setIconurl(String iconurl) {
+        this.iconurl = iconurl;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getOfficeTel() {
+        return officeTel;
+    }
+
+    public void setOfficeTel(String officeTel) {
+        this.officeTel = officeTel;
+    }
+
+    public Dept getDept() {
+        return dept;
+    }
+
+    public void setDept(Dept dept) {
+        this.dept = dept;
+    }
+
+    public List<UserRole> getUserRoles() {
+        return userRoles;
+    }
+
+    public void setUserRoles(List<UserRole> userRoles) {
+        this.userRoles = userRoles;
+    }
+
+    public List<InstanceInfo> getInstanceInfos() {
+        return instanceInfos;
+    }
+
+    public void setInstanceInfos(List<InstanceInfo> instanceInfos) {
+        this.instanceInfos = instanceInfos;
+    }
+
+    public List<UserApp> getUserApps() {
+        return userApps;
+    }
+
+    public void setUserApps(List<UserApp> userApps) {
+        this.userApps = userApps;
+    }
+
+    public List<AppLog> getAppLogs() {
+        return appLogs;
+    }
+
+    public void setAppLogs(List<AppLog> appLogs) {
+        this.appLogs = appLogs;
+    }
+
+    public List<SysLog> getSysLogs() {
+        return sysLogs;
+    }
+
+    public void setSysLogs(List<SysLog> sysLogs) {
+        this.sysLogs = sysLogs;
+    }
+
+    public Date getLastPasswordResetDate() {
+        return lastPasswordResetDate;
+    }
+
+    public void setLastPasswordResetDate(Date lastPasswordResetDate) {
+        this.lastPasswordResetDate = lastPasswordResetDate;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
     @Override
     public boolean isAccountNonExpired() {
         return true;
