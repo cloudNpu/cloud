@@ -158,7 +158,7 @@ public class LeaseInfo {
         }
     }
 
-    public LeaseInfo() {
+    private LeaseInfo() {
     }
 
     /**
