@@ -14,6 +14,7 @@ public class LeaseInfo extends com.netflix.appinfo.LeaseInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     public LeaseInfo(){}
+
     /**
      * TODO: note about renewalTimestamp legacy:
      * The previous change to use Jackson ser/deser changed the field name for lastRenewalTimestamp to renewalTimestamp
