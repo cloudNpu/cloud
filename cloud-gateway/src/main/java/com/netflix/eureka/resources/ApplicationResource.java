@@ -16,7 +16,10 @@
 
 package com.netflix.eureka.resources;
 
+import com.kenji.cloud.CloudGateway;
+import com.kenji.cloud.service.ApplicationService;
 import com.netflix.appinfo.*;
+import com.netflix.discovery.shared.Application;
 import com.netflix.eureka.EurekaServerConfig;
 import com.netflix.eureka.Version;
 import com.netflix.eureka.cluster.PeerEurekaNode;
@@ -27,6 +30,13 @@ import com.netflix.eureka.registry.ResponseCache;
 import com.netflix.eureka.util.EurekaMonitors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
+import org.springframework.context.ApplicationContext;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -42,7 +52,7 @@ import javax.ws.rs.core.Response.Status;
 @Produces({"application/xml", "application/json"})
 public class ApplicationResource {
     private static final Logger logger = LoggerFactory.getLogger(ApplicationResource.class);
-
+    private ApplicationService applicationService;
     private final String appName;
     private final EurekaServerConfig serverConfig;
     private final PeerAwareInstanceRegistry registry;
@@ -119,9 +129,10 @@ public class ApplicationResource {
         return new InstanceResource(this, id, serverConfig, registry);
     }
 
+
     /**
      * Registers information about a particular instance for an
-     * {@link com.netflix.discovery.shared.Application}.
+     * {@link Application}.
      *
      * @param info
      *            {@link InstanceInfo} information of the instance.
@@ -174,6 +185,13 @@ public class ApplicationResource {
 
         registry.register(info, "true".equals(isReplication));   //真正的服务注册在这，前面都是對註冊信息校验
         //在下面写jpa将instancInfo存入数据库cloud的实际语句，借助addInsance这个函数的动作，不用考虑太多，只要完成所需功能即可
+        if (this.applicationService == null) {
+            ApplicationContext context = CloudGateway.getContext();
+            this.applicationService = (ApplicationService) context.getBean("applicationService");
+        }
+        com.kenji.cloud.entity.InstanceInfo info1=new com.kenji.cloud.entity.InstanceInfo();
+        BeanUtils.copyProperties(info, info1);
+        applicationService.addApp(info1);
 
 
 

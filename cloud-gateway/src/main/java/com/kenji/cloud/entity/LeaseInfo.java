@@ -13,6 +13,7 @@ public class LeaseInfo extends com.netflix.appinfo.LeaseInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    public LeaseInfo(){}
 
     /**
      * TODO: note about renewalTimestamp legacy:
