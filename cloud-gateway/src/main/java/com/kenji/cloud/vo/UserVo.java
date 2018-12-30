@@ -6,6 +6,7 @@ import lombok.Data;
 @Data
 public class UserVo{
     private User user;
-    private Long[] roleids;
+    private Long operatorId;
+    private Long[] roleIds;
 
 }

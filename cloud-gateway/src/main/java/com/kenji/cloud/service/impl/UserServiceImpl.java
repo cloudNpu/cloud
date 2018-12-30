@@ -1,26 +1,45 @@
 package com.kenji.cloud.service.impl;
 
 import com.kenji.cloud.entity.User;
+import com.kenji.cloud.entity.UserRole;
+import com.kenji.cloud.repository.RoleRepository;
 import com.kenji.cloud.repository.UserRepository;
+import com.kenji.cloud.repository.UserRoleRepository;
+import com.kenji.cloud.service.UserRoleService;
 import com.kenji.cloud.service.UserService;
+import com.kenji.cloud.vo.UserVo;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.Predicate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
     private UserRepository userRepository;
+    private UserRoleService userRoleService;
 
+    @Autowired
+    public UserServiceImpl(UserRepository userRepository, UserRoleService userRoleService) {
+        this.userRepository = userRepository;
+        this.userRoleService = userRoleService;
+    }
+
+    @Transactional
     @Override
-    public User saveUser(User user) {
-        return userRepository.save(user);
+    public User saveUser(UserVo userVo) {
+        Long operatorId = userVo.getOperatorId();
+        User user = userRepository.save(userVo.getUser());
+        Long userId = user.getId();
+        Long[] roleIds = userVo.getRoleIds();
+        userRoleService.saveAll(userId, operatorId, roleIds);
+        return user;
     }
 
     @Override
@@ -122,12 +141,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void delete(User user) {
-        userRepository.delete(user);
+    public void deleteUsers(Long[] ids) {
+        for (Long id : ids) {
+            
+            userRepository.deleteById(id);
+        }
     }
 
-    @Override
-    public void deleteById(Long id) {
-        userRepository.deleteById(id);
-    }
 }

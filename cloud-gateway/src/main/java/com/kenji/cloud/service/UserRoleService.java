@@ -8,7 +8,7 @@ import java.util.List;
 public interface UserRoleService {
     UserRole saveUserRole(UserRole userRole);
 
-    List<UserRole> saveAll(List<UserRole> userRoles);
+    List<UserRole> saveAll(Long userId, Long operatorId, Long[] roleIds);
 
     UserRole updateUserRole(UserRole userRole);
 

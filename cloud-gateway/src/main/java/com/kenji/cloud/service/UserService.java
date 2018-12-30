@@ -1,11 +1,12 @@
 package com.kenji.cloud.service;
 
 import com.kenji.cloud.entity.User;
+import com.kenji.cloud.vo.UserVo;
 
 import java.util.List;
 
 public interface UserService {
-    User saveUser(User user);
+    User saveUser(UserVo userVo);
 
     User updateUser(User user);
 
@@ -15,7 +16,5 @@ public interface UserService {
 
     List<User> findSearch(User user);
 
-    void delete(User user);
-
-    void deleteById(Long id);
+    void deleteUsers(Long[] ids);
 }
