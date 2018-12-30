@@ -1,13 +1,11 @@
 package com.kenji.cloud.service.impl;
 
-import com.kenji.cloud.entity.User;
-import com.kenji.cloud.entity.UserRole;
-import com.kenji.cloud.repository.RoleRepository;
-import com.kenji.cloud.repository.UserRepository;
-import com.kenji.cloud.repository.UserRoleRepository;
+import com.kenji.cloud.entity.*;
+import com.kenji.cloud.repository.*;
 import com.kenji.cloud.service.UserRoleService;
 import com.kenji.cloud.service.UserService;
 import com.kenji.cloud.vo.UserVo;
+import com.sun.deploy.ui.AppInfo;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
@@ -16,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.Predicate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -24,11 +21,21 @@ public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
     private UserRoleService userRoleService;
+    private UserRoleRepository userRoleRepository;
+    private UserAppRepository userAppRepository;
+    private SysLogRepository sysLogRepository;
+    private AppLogRepository appLogRepository;
+    private InstanceInfoRepository instanceInfoRepository;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, UserRoleService userRoleService) {
+    public UserServiceImpl(UserRepository userRepository, UserRoleService userRoleService, UserRoleRepository userRoleRepository, UserAppRepository userAppRepository, SysLogRepository sysLogRepository, AppLogRepository appLogRepository, InstanceInfoRepository instanceInfoRepository) {
         this.userRepository = userRepository;
         this.userRoleService = userRoleService;
+        this.userRoleRepository = userRoleRepository;
+        this.userAppRepository = userAppRepository;
+        this.sysLogRepository = sysLogRepository;
+        this.appLogRepository = appLogRepository;
+        this.instanceInfoRepository = instanceInfoRepository;
     }
 
     @Transactional
@@ -143,7 +150,27 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUsers(Long[] ids) {
         for (Long id : ids) {
-            
+            User user = userRepository.findById(id).get();
+            List<UserRole> userRoleList = userRoleRepository.findByUser(user);
+            if (!userRoleList.isEmpty()) {
+                userRoleRepository.deleteAll(userRoleList);
+            }
+            List<UserApp> userAppList = userAppRepository.findByUser(user);
+            if (!userAppList.isEmpty()) {
+                userAppRepository.deleteAll(userAppList);
+            }
+            List<SysLog> sysLogList = sysLogRepository.findByUser(user);
+            if (!sysLogList.isEmpty()) {
+                sysLogRepository.deleteAll(sysLogList);
+            }
+            List<AppLog> appLogList = appLogRepository.findByUser(user);
+            if (!appLogList.isEmpty()) {
+                appLogRepository.deleteAll(appLogList);
+            }
+            List<InstanceInfo> instanceInfoList = instanceInfoRepository.findByUser(user);
+            if (!instanceInfoList.isEmpty()) {
+                instanceInfoRepository.deleteAll(instanceInfoList);
+            }
             userRepository.deleteById(id);
         }
     }
