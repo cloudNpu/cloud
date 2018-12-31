@@ -150,27 +150,28 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUsers(Long[] ids) {
         for (Long id : ids) {
-            User user = userRepository.findById(id).get();
-            List<UserRole> userRoleList = userRoleRepository.findByUser(user);
-            if (!userRoleList.isEmpty()) {
-                userRoleRepository.deleteAll(userRoleList);
-            }
-            List<UserApp> userAppList = userAppRepository.findByUser(user);
-            if (!userAppList.isEmpty()) {
-                userAppRepository.deleteAll(userAppList);
-            }
-            List<SysLog> sysLogList = sysLogRepository.findByUser(user);
-            if (!sysLogList.isEmpty()) {
-                sysLogRepository.deleteAll(sysLogList);
-            }
-            List<AppLog> appLogList = appLogRepository.findByUser(user);
-            if (!appLogList.isEmpty()) {
-                appLogRepository.deleteAll(appLogList);
-            }
-            List<InstanceInfo> instanceInfoList = instanceInfoRepository.findByUser(user);
-            if (!instanceInfoList.isEmpty()) {
-                instanceInfoRepository.deleteAll(instanceInfoList);
-            }
+            //1.将所有operatorId是该用户id的记录都设为null
+            //update user set operatorid=null where operatorid=id;
+            //update user_app set operatorid=null where operatorid=id;(不能为null，所以被我删了）
+            //update user_role set operatorid=null where operatorid=id;(不能为null，所以被我删了）
+            userRepository.updateOperatorIdToNull(id);
+            userAppRepository.deleteByOperatorId(id);
+            userRoleRepository.deleteByOperatorId(id);
+
+            //2.删除子表中userid是该id的记录
+            //delete from user_role where userid=id;
+            //delete from user_app where userid=id;
+            //delete from syslog where userid=id;
+            //delete from instanceinfo where userid=id;
+            //delete from applog where userid=id;
+            userRoleRepository.deleteByUserId(id);
+            userAppRepository.deleteByUserId(id);
+            sysLogRepository.deleteByUserId(id);
+            instanceInfoRepository.deleteByUserId(id);
+            appLogRepository.deleteByUserId(id);
+
+            //3.删除主表用户记录
+            //delete from user where id=id;
             userRepository.deleteById(id);
         }
     }

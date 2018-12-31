@@ -1,11 +1,14 @@
 package com.kenji.cloud.repository;
 
 import com.kenji.cloud.entity.InstanceInfo;
-import com.kenji.cloud.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.util.List;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 public interface InstanceInfoRepository extends JpaRepository<InstanceInfo,Long> {
-    List<InstanceInfo> findByUser(User user);
+    @Modifying
+    @Transactional
+    @Query(value = "delete from instanceinfo where USERID=?",nativeQuery = true)
+    int deleteByUserId(Long id);
 }
