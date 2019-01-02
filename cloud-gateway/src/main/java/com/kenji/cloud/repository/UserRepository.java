@@ -17,4 +17,9 @@ public interface UserRepository extends JpaRepository<User,Long>, JpaSpecificati
     @Transactional
     @Query(value = "update user u set u.operatorid = null where u.operatorid=?1",nativeQuery = true)
     int updateOperatorIdToNull(Long operatorid);
+
+    @Modifying
+    @Transactional
+    @Query(value = "delete from user where id = ?",nativeQuery = true)
+    void deleteUserById(Long id);
 }

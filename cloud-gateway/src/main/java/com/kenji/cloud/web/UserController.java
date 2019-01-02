@@ -25,8 +25,8 @@ public class UserController {
     }
 
     @DeleteMapping()
-    public ResponseEntity<String> deleteUserById(@RequestBody Map<String, Long[]> parms) {
-        Long[] ids = parms.get("ids");
+    public ResponseEntity<String> deleteUserById(@RequestBody Map<String, Long[]> params) {
+        Long[] ids = params.get("ids");
         userService.deleteUsers(ids);
         return ResponseEntity.status(204).body("删除成功!!!!");
     }

@@ -148,7 +148,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void deleteUsers(Long[] ids) {
+        if (ids.length==0) return;
         for (Long id : ids) {
             //1.将所有operatorId是该用户id的记录都设为null
             //update user set operatorid=null where operatorid=id;
@@ -172,7 +174,7 @@ public class UserServiceImpl implements UserService {
 
             //3.删除主表用户记录
             //delete from user where id=id;
-            userRepository.deleteById(id);
+            userRepository.deleteUserById(id);
         }
     }
 
