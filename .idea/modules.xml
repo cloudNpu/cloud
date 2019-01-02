@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/cloud.iml" filepath="$PROJECT_DIR$/.idea/cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cloud.iml" filepath="$PROJECT_DIR$/.idea/modules/cloud.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/cloud-gateway/cloud-gateway.iml" filepath="$PROJECT_DIR$/.idea/modules/cloud-gateway/cloud-gateway.iml" group="cloud-gateway" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/cloud-gateway/cloud-gateway_main.iml" filepath="$PROJECT_DIR$/.idea/modules/cloud-gateway/cloud-gateway_main.iml" group="cloud-gateway" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/cloud-gateway/cloud-gateway_test.iml" filepath="$PROJECT_DIR$/.idea/modules/cloud-gateway/cloud-gateway_test.iml" group="cloud-gateway" />
