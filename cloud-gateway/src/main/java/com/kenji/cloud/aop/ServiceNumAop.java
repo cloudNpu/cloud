@@ -1,7 +1,7 @@
 //package com.kenji.cloud.aop;
 //
+//import com.netflix.appinfo.InstanceInfo;
 //import com.kenji.cloud.repository.MonitorRepository;
-//import com.kenji.cloud.entity.InstanceInfo;
 //import org.aspectj.lang.annotation.AfterReturning;
 //import org.aspectj.lang.annotation.Aspect;
 //import org.aspectj.lang.annotation.Before;

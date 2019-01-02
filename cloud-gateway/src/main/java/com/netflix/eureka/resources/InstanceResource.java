@@ -16,8 +16,6 @@
 
 package com.netflix.eureka.resources;
 
-import com.kenji.cloud.CloudGateway;
-import com.kenji.cloud.service.ApplicationService;
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.appinfo.InstanceInfo.InstanceStatus;
 import com.netflix.eureka.EurekaServerConfig;
@@ -25,8 +23,6 @@ import com.netflix.eureka.cluster.PeerEurekaNode;
 import com.netflix.eureka.registry.PeerAwareInstanceRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeanUtils;
-import org.springframework.context.ApplicationContext;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
@@ -52,7 +48,6 @@ public class InstanceResource {
     private static final Logger logger = LoggerFactory
             .getLogger(InstanceResource.class);
 
-    private ApplicationService applicationService;
     private final PeerAwareInstanceRegistry registry;
     private final EurekaServerConfig serverConfig;
     private final String id;
@@ -282,14 +277,6 @@ public class InstanceResource {
 
             if (isSuccess) {
                 logger.debug("Found (Cancel): {} - {}", app.getName(), id);
-
-                Long idd=Long.parseLong(id);
-
-                if (this.applicationService == null) {
-                    ApplicationContext context = CloudGateway.getContext();
-                    this.applicationService = (ApplicationService) context.getBean("applicationService");
-                }
-                applicationService.deleteApp(idd);
                 return Response.ok().build();
             } else {
                 logger.info("Not Found (Cancel): {} - {}", app.getName(), id);
@@ -299,7 +286,6 @@ public class InstanceResource {
             logger.error("Error (cancel): {} - {}", app.getName(), id, e);
             return Response.serverError().build();
         }
-
 
     }
 

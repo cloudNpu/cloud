@@ -1,11 +1,9 @@
 //package com.kenji.cloud.web;
 //
-//import com.kenji.cloud.entity.InstanceInfo;
+//import com.netflix.appinfo.InstanceInfo;
 //import com.kenji.cloud.service.impl.MonitorServiceImpl;
 //import com.kenji.cloud.vo.ServiceInfoVO;
 //import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.http.HttpStatus;
-//import org.springframework.http.ResponseEntity;
 //import org.springframework.web.bind.annotation.*;
 //
 //
@@ -15,35 +13,24 @@
 // * @Date: 2018/12/6 5:20 PM
 // */
 //@RestController
+//@RequestMapping("/service")
 //public class MonitorController {
 //    @Autowired
 //    private MonitorServiceImpl monitorService;
-//    @GetMapping("/cloud/apps")
-//    public ResponseEntity<InstanceInfo> getServiceStatus(@RequestParam("serviceName") String serviceName){
+//    @GetMapping("/status/{serviceName}")
+//    public ServiceInfoVO getServiceStatus(@PathVariable String serviceName){
 //        InstanceInfo service = monitorService.findByAppName(serviceName);
-//        if (service == null) {
-//            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
-//        }
-//        return ResponseEntity.ok(service);
+//        return new ServiceInfoVO(1, "查询成功", service.getStatus());
 //    }
-//    @GetMapping("/cloud//apps")
-//    public ResponseEntity<Integer> getServiceCallNumber(@RequestParam("instanceInfoId") Long instanceInfoId){
-//        try {
-//            Integer invokeCount = monitorService.getInvokeCount(instanceInfoId);
-//            return ResponseEntity.ok(invokeCount);
-//        }catch (Exception e){
-//            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
-//        }
+//    @GetMapping("/callNumber/{serviceName}")
+//    public ServiceInfoVO getServiceCallNumber(@PathVariable String serviceName){
+//        InstanceInfo service = monitorService.findByAppName(serviceName);
+//        return new ServiceInfoVO(1, "查询成功", service.getInvokeCount());
 //    }
-//    @PutMapping("/cloud/apps")
-//    public ResponseEntity<String> updateServiceStatus(@RequestParam("serviceName") String serviceName, @RequestParam("serviceStatus") String serviceStatus){
-//        try {
-//
-//            InstanceInfo.InstanceStatus instanceStatus = InstanceInfo.InstanceStatus.toEnum(serviceStatus);
-//            monitorService.updateStatus(serviceName, instanceStatus);
-//            return ResponseEntity.ok("状态更新成功");
-//        }catch (Exception e) {
-//            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("更新失败");
-//        }
+//    @PutMapping("/update/{serviceName}/{serviceStatus}")
+//    public ServiceInfoVO updateServiceStatus(@PathVariable String serviceName, @PathVariable String serviceStatus){
+//        InstanceInfo.InstanceStatus instanceStatus = InstanceInfo.InstanceStatus.toEnum(serviceStatus);
+//        monitorService.updateStatus(serviceName, instanceStatus);
+//        return new ServiceInfoVO(1, "更新成功");
 //    }
 //}

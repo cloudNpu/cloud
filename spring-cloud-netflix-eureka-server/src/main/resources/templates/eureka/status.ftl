@@ -23,7 +23,7 @@
       <h1>Instances currently registered with Eureka</h1>
       <table id='instances' class="table table-striped table-hover">
         <thead>
-          <tr><th>Application</th><th>AMIs</th><th>Availability Zones</th><th>Status</th></tr>
+          <tr><th>Application</th><th>AMIs</th><th>Availability Zones</th><th>Status</th><th>isclose</th></tr>
         </thead>
         <tbody>
           <#if apps?has_content>
@@ -58,6 +58,7 @@
                     </#list>
                   </#list>
                 </td>
+                  <td>yes</td>
               </tr>
             </#list>
           <#else>
