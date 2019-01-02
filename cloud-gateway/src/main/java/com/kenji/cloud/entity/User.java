@@ -48,6 +48,14 @@ public class User implements UserDetails {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
     private List<SysLog> sysLogs;
 
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "OPERATORID")
+    private User operator;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "operator")
+    private List<User> users = new ArrayList<>();
+
+
     @Column(name = "LASTPASSWORDRESETDATE")
     private Date lastPasswordResetDate;
 
