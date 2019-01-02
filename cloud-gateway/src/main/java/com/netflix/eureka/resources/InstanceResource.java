@@ -34,11 +34,10 @@ import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
-import java.util.Collections;
+import java.awt.*;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -282,14 +281,23 @@ public class InstanceResource {
 
             if (isSuccess) {
                 logger.debug("Found (Cancel): {} - {}", app.getName(), id);
-
-                Long idd=Long.parseLong(id);
-
+                //数据库操作如下
                 if (this.applicationService == null) {
                     ApplicationContext context = CloudGateway.getContext();
                     this.applicationService = (ApplicationService) context.getBean("applicationService");
                 }
-                applicationService.deleteApp(idd);
+                List<com.kenji.cloud.entity.InstanceInfo> infos = applicationService.queryByAppName(app.getName());
+                for (int i=0;i<infos.size();++i){
+                    if (infos.get(i).getInstanceId().equals(id)){
+                        applicationService.deleteApp(applicationService.queryInstance( infos.get(i).getInstanceInfoId()));
+                        break;
+                    }
+                }
+
+
+
+
+
                 return Response.ok().build();
             } else {
                 logger.info("Not Found (Cancel): {} - {}", app.getName(), id);

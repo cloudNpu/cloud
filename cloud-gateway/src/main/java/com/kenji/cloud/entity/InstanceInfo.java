@@ -3,9 +3,12 @@ package com.kenji.cloud.entity;
 
 
 import com.netflix.appinfo.DataCenterInfo;
+import com.netflix.appinfo.providers.DataCenterInfoImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.util.HashMap;
+import java.util.Map;
 
 
 @Entity
@@ -434,17 +437,89 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
     public void setInvokeCount(String invokeCount) {
         this.invokeCount = invokeCount;
     }
-    //待解决
-//private volatile DataCenterInfo dataCenterInfo;
-//private volatile InstanceStatus status = InstanceStatus.UP;
-//    private volatile InstanceStatus overriddenStatus = InstanceStatus.UNKNOWN;
+
+
+
+
+
+//    @Column(name = "DATACENTERINFO")
+//    public volatile DataCenterInfo dataCenterInfo;
+//
+//    @Override
+//    public DataCenterInfo getDataCenterInfo() {
+//        return dataCenterInfo;
+//    }
+//
+//    @Override
+//    public void setDataCenterInfo(DataCenterInfo dataCenterInfo) {
+//        this.dataCenterInfo = dataCenterInfo;
+//    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @Column(name = "STATUS")
+    @Enumerated(EnumType.STRING)
+    private volatile InstanceStatus status = InstanceStatus.UP;
+
+    @Override
+    public InstanceStatus getStatus() {
+        return status;
+    }
+
+    @Override
+    public InstanceStatus setStatus(InstanceStatus status) {
+        this.status = status;
+        return null;
+    }
+    @Column(name = "OVERRIDDENSTATUS")
+    @Enumerated(EnumType.STRING)
+       private volatile InstanceStatus overriddenStatus = InstanceStatus.UNKNOWN;
+
+    @Override
+    public InstanceStatus getOverriddenStatus() {
+        return overriddenStatus;
+    }
+
+    @Override
+    public void setOverriddenStatus(InstanceStatus overriddenStatus) {
+        this.overriddenStatus = overriddenStatus;
+    }
+
+    @Column(name = "ACTIONTYPE")
+    @Enumerated(EnumType.STRING)
+        private volatile ActionType actionType;
+
+    @Override
+    public ActionType getActionType() {
+        return actionType;
+    }
+
+    @Override
+    public void setActionType(ActionType actionType) {
+        this.actionType = actionType;
+    }
+
+//    @Column(name = "METADATA")
 //    private volatile Map<String, String> metadata;
-//    private volatile ActionType actionType;
-
-//待解决
-
-
-
-
-
+//
+//    @Override
+//    public Map<String, String> getMetadata(){
+//
+//        return metadata;
+//    }
+//
+//    @Override
+//    public void setMetadata(Map<String, String> metadata) {
+//        this.metadata = metadata;
+//    }
 }

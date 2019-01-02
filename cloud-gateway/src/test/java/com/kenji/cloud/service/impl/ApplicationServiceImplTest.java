@@ -65,8 +65,8 @@ public class ApplicationServiceImplTest {
 
     @Test
     public void delete(){
-        InstanceInfo info=instanceInfoRepository.findById(1L).get();
-        instanceInfoRepository.delete(info);
+        InstanceInfo info=instanceInfoRepository.findById(11L).get();
+        applicationService.deleteApp(info);
     }
 
     @Test
@@ -83,4 +83,8 @@ public class ApplicationServiceImplTest {
         Optional<InstanceInfo> info=instanceInfoRepository.findById(2l);
 
     }
+
+
+
+
 }

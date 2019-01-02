@@ -26,9 +26,8 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-    public String deleteApp(Long instanceInfoId) {
-        Optional<InstanceInfo> info=instanceInfoRepository.findById(instanceInfoId);
-        instanceInfoRepository.delete(info.get());
+    public String deleteApp(InstanceInfo info) {
+        instanceInfoRepository.delete(info);
         return null;
     }
 

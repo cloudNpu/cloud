@@ -18,7 +18,7 @@ public class ApplicationController {
     ApplicationService applicationService;
 
     @RequestMapping(value = "/apps/appName",method= RequestMethod.PUT)                //服务发布
-    public ResponseEntity<String> publishApp(@RequestParam("appName") String appName) {
+    public ResponseEntity<String> publishApp(@RequestParam("pName") String appName) {
         try {
             if(applicationService.publishApp(appName))
             return ResponseEntity.ok("服务发布成功");
@@ -30,7 +30,7 @@ public class ApplicationController {
 
 
     @RequestMapping(value = "/apps1/appName",method=RequestMethod.PUT)                //服务撤回
-    public ResponseEntity hideApp(@RequestParam("appName") String appName)
+    public ResponseEntity hideApp(@RequestParam("hName") String appName)
     {try {
         if(applicationService.hideApp(appName))
         return ResponseEntity.ok("服务撤回成功");
@@ -40,19 +40,26 @@ public class ApplicationController {
     }
     }
 
-    @RequestMapping(value = "/apps2/instanceInfoId",method = RequestMethod.PUT)
-    public ResponseEntity updateInstance(@RequestParam("instanceInfoId") Long instanceInfoId){
+    @RequestMapping(value = "/apps/instanceInfoId",method = RequestMethod.PUT)    //服务更新
+    public ResponseEntity updateInstance1(@RequestParam("instanceInfoId")Long instanceInfoId, @RequestBody com.netflix.appinfo.InstanceInfo instanceInfo){
         try {
-            InstanceInfo info=applicationService.updateInstance(instanceInfoId);
-            com.netflix.appinfo.InstanceInfo info1=new com.netflix.appinfo.InstanceInfo();
-            BeanUtils.copyProperties(info, info1);
-            return ResponseEntity.ok(info1);
+            if (instanceInfoId.equals(instanceInfo.getInstanceId())){
+                InstanceInfo info=new InstanceInfo();
+                BeanUtils.copyProperties(instanceInfo,info );
+                applicationService.addApp(info);
+
+            }return ResponseEntity.ok("更新成功");
         }catch (Exception e){
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("更新失败");
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("目标不存在");
         }
     }
 
-    @GetMapping(value = "/instanceInfoId")
+
+
+
+
+
+    @GetMapping(value = "/apps/instanceInfoId")
     public ResponseEntity queryInstance(@RequestParam Long instanceInfoId){
         try {
             InstanceInfo info=applicationService.queryInstance(instanceInfoId);
@@ -63,7 +70,7 @@ public class ApplicationController {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
         } }
 
-    @GetMapping(value = "/appName")
+    @GetMapping(value = "/apps/appName")
     public ResponseEntity queryInstancesByAppName(@RequestParam("appName") String appName){
         try {
             List<InstanceInfo>infos=applicationService.queryByAppName(appName);
@@ -75,7 +82,7 @@ public class ApplicationController {
         }
     }
 
-    @GetMapping(value = "/visible")
+    @GetMapping(value = "/apps/visible")
     public ResponseEntity queryInstancesByVisible(@RequestParam Boolean visible){
         try {
             List<InstanceInfo> infos= applicationService.queryByVisible(visible);
@@ -87,7 +94,7 @@ public class ApplicationController {
         }
     }
 
-    @GetMapping(value = "/ipAddr")
+    @GetMapping(value = "/apps/ipAddr")
     public ResponseEntity queryInstancesByIpAddr(@RequestParam String ipAddr){
         try {
             List<InstanceInfo>infos= applicationService.queryByIpAddr(ipAddr);
@@ -99,7 +106,7 @@ public class ApplicationController {
         }
     }
 
-    @GetMapping(value = "/port")
+    @GetMapping(value = "/apps/port")
     public ResponseEntity<Object> queryInstancesByPort(@RequestParam Integer port){
         try {
             List<InstanceInfo>infos= applicationService.queryByPort(port);

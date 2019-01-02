@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ApplicationService extends Serializable {
     String addApp(InstanceInfo info);
-    String deleteApp(Long instanceInfoId);
+    String deleteApp(InstanceInfo info);
     boolean publishApp(String appName);
     boolean hideApp(String appName);
     InstanceInfo updateInstance(Long instanceInfoId);
