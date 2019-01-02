@@ -1,5 +1,6 @@
 package com.kenji.cloud.web;
 
+import com.kenji.cloud.entity.User;
 import com.kenji.cloud.service.UserService;
 import com.kenji.cloud.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,16 +32,17 @@ public class UserController {
         return ResponseEntity.status(204).body("删除成功!!!!");
     }
 
-    /*@PutMapping("/id")
-    public ResponseEntity<User> updateUser(@RequestBody User user) {
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateUser(@RequestBody User user) {
         userService.updateUser(user);
-        return ResponseEntity.status(200).body(user);
-    }*/
+        return ResponseEntity.status(201).body("修改成功！！！");
+    }
 
-    /*@GetMapping("/{id}")
-    public ResponseEntity<User> getUserByUsername(@PathVariable Long id) {
-        return ResponseEntity.status(200).body(userService.findById(id));
-    }*/
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable Long id) {
+        User user = userService.findById(id);
+        return ResponseEntity.status(200).body(user);
+    }
 
     /*@GetMapping()
     public ResponseEntity<List<User>> getUsersByCondition(@RequestBody User user) {

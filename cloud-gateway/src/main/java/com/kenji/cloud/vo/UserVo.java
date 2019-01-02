@@ -8,5 +8,4 @@ public class UserVo{
     private User user;
     private Long operatorId;
     private Long[] roleIds;
-
 }
