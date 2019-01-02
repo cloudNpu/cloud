@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.mortbay.jetty:jetty:6.1H.22">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mortbay.jetty/jetty/6.1H.22/bedb2e1faea1289fd7b4801b25209445096357a2/jetty-6.1H.22.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mortbay.jetty/jetty/6.1H.22/888724b1dd63dae3a324e947afe44ee04c531621/jetty-6.1H.22-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
