@@ -26,9 +26,10 @@ public class UserServiceImpl implements UserService {
     private SysLogRepository sysLogRepository;
     private AppLogRepository appLogRepository;
     private InstanceInfoRepository instanceInfoRepository;
+    private DeptRepository deptRepository;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, UserRoleService userRoleService, UserRoleRepository userRoleRepository, UserAppRepository userAppRepository, SysLogRepository sysLogRepository, AppLogRepository appLogRepository, InstanceInfoRepository instanceInfoRepository) {
+    public UserServiceImpl(UserRepository userRepository, UserRoleService userRoleService, UserRoleRepository userRoleRepository, UserAppRepository userAppRepository, SysLogRepository sysLogRepository, AppLogRepository appLogRepository, InstanceInfoRepository instanceInfoRepository, DeptRepository deptRepository) {
         this.userRepository = userRepository;
         this.userRoleService = userRoleService;
         this.userRoleRepository = userRoleRepository;
@@ -36,7 +37,9 @@ public class UserServiceImpl implements UserService {
         this.sysLogRepository = sysLogRepository;
         this.appLogRepository = appLogRepository;
         this.instanceInfoRepository = instanceInfoRepository;
+        this.deptRepository = deptRepository;
     }
+
 
     @Transactional
     @Override
@@ -63,12 +66,6 @@ public class UserServiceImpl implements UserService {
 //        BeanUtils.copyProperties(user.getDept(),dept);
 //        user.setDept(user.getDept());
         return user;
-    }
-
-    @Override
-    public String findPasswordByUsername(String username) {
-        User user = userRepository.findByUsername(username);
-        return user.getPassword();
     }
 
     @Override
