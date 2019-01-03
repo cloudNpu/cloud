@@ -141,8 +141,7 @@ create table `INSTANCEINFO` (
 	`INVOKECOUNT` bigint(20) comment '调用次数',
 	primary key (`ID`),
 	constraint `INSTANCEINFO_USERID` foreign key (`USERID`) references `USER` (`ID`),
-	constraint `INSTANCEINFO_LEASEINFOID` foreign key (`LEASEINFOID`) references `LEASEINFO` (`ID`),
-	unique key `INSTANCEINFO_APPNAME` (`APPNAME`)
+	constraint `INSTANCEINFO_LEASEINFOID` foreign key (`LEASEINFOID`) references `LEASEINFO` (`ID`)
 )ENGINE=InnoDB default CHARSET=utf8 comment '服务实例信息表';
 
 DROP TABLE IF EXISTS `USER_APP`;
