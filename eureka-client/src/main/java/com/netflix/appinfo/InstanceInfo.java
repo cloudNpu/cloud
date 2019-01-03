@@ -368,7 +368,7 @@ public class InstanceInfo {
     @JsonCreator
     public InstanceInfo(
             @JsonProperty("instanceId") String instanceId,
-            @JsonProperty("app") String appName,
+            @JsonProperty("appName") String appName,
             @JsonProperty("appGroupName") String appGroupName,
             @JsonProperty("ipAddr") String ipAddr,
             @JsonProperty("sid") String sid,
@@ -1102,7 +1102,7 @@ public class InstanceInfo {
      *
      * @return the string denoting the application name.
      */
-    @JsonProperty("app")
+    @JsonProperty("appName")
     public String getAppName() {
         return appName;
     }

@@ -17,8 +17,21 @@ public class ApplicationController {
     @Autowired
     ApplicationService applicationService;
 
-    @RequestMapping(value = "/apps/appName",method= RequestMethod.PUT)                //服务发布
-    public ResponseEntity<String> publishApp(@RequestParam("pName") String appName) {
+    @RequestMapping(value = "/apps/appName",method= RequestMethod.PUT)
+    public ResponseEntity<String> publishApp1(@RequestParam("appName") String appName,@RequestParam("isPublished") String isPublished ){
+        if(isPublished.equals("true")){
+            return  publishApp(appName);
+        }
+        if (isPublished.equals("false")){
+           return  hideApp(appName);
+        }
+return ResponseEntity.status(HttpStatus.FORBIDDEN).body("输入格式错误");
+    }
+
+
+
+    //服务发布
+    public ResponseEntity<String> publishApp( String appName) {
         try {
             if(applicationService.publishApp(appName))
             return ResponseEntity.ok("服务发布成功");
@@ -28,9 +41,8 @@ public class ApplicationController {
         }
     }
 
-
-    @RequestMapping(value = "/apps1/appName",method=RequestMethod.PUT)                //服务撤回
-    public ResponseEntity hideApp(@RequestParam("hName") String appName)
+              //服务撤回
+    public ResponseEntity<String> hideApp(String appName)
     {try {
         if(applicationService.hideApp(appName))
         return ResponseEntity.ok("服务撤回成功");
@@ -39,21 +51,6 @@ public class ApplicationController {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body("撤回失败");
     }
     }
-
-    @RequestMapping(value = "/apps/instanceInfoId",method = RequestMethod.PUT)    //服务更新
-    public ResponseEntity updateInstance1(@RequestParam("instanceInfoId")Long instanceInfoId, @RequestBody com.netflix.appinfo.InstanceInfo instanceInfo){
-        try {
-            if (instanceInfoId.equals(instanceInfo.getInstanceId())){
-                InstanceInfo info=new InstanceInfo();
-                BeanUtils.copyProperties(instanceInfo,info );
-                applicationService.addApp(info);
-
-            }return ResponseEntity.ok("更新成功");
-        }catch (Exception e){
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("目标不存在");
-        }
-    }
-
 
 
 

@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1af3c7f0-1aee-408a-847b-34166ef4a65e" name="Default Changelist" comment="服务管理">
-      <change afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/util/InstanceInfoAdapter.java" afterDir="false" />
+    <list default="true" id="1af3c7f0-1aee-408a-847b-34166ef4a65e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/ApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/ApplicationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/ApplicationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/ApplicationServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/InstanceResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/InstanceResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/ApplicationServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/ApplicationServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/DataCenterInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/DataCenterInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -73,36 +67,39 @@
     <session id="-1420487327">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.47" value="1" />
           <entry key="project.open.time.81" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="33" />
+          <entry key="java" value="44" />
           <entry key="yml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="33" />
+          <entry key="JAVA" value="44" />
           <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="ft" value="111" />
-          <entry key="java" value="2361" />
+          <entry key="java" value="3275" />
+          <entry key="txt" value="19" />
           <entry key="yml" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2361" />
+          <entry key="JAVA" value="3275" />
+          <entry key="PLAIN_TEXT" value="19" />
           <entry key="VTL" value="111" />
           <entry key="YAML" value="7" />
         </counts>
@@ -111,11 +108,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/InstanceResource.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="293" column="21" lean-forward="true" selection-start-line="293" selection-start-column="21" selection-end-line="293" selection-end-column="21" />
+            <state relative-caret-position="198">
+              <caret line="15" column="59" selection-start-line="11" selection-end-line="525" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="101">
+              <caret line="1101" column="6" selection-start-line="1101" selection-start-column="6" selection-end-line="1101" selection-end-column="6" />
+              <folding>
+                <element signature="e#3628#3629#0" expanded="true" />
+                <element signature="e#3657#3658#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -123,8 +133,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/ApplicationServiceImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="68" column="35" lean-forward="true" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="35" />
+            <state relative-caret-position="310">
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -144,14 +154,57 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-88">
-              <caret line="50" column="24" lean-forward="true" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
+            <state relative-caret-position="440">
+              <caret line="66" column="20" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="200" column="9" lean-forward="true" selection-start-line="200" selection-start-column="9" selection-end-line="200" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#8912#8913#0" expanded="true" />
+                <element signature="e#8942#8943#0" expanded="true" />
+                <element signature="e#8985#8986#0" expanded="true" />
+                <element signature="e#9036#9037#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eureka-core/src/main/java/com/netflix/eureka/registry/PeerAwareInstanceRegistryImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-718">
+              <caret line="92" column="37" lean-forward="true" selection-start-line="92" selection-start-column="37" selection-end-line="92" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eureka-core/src/main/java/com/netflix/eureka/registry/AbstractInstanceRegistry.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="241" column="40" lean-forward="true" selection-start-line="241" selection-start-column="40" selection-end-line="241" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/MenuController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="48" column="15" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="86" />
             </state>
           </provider>
         </entry>
@@ -179,7 +232,6 @@
       <find>datace</find>
       <find>ipaddr</find>
       <find>getappname</find>
-      <find>appName</find>
       <find>app</find>
       <find>getdatacenter</find>
       <find>inputparams</find>
@@ -191,6 +243,8 @@
       <find>getDataCenterInfo</find>
       <find>setappname</find>
       <find>appname</find>
+      <find>registry</find>
+      <find>appName</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -8583,14 +8637,14 @@
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/ApplicationService.java" />
         <option value="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/providers/DataCenterInfoImpl.java" />
         <option value="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/DataCenterInfo.java" />
-        <option value="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/ApplicationServiceImplTest.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/util/InstanceInfoAdapter.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/ApplicationServiceImpl.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/InstanceResource.java" />
+        <option value="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/ApplicationServiceImplTest.java" />
+        <option value="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java" />
+        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java" />
+        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java" />
       </list>
     </option>
   </component>
@@ -8662,6 +8716,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -8752,6 +8808,27 @@
               <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="netflix" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="netflix" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
@@ -8792,13 +8869,56 @@
               <item name="service" type="462c0819:PsiDirectoryNode" />
               <item name="impl" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="eureka-core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="eureka-core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="eureka-core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="eureka-core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="eureka-core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="eureka" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="eureka-core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="eureka" type="462c0819:PsiDirectoryNode" />
+              <item name="registry" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -8809,7 +8929,7 @@
     <property name="SearchEverywhereHistoryKey" value="JsonProperty&#9;PSI&#9;JAVA://com.fasterxml.jackson.annotation.JsonProperty" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546430825905" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546480054683" />
     <property name="dynamic.classpath" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -8936,8 +9056,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ApplicationServiceImplTest.delete" />
         <item itemvalue="JUnit.ApplicationServiceImplTest.save" />
+        <item itemvalue="JUnit.ApplicationServiceImplTest.delete" />
         <item itemvalue="JavaScript Debug.服务注册.html" />
         <item itemvalue="JUnit.ApplicationServiceImplTest.hideApp" />
       </list>
@@ -8962,7 +9082,8 @@
       <workItem from="1546339126344" duration="346000" />
       <workItem from="1546339490469" duration="1170000" />
       <workItem from="1546340990267" duration="29507000" />
-      <workItem from="1546415449394" duration="10520000" />
+      <workItem from="1546415449394" duration="11477000" />
+      <workItem from="1546431876595" duration="7769000" />
     </task>
     <task id="LOCAL-00001" summary="张书玮">
       <created>1546064464696</created>
@@ -8992,25 +9113,17 @@
       <option name="project" value="LOCAL" />
       <updated>1546099093257</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="服务管理freezingSword">
+      <created>1546430861760</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1546430861760</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ApplicationServiceImplTest_save - 2019.01.02 at 10h 31m 56s.xml">
-      <configuration name="ApplicationServiceImplTest.save" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ApplicationServiceImplTest_save - 2019.01.02 at 10h 35m 45s.xml">
-      <configuration name="ApplicationServiceImplTest.save" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ApplicationServiceImplTest_save - 2019.01.02 at 11h 13m 17s.xml">
-      <configuration name="ApplicationServiceImplTest.save" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ApplicationServiceImplTest_save - 2019.01.02 at 11h 16m 22s.xml">
-      <configuration name="ApplicationServiceImplTest.save" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ApplicationServiceImplTest_save - 2019.01.02 at 11h 17m 43s.xml">
-      <configuration name="ApplicationServiceImplTest.save" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ApplicationServiceImplTest_save - 2019.01.02 at 11h 18m 35s.xml">
       <configuration name="ApplicationServiceImplTest.save" configurationId="JUnit" />
     </history-entry>
@@ -9026,9 +9139,24 @@
     <history-entry file="ApplicationServiceImplTest_delete - 2019.01.02 at 19h 23m 59s.xml">
       <configuration name="ApplicationServiceImplTest.delete" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ApplicationServiceImplTest_save - 2019.01.02 at 20h 13m 17s.xml">
+      <configuration name="ApplicationServiceImplTest.save" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationServiceImplTest_save - 2019.01.02 at 20h 19m 36s.xml">
+      <configuration name="ApplicationServiceImplTest.save" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationServiceImplTest_save - 2019.01.02 at 20h 20m 31s.xml">
+      <configuration name="ApplicationServiceImplTest.save" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationServiceImplTest_save - 2019.01.02 at 20h 22m 40s.xml">
+      <configuration name="ApplicationServiceImplTest.save" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationServiceImplTest_save - 2019.01.02 at 20h 29m 35s.xml">
+      <configuration name="ApplicationServiceImplTest.save" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62591000" />
+    <option name="totallyTimeSpent" value="71317000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -9043,7 +9171,7 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4982699" visible="true" weight="0.2889126" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4982699" visible="true" weight="0.29211086" />
       <window_info id="Structure" order="1" sideWeight="0.5017301" side_tool="true" weight="0.2889126" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -9053,7 +9181,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49837488" visible="true" weight="0.32328483" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49837488" visible="true" weight="0.32328483" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991684" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -9117,7 +9245,35 @@
     <MESSAGE value="张书玮" />
     <MESSAGE value="张书玮恢复到放假前" />
     <MESSAGE value="服务管理" />
-    <option name="LAST_COMMIT_MESSAGE" value="服务管理" />
+    <MESSAGE value="服务管理freezingSword" />
+    <option name="LAST_COMMIT_MESSAGE" value="服务管理freezingSword" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/eureka-core/src/main/java/com/netflix/eureka/registry/AbstractInstanceRegistry.java</url>
+          <line>193</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="register" language="JAVA" />
+        <watch expression="registry" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>register</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/UserRepository.java">
@@ -9458,20 +9614,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/AdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/MenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="39" column="7" lean-forward="true" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://F:/Java/src.zip!/java/util/Map.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -9486,13 +9628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="37" column="78" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/providers/DataCenterInfoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -9504,10 +9639,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
           <caret line="52" column="40" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
-          <folding>
-            <element signature="e#2124#2125#0" expanded="true" />
-            <element signature="e#2165#2166#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -9529,17 +9660,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="1108" lean-forward="true" selection-start-line="1108" selection-end-line="1108" />
-          <folding>
-            <element signature="e#3628#3629#0" expanded="true" />
-            <element signature="e#3657#3658#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -9571,10 +9691,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/InstanceResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="293" column="21" selection-start-line="293" selection-start-column="21" selection-end-line="293" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="27" column="42" lean-forward="true" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="21" column="83" selection-start-line="21" selection-start-column="83" selection-end-line="21" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="48" column="15" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/util/InstanceInfoAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="10" selection-end-column="24" />
+        <state>
+          <caret selection-end-line="14" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -9583,37 +9731,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="444" lean-forward="true" selection-start-line="444" selection-end-line="455" selection-end-column="7" />
+        <state relative-caret-position="198">
+          <caret line="15" column="59" selection-start-line="11" selection-end-line="525" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/ApplicationServiceImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="68" column="35" lean-forward="true" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="35" />
+        <state relative-caret-position="310">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java">
+    <entry file="file://$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-88">
-          <caret line="50" column="24" lean-forward="true" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
+        <state relative-caret-position="101">
+          <caret line="1101" column="6" selection-start-line="1101" selection-start-column="6" selection-end-line="1101" selection-end-column="6" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="164" column="27" selection-start-line="164" selection-start-column="27" selection-end-line="164" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#3628#3629#0" expanded="true" />
+            <element signature="e#3657#3658#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -9628,10 +9767,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/InstanceResource.java">
+    <entry file="file://$PROJECT_DIR$/eureka-core/src/main/java/com/netflix/eureka/registry/PeerAwareInstanceRegistryImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="293" column="21" lean-forward="true" selection-start-line="293" selection-start-column="21" selection-end-line="293" selection-end-column="21" />
+        <state relative-caret-position="-718">
+          <caret line="92" column="37" lean-forward="true" selection-start-line="92" selection-start-column="37" selection-end-line="92" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eureka-core/src/main/java/com/netflix/eureka/registry/AbstractInstanceRegistry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="241" column="40" lean-forward="true" selection-start-line="241" selection-start-column="40" selection-end-line="241" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="200" column="9" lean-forward="true" selection-start-line="200" selection-start-column="9" selection-end-line="200" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#8912#8913#0" expanded="true" />
+            <element signature="e#8942#8943#0" expanded="true" />
+            <element signature="e#8985#8986#0" expanded="true" />
+            <element signature="e#9036#9037#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="66" column="20" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
