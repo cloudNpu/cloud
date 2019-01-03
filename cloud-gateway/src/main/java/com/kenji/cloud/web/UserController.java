@@ -2,11 +2,14 @@ package com.kenji.cloud.web;
 
 import com.kenji.cloud.entity.User;
 import com.kenji.cloud.service.UserService;
-import com.kenji.cloud.vo.UserVo;
+import com.kenji.cloud.vo.SaveUserVo;
+import com.kenji.cloud.vo.UserSearchVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.Query;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -20,21 +23,29 @@ public class UserController {
     }
 
     @PostMapping()
-    public ResponseEntity<String> saveUser(@RequestBody UserVo userVo) {
-        userService.saveUser(userVo);
+    public ResponseEntity<String> saveUser(@RequestBody SaveUserVo saveUserVo) {
+        userService.saveUser(saveUserVo);
         return ResponseEntity.status(201).body("恭喜你创建成功！！！");
     }
 
     @DeleteMapping()
     public ResponseEntity<String> deleteUserById(@RequestBody Map<String, Long[]> params) {
-        Long[] ids = params.get("ids");
-        userService.deleteUsers(ids);
+        try {
+            Long[] ids = params.get("ids");
+            userService.deleteUsers(ids);
+        } catch (Exception e) {
+            return ResponseEntity.status(400).body("删除用户失败"+e);
+        }
         return ResponseEntity.status(204).body("删除成功!!!!");
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<String> updateUser(@RequestBody User user) {
-        userService.updateUser(user);
+        try {
+            userService.updateUser(user);
+        } catch (Exception e) {
+            return ResponseEntity.status(400).body("更新用户失败"+e);
+        }
         return ResponseEntity.status(201).body("修改成功！！！");
     }
 
@@ -44,12 +55,11 @@ public class UserController {
         return ResponseEntity.status(200).body(user);
     }
 
-    /*@GetMapping()
-    public ResponseEntity<List<User>> getUsersByCondition(@RequestBody User user) {
-        List<User> list = userService.findSearch(user);
+    @GetMapping()
+    public ResponseEntity<List<User>> getUsersByCondition(@RequestBody UserSearchVo userSearchVo) {
+        List<User> list = userService.findSearch(userSearchVo);
         return ResponseEntity.status(200).body(list);
     }
-*/
 
 
 }
