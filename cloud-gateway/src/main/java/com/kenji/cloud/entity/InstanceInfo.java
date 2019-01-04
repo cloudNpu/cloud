@@ -13,10 +13,10 @@ import java.util.Map;
 
 @Entity
 @Table(name = "INSTANCEINFO")
-public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
+public class InstanceInfo{
 
-    public InstanceInfo(String instanceId, String appName, String appGroupName, String ipAddr, String sid, PortWrapper port, PortWrapper securePort, String homePageUrl, String statusPageUrl, String healthCheckUrl, String secureHealthCheckUrl, String vipAddress, String secureVipAddress, int countryId, DataCenterInfo dataCenterInfo, String hostName, InstanceStatus status, InstanceStatus overriddenStatus, InstanceStatus overriddenStatusAlt, com.netflix.appinfo.LeaseInfo leaseInfo, Boolean isCoordinatingDiscoveryServer, HashMap<String, String> metadata, Long lastUpdatedTimestamp, Long lastDirtyTimestamp, ActionType actionType, String asgName, boolean visible, String inputParams, String outputParams, String complexType, String method, String invokeCount) {
-        super(instanceId, appName, appGroupName, ipAddr, sid, port, securePort, homePageUrl, statusPageUrl, healthCheckUrl, secureHealthCheckUrl, vipAddress, secureVipAddress, countryId, dataCenterInfo, hostName, status, overriddenStatus, overriddenStatusAlt, leaseInfo, isCoordinatingDiscoveryServer, metadata, lastUpdatedTimestamp, lastDirtyTimestamp, actionType, asgName, visible, inputParams, outputParams, complexType, method, invokeCount);
+    public InstanceInfo(String instanceId, String appName, String appGroupName, String ipAddr, String sid, com.netflix.appinfo.InstanceInfo.PortWrapper port, com.netflix.appinfo.InstanceInfo.PortWrapper securePort, String homePageUrl, String statusPageUrl, String healthCheckUrl, String secureHealthCheckUrl, String vipAddress, String secureVipAddress, int countryId, DataCenterInfo dataCenterInfo, String hostName, com.netflix.appinfo.InstanceInfo.InstanceStatus status, com.netflix.appinfo.InstanceInfo.InstanceStatus overriddenStatus, com.netflix.appinfo.InstanceInfo.InstanceStatus overriddenStatusAlt, com.netflix.appinfo.LeaseInfo leaseInfo, Boolean isCoordinatingDiscoveryServer, HashMap<String, String> metadata, Long lastUpdatedTimestamp, Long lastDirtyTimestamp, com.netflix.appinfo.InstanceInfo.ActionType actionType, String asgName, boolean visible, String inputParams, String outputParams, String complexType, String method, String invokeCount) {
+
     }
 
     public InstanceInfo(){
@@ -56,6 +56,9 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
     private static final String SID_DEFAULT = "na";
     @Column(name = "SID")
     private volatile String sid = SID_DEFAULT;
+
+    public static final int DEFAULT_PORT = 7001;
+    public static final int DEFAULT_SECURE_PORT = 7002;
     @Column(name = "PORT")
     private volatile int port = DEFAULT_PORT;
     @Column(name = "SECUREPORT")
@@ -87,6 +90,8 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
     private String secureVipAddressUnresolved;
     @Column(name = "HEALTHCHECKEXPLICITURL")
     private String healthCheckExplicitUrl;
+
+    public static final int DEFAULT_COUNTRY_ID = 1;
     @Column(name = "COUNTRYID")
     private volatile int countryId = DEFAULT_COUNTRY_ID; // Defaults to US
     @Column(name = "ISSECUREPORTENABLED")
@@ -135,27 +140,27 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         this.user = user;
     }
 
-    @Override
+
     public String getInstanceId() {
         return instanceId;
     }
 
 
 
-    @Override
+
     public String getAppName() {
         return appName;
     }
 
 
 
-    @Override
+
     public String getAppGroupName() {
         return appGroupName;
     }
 
 
-    @Override
+
     public LeaseInfo getLeaseInfo() {
         return leaseInfo;
     }
@@ -196,7 +201,7 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         this.sid = sid;
     }
 
-    @Override
+
     public int getPort() {
         return port;
     }
@@ -205,7 +210,7 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         this.port = port;
     }
 
-    @Override
+
     public int getSecurePort() {
         return securePort;
     }
@@ -214,7 +219,7 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         this.securePort = securePort;
     }
 
-    @Override
+
     public String getHomePageUrl() {
         return homePageUrl;
     }
@@ -223,7 +228,7 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         this.homePageUrl = homePageUrl;
     }
 
-    @Override
+
     public String getStatusPageUrl() {
         return statusPageUrl;
     }
@@ -232,7 +237,7 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         this.statusPageUrl = statusPageUrl;
     }
 
-    @Override
+
     public String getHealthCheckUrl() {
         return healthCheckUrl;
     }
@@ -241,7 +246,7 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         this.healthCheckUrl = healthCheckUrl;
     }
 
-    @Override
+
     public String getSecureHealthCheckUrl() {
         return secureHealthCheckUrl;
     }
@@ -258,7 +263,7 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         this.vipAddress = vipAddress;
     }
 
-    @Override
+
     public String getSecureVipAddress() {
         return secureVipAddress;
     }
@@ -323,7 +328,7 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         this.healthCheckExplicitUrl = healthCheckExplicitUrl;
     }
 
-    @Override
+
     public int getCountryId() {
         return countryId;
     }
@@ -348,7 +353,7 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         isUnsecurePortEnabled = unsecurePortEnabled;
     }
 
-    @Override
+
     public String getHostName() {
         return hostName;
     }
@@ -381,7 +386,7 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         this.asgName = asgName;
     }
 
-    @Override
+
     public String getVersion() {
         return version;
     }
@@ -394,74 +399,50 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         return visible;
     }
 
-    @Override
+
     public void setVisible(boolean visible) {
        this.visible = visible;
 
     }
 
-    @Override
+
     public String getInputParams() {
         return inputParams;
     }
 
-    @Override
+
     public void setInputParams(String inputParams) {
         this.inputParams = inputParams;
     }
 
-    @Override
+
     public String getOutputParams() {
         return outputParams;
     }
 
-    @Override
+
     public void setOutputParams(String outputParams) {
         this.outputParams = outputParams;
     }
 
-    @Override
+
     public String getComplexType() {
         return complexType;
     }
 
-    @Override
+
     public void setComplexType(String complexType) {
         this.complexType = complexType;
     }
 
-    @Override
+
     public String getInvokeCount() {
         return invokeCount;
     }
 
-    @Override
     public void setInvokeCount(String invokeCount) {
         this.invokeCount = invokeCount;
     }
-
-
-
-
-
-//    @Column(name = "DATACENTERINFO")
-//    public volatile DataCenterInfo dataCenterInfo;
-//
-//    @Override
-//    public DataCenterInfo getDataCenterInfo() {
-//        return dataCenterInfo;
-//    }
-//
-//    @Override
-//    public void setDataCenterInfo(DataCenterInfo dataCenterInfo) {
-//        this.dataCenterInfo = dataCenterInfo;
-//    }
-
-
-
-
-
-
 
 
 
@@ -471,57 +452,79 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
 
     @Column(name = "STATUS")
     @Enumerated(EnumType.STRING)
-    private volatile InstanceStatus status = InstanceStatus.UP;
+    private volatile com.netflix.appinfo.InstanceInfo.InstanceStatus status = com.netflix.appinfo.InstanceInfo.InstanceStatus.UP;
 
-    @Override
-    public InstanceStatus getStatus() {
+
+    public com.netflix.appinfo.InstanceInfo.InstanceStatus getStatus() {
         return status;
     }
 
-    @Override
-    public InstanceStatus setStatus(InstanceStatus status) {
+
+    public com.netflix.appinfo.InstanceInfo.InstanceStatus setStatus(com.netflix.appinfo.InstanceInfo.InstanceStatus status) {
         this.status = status;
         return null;
     }
     @Column(name = "OVERRIDDENSTATUS")
     @Enumerated(EnumType.STRING)
-       private volatile InstanceStatus overriddenStatus = InstanceStatus.UNKNOWN;
+       private volatile com.netflix.appinfo.InstanceInfo.InstanceStatus overriddenStatus = com.netflix.appinfo.InstanceInfo.InstanceStatus.UNKNOWN;
 
-    @Override
-    public InstanceStatus getOverriddenStatus() {
+
+    public com.netflix.appinfo.InstanceInfo.InstanceStatus getOverriddenStatus() {
         return overriddenStatus;
     }
 
-    @Override
-    public void setOverriddenStatus(InstanceStatus overriddenStatus) {
+
+    public void setOverriddenStatus(com.netflix.appinfo.InstanceInfo.InstanceStatus overriddenStatus) {
         this.overriddenStatus = overriddenStatus;
     }
 
     @Column(name = "ACTIONTYPE")
     @Enumerated(EnumType.STRING)
-        private volatile ActionType actionType;
+        private volatile com.netflix.appinfo.InstanceInfo.ActionType actionType;
 
-    @Override
-    public ActionType getActionType() {
+
+    public com.netflix.appinfo.InstanceInfo.ActionType getActionType() {
         return actionType;
     }
 
-    @Override
-    public void setActionType(ActionType actionType) {
+
+    public void setActionType(com.netflix.appinfo.InstanceInfo.ActionType actionType) {
         this.actionType = actionType;
     }
 
-//    @Column(name = "METADATA")
-//    private volatile Map<String, String> metadata;
+    @Column(name = "METADATA")
+    private volatile String metadata;
+
+    public String getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(String metadata) {
+        this.metadata = metadata;
+    }
+
+//    @Column(name = "DATACENTERINFO")
+//    public volatile DataCenterInfo dataCenterInfo;
 //
-//    @Override
-//    public Map<String, String> getMetadata(){
 //
-//        return metadata;
+//    public DataCenterInfo.Name getDataCenterInfo() {
+//        return dataCenterInfo.getName();
 //    }
 //
-//    @Override
-//    public void setMetadata(Map<String, String> metadata) {
-//        this.metadata = metadata;
+//
+//    public void setDataCenterInfo(DataCenterInfo dataCenterInfo) {
+//        this.dataCenterInfo = dataCenterInfo;
 //    }
+        @Column(name = "DATACENTERINFO")
+    public volatile String dataCenterInfo;
+
+
+    public String getDataCenterInfo() {
+        return dataCenterInfo;
+    }
+
+
+    public void setDataCenterInfo(DataCenterInfo dataCenterInfo) {
+        this.dataCenterInfo = dataCenterInfo.getName().toString();
+    }
 }

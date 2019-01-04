@@ -136,7 +136,7 @@ return ResponseEntity.status(HttpStatus.FORBIDDEN).body("输入格式错误");
     public ResponseEntity getAppStatus(@RequestParam("appName") String appName){
         try {
             List<InstanceInfo>infos= applicationService.queryByAppName(appName);
-            com.netflix.appinfo.InstanceInfo info = infos.get(0);
+            InstanceInfo info = infos.get(0);
             return ResponseEntity.ok(info.getStatus());
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");

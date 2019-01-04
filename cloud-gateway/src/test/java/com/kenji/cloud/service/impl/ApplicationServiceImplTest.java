@@ -42,8 +42,6 @@ public class ApplicationServiceImplTest {
         info.setAppGroupName("zsw");
         info.setPort(2233);
 
-
-
         info.setVisible(false);
         info.setSecurePort(2222);
         info.setSid("see");
