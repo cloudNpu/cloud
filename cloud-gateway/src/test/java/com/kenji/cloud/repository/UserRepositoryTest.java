@@ -1,6 +1,7 @@
 package com.kenji.cloud.repository;
 
 import com.kenji.cloud.entity.User;
+import io.jsonwebtoken.lang.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,12 @@ public class UserRepositoryTest {
         Map<String, String> conditions = new HashMap<>();
         List<User> users = userRepository.findByProperties(conditions);
         System.out.println(users);
+    }
+
+    @Test
+    public void findUserAndUserRolesById() {
+        User user = userRepository.findUserAndUserRolesById(1L);
+        Assert.notNull(user);
     }
 
 }

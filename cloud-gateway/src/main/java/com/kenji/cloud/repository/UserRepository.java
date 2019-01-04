@@ -5,13 +5,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 
 public interface UserRepository extends JpaRepository<User,Long>, JpaSpecificationExecutor<User>, UserRepositoryCustom {
+
     User findByUsername(String username);
-
-
 
     @Modifying
     @Transactional
@@ -22,4 +22,8 @@ public interface UserRepository extends JpaRepository<User,Long>, JpaSpecificati
     @Transactional
     @Query(value = "delete from user where id = ?",nativeQuery = true)
     void deleteUserById(Long id);
+
+
+    @Query("select u from User u join fetch u.userRoles ur where u.id = :id")
+    User findUserAndUserRolesById(@Param("id") Long id);
 }
