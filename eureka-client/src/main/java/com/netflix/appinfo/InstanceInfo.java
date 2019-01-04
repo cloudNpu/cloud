@@ -177,7 +177,7 @@ public class InstanceInfo {
     private volatile String invokeCount;
 
 
-    private InstanceInfo() {
+    public InstanceInfo() {
         this.metadata = new ConcurrentHashMap<String, String>();
         this.lastUpdatedTimestamp = System.currentTimeMillis();
         this.lastDirtyTimestamp = lastUpdatedTimestamp;

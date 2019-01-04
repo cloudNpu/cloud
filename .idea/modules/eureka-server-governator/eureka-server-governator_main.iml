@@ -21,8 +21,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="eureka-core_main" />
-    <orderEntry type="module" module-name="eureka-client_main" />
+    <orderEntry type="module" module-name="com.kenji.cloud-eureka-core_main" />
+    <orderEntry type="module" module-name="com.kenji.cloud-eureka-client_main" />
     <orderEntry type="library" name="Gradle: com.netflix.governator:governator:1.17.5" level="project" />
     <orderEntry type="library" name="Gradle: com.netflix.governator:governator-servlet:1.17.5" level="project" />
     <orderEntry type="library" name="Gradle: com.sun.jersey.contribs:jersey-guice:1.19.1" level="project" />

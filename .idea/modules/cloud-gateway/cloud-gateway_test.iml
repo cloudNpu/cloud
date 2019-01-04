@@ -23,8 +23,8 @@
     <orderEntry type="module" module-name="cloud-gateway_main" />
     <orderEntry type="module" module-name="spring-cloud-netflix-eureka-server_main" />
     <orderEntry type="module" module-name="eureka-server_main" />
-    <orderEntry type="module" module-name="eureka-core_main" />
-    <orderEntry type="module" module-name="eureka-client_main" />
+    <orderEntry type="module" module-name="com.kenji.cloud-eureka-core_main" />
+    <orderEntry type="module" module-name="com.kenji.cloud-eureka-client_main" />
     <orderEntry type="module" module-name="spring-cloud-netflix-ribbon_main" />
     <orderEntry type="library" name="Gradle: org.springframework.cloud:spring-cloud-config-server:2.0.2.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-web:2.0.5.RELEASE" level="project" />

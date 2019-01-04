@@ -19,7 +19,8 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         super(instanceId, appName, appGroupName, ipAddr, sid, port, securePort, homePageUrl, statusPageUrl, healthCheckUrl, secureHealthCheckUrl, vipAddress, secureVipAddress, countryId, dataCenterInfo, hostName, status, overriddenStatus, overriddenStatusAlt, leaseInfo, isCoordinatingDiscoveryServer, metadata, lastUpdatedTimestamp, lastDirtyTimestamp, actionType, asgName, visible, inputParams, outputParams, complexType, method, invokeCount);
     }
 
-    public InstanceInfo(){}
+    public InstanceInfo(){
+    }
 
 
 
