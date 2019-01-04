@@ -2,60 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73b33667-71f7-4fe9-8a5b-293636e03376" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/DefaultServerIntrospector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/PropertiesFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RestClientRibbonConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonApplicationContextInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonAutoConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonClientConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonClientConfigurationRegistrar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonClientHttpRequestFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonClientName.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonClientSpecification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonClients.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonEagerLoadProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonHttpRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonHttpResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonLoadBalancedRetryFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonLoadBalancedRetryPolicy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonLoadBalancerClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonLoadBalancerContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonStatsRecorder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/ServerIntrospector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/ServerIntrospectorProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/SpringClientFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/StaticServerList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/ZonePreferenceServerListFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/apache/HttpClientRibbonConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/apache/HttpClientStatusCodeException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/apache/HttpClientUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/apache/RetryableRibbonLoadBalancingHttpClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/apache/RibbonApacheHttpRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/apache/RibbonApacheHttpResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/apache/RibbonLoadBalancingHttpClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/okhttp/OkHttpLoadBalancingClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/okhttp/OkHttpRibbonConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/okhttp/OkHttpRibbonRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/okhttp/OkHttpRibbonResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/okhttp/OkHttpStatusCodeException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/okhttp/RetryableOkHttpLoadBalancingClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/support/AbstractLoadBalancingClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/support/ContextAwareRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/support/ResettableServletInputStreamWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/support/RibbonCommandContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/support/RibbonRequestCustomizer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/support/RibbonRetryPolicy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/cloud-gateway/cloud-gateway_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/cloud-gateway/cloud-gateway_test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/MenuServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/MenuServiceImplTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -169,7 +116,7 @@
           <entry key="ftl" value="25" />
           <entry key="gradle" value="129" />
           <entry key="java" value="1949" />
-          <entry key="txt" value="7" />
+          <entry key="txt" value="8" />
           <entry key="yml" value="28" />
         </counts>
       </usages-collector>
@@ -178,7 +125,7 @@
           <entry key="FTL" value="25" />
           <entry key="Groovy" value="129" />
           <entry key="JAVA" value="1949" />
-          <entry key="PLAIN_TEXT" value="24" />
+          <entry key="PLAIN_TEXT" value="25" />
           <entry key="YAML" value="28" />
         </counts>
       </usages-collector>
@@ -9405,7 +9352,7 @@
     <property name="SearchEverywhereHistoryKey" value="instanceinf&#9;PSI&#9;JAVA://com.netflix.appinfo.InstanceInfo&#10;setContentCompressionEnabled&#9;PSI&#9;JAVA://org.apache.http.client.config.RequestConfig.Builder#setContentCompressionEnabled&#10;CloseableHttpResponse&#9;PSI&#9;JAVA://org.apache.http.client.methods.CloseableHttpResponse&#10;setRule&#9;PSI&#9;JAVA://com.netflix.loadbalancer.BaseLoadBalancer#setRule&#10;RoundRobinRule&#9;FILE&#9;jar://C:/Users/sj/.gradle/caches/modules-2/files-2.1/com.netflix.ribbon/ribbon-loadbalancer/2.3.0/34ef50110d6f79c4ac36224560b51b0579a9bd08/ribbon-loadbalancer-2.3.0-sources.jar!/com/netflix/loadbalancer/RoundRobinRule.java&#10;IRule&#9;FILE&#9;jar://C:/Users/sj/.gradle/caches/modules-2/files-2.1/com.netflix.ribbon/ribbon-loadbalancer/2.3.0/50cdccba2c36398ca4ab7ff25e82c644fd4d0938/ribbon-loadbalancer-2.3.0.jar!/com/netflix/loadbalancer/IRule.class" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546570041325" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546570640552" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -9463,7 +9410,7 @@
       <workItem from="1545036691436" duration="242000" />
       <workItem from="1546417610049" duration="1168000" />
       <workItem from="1546418948025" duration="276000" />
-      <workItem from="1546569094868" duration="986000" />
+      <workItem from="1546569094868" duration="1361000" />
     </task>
     <task id="LOCAL-00001" summary="动态安全">
       <created>1546419048778</created>
@@ -9479,11 +9426,18 @@
       <option name="project" value="LOCAL" />
       <updated>1546419215292</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="动态安全2">
+      <created>1546570183349</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1546570183349</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136716000" />
+    <option name="totallyTimeSpent" value="137091000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -9510,7 +9464,7 @@
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32911393" />
       <window_info anchor="bottom" id="Run" order="3" weight="0.5" />
-      <window_info active="true" anchor="bottom" id="Debug" order="4" visible="true" weight="0.52689874" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.52689874" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32911393" />
@@ -9522,7 +9476,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Spring" order="14" />
       <window_info anchor="bottom" id="Database Changes" order="15" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="16" weight="0.43670887" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="16" visible="true" weight="0.43670887" />
       <window_info anchor="bottom" id="Docker" order="17" show_stripe_button="false" />
       <window_info anchor="right" id="CDI" order="0" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
@@ -9633,7 +9587,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="动态安全" />
-    <option name="LAST_COMMIT_MESSAGE" value="动态安全" />
+    <MESSAGE value="动态安全2" />
+    <option name="LAST_COMMIT_MESSAGE" value="动态安全2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
