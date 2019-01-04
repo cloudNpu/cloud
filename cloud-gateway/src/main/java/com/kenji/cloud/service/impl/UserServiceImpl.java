@@ -26,9 +26,10 @@ public class UserServiceImpl implements UserService {
     private SysLogRepository sysLogRepository;
     private AppLogRepository appLogRepository;
     private InstanceInfoRepository instanceInfoRepository;
+    private DeptRepository deptRepository;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, UserRoleService userRoleService, UserRoleRepository userRoleRepository, UserAppRepository userAppRepository, SysLogRepository sysLogRepository, AppLogRepository appLogRepository, InstanceInfoRepository instanceInfoRepository) {
+    public UserServiceImpl(UserRepository userRepository, UserRoleService userRoleService, UserRoleRepository userRoleRepository, UserAppRepository userAppRepository, SysLogRepository sysLogRepository, AppLogRepository appLogRepository, InstanceInfoRepository instanceInfoRepository, DeptRepository deptRepository) {
         this.userRepository = userRepository;
         this.userRoleService = userRoleService;
         this.userRoleRepository = userRoleRepository;
@@ -36,7 +37,9 @@ public class UserServiceImpl implements UserService {
         this.sysLogRepository = sysLogRepository;
         this.appLogRepository = appLogRepository;
         this.instanceInfoRepository = instanceInfoRepository;
+        this.deptRepository = deptRepository;
     }
+
 
     @Transactional
     @Override
@@ -63,12 +66,6 @@ public class UserServiceImpl implements UserService {
 //        BeanUtils.copyProperties(user.getDept(),dept);
 //        user.setDept(user.getDept());
         return user;
-    }
-
-    @Override
-    public String findPasswordByUsername(String username) {
-        User user = userRepository.findByUsername(username);
-        return user.getPassword();
     }
 
     @Override
@@ -148,7 +145,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void deleteUsers(Long[] ids) {
+        if (ids.length==0) return;
         for (Long id : ids) {
             //1.将所有operatorId是该用户id的记录都设为null
             //update user set operatorid=null where operatorid=id;
@@ -172,7 +171,7 @@ public class UserServiceImpl implements UserService {
 
             //3.删除主表用户记录
             //delete from user where id=id;
-            userRepository.deleteById(id);
+            userRepository.deleteUserById(id);
         }
     }
 

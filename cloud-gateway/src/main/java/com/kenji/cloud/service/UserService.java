@@ -12,8 +12,6 @@ public interface UserService {
 
     User findById(Long id);
 
-    String findPasswordByUsername(String username);
-
     List<User> findSearch(User user);
 
     void deleteUsers(Long[] ids);

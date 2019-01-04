@@ -172,6 +172,8 @@ public class InstanceInfo {
     @Auto
     private volatile String complexType;
     @Auto
+    private volatile String method;
+    @Auto
     private volatile String invokeCount;
 
 
@@ -397,6 +399,7 @@ public class InstanceInfo {
             @JsonProperty("inputParams") String inputParams,
             @JsonProperty("outputParams") String outputParams,
             @JsonProperty("complexType") String complexType,
+            @JsonProperty("method") String method,
             @JsonProperty("invokeCount") String invokeCount) {
         this.instanceId = instanceId;
         this.sid = sid;
@@ -428,6 +431,7 @@ public class InstanceInfo {
         this.inputParams = inputParams;
         this.outputParams = outputParams;
         this.complexType = complexType;
+        this.method = method;
         this.invokeCount = invokeCount;
         // ---------------------------------------------------------------
         // for compatibility
@@ -1578,7 +1582,7 @@ public class InstanceInfo {
         this.outputParams = outputParams;
     }
 
-
+    @JsonProperty("complexType")
     public String getComplexType() {
         return complexType;
     }
@@ -1587,7 +1591,16 @@ public class InstanceInfo {
         this.complexType = complexType;
     }
 
+    @JsonProperty("method")
+    public String getMethod() {
+        return method;
+    }
 
+    public void setMethod(String method) {
+        this.method = method;
+    }
+
+    @JsonProperty("invokeCount")
     public String getInvokeCount() {
         return invokeCount;
     }

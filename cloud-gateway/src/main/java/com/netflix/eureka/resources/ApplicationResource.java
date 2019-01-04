@@ -190,8 +190,7 @@ public class ApplicationResource {
 
         registry.register(info, "true".equals(isReplication));   //真正的服务注册在这，前面都是對註冊信息校验
         if (this.applicationService == null) {
-            ApplicationContext context = CloudGateway.getContext();
-            this.applicationService = (ApplicationService) context.getBean("applicationService");
+            this.applicationService = (ApplicationService) CloudGateway.getBean("applicationService");
         }
         List<com.kenji.cloud.entity.InstanceInfo> infos=applicationService.queryByAppName(info.getAppName());
         com.kenji.cloud.entity.InstanceInfo info1=new com.kenji.cloud.entity.InstanceInfo();
