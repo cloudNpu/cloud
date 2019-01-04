@@ -7,7 +7,7 @@
           <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/../../../eureka-server/src/main/webapp/WEB-INF/web.xml" />
         </descriptors>
         <webroots>
-          <root url="file://E:\IdeaProject\cloud\eureka-server\src\main\webapp" relative="/" />
+          <root url="file://F:\cloud\eureka-server\src\main\webapp" relative="/" />
         </webroots>
       </configuration>
     </facet>
@@ -16,12 +16,13 @@
     <output url="file://$MODULE_DIR$/../../../eureka-server/out/production/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../eureka-server/src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../../eureka-server/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../eureka-server/src/main/resources" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="eureka-core_main" />
-    <orderEntry type="module" module-name="eureka-client_main" />
+    <orderEntry type="module" module-name="com.kenji.cloud-eureka-core_main" />
+    <orderEntry type="module" module-name="com.kenji.cloud-eureka-client_main" />
     <orderEntry type="library" name="Gradle: com.sun.jersey:jersey-servlet:1.19.1" level="project" />
     <orderEntry type="library" name="Gradle: com.sun.jersey:jersey-server:1.19.1" level="project" />
     <orderEntry type="library" name="Gradle: org.slf4j:slf4j-log4j12:1.6.1" level="project" />

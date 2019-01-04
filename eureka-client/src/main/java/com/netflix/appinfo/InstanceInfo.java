@@ -15,6 +15,7 @@
  */
 package com.netflix.appinfo;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
@@ -97,6 +98,14 @@ public class InstanceInfo {
 
     private volatile String ipAddr;
 
+    public String getIpAddr() {
+        return ipAddr;
+    }
+
+    public void setIpAddr(String ipAddr) {
+        this.ipAddr = ipAddr;
+    }
+
     private static final String SID_DEFAULT = "na";
     @Deprecated
     private volatile String sid = SID_DEFAULT;
@@ -163,6 +172,8 @@ public class InstanceInfo {
     @Auto
     private volatile String complexType;
     @Auto
+    private volatile String method;
+    @Auto
     private volatile String invokeCount;
 
 
@@ -172,11 +183,194 @@ public class InstanceInfo {
         this.lastDirtyTimestamp = lastUpdatedTimestamp;
     }
 
+    public static String getVersionUnknown() {
+        return VERSION_UNKNOWN;
+    }
+
+    public void setInstanceId(String instanceId) {
+        this.instanceId = instanceId;
+    }
+
+    public void setAppName(String appName) {
+        this.appName = appName;
+    }
+
+    public void setAppGroupName(String appGroupName) {
+        this.appGroupName = appGroupName;
+    }
+
+    public String getSid() {
+        return sid;
+    }
+
+    public void setSid(String sid) {
+        this.sid = sid;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
+
+    public void setSecurePort(int securePort) {
+        this.securePort = securePort;
+    }
+
+    public void setHomePageUrl(String homePageUrl) {
+        this.homePageUrl = homePageUrl;
+    }
+
+    public void setStatusPageUrl(String statusPageUrl) {
+        this.statusPageUrl = statusPageUrl;
+    }
+
+    public void setHealthCheckUrl(String healthCheckUrl) {
+        this.healthCheckUrl = healthCheckUrl;
+    }
+
+    public void setSecureHealthCheckUrl(String secureHealthCheckUrl) {
+        this.secureHealthCheckUrl = secureHealthCheckUrl;
+    }
+
+    public String getVipAddress() {
+        return vipAddress;
+    }
+
+    public void setVipAddress(String vipAddress) {
+        this.vipAddress = vipAddress;
+    }
+
+    public void setSecureVipAddress(String secureVipAddress) {
+        this.secureVipAddress = secureVipAddress;
+    }
+
+    public String getStatusPageRelativeUrl() {
+        return statusPageRelativeUrl;
+    }
+
+    public void setStatusPageRelativeUrl(String statusPageRelativeUrl) {
+        this.statusPageRelativeUrl = statusPageRelativeUrl;
+    }
+
+    public String getStatusPageExplicitUrl() {
+        return statusPageExplicitUrl;
+    }
+
+    public void setStatusPageExplicitUrl(String statusPageExplicitUrl) {
+        this.statusPageExplicitUrl = statusPageExplicitUrl;
+    }
+
+    public String getHealthCheckRelativeUrl() {
+        return healthCheckRelativeUrl;
+    }
+
+    public void setHealthCheckRelativeUrl(String healthCheckRelativeUrl) {
+        this.healthCheckRelativeUrl = healthCheckRelativeUrl;
+    }
+
+    public String getHealthCheckSecureExplicitUrl() {
+        return healthCheckSecureExplicitUrl;
+    }
+
+    public void setHealthCheckSecureExplicitUrl(String healthCheckSecureExplicitUrl) {
+        this.healthCheckSecureExplicitUrl = healthCheckSecureExplicitUrl;
+    }
+
+    public String getVipAddressUnresolved() {
+        return vipAddressUnresolved;
+    }
+
+    public void setVipAddressUnresolved(String vipAddressUnresolved) {
+        this.vipAddressUnresolved = vipAddressUnresolved;
+    }
+
+    public String getSecureVipAddressUnresolved() {
+        return secureVipAddressUnresolved;
+    }
+
+    public void setSecureVipAddressUnresolved(String secureVipAddressUnresolved) {
+        this.secureVipAddressUnresolved = secureVipAddressUnresolved;
+    }
+
+    public String getHealthCheckExplicitUrl() {
+        return healthCheckExplicitUrl;
+    }
+
+    public void setHealthCheckExplicitUrl(String healthCheckExplicitUrl) {
+        this.healthCheckExplicitUrl = healthCheckExplicitUrl;
+    }
+
+    public void setCountryId(int countryId) {
+        this.countryId = countryId;
+    }
+
+    public boolean isSecurePortEnabled() {
+        return isSecurePortEnabled;
+    }
+
+    public void setSecurePortEnabled(boolean securePortEnabled) {
+        isSecurePortEnabled = securePortEnabled;
+    }
+
+    public boolean isUnsecurePortEnabled() {
+        return isUnsecurePortEnabled;
+    }
+
+    public void setUnsecurePortEnabled(boolean unsecurePortEnabled) {
+        isUnsecurePortEnabled = unsecurePortEnabled;
+    }
+
+    public void setDataCenterInfo(DataCenterInfo dataCenterInfo) {
+        this.dataCenterInfo = dataCenterInfo;
+    }
+
+    public void setHostName(String hostName) {
+        this.hostName = hostName;
+    }
+
+    public boolean isInstanceInfoDirty() {
+        return isInstanceInfoDirty;
+    }
+
+    public void setInstanceInfoDirty(boolean instanceInfoDirty) {
+        isInstanceInfoDirty = instanceInfoDirty;
+    }
+
+    public Boolean getCoordinatingDiscoveryServer() {
+        return isCoordinatingDiscoveryServer;
+    }
+
+    public void setCoordinatingDiscoveryServer(Boolean coordinatingDiscoveryServer) {
+        isCoordinatingDiscoveryServer = coordinatingDiscoveryServer;
+    }
+
+    public void setMetadata(Map<String, String> metadata) {
+        this.metadata = metadata;
+    }
+
+    public void setLastUpdatedTimestamp(Long lastUpdatedTimestamp) {
+        this.lastUpdatedTimestamp = lastUpdatedTimestamp;
+    }
+
+    public String getAsgName() {
+        return asgName;
+    }
+
+    public void setAsgName(String asgName) {
+        this.asgName = asgName;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
 
     @JsonCreator
     public InstanceInfo(
             @JsonProperty("instanceId") String instanceId,
-            @JsonProperty("app") String appName,
+            @JsonProperty("appName") String appName,
             @JsonProperty("appGroupName") String appGroupName,
             @JsonProperty("ipAddr") String ipAddr,
             @JsonProperty("sid") String sid,
@@ -201,10 +395,11 @@ public class InstanceInfo {
             @JsonProperty("lastDirtyTimestamp") Long lastDirtyTimestamp,
             @JsonProperty("actionType") ActionType actionType,
             @JsonProperty("asgName") String asgName,
-            @JsonProperty("asgName") boolean visible,
+            @JsonProperty("visible") boolean visible,
             @JsonProperty("inputParams") String inputParams,
             @JsonProperty("outputParams") String outputParams,
             @JsonProperty("complexType") String complexType,
+            @JsonProperty("method") String method,
             @JsonProperty("invokeCount") String invokeCount) {
         this.instanceId = instanceId;
         this.sid = sid;
@@ -236,6 +431,7 @@ public class InstanceInfo {
         this.inputParams = inputParams;
         this.outputParams = outputParams;
         this.complexType = complexType;
+        this.method = method;
         this.invokeCount = invokeCount;
         // ---------------------------------------------------------------
         // for compatibility
@@ -332,7 +528,7 @@ public class InstanceInfo {
     }
 
 
-    public enum InstanceStatus {
+    public enum InstanceStatus{
         UP, // Ready to receive traffic
         DOWN, // Do not send traffic- healthcheck callback failed
         STARTING, // Just about starting- initializations to be done - do not
@@ -910,7 +1106,7 @@ public class InstanceInfo {
      *
      * @return the string denoting the application name.
      */
-    @JsonProperty("app")
+    @JsonProperty("appName")
     public String getAppName() {
         return appName;
     }
@@ -1017,6 +1213,7 @@ public class InstanceInfo {
     public DataCenterInfo getDataCenterInfo() {
         return dataCenterInfo;
     }
+
 
     /**
      * Returns the lease information regarding when it expires.
@@ -1385,7 +1582,7 @@ public class InstanceInfo {
         this.outputParams = outputParams;
     }
 
-
+    @JsonProperty("complexType")
     public String getComplexType() {
         return complexType;
     }
@@ -1394,7 +1591,16 @@ public class InstanceInfo {
         this.complexType = complexType;
     }
 
+    @JsonProperty("method")
+    public String getMethod() {
+        return method;
+    }
 
+    public void setMethod(String method) {
+        this.method = method;
+    }
+
+    @JsonProperty("invokeCount")
     public String getInvokeCount() {
         return invokeCount;
     }
@@ -1403,7 +1609,7 @@ public class InstanceInfo {
         this.invokeCount = invokeCount;
     }
 
-    public enum ActionType {
+    public enum ActionType{
         ADDED, // Added in the discovery server
         MODIFIED, // Changed in the discovery server
         DELETED
@@ -1435,7 +1641,7 @@ public class InstanceInfo {
         String instanceZone = ((availZones == null || availZones.length == 0) ? "default"
                 : availZones[0]);
         if (myInfo != null
-                && myInfo.getDataCenterInfo().getName() == DataCenterInfo.Name.Amazon) {
+                && myInfo.getDataCenterInfo().getName()== DataCenterInfo.Name.Amazon) {
 
             String awsInstanceZone = ((AmazonInfo) myInfo.getDataCenterInfo())
                     .get(AmazonInfo.MetaDataKey.availabilityZone);

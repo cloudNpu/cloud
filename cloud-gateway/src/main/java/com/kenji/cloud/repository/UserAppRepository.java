@@ -22,4 +22,5 @@ public interface UserAppRepository extends JpaRepository<UserApp, Long> {
     @Transactional
     @Query(value = "delete from user_app where USERID=?",nativeQuery = true)
     int deleteByUserId(Long id);
+
 }
