@@ -7,10 +7,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 
-
-public interface UserRepository extends JpaRepository<User,Long>, JpaSpecificationExecutor<User> {
+public interface UserRepository extends JpaRepository<User,Long>, JpaSpecificationExecutor<User>, UserRepositoryCustom {
     User findByUsername(String username);
 
 
@@ -30,4 +28,8 @@ public interface UserRepository extends JpaRepository<User,Long>, JpaSpecificati
  */
     @Query("select u from User u join fetch u.userRoles userRoles join fetch userRoles.role where u.username=?1")
     User findByUsername2(String username);
+
+
+    @Query("select u from User u join fetch u.userRoles ur where u.id = :id")
+    User findUserAndUserRolesById(@Param("id") Long id);
 }

@@ -1,9 +1,11 @@
 package com.kenji.cloud.repository;
 
+import com.kenji.cloud.entity.Role;
 import com.kenji.cloud.entity.UserRole;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -23,4 +25,8 @@ public interface UserRoleRepository extends JpaRepository<UserRole, Long> {
     @Transactional
     @Query(value = "select roleid from user_role where userid=?",nativeQuery = true)
     Long[] getRoleIdsByUserID(Long userId);
+
+
+    @Query("select ur from UserRole ur join fetch ur.role where ur.id = :id")
+    UserRole findUserRoleAndRoleById(@Param("id") Long id);
 }
