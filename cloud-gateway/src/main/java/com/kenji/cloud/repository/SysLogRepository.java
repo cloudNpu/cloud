@@ -15,4 +15,5 @@ public interface SysLogRepository extends JpaRepository<SysLog,Long> {
     @Transactional
     @Query(value = "delete from syslog where USERID=?",nativeQuery = true)
     int deleteByUserId(Long id);
+
 }
