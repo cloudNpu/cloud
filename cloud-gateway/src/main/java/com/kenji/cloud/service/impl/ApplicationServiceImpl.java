@@ -68,11 +68,6 @@ public class ApplicationServiceImpl implements ApplicationService {
         return true;
     }
 
-    @Override
-    public InstanceInfo updateInstance(Long instanceInfoId) {
-        Optional<InstanceInfo> info=instanceInfoRepository.findById(instanceInfoId);
-        return info.get();
-    }
 
     @Override
     public InstanceInfo queryInstance(Long instanceInfoId) {
@@ -97,7 +92,7 @@ public class ApplicationServiceImpl implements ApplicationService {
         List<InstanceInfo> infos=instanceInfoRepository.findAll();
         List<InstanceInfo> res=new ArrayList<>();
         for (int i=0;i<infos.size();++i){
-            if (infos.get(i).getVisible()==(visible))
+            if (infos.get(i).getVisible()!=(visible))
                 res.add(infos.get(i));
 
         }

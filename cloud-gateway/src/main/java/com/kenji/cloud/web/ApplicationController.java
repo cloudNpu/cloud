@@ -2,12 +2,16 @@ package com.kenji.cloud.web;
 
 import com.kenji.cloud.entity.InstanceInfo;
 import com.kenji.cloud.service.ApplicationService;
+import com.netflix.eureka.EurekaServerContext;
+import com.netflix.eureka.cluster.PeerEurekaNode;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.inject.Inject;
+import javax.ws.rs.HeaderParam;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +20,25 @@ public class ApplicationController {
 
     @Autowired
     ApplicationService applicationService;
+    @Inject
+    private EurekaServerContext eurekaServerContext;
+
+    @RequestMapping(value = "/instanceInfoIds",method = RequestMethod.DELETE)
+    public ResponseEntity<String> deleteInstances(@RequestParam("instanceInfoId") Long[] instanceInfoId, @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication){
+        try {
+            for (int i=0;i<instanceInfoId.length;++i){
+                com.kenji.cloud.entity.InstanceInfo res=applicationService.queryInstance(instanceInfoId[i]);
+                applicationService.deleteApp(res);
+                eurekaServerContext.getRegistry().cancel(res.getAppName(), res.getInstanceId(),false);
+            }
+            return ResponseEntity.ok("服务注销成功");
+
+
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("服务注销失败");
+        }
+
+    }
 
     @RequestMapping(value = "/apps/appName",method= RequestMethod.PUT)
     public ResponseEntity<String> publishApp1(@RequestParam("appName") String appName,@RequestParam("isPublished") String isPublished ){
@@ -71,45 +94,38 @@ return ResponseEntity.status(HttpStatus.FORBIDDEN).body("输入格式错误");
     public ResponseEntity queryInstancesByAppName(@RequestParam("appName") String appName){
         try {
             List<InstanceInfo>infos=applicationService.queryByAppName(appName);
-            List<com.netflix.appinfo.InstanceInfo> info1=new ArrayList<>();
-            BeanUtils.copyProperties(infos, info1);
-            return ResponseEntity.ok(info1);
+
+            return ResponseEntity.ok(infos);
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
         }
     }
 
     @GetMapping(value = "/apps/visible")
-    public ResponseEntity queryInstancesByVisible(@RequestParam Boolean visible){
+    public ResponseEntity queryInstancesByVisible(@RequestParam("visible") Boolean visible){
         try {
             List<InstanceInfo> infos= applicationService.queryByVisible(visible);
-            List<com.netflix.appinfo.InstanceInfo> info1=new ArrayList<>();
-            BeanUtils.copyProperties(infos, info1);
-            return ResponseEntity.ok(info1);
+            return ResponseEntity.ok(infos);
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
         }
     }
 
     @GetMapping(value = "/apps/ipAddr")
-    public ResponseEntity queryInstancesByIpAddr(@RequestParam String ipAddr){
+    public ResponseEntity queryInstancesByIpAddr(@RequestParam("ipAddr") String ipAddr){
         try {
             List<InstanceInfo>infos= applicationService.queryByIpAddr(ipAddr);
-            List<com.netflix.appinfo.InstanceInfo> info1=new ArrayList<>();
-            BeanUtils.copyProperties(infos, info1);
-            return ResponseEntity.ok(info1);
+            return ResponseEntity.ok(infos);
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
         }
     }
 
     @GetMapping(value = "/apps/port")
-    public ResponseEntity<Object> queryInstancesByPort(@RequestParam Integer port){
+    public ResponseEntity<Object> queryInstancesByPort(@RequestParam("port") Integer port){
         try {
             List<InstanceInfo>infos= applicationService.queryByPort(port);
-            List<com.netflix.appinfo.InstanceInfo> info1=new ArrayList<>();
-            BeanUtils.copyProperties(infos, info1);
-            return ResponseEntity.ok(info1);
+            return ResponseEntity.ok(infos);
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
         }
