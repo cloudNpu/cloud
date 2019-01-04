@@ -194,17 +194,13 @@ public class ApplicationResource {
         }
         List<com.kenji.cloud.entity.InstanceInfo> infos=applicationService.queryByAppName(info.getAppName());
         com.kenji.cloud.entity.InstanceInfo info1=new com.kenji.cloud.entity.InstanceInfo();
-        for (int i = 0;i<infos.size();++i){
-            if (infos.get(i).getInstanceId()==info1.getInstanceId())
-                applicationService.deleteApp(infos.get(i));
-        }
         BeanUtils.copyProperties(info, info1);
+        for (int i = 0;i<infos.size();++i){
+            if (infos.get(i).getInstanceId().equals(info1.getInstanceId())){
+                applicationService.deleteApp(infos.get(i));
+            System.out.println(infos.get(i));}
+        }
 
-
-//        for (int i=0;i<=infos.size();++i){
-//            if (info1.getAppName()==infos.get(i).getAppName() && info1.getInstanceId()==infos.get(i).getInstanceId())
-//                applicationService.deleteApp(infos.get(i));
-//        }
         applicationService.addApp(info1);
 
         return Response.status(204).build();  // 204 to be backwards compatible
