@@ -138,6 +138,7 @@ create table `INSTANCEINFO` (
 	`INPUTPARAMS` varchar(100) comment 'inputParams输入参数',
 	`OUTPUTPARAMS` varchar(100) comment 'outputParams输出参数',
 	`COMPLEXTYPE` varchar(200) comment 'complexType自定义类型',
+	`METHOD` varchar(20) not null default 'POST' comment 'complexType自定义类型',
 	`INVOKECOUNT` bigint(20) comment '调用次数',
 	primary key (`ID`),
 	constraint `INSTANCEINFO_USERID` foreign key (`USERID`) references `USER` (`ID`),
