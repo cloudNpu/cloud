@@ -519,6 +519,7 @@ public class InstanceInfo{
     public volatile String dataCenterInfo;
 
 
+
     public String getDataCenterInfo() {
         return dataCenterInfo;
     }
