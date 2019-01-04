@@ -22,6 +22,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver;
 import com.netflix.discovery.converters.jackson.DataCenterTypeInfoResolver;
 
+import java.io.Serializable;
+import java.util.Enumeration;
+
 /**
  * A simple interface for indicating which <em>datacenter</em> a particular instance belongs.
  *

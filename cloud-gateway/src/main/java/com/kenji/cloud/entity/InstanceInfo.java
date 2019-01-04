@@ -3,15 +3,21 @@ package com.kenji.cloud.entity;
 
 
 import com.netflix.appinfo.DataCenterInfo;
+import com.netflix.appinfo.providers.DataCenterInfoImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.util.HashMap;
+import java.util.Map;
 
 
 @Entity
 @Table(name = "INSTANCEINFO")
 public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
 
+    public InstanceInfo(String instanceId, String appName, String appGroupName, String ipAddr, String sid, PortWrapper port, PortWrapper securePort, String homePageUrl, String statusPageUrl, String healthCheckUrl, String secureHealthCheckUrl, String vipAddress, String secureVipAddress, int countryId, DataCenterInfo dataCenterInfo, String hostName, InstanceStatus status, InstanceStatus overriddenStatus, InstanceStatus overriddenStatusAlt, com.netflix.appinfo.LeaseInfo leaseInfo, Boolean isCoordinatingDiscoveryServer, HashMap<String, String> metadata, Long lastUpdatedTimestamp, Long lastDirtyTimestamp, ActionType actionType, String asgName, boolean visible, String inputParams, String outputParams, String complexType, String method, String invokeCount) {
+        super(instanceId, appName, appGroupName, ipAddr, sid, port, securePort, homePageUrl, statusPageUrl, healthCheckUrl, secureHealthCheckUrl, vipAddress, secureVipAddress, countryId, dataCenterInfo, hostName, status, overriddenStatus, overriddenStatusAlt, leaseInfo, isCoordinatingDiscoveryServer, metadata, lastUpdatedTimestamp, lastDirtyTimestamp, actionType, asgName, visible, inputParams, outputParams, complexType, method, invokeCount);
+    }
 
     public InstanceInfo(){}
 
@@ -383,7 +389,7 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         this.version = version;
     }
 
-    public boolean isVisible() {
+    public boolean getVisible() {
         return visible;
     }
 
@@ -432,17 +438,89 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
     public void setInvokeCount(String invokeCount) {
         this.invokeCount = invokeCount;
     }
-    //待解决
-//private volatile DataCenterInfo dataCenterInfo;
-//private volatile InstanceStatus status = InstanceStatus.UP;
-//    private volatile InstanceStatus overriddenStatus = InstanceStatus.UNKNOWN;
+
+
+
+
+
+//    @Column(name = "DATACENTERINFO")
+//    public volatile DataCenterInfo dataCenterInfo;
+//
+//    @Override
+//    public DataCenterInfo getDataCenterInfo() {
+//        return dataCenterInfo;
+//    }
+//
+//    @Override
+//    public void setDataCenterInfo(DataCenterInfo dataCenterInfo) {
+//        this.dataCenterInfo = dataCenterInfo;
+//    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @Column(name = "STATUS")
+    @Enumerated(EnumType.STRING)
+    private volatile InstanceStatus status = InstanceStatus.UP;
+
+    @Override
+    public InstanceStatus getStatus() {
+        return status;
+    }
+
+    @Override
+    public InstanceStatus setStatus(InstanceStatus status) {
+        this.status = status;
+        return null;
+    }
+    @Column(name = "OVERRIDDENSTATUS")
+    @Enumerated(EnumType.STRING)
+       private volatile InstanceStatus overriddenStatus = InstanceStatus.UNKNOWN;
+
+    @Override
+    public InstanceStatus getOverriddenStatus() {
+        return overriddenStatus;
+    }
+
+    @Override
+    public void setOverriddenStatus(InstanceStatus overriddenStatus) {
+        this.overriddenStatus = overriddenStatus;
+    }
+
+    @Column(name = "ACTIONTYPE")
+    @Enumerated(EnumType.STRING)
+        private volatile ActionType actionType;
+
+    @Override
+    public ActionType getActionType() {
+        return actionType;
+    }
+
+    @Override
+    public void setActionType(ActionType actionType) {
+        this.actionType = actionType;
+    }
+
+//    @Column(name = "METADATA")
 //    private volatile Map<String, String> metadata;
-//    private volatile ActionType actionType;
-
-//待解决
-
-
-
-
-
+//
+//    @Override
+//    public Map<String, String> getMetadata(){
+//
+//        return metadata;
+//    }
+//
+//    @Override
+//    public void setMetadata(Map<String, String> metadata) {
+//        this.metadata = metadata;
+//    }
 }

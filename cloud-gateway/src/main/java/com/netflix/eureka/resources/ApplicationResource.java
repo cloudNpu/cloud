@@ -17,6 +17,7 @@
 package com.netflix.eureka.resources;
 
 import com.kenji.cloud.CloudGateway;
+import com.kenji.cloud.repository.InstanceInfoRepository;
 import com.kenji.cloud.service.ApplicationService;
 import com.netflix.appinfo.*;
 import com.netflix.discovery.shared.Application;
@@ -34,6 +35,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,6 +43,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * A <em>jersey</em> resource that handles request related to a particular
@@ -57,6 +61,7 @@ public class ApplicationResource {
     private final EurekaServerConfig serverConfig;
     private final PeerAwareInstanceRegistry registry;
     private final ResponseCache responseCache;
+    InstanceInfoRepository instanceInfoRepository;
 
     ApplicationResource(String appName,
                         EurekaServerConfig serverConfig,
@@ -184,15 +189,23 @@ public class ApplicationResource {
         }
 
         registry.register(info, "true".equals(isReplication));   //真正的服务注册在这，前面都是對註冊信息校验
-        //在下面写jpa将instancInfo存入数据库cloud的实际语句，借助addInsance这个函数的动作，不用考虑太多，只要完成所需功能即可
         if (this.applicationService == null) {
             this.applicationService = (ApplicationService) CloudGateway.getBean("applicationService");
         }
+        List<com.kenji.cloud.entity.InstanceInfo> infos=applicationService.queryByAppName(info.getAppName());
         com.kenji.cloud.entity.InstanceInfo info1=new com.kenji.cloud.entity.InstanceInfo();
+        for (int i = 0;i<infos.size();++i){
+            if (infos.get(i).getInstanceId()==info1.getInstanceId())
+                applicationService.deleteApp(infos.get(i));
+        }
         BeanUtils.copyProperties(info, info1);
+
+
+//        for (int i=0;i<=infos.size();++i){
+//            if (info1.getAppName()==infos.get(i).getAppName() && info1.getInstanceId()==infos.get(i).getInstanceId())
+//                applicationService.deleteApp(infos.get(i));
+//        }
         applicationService.addApp(info1);
-
-
 
         return Response.status(204).build();  // 204 to be backwards compatible
     }
