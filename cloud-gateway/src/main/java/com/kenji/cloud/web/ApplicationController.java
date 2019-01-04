@@ -105,6 +105,7 @@ return ResponseEntity.status(HttpStatus.FORBIDDEN).body("输入格式错误");
     public ResponseEntity queryInstancesByVisible(@RequestParam("visible") Boolean visible){
         try {
             List<InstanceInfo> infos= applicationService.queryByVisible(visible);
+            System.out.println(infos);
             return ResponseEntity.ok(infos);
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");

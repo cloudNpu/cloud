@@ -389,7 +389,7 @@ public class InstanceInfo extends com.netflix.appinfo.InstanceInfo {
         this.version = version;
     }
 
-    public boolean isVisible() {
+    public boolean getVisible() {
         return visible;
     }
 

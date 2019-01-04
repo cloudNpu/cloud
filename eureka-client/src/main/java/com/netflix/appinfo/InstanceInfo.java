@@ -395,7 +395,7 @@ public class InstanceInfo {
             @JsonProperty("lastDirtyTimestamp") Long lastDirtyTimestamp,
             @JsonProperty("actionType") ActionType actionType,
             @JsonProperty("asgName") String asgName,
-            @JsonProperty("asgName") boolean visible,
+            @JsonProperty("visible") boolean visible,
             @JsonProperty("inputParams") String inputParams,
             @JsonProperty("outputParams") String outputParams,
             @JsonProperty("complexType") String complexType,
