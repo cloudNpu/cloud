@@ -22,4 +22,8 @@ public class CloudGateway
         return context;
     }
 
+    public static Object getBean(String beanName) {
+        return context.getBean(beanName);
+    }
+
 }

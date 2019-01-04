@@ -186,8 +186,7 @@ public class ApplicationResource {
         registry.register(info, "true".equals(isReplication));   //真正的服务注册在这，前面都是對註冊信息校验
         //在下面写jpa将instancInfo存入数据库cloud的实际语句，借助addInsance这个函数的动作，不用考虑太多，只要完成所需功能即可
         if (this.applicationService == null) {
-            ApplicationContext context = CloudGateway.getContext();
-            this.applicationService = (ApplicationService) context.getBean("applicationService");
+            this.applicationService = (ApplicationService) CloudGateway.getBean("applicationService");
         }
         com.kenji.cloud.entity.InstanceInfo info1=new com.kenji.cloud.entity.InstanceInfo();
         BeanUtils.copyProperties(info, info1);
