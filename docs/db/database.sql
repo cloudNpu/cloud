@@ -137,11 +137,11 @@ create table `INSTANCEINFO` (
 	`IPUTPARAMS` varchar(100) comment 'inputParams输入参数',
 	`OUTPUTPARAMS` varchar(100) comment 'outputParams输出参数',
 	`COMPLEXTYPE` varchar(200) comment 'complexType自定义类型',
+	`METHOD` varchar(20) not null default 'POST' comment 'complexType自定义类型',
 	`INVOKECOUNT` bigint(20) comment '调用次数',
 	primary key (`ID`),
 	constraint `INSTANCEINFO_USERID` foreign key (`USERID`) references `USER` (`ID`),
-	constraint `INSTANCEINFO_LEASEINFOID` foreign key (`LEASEINFOID`) references `LEASEINFO` (`ID`),
-	unique key `INSTANCEINFO_APPNAME` (`APPNAME`)
+	constraint `INSTANCEINFO_LEASEINFOID` foreign key (`LEASEINFOID`) references `LEASEINFO` (`ID`)
 )ENGINE=InnoDB default CHARSET=utf8 comment '服务实例信息表';
 
 DROP TABLE IF EXISTS `USER_APP`;

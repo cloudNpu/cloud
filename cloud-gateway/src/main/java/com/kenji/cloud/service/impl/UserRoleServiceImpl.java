@@ -1,0 +1,82 @@
+package com.kenji.cloud.service.impl;
+
+import com.kenji.cloud.entity.Role;
+import com.kenji.cloud.entity.User;
+import com.kenji.cloud.entity.UserRole;
+import com.kenji.cloud.repository.RoleRepository;
+import com.kenji.cloud.repository.UserRepository;
+import com.kenji.cloud.repository.UserRoleRepository;
+import com.kenji.cloud.service.UserRoleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.*;
+
+@Service
+public class UserRoleServiceImpl implements UserRoleService {
+
+    @Autowired
+    private UserRoleRepository userRoleRepository;
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private RoleRepository roleRepository;
+
+
+    /*
+     * 保存用户与角色之间的关系
+     * ps.如何避免userrole关系被重复添加
+     * */
+    @Transactional
+    @Override
+    public List<UserRole> saveAll(Long userId, Long operatorId, Long[] roleIds) {
+        User user = userRepository.findById(userId).get();
+        User operator = userRepository.findById(operatorId).get();
+
+        List<Long> oldList = Arrays.asList(userRoleRepository.getRoleIdsByUserID(userId));
+        List<Long> currList = Arrays.asList(roleIds);
+        List<UserRole> addList = new ArrayList<>();
+        for (Long current : currList) {
+            if (!oldList.contains(current)) {
+                UserRole userRole = new UserRole();
+                userRole.setUser(user);
+                userRole.setRole(roleRepository.findById(current).get());
+                userRole.setCreateDate(new Date());
+                userRole.setOperator(operator);
+                addList.add(userRole);
+            }
+        }
+        for (Long old : oldList) {
+            if (!currList.contains(old)) {
+                userRoleRepository.deleteById(old);
+            }
+        }
+        return userRoleRepository.saveAll(addList);
+    }
+
+    /*
+     * 通过传入用户ids和将要关联的角色id修改与用户角色关系
+     * */
+    @Override
+    public List<UserRole> updateUserRoles(Long userIds, Long operatorId, Long[] roleIds) {
+
+        return null;
+    }
+
+    public List<Role> getRolesByUserId(Long userId) {
+        List<Role> list = new ArrayList<>();
+        Long[] roleIds = userRoleRepository.getRoleIdsByUserID(userId);
+        for (Long roleId : roleIds) {
+            Role role = roleRepository.findById(roleId).get();
+            list.add(role);
+        }
+        return list;
+    }
+   /* private Long[] getRoleIdsByUserId(Long userId, Long[] roleIds) {
+        Long[] oldRoleids=userRoleRepository.getRoleIdsByUserID(userId);
+        Set<Long> set = new HashSet<Long>(Arrays.asList(oldRoleids));
+        set.addAll(Arrays.asList(roleIds));
+        return set.toArray(new Long[set.size()]);
+    }*/
+}

@@ -16,25 +16,37 @@
 
 package com.netflix.eureka.resources;
 
+import com.kenji.cloud.CloudGateway;
+import com.kenji.cloud.service.ApplicationService;
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.appinfo.InstanceInfo.InstanceStatus;
+import com.netflix.discovery.shared.Application;
 import com.netflix.eureka.EurekaServerConfig;
+import com.netflix.eureka.EurekaServerContext;
 import com.netflix.eureka.cluster.PeerEurekaNode;
 import com.netflix.eureka.registry.PeerAwareInstanceRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
+import org.springframework.context.ApplicationContext;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
-import java.util.Collections;
+import java.awt.*;
+import java.security.PrivateKey;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -48,6 +60,7 @@ public class InstanceResource {
     private static final Logger logger = LoggerFactory
             .getLogger(InstanceResource.class);
 
+    private ApplicationService applicationService;
     private final PeerAwareInstanceRegistry registry;
     private final EurekaServerConfig serverConfig;
     private final String id;
@@ -270,13 +283,26 @@ public class InstanceResource {
      */
     @DELETE
     public Response cancelLease(
-            @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication) {
-        try {
-            boolean isSuccess = registry.cancel(app.getName(), id,
-                "true".equals(isReplication));
+                                @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication) {
+                            try {
 
-            if (isSuccess) {
-                logger.debug("Found (Cancel): {} - {}", app.getName(), id);
+                                boolean isSuccess = registry.cancel(app.getName(), id,
+                                        "true".equals(isReplication));
+
+                                if (isSuccess) {
+                                    logger.debug("Found (Cancel): {} - {}", app.getName(), id);
+                                    //数据库操作如下
+                                    if (this.applicationService == null) {
+                                        ApplicationContext context = CloudGateway.getContext();
+                                        this.applicationService = (ApplicationService) context.getBean("applicationService");
+                                    }
+                                    List<com.kenji.cloud.entity.InstanceInfo> infos = applicationService.queryByAppName(app.getName());
+                                    for (int i=0;i<infos.size();++i){
+                                        if (infos.get(i).getInstanceId().equals(id)){
+                                            applicationService.deleteApp(applicationService.queryInstance( infos.get(i).getInstanceInfoId()));
+                                            break;
+                    }
+                }
                 return Response.ok().build();
             } else {
                 logger.info("Not Found (Cancel): {} - {}", app.getName(), id);
@@ -286,8 +312,41 @@ public class InstanceResource {
             logger.error("Error (cancel): {} - {}", app.getName(), id, e);
             return Response.serverError().build();
         }
-
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private Response validateDirtyTimestamp(Long lastDirtyTimestamp,
                                             boolean isReplication) {
