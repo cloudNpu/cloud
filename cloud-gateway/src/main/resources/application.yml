@@ -30,8 +30,3 @@ jwt:
       refresh: auth/refresh
       register: auth/register
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: refresh

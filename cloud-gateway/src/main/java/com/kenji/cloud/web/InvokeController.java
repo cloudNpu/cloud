@@ -15,9 +15,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.context.ContextLoader;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import java.util.Map;
 
@@ -45,7 +42,7 @@ public class InvokeController {
     }
 
     //注意请求的数据为x-www-form
-    @RequestMapping(value = "/inv   oke", method = RequestMethod.POST)
+    @RequestMapping(value = "/invoke", method = RequestMethod.POST)
     public String invoke(@RequestParam Map<String, String> requestParams) throws IllegalAccessException, InstantiationException {
 
         String strategy = requestParams.get("strategy");
@@ -58,8 +55,7 @@ public class InvokeController {
 
         //修改负载均衡策略
         String targetBeanName = "myRule";
-        boolean containsBean = defaultListableBeanFactory.containsBean(targetBeanName);
-        if (containsBean) {
+
             BeanDefinition bd = defaultListableBeanFactory.getBeanDefinition(targetBeanName);
             System.out.println(bd.getBeanClassName()); //com.netflix.loadbalancer.RoundRobinRule
 
@@ -93,8 +89,6 @@ public class InvokeController {
                 }
             }
 
-
-        }
 
 
 

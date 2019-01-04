@@ -2,77 +2,60 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73b33667-71f7-4fe9-8a5b-293636e03376" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/MenuRoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/security/CloudFilterInvocationSecurityMetadataSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/security/CloudRoleBasedVoter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/MenuRoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/MenuRoleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/DefaultServerIntrospector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/PropertiesFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RestClientRibbonConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonApplicationContextInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonAutoConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonClientConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonClientConfigurationRegistrar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonClientHttpRequestFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonClientName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonClientSpecification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonClients.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonEagerLoadProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonHttpRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonHttpResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonLoadBalancedRetryFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonLoadBalancedRetryPolicy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonLoadBalancerClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonLoadBalancerContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonStatsRecorder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/ServerIntrospector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/ServerIntrospectorProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/SpringClientFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/StaticServerList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/ZonePreferenceServerListFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/apache/HttpClientRibbonConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/apache/HttpClientStatusCodeException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/apache/HttpClientUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/apache/RetryableRibbonLoadBalancingHttpClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/apache/RibbonApacheHttpRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/apache/RibbonApacheHttpResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/apache/RibbonLoadBalancingHttpClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/okhttp/OkHttpLoadBalancingClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/okhttp/OkHttpRibbonConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/okhttp/OkHttpRibbonRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/okhttp/OkHttpRibbonResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/okhttp/OkHttpStatusCodeException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/okhttp/RetryableOkHttpLoadBalancingClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/support/AbstractLoadBalancingClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/support/ContextAwareRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/support/ResettableServletInputStreamWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/support/RibbonCommandContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/support/RibbonRequestCustomizer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/support/RibbonRetryPolicy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/cloud-gateway/cloud-gateway_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/cloud-gateway/cloud-gateway_test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/eureka-server-governator/eureka-server-governator_main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/eureka-server-governator/eureka-server-governator_main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/eureka-server/eureka-server_main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/eureka-server/eureka-server_main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-gateway/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/aop/ServiceNumAop.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/aop/ServiceNumAop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/config/GatewayConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/config/GatewayConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/LeaseInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/LeaseInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/UserApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/UserApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/UserRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/AppLogRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/InstanceInfoRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/LeaseInfoRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/MenuRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/MonitorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/MonitorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/RoleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/SysLogRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/UserAppRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/UserRoleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/ApplicationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/LeaseInfoService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/MenuService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/MonitorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/MonitorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/UserAppService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/UserRoleService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/ApplicationServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/AuthUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/AuthUserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/LeaseInfoServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/MenuServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/MonitorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/MonitorServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/UserAppServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/UserRoleServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/util/SessionFactoryUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/vo/MenuVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/vo/UserVo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/MenuController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/MonitorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/MonitorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/InstanceResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/InstanceResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/repository/MenuRepositoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/UserServiceTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/ApplicationServiceImplTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/LeaseInfoServiceImplTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/MenuServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/MenuServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-site/src/locales/en-US.js" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-site/src/locales/en-US.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/db/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/docs/db/database.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/db/面向监控的服务平台数据库设计说明书.docx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/db/面向监控的服务平台数据库设计说明书.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/pm/面向监控的服务平台开发阶段-任务分工20181217.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pm/面向监控的服务平台开发阶段-任务分工20181217.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/pm/面向监控的服务平台开发阶段-任务分工20181228.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/LeaseInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/LeaseInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-cloud-netflix-eureka-server/src/main/resources/templates/eureka/status.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/spring-cloud-netflix-eureka-server/src/main/resources/templates/eureka/status.ftl" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -184,8 +167,8 @@
         <counts>
           <entry key="dummy" value="17" />
           <entry key="ftl" value="25" />
-          <entry key="gradle" value="125" />
-          <entry key="java" value="1947" />
+          <entry key="gradle" value="129" />
+          <entry key="java" value="1949" />
           <entry key="txt" value="7" />
           <entry key="yml" value="28" />
         </counts>
@@ -193,8 +176,8 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="FTL" value="25" />
-          <entry key="Groovy" value="125" />
-          <entry key="JAVA" value="1947" />
+          <entry key="Groovy" value="129" />
+          <entry key="JAVA" value="1949" />
           <entry key="PLAIN_TEXT" value="24" />
           <entry key="YAML" value="28" />
         </counts>
@@ -202,38 +185,39 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="IRule" value="1" />
-          <entry key="class" value="6" />
+          <entry key="class" value="8" />
           <entry key="ftl" value="1" />
-          <entry key="gradle" value="18" />
+          <entry key="gradle" value="23" />
           <entry key="html" value="5" />
-          <entry key="java" value="264" />
+          <entry key="java" value="281" />
           <entry key="less" value="4" />
           <entry key="loadbalancer" value="1" />
           <entry key="properties" value="1" />
           <entry key="xml" value="1" />
-          <entry key="yml" value="3" />
+          <entry key="yml" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="6" />
+          <entry key="CLASS" value="8" />
           <entry key="FTL" value="1" />
-          <entry key="Groovy" value="18" />
+          <entry key="Groovy" value="23" />
           <entry key="HTML" value="5" />
-          <entry key="JAVA" value="264" />
+          <entry key="JAVA" value="281" />
           <entry key="Less" value="4" />
           <entry key="Properties" value="1" />
           <entry key="UML" value="2" />
           <entry key="XML" value="1" />
-          <entry key="YAML" value="3" />
+          <entry key="YAML" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
     </session>
@@ -244,10 +228,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/config/WebSecurityConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="124" lean-forward="true" selection-start-line="124" selection-end-line="124" />
+            <state relative-caret-position="-279">
+              <caret line="91" column="28" selection-start-line="91" selection-start-column="28" selection-end-line="91" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -256,82 +252,52 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/security/CloudFilterInvocationSecurityMetadataSource.java">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/5.0.9.RELEASE/9f9a828936d81afd49a603bda9cc1aed863a0d85/spring-core-5.0.9.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="19" selection-start-line="19" selection-end-line="22" selection-end-column="3" />
+            <state relative-caret-position="204">
+              <caret line="109" column="73" selection-start-line="109" selection-start-column="73" selection-end-line="109" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonClientConfiguration.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="48">
+              <caret line="40" column="38" lean-forward="true" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonLoadBalancerClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="178" selection-start-line="178" selection-end-line="178" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#6229#6230#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/security/CloudRoleBasedVoter.java">
+        <entry file="file://$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/SpringClientFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
+            <state relative-caret-position="111">
+              <caret line="56" selection-start-line="56" selection-end-line="56" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#2030#2031#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/MenuRoleServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/cloud-gateway/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/AuthController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="616">
-              <caret line="41" column="59" selection-start-line="41" selection-start-column="59" selection-end-line="41" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/AuthServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1452">
-              <caret line="66" column="67" selection-start-line="66" selection-start-column="67" selection-end-line="66" selection-end-column="67" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/AuthUserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/UserRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/5.0.8.RELEASE/eacb961f1d4b542fb4b4bcd1321d0ae9e4b93843/spring-security-core-5.0.8.RELEASE-sources.jar!/org/springframework/security/authentication/ProviderManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2816">
-              <caret line="157" selection-start-line="157" selection-end-line="157" />
+            <state relative-caret-position="166">
+              <caret line="37" column="49" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -351,12 +317,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>status</find>
       <find>beanClass</find>
       <find>rule</find>
       <find>DEFAULT_RULE</find>
       <find>setRule</find>
-      <find>ribbon</find>
       <find>setContentCompressionEnabled</find>
       <find>setContentCompressionEnabledsetContentCompressionEnabledsetContentCompressionEnabled</find>
       <find>setConte</find>
@@ -381,6 +345,8 @@
       <find>usernamepass</find>
       <find>UsernamePasswordAuthenticationToken</find>
       <find>CloudAccessDecisionManager</find>
+      <find>ribbon</find>
+      <find>ZoneAwareLoadBalancer</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -5627,10 +5593,10 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="27815454654020" />
+        <entry key="$PROJECT_DIR$" value="27816995921781" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
         <entry key="$PROJECT_DIR$/build.gradle" value="926327292" />
-        <entry key="$PROJECT_DIR$/cloud-gateway/build.gradle" value="3411892568" />
+        <entry key="$PROJECT_DIR$/cloud-gateway/build.gradle" value="3554127491" />
         <entry key="$PROJECT_DIR$/cloud-site/build.gradle" value="2571077538" />
         <entry key="$PROJECT_DIR$/eureka-client-archaius2/build.gradle" value="3585146550" />
         <entry key="$PROJECT_DIR$/eureka-client-jersey2/build.gradle" value="3933480053" />
@@ -9258,10 +9224,7 @@
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/CancelServiceImpl.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/RegisterController.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/CancelServiceController.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/XController.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/build.gradle" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/Security/SecurityConfiguration.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/config/NewConfig.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/config/SecurityConfiguration.java" />
@@ -9275,7 +9238,11 @@
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/security/AppFilterInvocationSecurityMetadataSource.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/security/CloudFilterInvocationSecurityMetadataSource.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/security/CloudRoleBasedVoter.java" />
+        <option value="$PROJECT_DIR$/cloud-gateway/build.gradle" />
+        <option value="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/MenuServiceImplTest.java" />
+        <option value="$PROJECT_DIR$/cloud-gateway/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/config/WebSecurityConfig.java" />
+        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java" />
       </list>
     </option>
   </component>
@@ -9311,8 +9278,7 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="640" />
-    <option name="y" value="47" />
+    <option name="x" value="445" />
     <option name="width" value="921" />
     <option name="height" value="653" />
   </component>
@@ -9355,7 +9321,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -9414,12 +9379,21 @@
               <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="spring-cloud-netflix-ribbon" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -9431,7 +9405,7 @@
     <property name="SearchEverywhereHistoryKey" value="instanceinf&#9;PSI&#9;JAVA://com.netflix.appinfo.InstanceInfo&#10;setContentCompressionEnabled&#9;PSI&#9;JAVA://org.apache.http.client.config.RequestConfig.Builder#setContentCompressionEnabled&#10;CloseableHttpResponse&#9;PSI&#9;JAVA://org.apache.http.client.methods.CloseableHttpResponse&#10;setRule&#9;PSI&#9;JAVA://com.netflix.loadbalancer.BaseLoadBalancer#setRule&#10;RoundRobinRule&#9;FILE&#9;jar://C:/Users/sj/.gradle/caches/modules-2/files-2.1/com.netflix.ribbon/ribbon-loadbalancer/2.3.0/34ef50110d6f79c4ac36224560b51b0579a9bd08/ribbon-loadbalancer-2.3.0-sources.jar!/com/netflix/loadbalancer/RoundRobinRule.java&#10;IRule&#9;FILE&#9;jar://C:/Users/sj/.gradle/caches/modules-2/files-2.1/com.netflix.ribbon/ribbon-loadbalancer/2.3.0/50cdccba2c36398ca4ab7ff25e82c644fd4d0938/ribbon-loadbalancer-2.3.0.jar!/com/netflix/loadbalancer/IRule.class" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546421301117" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546570041325" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -9443,11 +9417,12 @@
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\cloud\spring-cloud-netflix-ribbon\src\main\java" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\cloud\spring-cloud-netflix-ribbon" />
+      <recent name="F:\cloud\spring-cloud-netflix-ribbon\src\main" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\cloud\spring-cloud-netflix-ribbon\src\main\java" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -9488,6 +9463,7 @@
       <workItem from="1545036691436" duration="242000" />
       <workItem from="1546417610049" duration="1168000" />
       <workItem from="1546418948025" duration="276000" />
+      <workItem from="1546569094868" duration="986000" />
     </task>
     <task id="LOCAL-00001" summary="动态安全">
       <created>1546419048778</created>
@@ -9507,7 +9483,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133234000" />
+    <option name="totallyTimeSpent" value="136716000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -9521,7 +9497,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5013624" visible="true" weight="0.28139183" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5013624" visible="true" weight="0.2700454" />
       <window_info id="Structure" order="1" sideWeight="0.49863762" side_tool="true" weight="0.115733735" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -9533,20 +9509,20 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.38765824" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32911393" />
-      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.5" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.2943038" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.5" />
+      <window_info active="true" anchor="bottom" id="Debug" order="4" visible="true" weight="0.52689874" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32911393" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="8" />
-      <window_info anchor="bottom" id="Build" order="9" weight="0.40189874" />
+      <window_info anchor="bottom" id="Build" order="9" weight="0.31012657" />
       <window_info anchor="bottom" id="sbt-shell-toolwindow" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.3299285" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Spring" order="14" />
       <window_info anchor="bottom" id="Database Changes" order="15" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="16" weight="0.32911393" />
+      <window_info anchor="bottom" id="Version Control" order="16" weight="0.43670887" />
       <window_info anchor="bottom" id="Docker" order="17" show_stripe_button="false" />
       <window_info anchor="right" id="CDI" order="0" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
@@ -9567,7 +9543,7 @@
       <window_info anchor="right" id="Maven" order="16" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5013624" visible="true" weight="0.3547655" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5013624" visible="true" weight="0.26626325" />
       <window_info id="Structure" order="1" sideWeight="0.49863762" side_tool="true" weight="0.115733735" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -9578,21 +9554,21 @@
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.38765824" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.3299285" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.23417722" />
-      <window_info anchor="bottom" id="Debug" order="4" visible="true" weight="0.2420886" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32911393" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.5" />
+      <window_info active="true" anchor="bottom" id="Debug" order="4" visible="true" weight="0.42879745" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32911393" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="8" />
-      <window_info anchor="bottom" id="Build" order="9" weight="0.40189874" />
+      <window_info anchor="bottom" id="Build" order="9" weight="0.31012657" />
       <window_info anchor="bottom" id="sbt-shell-toolwindow" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.3299285" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Spring" order="14" />
       <window_info anchor="bottom" id="Database Changes" order="15" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="16" weight="0.3299285" />
+      <window_info anchor="bottom" id="Version Control" order="16" weight="0.43670887" />
       <window_info anchor="bottom" id="Docker" order="17" show_stripe_button="false" />
       <window_info anchor="right" id="CDI" order="0" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
@@ -9766,7 +9742,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java</url>
-          <line>43</line>
+          <line>40</line>
           <properties />
           <option name="timeStamp" value="57" />
         </line-breakpoint>
@@ -9842,17 +9818,29 @@
           <properties />
           <option name="timeStamp" value="139" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/AuthServiceImpl.java</url>
           <line>54</line>
           <properties />
           <option name="timeStamp" value="146" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/5.0.8.RELEASE/eacb961f1d4b542fb4b4bcd1321d0ae9e4b93843/spring-security-core-5.0.8.RELEASE-sources.jar!/org/springframework/security/authentication/ProviderManager.java</url>
           <line>157</line>
           <properties />
           <option name="timeStamp" value="147" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java</url>
+          <line>56</line>
+          <properties />
+          <option name="timeStamp" value="156" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java</url>
+          <line>52</line>
+          <properties />
+          <option name="timeStamp" value="157" />
         </line-breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/MenuRoleRepository.java</url>
@@ -9882,90 +9870,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="59" column="2" selection-start-line="59" selection-start-column="2" selection-end-line="59" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/config/NewConfig.java" />
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/5.0.8.RELEASE/cdfd519782c9f02718d6a8b7ad6dc296588569c6/spring-security-config-5.0.8.RELEASE-sources.jar!/org/springframework/security/config/annotation/AbstractConfiguredSecurityBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="338" selection-start-line="338" selection-end-line="338" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/5.0.8.RELEASE/cdfd519782c9f02718d6a8b7ad6dc296588569c6/spring-security-config-5.0.8.RELEASE-sources.jar!/org/springframework/security/config/annotation/web/configuration/WebSecurityConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2530" />
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/5.0.9.RELEASE/9f9a828936d81afd49a603bda9cc1aed863a0d85/spring-core-5.0.9.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="122" selection-start-line="122" selection-end-line="122" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/5.0.8.RELEASE/c76a7da65713aad07fceb31b63060debe1f70e2b/spring-security-web-5.0.8.RELEASE-sources.jar!/org/springframework/security/web/header/HeaderWriterFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/5.0.8.RELEASE/c76a7da65713aad07fceb31b63060debe1f70e2b/spring-security-web-5.0.8.RELEASE-sources.jar!/org/springframework/security/web/context/SecurityContextPersistenceFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="108" selection-start-line="108" selection-end-line="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/5.0.9.RELEASE/1cfee1c1857cda6542f478ef8fe7d2fdb6c3b20/spring-beans-5.0.9.RELEASE-sources.jar!/org/springframework/beans/factory/support/SimpleInstantiationStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="179" selection-start-line="179" selection-end-line="179" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/5.0.8.RELEASE/c76a7da65713aad07fceb31b63060debe1f70e2b/spring-security-web-5.0.8.RELEASE-sources.jar!/org/springframework/security/web/util/ThrowableAnalyzer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="184" selection-start-line="184" selection-end-line="184" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/MenuRoleService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/5.0.9.RELEASE/bf1c19aadae4724bfe7e9196652e649bb08a99c4/spring-context-5.0.9.RELEASE-sources.jar!/org/springframework/context/support/AbstractApplicationContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="265" column="16" selection-start-line="265" selection-start-column="16" selection-end-line="265" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/Security/SecurityBean.java" />
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/5.0.8.RELEASE/eacb961f1d4b542fb4b4bcd1321d0ae9e4b93843/spring-security-core-5.0.8.RELEASE-sources.jar!/org/springframework/security/access/SecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/program files/Java/jdk1.8.0_191/src.zip!/java/util/Collection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="139" column="30" lean-forward="true" selection-start-line="139" selection-start-column="30" selection-end-line="139" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/5.0.8.RELEASE/eacb961f1d4b542fb4b4bcd1321d0ae9e4b93843/spring-security-core-5.0.8.RELEASE-sources.jar!/org/springframework/security/access/vote/AffirmativeBased.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -10180,16 +10084,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/AuthServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1452">
-          <caret line="66" column="67" selection-start-line="66" selection-start-column="67" selection-end-line="66" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/AuthUserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
@@ -10211,13 +10105,132 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/spring-cloud-netflix-ribbon/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/apache/HttpClientUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/support/ResettableServletInputStreamWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/MenuServiceImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="62" selection-start-line="6" selection-start-column="62" selection-end-line="6" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/AuthServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="53" column="96" selection-start-line="53" selection-start-column="96" selection-end-line="53" selection-end-column="96" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/5.0.9.RELEASE/beafb55eae32edb39351cb84594261a60d12219c/spring-aop-5.0.9.RELEASE-sources.jar!/org/springframework/aop/interceptor/ExposeInvocationInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/5.0.9.RELEASE/beafb55eae32edb39351cb84594261a60d12219c/spring-aop-5.0.9.RELEASE-sources.jar!/org/springframework/aop/framework/CglibAopProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="693" selection-start-line="693" selection-end-line="693" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1332" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="37" column="49" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.netflix.ribbon/ribbon-loadbalancer/2.3.0/34ef50110d6f79c4ac36224560b51b0579a9bd08/ribbon-loadbalancer-2.3.0-sources.jar!/com/netflix/loadbalancer/ZoneAwareLoadBalancer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonLoadBalancerClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="178" selection-start-line="178" selection-end-line="178" />
+          <folding>
+            <element signature="e#6229#6230#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/SpringClientFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
+          <folding>
+            <element signature="e#2030#2031#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-cloud-netflix-ribbon/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonClientConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="40" column="38" lean-forward="true" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/5.0.9.RELEASE/9f9a828936d81afd49a603bda9cc1aed863a0d85/spring-core-5.0.9.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="109" column="73" selection-start-line="109" selection-start-column="73" selection-end-line="109" selection-end-column="73" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/config/WebSecurityConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="124" lean-forward="true" selection-start-line="124" selection-end-line="124" />
+        <state relative-caret-position="-279">
+          <caret line="91" column="28" selection-start-line="91" selection-start-column="28" selection-end-line="91" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
