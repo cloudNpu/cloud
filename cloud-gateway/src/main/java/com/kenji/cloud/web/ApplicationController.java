@@ -122,6 +122,8 @@ return ResponseEntity.status(HttpStatus.FORBIDDEN).body("输入格式错误");
         }
     }
 
+
+
     @GetMapping(value = "/apps/port")
     public ResponseEntity<Object> queryInstancesByPort(@RequestParam("port") Integer port){
         try {
@@ -130,5 +132,27 @@ return ResponseEntity.status(HttpStatus.FORBIDDEN).body("输入格式错误");
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
         }
+    }
+
+    @GetMapping(value = "/apps/status")
+    public ResponseEntity getAppStatus(@RequestParam("appName") String appName){
+        try {
+            List<InstanceInfo>infos= applicationService.queryByAppName(appName);
+            InstanceInfo info = infos.get(0);
+            return ResponseEntity.ok(info.getStatus());
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
+        }
+    }
+    @GetMapping(value = "/apps/invokeCount")
+    public ResponseEntity getInvokeCount(@RequestParam("instanceInfoId") Long instanceInfoId){
+        try {
+           InstanceInfo info=applicationService.queryInstance(instanceInfoId);
+            return ResponseEntity.ok(info.getInvokeCount());
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
+        }
+
+
     }
 }

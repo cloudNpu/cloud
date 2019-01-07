@@ -40,6 +40,17 @@ public class InvokeController {
 
         return restTemplate.getForObject("http://" + serviceName + "/" + param, String.class) + "--this client 8764";
     }
+    @HystrixCommand(fallbackMethod = "invokeError")
+    @RequestMapping(value = "/invoke", method = RequestMethod.PUT)
+    public String invoke1(@RequestParam String serviceName, @RequestParam String param) {
+        return restTemplate.getForObject("http://" + serviceName + "/" + param, String.class) + "--this client 8764";
+    }
+
+    @HystrixCommand(fallbackMethod = "invokeError")
+    @RequestMapping(value = "/invoke", method = RequestMethod.DELETE)
+    public String invoke2(@RequestParam String serviceName, @RequestParam String param) {
+        return restTemplate.getForObject("http://" + serviceName + "/" + param, String.class) + "--this client 8764";
+    }
 
     //注意请求的数据为x-www-form
     @RequestMapping(value = "/invoke", method = RequestMethod.POST)

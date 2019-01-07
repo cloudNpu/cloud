@@ -118,7 +118,7 @@ public class ApplicationServiceImpl implements ApplicationService {
         List<InstanceInfo> infos=instanceInfoRepository.findAll();
         List<InstanceInfo> res=new ArrayList<>();
         for (int i=0;i<infos.size();++i){
-            if (infos.get(i).getIPAddr().equals(ipAddr))
+            if (infos.get(i).getIpAddr().equals(ipAddr))
                 res.add(infos.get(i));
 
         }
