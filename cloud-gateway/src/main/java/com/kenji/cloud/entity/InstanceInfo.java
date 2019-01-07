@@ -503,18 +503,6 @@ public class InstanceInfo{
         this.metadata = metadata;
     }
 
-//    @Column(name = "DATACENTERINFO")
-//    public volatile DataCenterInfo dataCenterInfo;
-//
-//
-//    public DataCenterInfo.Name getDataCenterInfo() {
-//        return dataCenterInfo.getName();
-//    }
-//
-//
-//    public void setDataCenterInfo(DataCenterInfo dataCenterInfo) {
-//        this.dataCenterInfo = dataCenterInfo;
-//    }
         @Column(name = "DATACENTERINFO")
     public volatile String dataCenterInfo;
 
