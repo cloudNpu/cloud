@@ -5,6 +5,7 @@
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="$USER_HOME$/gradle/gradle-4.10.1" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -22,6 +23,7 @@
             <option value="$PROJECT_DIR$/eureka-test-utils" />
             <option value="$PROJECT_DIR$/spring-cloud-netflix-eureka-client" />
             <option value="$PROJECT_DIR$/spring-cloud-netflix-eureka-server" />
+            <option value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
           </set>
         </option>
         <option name="useAutoImport" value="true" />
