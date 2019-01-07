@@ -1,20 +1,37 @@
+
 package com.kenji.cloud.config;
 
+
+import com.kenji.cloud.security.CloudFilterInvocationSecurityMetadataSource;
+import com.kenji.cloud.security.CloudRoleBasedVoter;
+import com.kenji.cloud.service.MenuRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.access.AccessDecisionManager;
+import org.springframework.security.access.AccessDecisionVoter;
+import org.springframework.security.access.vote.AuthenticatedVoter;
+import org.springframework.security.access.vote.UnanimousBased;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.ObjectPostProcessor;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.web.access.expression.WebExpressionVoter;
+import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
+import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import java.util.Arrays;
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -25,6 +42,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Qualifier("UserDetailsService")
     private UserDetailsService userDetailsService;
 
+    @Autowired
+    private MenuRoleService menuRoleService;
 
     @Bean
     @Override
@@ -47,27 +66,59 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService);
     }
 
+    /**
+     * @author SHI Jing
+     * @date 2018/12/31 16:38
+     */
+    public CloudFilterInvocationSecurityMetadataSource mySecurityMetadataSource(FilterInvocationSecurityMetadataSource filterInvocationSecurityMetadataSource) {
+        CloudFilterInvocationSecurityMetadataSource securityMetadataSource = new CloudFilterInvocationSecurityMetadataSource(filterInvocationSecurityMetadataSource);
+        return securityMetadataSource;
+    }
+
+
     @Override
-    protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.csrf().disable()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeRequests()
-                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll();
-//                .antMatchers(
-//                        HttpMethod.GET,
-//                        "/",
-//                        "/*.html",
-//                        "/favicon.ico",
-//                        "/**/*.html",
-//                        "/**/*.css",
-//                        "/**/*.js").permitAll()
-//                .antMatchers("/auth/**").permitAll()
-//                .antMatchers("/eureka/apps/**").permitAll()
-//                .antMatchers("/admin/**").access("hasAnyAuthority('ROLE_ADMIN')")
-//                .anyRequest().authenticated();
-//                .anyRequest().authenticated().and().formLogin().loginPage("/login")
-//                .failureUrl("/login?error").permitAll().and().logout().permitAll();
+    protected void  configure(HttpSecurity httpSecurity) throws Exception {
+
+        HttpSecurity hs = httpSecurity.csrf().disable()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and();
+
+        ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry expressionInterceptUrlRegistry = hs.authorizeRequests()
+                .antMatchers(
+                HttpMethod.GET,
+                "/",
+                "/*.html",
+                "/favicon.ico",
+                "/**/*.html",
+                "/**/*.css",
+                "/**/*.js").permitAll()
+                .antMatchers("/auth/**").permitAll()
+                .antMatchers("/eureka/apps/**").permitAll();
+//                .withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>(){
+//
+//                    @Override
+//                    public <O extends FilterSecurityInterceptor> O postProcess(O fsi) {
+//                        fsi.setSecurityMetadataSource(mySecurityMetadataSource(fsi.getSecurityMetadataSource()));
+//                        return fsi;
+//                    }
+//
+//                }).anyRequest().authenticated().accessDecisionManager(accessDecisionManager());
+
+
         httpSecurity.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
         httpSecurity.headers().cacheControl();
     }
+
+
+    @Bean
+    public AccessDecisionManager accessDecisionManager() {
+        List<AccessDecisionVoter<? extends Object>> decisionVoters
+                = Arrays.asList(
+                new WebExpressionVoter(),
+                // new RoleVoter(),
+                new CloudRoleBasedVoter(),
+                new AuthenticatedVoter());
+        return new UnanimousBased(decisionVoters);
+    }
+
+
 }

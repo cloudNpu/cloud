@@ -1,5 +1,6 @@
 package com.kenji.cloud.service.impl;
 
+import com.kenji.cloud.entity.Role;
 import com.kenji.cloud.entity.User;
 import com.kenji.cloud.entity.UserRole;
 import com.kenji.cloud.repository.RoleRepository;
@@ -10,9 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class UserRoleServiceImpl implements UserRoleService {
@@ -24,43 +23,60 @@ public class UserRoleServiceImpl implements UserRoleService {
     @Autowired
     private RoleRepository roleRepository;
 
-    @Override
-    public UserRole saveUserRole(UserRole userRole) {
-        return userRoleRepository.save(userRole);
-    }
 
+    /*
+     * 保存用户与角色之间的关系
+     * ps.如何避免userrole关系被重复添加
+     * */
     @Transactional
     @Override
     public List<UserRole> saveAll(Long userId, Long operatorId, Long[] roleIds) {
-        if (roleIds == null) {
-            return null;
-        }
         User user = userRepository.findById(userId).get();
         User operator = userRepository.findById(operatorId).get();
-        List<UserRole> list = new ArrayList<>();
-        for (Long id : roleIds) {
-            UserRole userRole = new UserRole();
-            userRole.setUser(user);
-            userRole.setRole(roleRepository.findById(id).get());
-            userRole.setCreateDate(new Date());
-            userRole.setOperator(operator);
-            list.add(userRole);
+
+        List<Long> oldList = Arrays.asList(userRoleRepository.getRoleIdsByUserID(userId));
+        List<Long> currList = Arrays.asList(roleIds);
+        List<UserRole> addList = new ArrayList<>();
+        for (Long current : currList) {
+            if (!oldList.contains(current)) {
+                UserRole userRole = new UserRole();
+                userRole.setUser(user);
+                userRole.setRole(roleRepository.findById(current).get());
+                userRole.setCreateDate(new Date());
+                userRole.setOperator(operator);
+                addList.add(userRole);
+            }
         }
-        return userRoleRepository.saveAll(list);
+        for (Long old : oldList) {
+            if (!currList.contains(old)) {
+                userRoleRepository.deleteById(old);
+            }
+        }
+        return userRoleRepository.saveAll(addList);
     }
 
+    /*
+     * 通过传入用户ids和将要关联的角色id修改与用户角色关系
+     * */
     @Override
-    public UserRole updateUserRole(UserRole userRole) {
-        return userRoleRepository.save(userRole);
+    public List<UserRole> updateUserRoles(Long userIds, Long operatorId, Long[] roleIds) {
+
+        return null;
     }
 
-    @Override
-    public List<UserRole> findUserRoleByUser(User user) {
-        return userRoleRepository.findByUser(user);
+    public List<Role> getRolesByUserId(Long userId) {
+        List<Role> list = new ArrayList<>();
+        Long[] roleIds = userRoleRepository.getRoleIdsByUserID(userId);
+        for (Long roleId : roleIds) {
+            Role role = roleRepository.findById(roleId).get();
+            list.add(role);
+        }
+        return list;
     }
-
-    @Override
-    public void deleteUserRole(UserRole userRole) {
-        userRoleRepository.delete(userRole);
-    }
+   /* private Long[] getRoleIdsByUserId(Long userId, Long[] roleIds) {
+        Long[] oldRoleids=userRoleRepository.getRoleIdsByUserID(userId);
+        Set<Long> set = new HashSet<Long>(Arrays.asList(oldRoleids));
+        set.addAll(Arrays.asList(roleIds));
+        return set.toArray(new Long[set.size()]);
+    }*/
 }

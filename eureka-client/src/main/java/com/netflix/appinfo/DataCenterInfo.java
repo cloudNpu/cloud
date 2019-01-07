@@ -22,6 +22,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver;
 import com.netflix.discovery.converters.jackson.DataCenterTypeInfoResolver;
 
+import java.io.Serializable;
+import java.util.Enumeration;
+
 /**
  * A simple interface for indicating which <em>datacenter</em> a particular instance belongs.
  *
@@ -31,7 +34,7 @@ import com.netflix.discovery.converters.jackson.DataCenterTypeInfoResolver;
 @JsonRootName("dataCenterInfo")
 @JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, include = As.PROPERTY, property = "@class")
 @JsonTypeIdResolver(DataCenterTypeInfoResolver.class)
-public interface DataCenterInfo {
+public interface DataCenterInfo extends Serializable{
     enum Name {Netflix, Amazon, MyOwn}
 
     Name getName();

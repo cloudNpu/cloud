@@ -25,10 +25,18 @@ public class AuthUserServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username);
+        /**
+         * @author SHI Jing
+         * @date 2018/12/26 10:28
+         */
+        User user = userRepository.findByUsername2(username);
+        //User user = userRepository.findByUsername(username);
         if(user == null) {
             throw new UsernameNotFoundException("用户不存在");
         }
+        System.out.println("username" + username);
+        System.out.println("username" + user.getUsername() + "password" + user.getPassword());
+        System.out.println("role" + user.getUserRoles().get(0).getRole().getName());
         return user;
     }
 }

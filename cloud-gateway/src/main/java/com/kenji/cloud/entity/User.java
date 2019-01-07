@@ -1,9 +1,14 @@
 package com.kenji.cloud.entity;
 
+import com.kenji.cloud.CloudGateway;
+import com.kenji.cloud.repository.UserRepository;
+import com.kenji.cloud.repository.UserRoleRepository;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -48,18 +53,33 @@ public class User implements UserDetails {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
     private List<SysLog> sysLogs;
 
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "OPERATORID")
+    private User operator;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "operator")
+    private List<User> users = new ArrayList<>();
+
+
     @Column(name = "LASTPASSWORDRESETDATE")
     private Date lastPasswordResetDate;
 
     @Column(name = "CREATEDATE")
     private Date createDate;
 
+    @Transactional
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        UserRepository userRepository = (UserRepository) CloudGateway.getBean("userRepository");
+        UserRoleRepository userRoleRepository = (UserRoleRepository) CloudGateway.getBean("userRoleRepository");
+        User user = userRepository.findUserAndUserRolesById(this.id);
         List<GrantedAuthority> authorities = new ArrayList<>();
-        List<UserRole> userRoles = this.getUserRoles();
-        for (UserRole userRole : userRoles) {
-            authorities.add(new SimpleGrantedAuthority(userRole.getRole().getValue()));
+        if(user != null) {
+            List<UserRole> userRoles = user.getUserRoles();
+            for (UserRole userRole : userRoles) {
+                Role role =  userRoleRepository.findUserRoleAndRoleById(userRole.getId()).getRole();
+                authorities.add(new SimpleGrantedAuthority(role.getValue()));
+            }
         }
         return authorities;
     }
@@ -191,6 +211,24 @@ public class User implements UserDetails {
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
+
+
+    public User getOperator() {
+        return operator;
+    }
+
+    public void setOperator(User operator) {
+        this.operator = operator;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
 
     @Override
     public boolean isAccountNonExpired() {
