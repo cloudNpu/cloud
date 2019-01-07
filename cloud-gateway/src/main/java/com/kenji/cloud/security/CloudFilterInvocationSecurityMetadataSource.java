@@ -50,23 +50,23 @@ public class CloudFilterInvocationSecurityMetadataSource implements FilterInvoca
     @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     @Override
     public Collection<ConfigAttribute> getAttributes(Object object) throws IllegalArgumentException {
-        System.out.println("111111111111111111111111111111111111111111111111111111111111111111111111111111111");
-
-        FilterInvocation fi = (FilterInvocation) object;
-        String url = fi.getRequestUrl();
-        if(url.contains("/auth") || url.contains("/eureka/apps")){
-            return superMetadataSource.getAttributes(object);
-        }
-        else{
-            urlRoleMap = getMap();
-            for(Map.Entry<String,String> entry:urlRoleMap.entrySet()){
-                if(antPathMatcher.match(entry.getKey(),url)){
-                    //String[] roles = entry.getValue().split(",");
-                    return SecurityConfig.createList(entry.getValue());
-                }
-            }
-
-        }
+//        System.out.println("111111111111111111111111111111111111111111111111111111111111111111111111111111111");
+//
+//        FilterInvocation fi = (FilterInvocation) object;
+//        String url = fi.getRequestUrl();
+//        if(url.contains("/auth") || url.contains("/eureka/apps")){
+//            return superMetadataSource.getAttributes(object);
+//        }
+//        else{
+//            urlRoleMap = getMap();
+//            for(Map.Entry<String,String> entry:urlRoleMap.entrySet()){
+//                if(antPathMatcher.match(entry.getKey(),url)){
+//                    //String[] roles = entry.getValue().split(",");
+//                    return SecurityConfig.createList(entry.getValue());
+//                }
+//            }
+//
+//        }
         //  返回代码定义的默认配置
         return superMetadataSource.getAttributes(object);
 
