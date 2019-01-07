@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.netflix.archaius:archaius2-guice:2.1.7">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.netflix.archaius/archaius2-guice/2.1.7/44bdd9cb530e1376fddc3a2c1690afd7cc2626e2/archaius2-guice-2.1.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.netflix.archaius/archaius2-guice/2.1.7/297fa018022be3dc4c3d5d50448ee09d8d859c8d/archaius2-guice-2.1.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

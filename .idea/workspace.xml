@@ -3,501 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1af3c7f0-1aee-408a-847b-34166ef4a65e" name="Default Changelist" comment="修改服务管理LeaseInfo">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/CloudGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/CloudGateway.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/aop/ServiceNumAop.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/aop/ServiceNumAop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/config/GatewayConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/config/GatewayConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/Dept.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/Dept.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/LeaseInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/LeaseInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/UserApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/UserApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/InstanceInfoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/InstanceInfoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/LeaseInfoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/LeaseInfoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/MenuRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/MonitorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/MonitorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/RoleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/UserAppRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/UserAppRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/UserRoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/UserRoleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/ApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/ApplicationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/LeaseInfoService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/MenuService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/MonitorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/MonitorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/UserAppService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/UserRoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/UserRoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/ApplicationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/ApplicationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/AuthUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/AuthUserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/LeaseInfoServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/MenuServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/MonitorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/MonitorServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/RegistryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/RegistryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/UserAppServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/UserRoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/UserRoleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/util/SessionFactoryUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/vo/MenuVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/vo/UserVo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/MenuController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/MonitorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/MonitorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/InstanceResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/InstanceResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/repository/MenuRepositoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/UserServiceTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/ApplicationServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/ApplicationServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/LeaseInfoServiceImplTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/MenuServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/MenuServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-site/src/locales/en-US.js" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-site/src/locales/en-US.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/db/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/docs/db/database.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/db/面向监控的服务平台数据库设计说明书.docx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/db/面向监控的服务平台数据库设计说明书.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/pm/面向监控的服务平台开发阶段-任务分工20181217.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pm/面向监控的服务平台开发阶段-任务分工20181217.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/pm/面向监控的服务平台开发阶段-任务分工20181228.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pm/面向监控的服务平台开发阶段-任务分工20181228.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/data/document.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/data/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/个人中心页/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/个人中心页/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/主页/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/主页/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/主页表格/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/主页表格/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/保存成功/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/保存成功/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/删除成功/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/删除成功/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/删除成功_1/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/删除成功_1/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/删除成功_2/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/删除成功_2/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务授权/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务授权/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务授权用户表/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务授权用户表/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务注册/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务注册/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务注册_2/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务注册_2/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务注销_发布_撤回/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务注销_发布_撤回/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务管理首页/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务管理首页/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务表格/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务表格/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/检索用户/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/检索用户/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/检索角色/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/检索角色/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/添加用户/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/添加用户/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/添加菜单/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/添加菜单/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/添加菜单项/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/添加菜单项/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/添加角色/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/添加角色/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/添加部门/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/添加部门/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/用户管理所有保存成功/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/用户管理所有保存成功/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/用户管理首页/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/用户管理首页/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑服务/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑服务/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑服务1/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑服务1/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑用户/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑用户/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑菜单/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑菜单/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑菜单项/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑菜单项/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑角色/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑角色/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/菜单信息列表/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/菜单信息列表/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/菜单列表/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/菜单列表/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/菜单管理首页/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/菜单管理首页/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/表格/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/表格/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/表格_1/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/表格_1/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色授权/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色授权/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色管理所有保存成功/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色管理所有保存成功/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色管理首页/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色管理首页/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色表格/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色表格/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色表格_1/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色表格_1/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色表格_2/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色表格_2/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/部门管理首页/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/部门管理首页/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/部门表格/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/部门表格/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/部门表格_1/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/部门表格_1/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/个人中心页/u101.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/个人中心页/u171.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/个人中心页/u180.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/个人中心页/u184.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/个人中心页/u200.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/个人中心页/u205.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/个人中心页/u210.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/个人中心页/u229.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/个人中心页/u234.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/个人中心页/u240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/个人中心页/u242.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u37.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u38.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u39.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u40.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u43.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u45.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u52.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u53.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u54.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页表格/u1092.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页表格/u1129.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页表格/u1166.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页表格/u1203.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页表格/u1277.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页表格/u1351.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页表格/u1388.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务授权用户表/u1601.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务授权用户表/u1602.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务授权用户表/u1603.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务授权用户表/u1604.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务授权用户表/u1605.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务授权用户表/u1606.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务授权用户表/u1616.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务授权用户表/u1617.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务授权用户表/u1618.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务注册/u523.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务注册/u530.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2726.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2727.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2728.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2729.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2730.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2731.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2732.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2733.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2734.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2735.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2736.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2737.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2738.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2739.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2740.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2741.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2758.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2759.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2760.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2761.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/添加用户/u2219.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/添加用户/u2231.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/添加用户/u2234.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/用户管理首页/u2072.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/用户管理首页/u2076.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/用户管理首页/u2077.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/用户管理首页/u2124.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/编辑用户/u2312.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/编辑菜单/u3775.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/菜单信息列表/u4086.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/菜单信息列表/u4087.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/菜单信息列表/u4088.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/菜单信息列表/u4143.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/菜单信息列表/u4144.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/菜单信息列表/u4145.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/菜单列表/u4164.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u1011.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u1034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u1035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u1047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u676.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u677.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u678.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u691.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u714.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u715.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u716.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u717.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u718.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u731.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u754.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u755.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u756.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u757.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u758.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u759.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u771.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u794.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u795.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u796.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u797.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u798.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u811.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u834.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u835.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u876.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u877.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u878.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u891.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u914.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u915.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u956.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u958.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u971.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u994.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u995.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u996.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u997.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u998.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2594.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2595.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2596.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2598.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2599.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2622.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2623.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2627.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2630.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2654.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2656.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2657.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2658.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2659.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2674.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2675.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格/u2697.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格/u2698.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格/u2699.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格/u2700.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格/u2713.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格/u2714.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格_1/u3509.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格_1/u3516.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格_1/u3565.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格_2/u4040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格_2/u4041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格_2/u4068.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格_2/u4069.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/部门表格/u2687.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/部门表格/u2688.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/部门表格/u2691.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/部门表格/u2695.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/debug/styles/debug.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/debug/styles/images/reset.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/debug/styles/images/reset_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/debug/styles/images/variables_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/debug/styles/images/variables_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/debug/styles/images/variables_off.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/debug/styles/images/variables_off.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/debug/styles/images/variables_on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/debug/styles/images/variables_on.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/back.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/back.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/back_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/back_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/footnotes.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/footnotes.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/footnotes_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/footnotes_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/footnotes_on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/footnotes_on.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/forward.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/forward.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/forward_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/forward_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/notes_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/notes_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/notes_off.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/notes_off.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/notes_on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/notes_on.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/page_notes.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/recordplay/recordplay.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/recordplay/styles/recordplay.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/079_page_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/086_case_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/225_responsive_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/228_togglenotes_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/229_variables_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/231_event_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/232_search_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/233_hyperlink_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/235_folderclosed_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/236_folderopen_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/adaptivecheck.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/flow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/flow.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/folder_closed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/folder_closed.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/folder_open.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/folder_open.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/hotspots.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/hotspots.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/hotspots_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/hotspots_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/hotspots_on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/hotspots_on.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/images.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/minus.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/note.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/note.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/page.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/page.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/plus.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/share.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/share.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/share_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/share_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/share_on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/share_on.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/sitemap_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/sitemap_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/sitemap_off.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/sitemap_off.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/sitemap_on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/sitemap_on.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/views.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/views.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/views_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/views_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/views_on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/views_on.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/sitemap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/Other.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/chrome/allow-access.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/chrome/axure-chrome-extension.crx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/chrome/axure_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/chrome/chrome.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/chrome/details.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/chrome/extensions.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/chrome/safari.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/chrome/safari_advanced.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/chrome/safari_restrictions.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/chrome/splitter.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/chrome/splitter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/axure_rp_page.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/default.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/images.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/newwindow.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/note.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-bg_flat_0_aaaaaa_40x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-bg_glass_55_fbf9ee_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-bg_glass_65_ffffff_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-bg_glass_75_dadada_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-bg_glass_75_e6e6e6_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-bg_glass_75_ffffff_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-bg_inset-soft_95_fef1ec_1x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-icons_222222_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-icons_2e83ff_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-icons_454545_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-icons_888888_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-icons_cd0a0a_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/jquery-ui-themes.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/reset.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/expand.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/259_close_12rollover1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/259_close_12rollover2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/260_collapse_12rollover1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/260_collapse_12rollover2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/261_expand_12rollover1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/261_expand_12rollover2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/close.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/close_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/close_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/divider.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/divider.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/expand.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/expand.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/expand_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/expand_hover.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/images.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/transparent.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/reload.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/scripts/jquery-1.7.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/scripts/jquery-ui-1.8.10.custom.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/scripts/messagecenter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/scripts/player/axplayer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/scripts/player/splitter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/scripts/prototypePost.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/scripts/prototypePre.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/scripts/startPost.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/scripts/startPre.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/start.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/start_c_1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/start_g_0.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/个人中心页.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/主页.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/主页表格.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/保存成功.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/删除成功.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/删除成功_1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/删除成功_2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/服务授权.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/服务授权用户表.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/服务注册.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/服务注册_2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/服务注销_发布_撤回.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/服务管理首页.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/服务表格.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/检索用户.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/检索角色.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/添加用户.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/添加菜单.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/添加菜单项.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/添加角色.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/添加部门.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/用户管理所有保存成功.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/用户管理首页.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/编辑服务.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/编辑服务1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/编辑用户.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/编辑菜单.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/编辑菜单项.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/编辑角色.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/菜单信息列表.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/菜单列表.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/菜单管理首页.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/表格.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/表格_1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/角色授权.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/角色管理所有保存成功.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/角色管理首页.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/角色表格.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/角色表格_1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/角色表格_2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/部门管理首页.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/部门表格.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/部门表格_1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/DataCenterInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/DataCenterInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/LeaseInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/LeaseInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-cloud-netflix-eureka-server/src/main/resources/templates/eureka/status.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/spring-cloud-netflix-eureka-server/src/main/resources/templates/eureka/status.ftl" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -616,6 +121,7 @@
         <counts>
           <entry key="dummy" value="1" />
           <entry key="ft" value="111" />
+          <entry key="gitignore" value="3" />
           <entry key="java" value="4451" />
           <entry key="txt" value="172" />
           <entry key="yml" value="11" />
@@ -624,7 +130,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="4451" />
-          <entry key="PLAIN_TEXT" value="173" />
+          <entry key="PLAIN_TEXT" value="176" />
           <entry key="VTL" value="111" />
           <entry key="YAML" value="11" />
         </counts>
@@ -636,17 +142,30 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="49" column="96" lean-forward="true" selection-start-line="49" selection-start-column="96" selection-end-line="49" selection-end-column="117" />
+            <state relative-caret-position="91">
+              <caret line="21" column="96" selection-start-line="21" selection-start-column="96" selection-end-line="21" selection-end-column="96" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+              <folding>
+                <element signature="e#475#476#0" expanded="true" />
+                <element signature="e#521#522#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/UserController.java">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+            <state relative-caret-position="496">
+              <caret line="59" column="7" lean-forward="true" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -5669,270 +5188,6 @@
             </list>
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/spring-cloud-netflix-ribbon">
-          <value>
-            <list>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the sub-projects of project ':spring-cloud-netflix-ribbon'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="projects" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Publishes artifacts to bintray.com." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="bintrayUpload" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Generates the Eclipse classpath file." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="eclipseClasspath" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles a jar archive containing the main classes." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="jar" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the configuration model of project ':spring-cloud-netflix-ribbon'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="model" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Generates the Maven POM file for publication 'nebula'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="generatePomFileForNebulaPublication" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Processes main resources." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="processResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the tasks runnable from project ':spring-cloud-netflix-ribbon'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="tasks" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs the unit tests." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="test" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Compiles main Java source." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="compileJava" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="javadocJar" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Create a lock file in build/&lt;configured name&gt;" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="generateLock" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs all checks." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="check" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays all dependencies declared in project ':spring-cloud-netflix-ribbon'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="dependencies" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Generates all Eclipse files." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="eclipse" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Applies the license found in the header file in files missing the header." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="licenseFormat" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Processes test resources." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="processTestResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Checks for header consistency." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="license" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Generates the Eclipse JDT settings file." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="eclipseJdt" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles and tests this project and all projects it depends on." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="buildNeeded" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Generates the Eclipse project file." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="eclipseProject" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Scanning license on main files" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="licenseFormatMain" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Move the generated lock file into the project directory" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="saveLock" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Deploys artifacts + generated build-info metadata to Artifactory,&#10;                                 using project configurations." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="artifactoryPublish" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the components produced by project ':spring-cloud-netflix-ribbon'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="components" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles and tests this project and all projects that depend on it." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="buildDependents" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="cleanEclipseClasspath" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="sourceJar" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Cleans all Eclipse files." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="cleanEclipse" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles main classes." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="classes" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the dependent components of components in project ':spring-cloud-netflix-ribbon'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="dependentComponents" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays all buildscript dependencies declared in project ':spring-cloud-netflix-ribbon'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="buildEnvironment" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="cleanEclipseProject" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Apply updates to a preexisting lock file and write to build/&lt;specified name&gt;" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="updateLock" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles test classes." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="testClasses" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Generates the Gradle metadata file for publication 'nebula'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="generateMetadataFileForNebulaPublication" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Generates Javadoc API documentation for the main source code." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="javadoc" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Generates reports on your runtime dependencies." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="downloadLicenses" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Scanning license on main files" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="licenseMain" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Publishes Maven publication 'nebula' to the local Maven repository." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="publishNebulaPublicationToMavenLocal" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="cleanEclipseJdt" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="deleteLock" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the insight into a specific dependency in project ':spring-cloud-netflix-ribbon'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="dependencyInsight" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles the outputs of this project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="assemble" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Deletes the build directory." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="clean" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="writeManifestProperties" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Compiles test Java source." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="compileTestJava" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Write license header for License tasks" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="writeLicenseHeader" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays a help message." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="help" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles and tests this project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="build" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Publishes all publications produced by this project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="publish" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Publishes all Maven publications produced by this project to the local Maven cache." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="publishToMavenLocal" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the properties of project ':spring-cloud-netflix-ribbon'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
-                <option name="name" value="properties" />
-              </ExternalTaskPojo>
-            </list>
-          </value>
-        </entry>
       </map>
     </option>
     <option name="modificationStamps">
@@ -9560,7 +8815,6 @@
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/AdminController.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/ApplicationService.java" />
         <option value="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/InstanceInfoRepository.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/UserAppRepository.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/SysLogRepository.java" />
@@ -9581,6 +8835,7 @@
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -9667,53 +8922,25 @@
             <path>
               <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="docs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="docs" type="462c0819:PsiDirectoryNode" />
+              <item name="design" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="docs" type="462c0819:PsiDirectoryNode" />
+              <item name="pm" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="cloud" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="cloud" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="docs" type="462c0819:PsiDirectoryNode" />
+              <item name="prototype" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -9732,7 +8959,7 @@
     <property name="SearchEverywhereHistoryKey" value="JsonProperty&#9;PSI&#9;JAVA://com.fasterxml.jackson.annotation.JsonProperty" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546606384416" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546828406658" />
     <property name="dynamic.classpath" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -10084,7 +9311,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111413000" />
+    <option name="totallyTimeSpent" value="111458000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -10097,8 +9324,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4982699" visible="true" weight="0.17750533" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4982699" visible="true" weight="0.2595949" />
       <window_info id="Structure" order="1" sideWeight="0.5017301" side_tool="true" weight="0.2889126" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -10117,12 +9345,12 @@
       <window_info anchor="bottom" id="Spring" order="8" weight="0.32952183" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49733475" weight="0.33679834" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5026652" side_tool="true" weight="0.32744282" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="11" sideWeight="0.5026652" side_tool="true" visible="true" weight="0.32744282" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49322918" weight="0.33367983" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32952183" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="15" sideWeight="0.49840087" weight="0.32744282" />
-      <window_info active="true" anchor="bottom" id="Run Dashboard" order="16" sideWeight="0.49733475" visible="true" weight="0.32744282" />
+      <window_info anchor="bottom" id="Run Dashboard" order="16" sideWeight="0.49733475" weight="0.32744282" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -10398,8 +9626,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+        <state relative-caret-position="496">
+          <caret line="59" column="7" lean-forward="true" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -10526,12 +9754,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="197" column="12" selection-start-line="197" selection-start-column="12" selection-end-line="197" selection-end-column="12" />
-          <folding>
-            <element signature="e#9119#9120#0" expanded="true" />
-            <element signature="e#9149#9150#0" expanded="true" />
-            <element signature="e#9192#9193#0" expanded="true" />
-            <element signature="e#9243#9244#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -10553,9 +9775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-609">
           <caret line="107" column="38" lean-forward="true" selection-start-line="107" selection-start-column="38" selection-end-line="107" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -10570,9 +9789,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2398">
           <caret line="118" column="49" selection-start-line="118" selection-start-column="49" selection-end-line="118" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -10580,9 +9796,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
           <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -10602,15 +9815,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="49" column="96" lean-forward="true" selection-start-line="49" selection-start-column="96" selection-end-line="49" selection-end-column="117" />
+        <state relative-caret-position="91">
+          <caret line="21" column="96" selection-start-line="21" selection-start-column="96" selection-end-line="21" selection-end-column="96" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
-          <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#475#476#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
