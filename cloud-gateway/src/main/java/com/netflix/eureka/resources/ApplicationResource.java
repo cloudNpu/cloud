@@ -18,7 +18,9 @@ package com.netflix.eureka.resources;
 
 import com.kenji.cloud.CloudGateway;
 import com.kenji.cloud.repository.InstanceInfoRepository;
+import com.kenji.cloud.repository.LeaseInfoRepository;
 import com.kenji.cloud.service.ApplicationService;
+import com.kenji.cloud.service.LeaseInfoService;
 import com.netflix.appinfo.*;
 import com.netflix.discovery.shared.Application;
 import com.netflix.eureka.EurekaServerConfig;
@@ -57,11 +59,13 @@ import java.util.Optional;
 public class ApplicationResource {
     private static final Logger logger = LoggerFactory.getLogger(ApplicationResource.class);
     private ApplicationService applicationService;
+    private LeaseInfoService leaseInfoService;
     private final String appName;
     private final EurekaServerConfig serverConfig;
     private final PeerAwareInstanceRegistry registry;
     private final ResponseCache responseCache;
     InstanceInfoRepository instanceInfoRepository;
+    LeaseInfoRepository leaseInfoRepository;
 
     ApplicationResource(String appName,
                         EurekaServerConfig serverConfig,
@@ -192,15 +196,21 @@ public class ApplicationResource {
         if (this.applicationService == null) {
             this.applicationService = (ApplicationService) CloudGateway.getBean("applicationService");
         }
+        if (this.leaseInfoService == null) {
+            this.leaseInfoService = (LeaseInfoService) CloudGateway.getBean("leaseInfoService");
+        }
         List<com.kenji.cloud.entity.InstanceInfo> infos=applicationService.queryByAppName(info.getAppName());
         com.kenji.cloud.entity.InstanceInfo info1=new com.kenji.cloud.entity.InstanceInfo();
         BeanUtils.copyProperties(info, info1);
         for (int i = 0;i<infos.size();++i){
             if (infos.get(i).getInstanceId().equals(info1.getInstanceId())){
                 applicationService.deleteApp(infos.get(i));
-            System.out.println(infos.get(i));}
+           }
         }
-
+        com.kenji.cloud.entity.LeaseInfo leaseInfo=new com.kenji.cloud.entity.LeaseInfo();
+        BeanUtils.copyProperties(info.getLeaseInfo(),leaseInfo );
+        leaseInfoService.addLeaseInfo(leaseInfo);
+        info1.setLeaseInfo(leaseInfo);
         applicationService.addApp(info1);
 
         return Response.status(204).build();  // 204 to be backwards compatible

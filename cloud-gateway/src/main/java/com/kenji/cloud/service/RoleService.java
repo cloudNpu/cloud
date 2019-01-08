@@ -24,6 +24,7 @@ public interface RoleService {
      * @param role
      * @return
      */
+
     Role updateRole(Long id, Role role);
 
     /**
@@ -45,3 +46,4 @@ public interface RoleService {
      */
     void addMenusForRoles(List<RoleMenu> roleMenus);
 }
+
