@@ -21,3 +21,4 @@ public interface RoleService {
      */
     Role updateRole(Long id, Role role);
 }
+
