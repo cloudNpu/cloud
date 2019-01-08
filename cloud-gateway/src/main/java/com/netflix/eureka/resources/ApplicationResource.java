@@ -83,13 +83,11 @@ public class ApplicationResource {
     /**
      * Gets information about a particular {@link com.netflix.discovery.shared.Application}.
      *
-     * @param version
-     *            the version of the request.
-     * @param acceptHeader
-     *            the accept header of the request to indicate whether to serve
-     *            JSON or XML data.
+     * @param version      the version of the request.
+     * @param acceptHeader the accept header of the request to indicate whether to serve
+     *                     JSON or XML data.
      * @return the response containing information about a particular
-     *         application.
+     * application.
      */
     @GET
     public Response getApplication(@PathParam("version") String version,
@@ -129,8 +127,7 @@ public class ApplicationResource {
     /**
      * Gets information about a particular instance of an application.
      *
-     * @param id
-     *            the unique identifier of the instance.
+     * @param id the unique identifier of the instance.
      * @return information about a particular instance.
      */
     @Path("{id}")
@@ -143,11 +140,9 @@ public class ApplicationResource {
      * Registers information about a particular instance for an
      * {@link Application}.
      *
-     * @param info
-     *            {@link InstanceInfo} information of the instance.
-     * @param isReplication
-     *            a header parameter containing information whether this is
-     *            replicated from other nodes.
+     * @param info          {@link InstanceInfo} information of the instance.
+     * @param isReplication a header parameter containing information whether this is
+     *                      replicated from other nodes.
      */
     @POST
     @Consumes({"application/json", "application/xml"})
@@ -199,20 +194,20 @@ public class ApplicationResource {
         if (this.leaseInfoService == null) {
             this.leaseInfoService = (LeaseInfoService) CloudGateway.getBean("leaseInfoService");
         }
-        List<com.kenji.cloud.entity.InstanceInfo> infos=applicationService.queryByAppName(info.getAppName());
-        com.kenji.cloud.entity.InstanceInfo info1=new com.kenji.cloud.entity.InstanceInfo();
+        List<com.kenji.cloud.entity.InstanceInfo> infos = applicationService.queryByAppName(info.getAppName());
+        com.kenji.cloud.entity.InstanceInfo info1 = new com.kenji.cloud.entity.InstanceInfo();
         BeanUtils.copyProperties(info, info1);
-        for (int i = 0;i<infos.size();++i){
-            if (infos.get(i).getInstanceId().equals(info1.getInstanceId())){
+        for (int i = 0; i < infos.size(); ++i) {
+            if (infos.get(i).getInstanceId().equals(info1.getInstanceId())) {
                 applicationService.deleteApp(infos.get(i));
-           }
+            }
         }
-        com.kenji.cloud.entity.LeaseInfo leaseInfo=new com.kenji.cloud.entity.LeaseInfo();
-        BeanUtils.copyProperties(info.getLeaseInfo(),leaseInfo );
+        com.kenji.cloud.entity.LeaseInfo leaseInfo = new com.kenji.cloud.entity.LeaseInfo();
+        BeanUtils.copyProperties(info.getLeaseInfo(), leaseInfo);
         leaseInfoService.addLeaseInfo(leaseInfo);
         info1.setLeaseInfo(leaseInfo);
         applicationService.addApp(info1);
-
+        info1.setInstanceInfoId(info1.getInstanceInfoId()-1);
         return Response.status(204).build();  // 204 to be backwards compatible
     }
 
@@ -228,4 +223,5 @@ public class ApplicationResource {
     private boolean isBlank(String str) {
         return str == null || str.isEmpty();
     }
+
 }

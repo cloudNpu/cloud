@@ -39,4 +39,11 @@ public class LeaseInfo extends com.netflix.appinfo.LeaseInfo {
 //    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "leaseInfo")
 //    private List<InstanceInfo> instanceInfos;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }
