@@ -1,5 +1,6 @@
 package com.kenji.cloud.web;
 
+import com.kenji.cloud.loadbalance.DynamicRule;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.loadbalancer.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,6 +87,11 @@ public class InvokeController {
                     System.out.println("Turn to:RandomRule");
                     defaultListableBeanFactory.registerBeanDefinition(targetBeanName, BeanDefinitionBuilder.genericBeanDefinition(RandomRule.class).getBeanDefinition());
                     zoneAwareLoadBalancer.setRule(new RandomRule());
+                }
+                if ("DynamicRule".equals(strategy)){
+                    System.out.println("Turn to:DynamicRule");
+                    defaultListableBeanFactory.registerBeanDefinition(targetBeanName, BeanDefinitionBuilder.genericBeanDefinition(RandomRule.class).getBeanDefinition());
+                    zoneAwareLoadBalancer.setRule(new DynamicRule());
                 }
             }
 
