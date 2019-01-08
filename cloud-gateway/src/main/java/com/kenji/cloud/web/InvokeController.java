@@ -32,7 +32,7 @@ public class InvokeController {
 
 //    @Autowired
 //    private BaseLoadBalancer baseLoadBalancer;
-
+//普通服务调用
     @HystrixCommand(fallbackMethod = "invokeError")
     @RequestMapping(value = "/invoke", method = RequestMethod.GET)
     public String invoke(@RequestParam String serviceName, @RequestParam String param) {
@@ -51,6 +51,168 @@ public class InvokeController {
     public String invoke2(@RequestParam String serviceName, @RequestParam String param) {
         return restTemplate.getForObject("http://" + serviceName + "/" + param, String.class) + "--this client 8764";
     }
+
+
+
+    //带负载均衡策略的服务调用
+
+    //@HystrixCommand(fallbackMethod = "invokeError")
+    @RequestMapping(value = "/invokeLB", method = RequestMethod.GET)
+    public String invoke(@RequestParam String serviceName, @RequestParam String param,@RequestParam String strategy) {
+
+        RibbonLoadBalancerClient ribbonLoadBalancerClient = (RibbonLoadBalancerClient) loadBalancer;
+        ZoneAwareLoadBalancer zoneAwareLoadBalancer = (ZoneAwareLoadBalancer) ribbonLoadBalancerClient.getLoadBalancer(serviceName);
+
+
+        //修改负载均衡策略
+        String targetBeanName = "myRule";
+
+        BeanDefinition bd = defaultListableBeanFactory.getBeanDefinition(targetBeanName);
+        System.out.println(bd.getBeanClassName()); //com.netflix.loadbalancer.RoundRobinRule
+
+        String currentBeanName = bd.getBeanClassName();
+        if (currentBeanName == null)
+            currentBeanName = "";
+
+        if (!currentBeanName.equals("com.netflix.loadbalancer." + strategy)){  //如果策略名不同，需要替换时
+            //移除bean的定义和实例
+            defaultListableBeanFactory.removeBeanDefinition(targetBeanName);
+            System.out.println("delete past myRule");
+
+            //注册新的bean定义和实例
+            //defaultListableBeanFactory.registerBeanDefinition(targetBeanName, BeanDefinitionBuilder.genericBeanDefinition(RoundRobinRule.class).getBeanDefinition());
+            if ("RoundRobinRule".equals(strategy)){
+                System.out.println("Turn to:RoundRobinRule");
+                defaultListableBeanFactory.registerBeanDefinition(targetBeanName, BeanDefinitionBuilder.genericBeanDefinition(RoundRobinRule.class).getBeanDefinition());
+                zoneAwareLoadBalancer.setRule(new RoundRobinRule());
+
+                // BaseLoadBalancer
+            }
+            if ("WeightedResponseTimeRule".equals(strategy)){
+                System.out.println("Turn to:WeightedResponseTimeRule");
+                defaultListableBeanFactory.registerBeanDefinition(targetBeanName, BeanDefinitionBuilder.genericBeanDefinition(WeightedResponseTimeRule.class).getBeanDefinition());
+                zoneAwareLoadBalancer.setRule(new WeightedResponseTimeRule());
+            }
+            if ("RandomRule".equals(strategy)){
+                System.out.println("Turn to:RandomRule");
+                defaultListableBeanFactory.registerBeanDefinition(targetBeanName, BeanDefinitionBuilder.genericBeanDefinition(RandomRule.class).getBeanDefinition());
+                zoneAwareLoadBalancer.setRule(new RandomRule());
+            }
+        }
+
+
+        return restTemplate.getForObject("http://" + serviceName + "/" + param, String.class) + "--this client 8764";
+    }
+
+    @RequestMapping(value = "/invokeLB", method = RequestMethod.PUT)
+    public String invoke1(@RequestParam String serviceName, @RequestParam String param,@RequestParam String strategy) {
+
+        RibbonLoadBalancerClient ribbonLoadBalancerClient = (RibbonLoadBalancerClient) loadBalancer;
+        ZoneAwareLoadBalancer zoneAwareLoadBalancer = (ZoneAwareLoadBalancer) ribbonLoadBalancerClient.getLoadBalancer(serviceName);
+
+
+        //修改负载均衡策略
+        String targetBeanName = "myRule";
+
+        BeanDefinition bd = defaultListableBeanFactory.getBeanDefinition(targetBeanName);
+        System.out.println(bd.getBeanClassName()); //com.netflix.loadbalancer.RoundRobinRule
+
+        String currentBeanName = bd.getBeanClassName();
+        if (currentBeanName == null)
+            currentBeanName = "";
+
+        if (!currentBeanName.equals("com.netflix.loadbalancer." + strategy)){  //如果策略名不同，需要替换时
+            //移除bean的定义和实例
+            defaultListableBeanFactory.removeBeanDefinition(targetBeanName);
+            System.out.println("delete past myRule");
+
+            //注册新的bean定义和实例
+            //defaultListableBeanFactory.registerBeanDefinition(targetBeanName, BeanDefinitionBuilder.genericBeanDefinition(RoundRobinRule.class).getBeanDefinition());
+            if ("RoundRobinRule".equals(strategy)){
+                System.out.println("Turn to:RoundRobinRule");
+                defaultListableBeanFactory.registerBeanDefinition(targetBeanName, BeanDefinitionBuilder.genericBeanDefinition(RoundRobinRule.class).getBeanDefinition());
+                zoneAwareLoadBalancer.setRule(new RoundRobinRule());
+
+                // BaseLoadBalancer
+            }
+            if ("WeightedResponseTimeRule".equals(strategy)){
+                System.out.println("Turn to:WeightedResponseTimeRule");
+                defaultListableBeanFactory.registerBeanDefinition(targetBeanName, BeanDefinitionBuilder.genericBeanDefinition(WeightedResponseTimeRule.class).getBeanDefinition());
+                zoneAwareLoadBalancer.setRule(new WeightedResponseTimeRule());
+            }
+            if ("RandomRule".equals(strategy)){
+                System.out.println("Turn to:RandomRule");
+                defaultListableBeanFactory.registerBeanDefinition(targetBeanName, BeanDefinitionBuilder.genericBeanDefinition(RandomRule.class).getBeanDefinition());
+                zoneAwareLoadBalancer.setRule(new RandomRule());
+            }
+        }
+
+
+        return restTemplate.getForObject("http://" + serviceName + "/" + param, String.class) + "--this client 8764";
+    }
+
+    @RequestMapping(value = "/invokeLB", method = RequestMethod.DELETE)
+    public String invoke2(@RequestParam String serviceName, @RequestParam String param,@RequestParam String strategy) {
+
+        RibbonLoadBalancerClient ribbonLoadBalancerClient = (RibbonLoadBalancerClient) loadBalancer;
+        ZoneAwareLoadBalancer zoneAwareLoadBalancer = (ZoneAwareLoadBalancer) ribbonLoadBalancerClient.getLoadBalancer(serviceName);
+
+
+        //修改负载均衡策略
+        String targetBeanName = "myRule";
+
+        BeanDefinition bd = defaultListableBeanFactory.getBeanDefinition(targetBeanName);
+        System.out.println(bd.getBeanClassName()); //com.netflix.loadbalancer.RoundRobinRule
+
+        String currentBeanName = bd.getBeanClassName();
+        if (currentBeanName == null)
+            currentBeanName = "";
+
+        if (!currentBeanName.equals("com.netflix.loadbalancer." + strategy)){  //如果策略名不同，需要替换时
+            //移除bean的定义和实例
+            defaultListableBeanFactory.removeBeanDefinition(targetBeanName);
+            System.out.println("delete past myRule");
+
+            //注册新的bean定义和实例
+            //defaultListableBeanFactory.registerBeanDefinition(targetBeanName, BeanDefinitionBuilder.genericBeanDefinition(RoundRobinRule.class).getBeanDefinition());
+            if ("RoundRobinRule".equals(strategy)){
+                System.out.println("Turn to:RoundRobinRule");
+                defaultListableBeanFactory.registerBeanDefinition(targetBeanName, BeanDefinitionBuilder.genericBeanDefinition(RoundRobinRule.class).getBeanDefinition());
+                zoneAwareLoadBalancer.setRule(new RoundRobinRule());
+
+                // BaseLoadBalancer
+            }
+            if ("WeightedResponseTimeRule".equals(strategy)){
+                System.out.println("Turn to:WeightedResponseTimeRule");
+                defaultListableBeanFactory.registerBeanDefinition(targetBeanName, BeanDefinitionBuilder.genericBeanDefinition(WeightedResponseTimeRule.class).getBeanDefinition());
+                zoneAwareLoadBalancer.setRule(new WeightedResponseTimeRule());
+            }
+            if ("RandomRule".equals(strategy)){
+                System.out.println("Turn to:RandomRule");
+                defaultListableBeanFactory.registerBeanDefinition(targetBeanName, BeanDefinitionBuilder.genericBeanDefinition(RandomRule.class).getBeanDefinition());
+                zoneAwareLoadBalancer.setRule(new RandomRule());
+            }
+        }
+
+
+        return restTemplate.getForObject("http://" + serviceName + "/" + param, String.class) + "--this client 8764";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //注意请求的数据为x-www-form
     @RequestMapping(value = "/invoke", method = RequestMethod.POST)
@@ -120,6 +282,7 @@ public class InvokeController {
     public String invokeForJson(@RequestBody Map<String, String> requestParams) {
         HttpHeaders headers = new HttpHeaders();
         MediaType type = MediaType.parseMediaType("application/json; charset=UTF-8");
+        //MediaType type=MediaType.parseMediaType("application/x-www-form-urlencoded;charset=UTF-8");
         headers.setContentType(type);
         HttpEntity<String> entity = new HttpEntity<String>(requestParams.get("params"), headers);
         String result = restTemplate.postForObject("http://" + requestParams.get("serviceName"), entity, String.class);
