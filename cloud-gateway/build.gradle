@@ -27,6 +27,7 @@ configurations {
 //    compile.exclude module: "spring-boot-starter-tomcat"
 //    all*.exclude group:'javax.servlet'
     compile.exclude group: 'javax.servlet'
+    
 }
 
 
@@ -34,6 +35,7 @@ dependencies {
     compile project(':eureka-client')
     compile project(':eureka-core')
     compile project(':spring-cloud-netflix-eureka-server')
+    compile project(':spring-cloud-netflix-ribbon')
 
 
     compile('org.springframework.boot:spring-boot-starter-web')
@@ -44,7 +46,7 @@ dependencies {
 
     compile('org.springframework.cloud:spring-cloud-starter-netflix-hystrix:2.0.2.RELEASE')
     compile('org.springframework.cloud:spring-cloud-netflix-eureka-client:2.0.2.RELEASE')
-    compile('com.netflix.ribbon:ribbon:2.3.0')
+//    compile('com.netflix.ribbon:ribbon:2.3.0')
     compile('com.netflix.ribbon:ribbon-httpclient:2.3.0')
 
 
@@ -53,8 +55,10 @@ dependencies {
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
 //    testCompile('org.springframework.security:spring-security-test')
-
-
+//
+//    compile('org.springframework.cloud:spring-cloud-starter-config')
+//    compile('org.springframework.boot:spring-boot-starter-actuator')
+    
 //    compile('org.springframework.boot:spring-boot-devtools')
 //    compile("org.springframework.boot:spring-boot-starter-jetty")
 //    compile('javax.servlet:javax.servlet-api:3.1.0')

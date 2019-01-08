@@ -1,8 +1,511 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1af3c7f0-1aee-408a-847b-34166ef4a65e" name="Default Changelist" comment="修改服务管理LeaseInfo">
+    <list default="true" id="94592438-c34a-48fd-b260-1d788797f952" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/RoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/RoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/RoleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/RoleServiceImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/CloudGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/CloudGateway.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/config/GatewayConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/config/GatewayConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/Dept.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/Dept.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/LeaseInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/LeaseInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/UserApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/UserApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/InstanceInfoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/InstanceInfoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/LeaseInfoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/LeaseInfoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/MonitorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/MonitorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/UserAppRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/UserAppRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/UserRoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/UserRoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/ApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/ApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/LeaseInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/LeaseInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/UserAppService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/UserRoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/UserRoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/ApplicationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/ApplicationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/AuthUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/AuthUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/LeaseInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/LeaseInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/RegistryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/RegistryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/UserAppServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/UserRoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/UserRoleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/util/SessionFactoryUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/vo/UserVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/InstanceResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/InstanceResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/repository/MenuRepositoryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/UserServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/ApplicationServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/ApplicationServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/LeaseInfoServiceImplTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/MenuServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/MenuServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-site/src/locales/en-US.js" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-site/src/locales/en-US.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/db/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/docs/db/database.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/db/面向监控的服务平台数据库设计说明书.docx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/db/面向监控的服务平台数据库设计说明书.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/db/面向监控的服务平台数据库设计说明书.pages" beforeDir="false" afterPath="$PROJECT_DIR$/docs/db/面向监控的服务平台数据库设计说明书.pages" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pm/面向监控的服务平台开发阶段-任务分工20181217.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pm/面向监控的服务平台开发阶段-任务分工20181217.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pm/面向监控的服务平台开发阶段-任务分工20181228.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pm/面向监控的服务平台开发阶段-任务分工20181228.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pm/面向监控的服务平台测试阶段-任务分工20190103.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pm/面向监控的服务平台测试阶段-任务分工20190103.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/files/角色表格/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/prototype/files/角色表格/data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/resources/chrome/axure-chrome-extension.crx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/prototype/resources/chrome/axure-chrome-extension.crx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/data/document.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/data/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/个人中心页/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/个人中心页/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/主页/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/主页/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/主页表格/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/主页表格/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/保存成功/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/保存成功/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/删除成功/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/删除成功/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/删除成功_1/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/删除成功_1/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/删除成功_2/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/删除成功_2/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务授权/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务授权/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务授权用户表/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务授权用户表/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务注册/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务注册/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务注册_2/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务注册_2/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务注销_发布_撤回/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务注销_发布_撤回/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务管理首页/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务管理首页/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务表格/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/服务表格/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/检索用户/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/检索用户/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/检索角色/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/检索角色/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/添加用户/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/添加用户/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/添加菜单/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/添加菜单/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/添加菜单项/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/添加菜单项/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/添加角色/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/添加角色/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/添加部门/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/添加部门/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/用户管理所有保存成功/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/用户管理所有保存成功/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/用户管理首页/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/用户管理首页/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑服务/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑服务/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑服务1/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑服务1/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑用户/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑用户/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑菜单/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑菜单/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑菜单项/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑菜单项/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑角色/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/编辑角色/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/菜单信息列表/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/菜单信息列表/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/菜单列表/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/菜单列表/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/菜单管理首页/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/菜单管理首页/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/表格/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/表格/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/表格_1/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/表格_1/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色授权/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色授权/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色管理所有保存成功/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色管理所有保存成功/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色管理首页/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色管理首页/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色表格/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色表格/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色表格_1/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色表格_1/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色表格_2/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/角色表格_2/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/部门管理首页/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/部门管理首页/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/部门表格/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/部门表格/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/部门表格_1/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/files/部门表格_1/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/个人中心页/u101.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/个人中心页/u171.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/个人中心页/u180.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/个人中心页/u184.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/个人中心页/u200.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/个人中心页/u205.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/个人中心页/u210.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/个人中心页/u229.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/个人中心页/u234.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/个人中心页/u240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/个人中心页/u242.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u37.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u38.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u39.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u43.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u45.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u52.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u53.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页/u54.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页表格/u1092.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页表格/u1129.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页表格/u1166.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页表格/u1203.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页表格/u1277.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页表格/u1351.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/主页表格/u1388.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务授权用户表/u1601.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务授权用户表/u1602.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务授权用户表/u1603.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务授权用户表/u1604.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务授权用户表/u1605.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务授权用户表/u1606.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务授权用户表/u1616.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务授权用户表/u1617.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务授权用户表/u1618.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务注册/u523.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务注册/u530.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2726.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2727.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2728.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2729.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2730.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2731.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2732.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2733.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2734.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2735.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2736.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2737.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2738.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2739.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2740.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2741.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2758.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2759.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2760.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/服务表格/u2761.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/添加用户/u2219.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/添加用户/u2231.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/添加用户/u2234.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/用户管理首页/u2072.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/用户管理首页/u2076.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/用户管理首页/u2077.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/用户管理首页/u2124.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/编辑用户/u2312.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/编辑菜单/u3775.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/菜单信息列表/u4086.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/菜单信息列表/u4087.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/菜单信息列表/u4088.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/菜单信息列表/u4143.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/菜单信息列表/u4144.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/菜单信息列表/u4145.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/菜单列表/u4164.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u1011.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u1034.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u1035.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u1047.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u676.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u677.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u678.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u691.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u714.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u715.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u716.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u717.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u718.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u731.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u754.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u755.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u756.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u757.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u758.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u759.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u771.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u794.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u795.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u796.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u797.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u798.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u811.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u834.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u835.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u876.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u877.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u878.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u891.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u914.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u915.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u956.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u958.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u971.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u994.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u995.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u996.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u997.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格/u998.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2594.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2595.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2596.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2598.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2599.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2622.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2623.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2627.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2630.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2654.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2656.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2657.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2658.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2659.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2674.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/表格_1/u2675.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格/u2697.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格/u2698.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格/u2699.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格/u2700.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格/u2713.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格/u2714.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格_1/u3509.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格_1/u3516.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格_1/u3565.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格_2/u4040.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格_2/u4041.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格_2/u4068.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/角色表格_2/u4069.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/部门表格/u2687.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/部门表格/u2688.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/部门表格/u2691.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/images/部门表格/u2695.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/debug/styles/debug.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/debug/styles/images/reset.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/debug/styles/images/reset_hover.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/debug/styles/images/variables_hover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/debug/styles/images/variables_hover.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/debug/styles/images/variables_off.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/debug/styles/images/variables_off.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/debug/styles/images/variables_on.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/debug/styles/images/variables_on.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/back.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/back.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/back_hover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/back_hover.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/footnotes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/footnotes.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/footnotes_hover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/footnotes_hover.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/footnotes_on.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/footnotes_on.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/forward.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/forward.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/forward_hover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/forward_hover.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/notes_hover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/notes_hover.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/notes_off.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/notes_off.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/notes_on.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/images/notes_on.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/page_notes/styles/page_notes.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/recordplay/recordplay.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/recordplay/styles/recordplay.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/079_page_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/086_case_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/225_responsive_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/228_togglenotes_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/229_variables_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/231_event_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/232_search_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/233_hyperlink_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/235_folderclosed_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/236_folderopen_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/adaptivecheck.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/flow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/flow.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/folder_closed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/folder_closed.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/folder_open.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/folder_open.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/hotspots.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/hotspots.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/hotspots_hover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/hotspots_hover.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/hotspots_on.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/hotspots_on.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/images.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/minus.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/note.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/note.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/page.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/page.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/plus.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/share.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/share.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/share_hover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/share_hover.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/share_on.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/share_on.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/sitemap_hover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/sitemap_hover.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/sitemap_off.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/sitemap_off.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/sitemap_on.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/sitemap_on.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/views.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/views.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/views_hover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/views_hover.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/views_on.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/images/views_on.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/plugins/sitemap/styles/sitemap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/Other.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/chrome/allow-access.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/chrome/axure-chrome-extension.crx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/chrome/axure_logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/chrome/chrome.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/chrome/details.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/chrome/extensions.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/chrome/safari.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/chrome/safari_advanced.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/chrome/safari_restrictions.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/chrome/splitter.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/chrome/splitter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/axure_rp_page.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/default.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/images.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/newwindow.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/note.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-bg_flat_0_aaaaaa_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-bg_glass_55_fbf9ee_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-bg_glass_65_ffffff_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-bg_glass_75_dadada_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-bg_glass_75_e6e6e6_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-bg_glass_75_ffffff_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-bg_inset-soft_95_fef1ec_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-icons_222222_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-icons_2e83ff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-icons_454545_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-icons_888888_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/images/ui-icons_cd0a0a_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/jquery-ui-themes.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/css/reset.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/expand.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/259_close_12rollover1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/259_close_12rollover2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/260_collapse_12rollover1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/260_collapse_12rollover2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/261_expand_12rollover1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/261_expand_12rollover2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/close.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/close.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/close_hover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/close_hover.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/divider.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/divider.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/expand.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/expand.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/expand_hover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/expand_hover.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/images.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/images/transparent.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/reload.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/scripts/jquery-1.7.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/scripts/jquery-ui-1.8.10.custom.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/scripts/messagecenter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/scripts/player/axplayer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/scripts/player/splitter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/scripts/prototypePost.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/scripts/prototypePre.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/scripts/startPost.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/resources/scripts/startPre.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/start.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/start_c_1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/start_g_0.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/个人中心页.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/主页.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/主页表格.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/保存成功.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/删除成功.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/删除成功_1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/删除成功_2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/服务授权.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/服务授权用户表.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/服务注册.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/服务注册_2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/服务注销_发布_撤回.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/服务管理首页.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/服务表格.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/检索用户.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/检索角色.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/添加用户.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/添加菜单.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/添加菜单项.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/添加角色.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/添加部门.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/用户管理所有保存成功.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/用户管理首页.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/编辑服务.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/编辑服务1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/编辑用户.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/编辑菜单.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/编辑菜单项.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/编辑角色.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/菜单信息列表.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/菜单列表.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/菜单管理首页.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/表格.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/表格_1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/角色授权.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/角色管理所有保存成功.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/角色管理首页.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/角色表格.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/角色表格_1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/角色表格_2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/部门管理首页.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/部门表格.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prototype/原型设计终稿/部门表格_1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/restOperationsTest/令牌管理.docx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/restOperationsTest/令牌管理.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/restOperationsTest/服务管理.doc" beforeDir="false" afterPath="$PROJECT_DIR$/docs/restOperationsTest/服务管理.doc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/restOperationsTest/菜单管理.docx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/restOperationsTest/菜单管理.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/test/后端测试记录20190103.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/test/后端测试记录20190103.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/DataCenterInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/DataCenterInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/LeaseInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/LeaseInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-cloud-netflix-eureka-server/src/main/resources/templates/eureka/status.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/spring-cloud-netflix-eureka-server/src/main/resources/templates/eureka/status.ftl" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -62,110 +565,88 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <projects_view>
-          <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="cloud" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
-            <select />
-          </tree_state>
-        </projects_view>
-      </state>
-    </system>
-  </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-1420487327">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="15" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.10" value="2" />
-          <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.13" value="1" />
-          <entry key="project.open.time.249" value="1" />
-          <entry key="project.open.time.34" value="1" />
-          <entry key="project.open.time.47" value="1" />
-          <entry key="project.open.time.6" value="2" />
-          <entry key="project.open.time.62" value="1" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.open.time.79" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.81" value="1" />
-          <entry key="project.open.time.87" value="1" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.8" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="gitignore" value="1" />
-          <entry key="java" value="98" />
+          <entry key="java" value="17" />
           <entry key="xml" value="1" />
-          <entry key="yml" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="98" />
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="JAVA" value="17" />
           <entry key="XML" value="1" />
-          <entry key="YAML" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="1" />
-          <entry key="ft" value="111" />
-          <entry key="gitignore" value="3" />
-          <entry key="java" value="4451" />
-          <entry key="txt" value="172" />
-          <entry key="yml" value="11" />
+          <entry key="java" value="266" />
+          <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4451" />
-          <entry key="PLAIN_TEXT" value="176" />
-          <entry key="VTL" value="111" />
-          <entry key="YAML" value="11" />
+          <entry key="JAVA" value="266" />
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java">
+        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="21" column="96" selection-start-line="21" selection-start-column="96" selection-end-line="21" selection-end-column="96" />
+            <state relative-caret-position="528">
+              <caret line="214" selection-start-line="214" selection-end-line="214" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/UserController.java">
+        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="396">
+              <caret line="73" column="21" lean-forward="true" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/LeaseInfoService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/LeaseInfoServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
               <folding>
-                <element signature="e#475#476#0" expanded="true" />
-                <element signature="e#521#522#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/ApplicationServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="59" column="7" lean-forward="true" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
+            <state relative-caret-position="264">
+              <caret line="36" column="26" lean-forward="true" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -175,46 +656,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>menuf</find>
-      <find>&lt;component name=&quot;PropertiesComponent&quot;&gt;</find>
-      <find>leaseinfo</find>
-      <find>apache</find>
-      <find>/cloud/</find>
-      <find>/cloud</find>
-      <find>MenuVO</find>
-      <find>instanceid</find>
-      <find>datace</find>
-      <find>ipaddr</find>
-      <find>getappname</find>
-      <find>app</find>
-      <find>getdatacenter</find>
-      <find>inputparams</find>
-      <find>getdata</find>
-      <find>setStatus</find>
-      <find>setMetadata</find>
-      <find>getName</find>
-      <find>getDataCenterInfo</find>
-      <find>setappname</find>
-      <find>appname</find>
-      <find>registry</find>
-      <find>appName</find>
-      <find>visible</find>
-      <find>InstanceInfo</find>
-      <find>datacenter</find>
-      <find>DEFAULT_COUNTRY_ID</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="SOFT" />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
@@ -5188,11 +5638,275 @@
             </list>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/spring-cloud-netflix-ribbon">
+          <value>
+            <list>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the sub-projects of project ':spring-cloud-netflix-ribbon'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="projects" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Publishes artifacts to bintray.com." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="bintrayUpload" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Generates the Eclipse classpath file." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="eclipseClasspath" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles a jar archive containing the main classes." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="jar" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the configuration model of project ':spring-cloud-netflix-ribbon'. [incubating]" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="model" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Generates the Maven POM file for publication 'nebula'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="generatePomFileForNebulaPublication" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Processes main resources." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="processResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the tasks runnable from project ':spring-cloud-netflix-ribbon'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="tasks" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Runs the unit tests." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="test" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Compiles main Java source." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="compileJava" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="javadocJar" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Create a lock file in build/&lt;configured name&gt;" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="generateLock" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Runs all checks." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="check" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays all dependencies declared in project ':spring-cloud-netflix-ribbon'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="dependencies" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Generates all Eclipse files." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="eclipse" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Applies the license found in the header file in files missing the header." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="licenseFormat" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Processes test resources." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="processTestResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Checks for header consistency." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="license" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Generates the Eclipse JDT settings file." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="eclipseJdt" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles and tests this project and all projects it depends on." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="buildNeeded" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Generates the Eclipse project file." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="eclipseProject" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Scanning license on main files" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="licenseFormatMain" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Move the generated lock file into the project directory" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="saveLock" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Deploys artifacts + generated build-info metadata to Artifactory,&#10;                                 using project configurations." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="artifactoryPublish" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the components produced by project ':spring-cloud-netflix-ribbon'. [incubating]" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="components" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles and tests this project and all projects that depend on it." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="buildDependents" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="cleanEclipseClasspath" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="sourceJar" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Cleans all Eclipse files." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="cleanEclipse" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles main classes." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="classes" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the dependent components of components in project ':spring-cloud-netflix-ribbon'. [incubating]" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="dependentComponents" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays all buildscript dependencies declared in project ':spring-cloud-netflix-ribbon'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="buildEnvironment" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="cleanEclipseProject" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Apply updates to a preexisting lock file and write to build/&lt;specified name&gt;" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="updateLock" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles test classes." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="testClasses" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Generates the Gradle metadata file for publication 'nebula'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="generateMetadataFileForNebulaPublication" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Generates Javadoc API documentation for the main source code." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="javadoc" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Generates reports on your runtime dependencies." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="downloadLicenses" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Scanning license on main files" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="licenseMain" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Publishes Maven publication 'nebula' to the local Maven repository." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="publishNebulaPublicationToMavenLocal" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="cleanEclipseJdt" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="deleteLock" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the insight into a specific dependency in project ':spring-cloud-netflix-ribbon'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="dependencyInsight" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles the outputs of this project." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="assemble" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Deletes the build directory." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="clean" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="writeManifestProperties" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Compiles test Java source." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="compileTestJava" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Write license header for License tasks" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="writeLicenseHeader" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays a help message." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="help" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles and tests this project." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="build" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Publishes all publications produced by this project." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="publish" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Publishes all Maven publications produced by this project to the local Maven cache." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="publishToMavenLocal" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the properties of project ':spring-cloud-netflix-ribbon'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/spring-cloud-netflix-ribbon" />
+                <option name="name" value="properties" />
+              </ExternalTaskPojo>
+            </list>
+          </value>
+        </entry>
       </map>
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="27802808378352" />
+        <entry key="$PROJECT_DIR$" value="27844398061404" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
         <entry key="$PROJECT_DIR$/build.gradle" value="926327292" />
         <entry key="$PROJECT_DIR$/cloud-gateway/build.gradle" value="3554127491" />
@@ -8799,43 +9513,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/Menu.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/User.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/UserApp.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/MenuServiceImpl.java" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/LeaseInfoRepository.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/LeaseInfoServiceImplTest.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/CloudGateway.java" />
-        <option value="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/providers/DataCenterInfoImpl.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/util/InstanceInfoAdapter.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/tesfewfwerfwef.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/MenuController.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/InstanceResource.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/AdminController.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/ApplicationService.java" />
-        <option value="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/InstanceInfoRepository.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/UserAppRepository.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/SysLogRepository.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/AppLogRepository.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/UserRole.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/Role.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/vo/SaveUserVo.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/Dept.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/vo/UserSearchVo.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/LeaseInfo.java" />
-        <option value="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/LeaseInfo.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/leaseInfoRepository.java" />
+        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/LeaseInfoServiceImpl.java" />
+        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/LeaseInfoService.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/ApplicationServiceImplTest.java" />
-        <option value="$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/DataCenterInfo.java" />
+        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/LeaseInfoServiceImpl.java" />
+        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java" />
         <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/ApplicationServiceImpl.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java" />
-        <option value="$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -8856,50 +9540,6 @@
     <option name="y" value="38" />
     <option name="width" value="1413" />
     <option name="height" value="920" />
-  </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State />
-          <State>
-            <id>Android</id>
-          </State>
-          <State>
-            <id>CorrectnessLintAndroid</id>
-          </State>
-          <State>
-            <id>InternationalizationJava</id>
-          </State>
-          <State>
-            <id>Java</id>
-          </State>
-          <State>
-            <id>Java 7Java language level migration aidsJava</id>
-          </State>
-          <State>
-            <id>Java language level migration aidsJava</id>
-          </State>
-          <State>
-            <id>LintAndroid</id>
-          </State>
-          <State>
-            <id>Naming conventionsJava</id>
-          </State>
-          <State>
-            <id>UsabilityLintAndroid</id>
-          </State>
-          <State>
-            <id>WebSocket</id>
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>Android</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -8922,32 +9562,159 @@
             <path>
               <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="docs" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="docs" type="462c0819:PsiDirectoryNode" />
-              <item name="design" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
               <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="docs" type="462c0819:PsiDirectoryNode" />
-              <item name="pm" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="docs" type="462c0819:PsiDirectoryNode" />
-              <item name="prototype" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="netflix" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="netflix" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="cloud-gateway" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -8956,33 +9723,21 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
-    <property name="SearchEverywhereHistoryKey" value="JsonProperty&#9;PSI&#9;JAVA://com.fasterxml.jackson.annotation.JsonProperty" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546828406658" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546913375083" />
     <property name="dynamic.classpath" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../spring-cloud-producer" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\Desktop\cloud\cloud\cloud-gateway\src\main\java\com\kenji\cloud\entity" />
-      <recent name="C:\Users\Administrator\Desktop\cloud\cloud\cloud-gateway\src\main\java\com\kenji\cloud\repository" />
-      <recent name="C:\Users\Administrator\Desktop\cloud\cloud\cloud-gateway\src\main\java\com\kenji\cloud\service\impl" />
-      <recent name="C:\Users\Administrator\Desktop\cloud\cloud\cloud-gateway\src\main\java\com\kenji\cloud\service" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.kenji.cloud.service" />
     </key>
   </component>
   <component name="RunDashboard">
-    <option name="configurationTypes">
-      <set>
-        <option value="SpringBootApplicationConfigurationType" />
-      </set>
-    </option>
     <option name="ruleStates">
       <list>
         <RuleState>
@@ -8993,57 +9748,8 @@
         </RuleState>
       </list>
     </option>
-    <option name="contentProportion" value="0.13690476" />
   </component>
-  <component name="RunManager" selected="Spring Boot.CloudGateway (1)">
-    <configuration name="ApplicationServicE.save" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.kenji.cloud.service.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.kenji.cloud.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.kenji.cloud.service.impl.ApplicationServicE" />
-      <option name="METHOD_NAME" value="save" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="PARAMETERS" value="" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ApplicationServiceImplTest.delete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="cloud-gateway_test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.kenji.cloud.service.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.kenji.cloud.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.kenji.cloud.service.impl.ApplicationServiceImplTest" />
-      <option name="METHOD_NAME" value="delete" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ApplicationServiceImplTest.hideApp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="com.kenji.cloud-gateway.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.kenji.cloud.service.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.kenji.cloud.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.kenji.cloud.service.impl.ApplicationServiceImplTest" />
-      <option name="METHOD_NAME" value="hideApp" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.CloudGateway">
     <configuration name="ApplicationServiceImplTest.save" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cloud-gateway_test" />
       <extension name="coverage">
@@ -9060,10 +9766,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="服务注册.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/cloud/docs/prototype/原型设计终稿/服务注册.html">
-      <method v="2" />
-    </configuration>
-    <configuration name="CloudGateway (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <configuration name="CloudGateway" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="cloud-gateway_main" />
       <extension name="coverage">
         <pattern>
@@ -9076,29 +9779,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CloudGateway" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.kenji.cloud.CloudGateway" />
-      <option name="DEBUG_MODE" value="true" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="JUnit.ApplicationServicE.save" />
-      <item itemvalue="Spring Boot.CloudGateway (1)" />
       <item itemvalue="Spring Boot.CloudGateway" />
-      <item itemvalue="JavaScript Debug.服务注册.html" />
-      <item itemvalue="JUnit.ApplicationServiceImplTest.hideApp" />
       <item itemvalue="JUnit.ApplicationServiceImplTest.save" />
-      <item itemvalue="JUnit.ApplicationServiceImplTest.delete" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.CloudGateway" />
         <item itemvalue="JUnit.ApplicationServiceImplTest.save" />
-        <item itemvalue="JUnit.ApplicationServiceImplTest.delete" />
-        <item itemvalue="JavaScript Debug.服务注册.html" />
-        <item itemvalue="JUnit.ApplicationServiceImplTest.hideApp" />
       </list>
     </recent_temporary>
   </component>
@@ -9107,316 +9795,72 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1af3c7f0-1aee-408a-847b-34166ef4a65e" name="Default Changelist" comment="" />
-      <created>1546063966803</created>
+      <changelist id="94592438-c34a-48fd-b260-1d788797f952" name="Default Changelist" comment="" />
+      <created>1546911012712</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1546063966803</updated>
-      <workItem from="1546063969791" duration="1355000" />
-      <workItem from="1546065361712" duration="14969000" />
-      <workItem from="1546098813466" duration="713000" />
-      <workItem from="1546133013620" duration="3294000" />
-      <workItem from="1546162882588" duration="621000" />
-      <workItem from="1546175618760" duration="220000" />
-      <workItem from="1546339126344" duration="346000" />
-      <workItem from="1546339490469" duration="1170000" />
-      <workItem from="1546340990267" duration="29507000" />
-      <workItem from="1546415449394" duration="11477000" />
-      <workItem from="1546431876595" duration="9718000" />
-      <workItem from="1546482449076" duration="10916000" />
-      <workItem from="1546566872967" duration="2531000" />
-      <workItem from="1546569431467" duration="273000" />
-      <workItem from="1546569722386" duration="1733000" />
-      <workItem from="1546571955390" duration="97000" />
-      <workItem from="1546572069718" duration="7864000" />
-      <workItem from="1546591498269" duration="1755000" />
-      <workItem from="1546595638288" duration="9337000" />
-      <workItem from="1546606576048" duration="18000" />
-      <workItem from="1546763577842" duration="2451000" />
-      <workItem from="1546826650784" duration="1172000" />
+      <updated>1546911012712</updated>
+      <workItem from="1546911015891" duration="166000" />
+      <workItem from="1546911212005" duration="147000" />
+      <workItem from="1546911377360" duration="2004000" />
+      <workItem from="1546913431773" duration="80000" />
     </task>
-    <task id="LOCAL-00001" summary="张书玮">
-      <created>1546064464696</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1546064464696</updated>
-    </task>
-    <task id="LOCAL-00002" summary="张书玮恢复到放假前">
-      <created>1546066126241</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1546066126241</updated>
-    </task>
-    <task id="LOCAL-00003" summary="张书玮恢复到放假前">
-      <created>1546066163634</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1546066163634</updated>
-    </task>
-    <task id="LOCAL-00004" summary="服务管理">
-      <created>1546099093257</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1546099093257</updated>
-    </task>
-    <task id="LOCAL-00005" summary="服务管理freezingSword">
-      <created>1546430861760</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1546430861760</updated>
-    </task>
-    <task id="LOCAL-00006" summary="服务管理临时保存">
-      <created>1546480089578</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1546480089578</updated>
-    </task>
-    <task id="LOCAL-00007" summary="服务管理临时保存">
-      <created>1546566736201</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1546566736201</updated>
-    </task>
-    <task id="LOCAL-00008" summary="服务管理临时保存">
-      <created>1546566783345</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1546566783345</updated>
-    </task>
-    <task id="LOCAL-00009" summary="服务管理临时保存">
-      <created>1546567228951</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1546567228951</updated>
-    </task>
-    <task id="LOCAL-00010" summary="服务管理">
-      <created>1546571124553</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1546571124553</updated>
-    </task>
-    <task id="LOCAL-00011" summary="服务管理">
-      <created>1546571173702</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1546571173702</updated>
-    </task>
-    <task id="LOCAL-00012" summary="服务管理">
-      <created>1546572481057</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1546572481057</updated>
-    </task>
-    <task id="LOCAL-00013" summary="服务管理">
-      <created>1546572707952</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1546572707952</updated>
-    </task>
-    <task id="LOCAL-00014" summary="服务管理">
-      <created>1546573185862</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1546573185862</updated>
-    </task>
-    <task id="LOCAL-00015" summary="服务管理">
-      <created>1546573252628</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1546573252628</updated>
-    </task>
-    <task id="LOCAL-00016" summary="添加服务状态查询和服务调用次数查询+服务调用的PUT,DELETE方式">
-      <created>1546600549255</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1546600549255</updated>
-    </task>
-    <task id="LOCAL-00017" summary="矫正instanceInfo实体类，所有字段均可写入数据库">
-      <created>1546606259179</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1546606259179</updated>
-    </task>
-    <task id="LOCAL-00018" summary="校正instanceInfo实体类，所有字段均可写入数据库了">
-      <created>1546606377287</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1546606377287</updated>
-    </task>
-    <task id="LOCAL-00019" summary="校正instanceInfo实体类，所有属性均可写入相应数据库字段">
-      <created>1546606425491</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1546606425491</updated>
-    </task>
-    <task id="LOCAL-00020" summary="修改服务管理LeaseInfo">
-      <created>1546826767286</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1546826767286</updated>
-    </task>
-    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ApplicationServiceImplTest_save - 2019.01.02 at 20h 13m 17s.xml">
+    <history-entry file="ApplicationServiceImplTest_save - 2019.01.08 at 09h 49m 36s.xml">
       <configuration name="ApplicationServiceImplTest.save" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ApplicationServiceImplTest_save - 2019.01.02 at 20h 19m 36s.xml">
-      <configuration name="ApplicationServiceImplTest.save" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ApplicationServiceImplTest_save - 2019.01.02 at 20h 20m 31s.xml">
-      <configuration name="ApplicationServiceImplTest.save" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ApplicationServiceImplTest_save - 2019.01.02 at 20h 22m 40s.xml">
-      <configuration name="ApplicationServiceImplTest.save" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ApplicationServiceImplTest_save - 2019.01.02 at 20h 29m 35s.xml">
-      <configuration name="ApplicationServiceImplTest.save" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ApplicationServiceImplTest_save - 2019.01.04 at 19h 23m 36s.xml">
-      <configuration name="ApplicationServiceImplTest.save" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ApplicationServiceImplTest_save - 2019.01.04 at 19h 24m 06s.xml">
-      <configuration name="ApplicationServiceImplTest.save" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ApplicationServiceImplTest_save - 2019.01.04 at 19h 42m 50s.xml">
-      <configuration name="ApplicationServiceImplTest.save" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ApplicationServiceImplTest_save - 2019.01.04 at 19h 49m 30s.xml">
-      <configuration name="ApplicationServiceImplTest.save" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ApplicationServiceImplTest_save - 2019.01.04 at 20h 36m 32s.xml">
+    <history-entry file="ApplicationServiceImplTest_save - 2019.01.08 at 09h 51m 05s.xml">
       <configuration name="ApplicationServiceImplTest.save" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111458000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
+    <option name="totallyTimeSpent" value="2397000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4982699" visible="true" weight="0.2595949" />
-      <window_info id="Structure" order="1" sideWeight="0.5017301" side_tool="true" weight="0.2889126" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25799572" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4978678" weight="0.32328483" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991684" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33679834" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49840087" weight="0.32848233" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49946696" weight="0.34511435" />
-      <window_info anchor="bottom" id="Spring" order="8" weight="0.32952183" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49733475" weight="0.33679834" />
-      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="11" sideWeight="0.5026652" side_tool="true" visible="true" weight="0.32744282" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49322918" weight="0.33367983" />
-      <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32952183" />
-      <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="15" sideWeight="0.49840087" weight="0.32744282" />
-      <window_info anchor="bottom" id="Run Dashboard" order="16" sideWeight="0.49733475" weight="0.32744282" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.32952183" />
+      <window_info anchor="bottom" id="Spring" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3211382" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32952183" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.32848233" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.32952183" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Gradle" order="6" weight="0.3296875" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="9" />
-      <window_info anchor="right" id="Bean Validation" order="10" />
-      <window_info anchor="right" id="Maven Projects" order="11" />
-      <window_info anchor="right" id="CDI" order="12" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="CDI" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="right" id="Gradle" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+      <window_info anchor="right" id="Palette&#9;" order="9" />
+      <window_info anchor="right" id="Theme Preview" order="10" />
+      <window_info anchor="right" id="Bean Validation" order="11" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4982699" visible="true" weight="0.29166666" />
-      <window_info id="Structure" order="1" sideWeight="0.5017301" side_tool="true" weight="0.2889126" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Web" order="7" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Run Dashboard" order="0" sideWeight="0.4984375" visible="true" weight="0.32215446" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.4978678" weight="0.32328483" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.3991684" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49946696" weight="0.32952183" />
-      <window_info anchor="bottom" id="Build" order="8" weight="0.34606987" />
-      <window_info anchor="bottom" id="Spring" order="9" weight="0.32952183" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49946696" weight="0.32952183" />
-      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5015625" side_tool="true" weight="0.32215446" />
-      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49322918" weight="0.32825205" />
-      <window_info anchor="bottom" id="Java Enterprise" order="14" weight="0.32952183" />
-      <window_info anchor="bottom" id="Database Changes" order="15" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="16" show_stripe_button="false" sideWeight="0.49891657" weight="0.32744282" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Gradle" order="6" weight="0.3296875" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="9" />
-      <window_info anchor="right" id="Bean Validation" order="10" />
-      <window_info anchor="right" id="Maven Projects" order="11" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ORDER">
-      <list>
-        <option value="0" />
-        <option value="2" />
-        <option value="3" />
-        <option value="1" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -9447,467 +9891,93 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="张书玮" />
-    <MESSAGE value="张书玮恢复到放假前" />
-    <MESSAGE value="服务管理freezingSword" />
-    <MESSAGE value="服务管理临时保存" />
-    <MESSAGE value="服务管理" />
-    <MESSAGE value="添加服务状态查询和服务调用次数查询+服务调用的PUT,DELETE方式" />
-    <MESSAGE value="矫正instanceInfo实体类，所有字段均可写入数据库" />
-    <MESSAGE value="校正instanceInfo实体类，所有字段均可写入数据库了" />
-    <MESSAGE value="校正instanceInfo实体类，所有属性均可写入相应数据库字段" />
-    <MESSAGE value="修改服务管理LeaseInfo" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改服务管理LeaseInfo" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/eureka-core/src/main/java/com/netflix/eureka/registry/AbstractInstanceRegistry.java</url>
-          <line>193</line>
-          <properties />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <watches-manager>
-      <configuration name="SpringBootApplicationConfigurationType">
-        <watch expression="register" language="JAVA" />
-        <watch expression="registry" />
-      </configuration>
-    </watches-manager>
-  </component>
-  <component name="debuggerHistoryManager">
-    <expressions id="watch">
-      <expression>
-        <expression-string>register</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-    </expressions>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.zaxxer/HikariCP/2.7.9/48612687e0f772c4c26ae70e0dff9b1433faf484/HikariCP-2.7.9-sources.jar!/com/zaxxer/hikari/pool/ProxyPreparedStatement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/MenuServiceImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/Java/src.zip!/java/util/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="128" column="26" selection-start-line="128" selection-start-column="26" selection-end-line="128" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/discovery/converters/Converters.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="341" column="40" selection-start-line="341" selection-start-column="40" selection-end-line="341" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/providers/DataCenterInfoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/AbstractInstanceConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="52" column="40" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/AmazonInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="51" column="22" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.9.0/a0ad4e203304ccab7e01266fa814115850edb8a9/jackson-annotations-2.9.0-sources.jar!/com/fasterxml/jackson/annotation/JsonProperty.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2589">
-          <caret line="33" column="18" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/5.0.9.RELEASE/beafb55eae32edb39351cb84594261a60d12219c/spring-aop-5.0.9.RELEASE-sources.jar!/org/springframework/aop/framework/ReflectiveMethodInvocation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="186" column="5" lean-forward="true" selection-start-line="186" selection-start-column="5" selection-end-line="186" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/5.0.9.RELEASE/1cfee1c1857cda6542f478ef8fe7d2fdb6c3b20/spring-beans-5.0.9.RELEASE-sources.jar!/org/springframework/beans/BeanUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="598" column="31" selection-start-line="598" selection-start-column="31" selection-end-line="598" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/util/InstanceInfoAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eureka-core/src/main/java/com/netflix/eureka/registry/PeerAwareInstanceRegistryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-718">
-          <caret line="92" column="37" lean-forward="true" selection-start-line="92" selection-start-column="37" selection-end-line="92" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eureka-core/src/main/java/com/netflix/eureka/registry/AbstractInstanceRegistry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="241" column="40" lean-forward="true" selection-start-line="241" selection-start-column="40" selection-end-line="241" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/tesfewfwerfwef.java" />
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/MenuServiceImpl.java" />
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/AdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/RegistryServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="14" column="52" lean-forward="true" selection-start-line="13" selection-start-column="3" selection-end-line="14" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/MenuController.java" />
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.6/dad3a9fbbedf8781dfd138539cd82638ebad5678/jackson-databind-2.9.6-sources.jar!/com/fasterxml/jackson/databind/ser/BeanSerializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="154" selection-start-line="154" selection-end-line="154" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/CloudGateway.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="404" column="30" selection-start-line="404" selection-start-column="30" selection-end-line="404" selection-end-column="30" />
+        <state relative-caret-position="13321">
+          <caret line="9658" column="51" selection-start-line="9658" selection-start-column="51" selection-end-line="9658" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/MenuRoleService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="59" column="7" lean-forward="true" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/UserAppRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/SysLogRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/AppLogRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/UserRoleServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="924">
-          <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/ApplicationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/UserRole.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="88" column="5" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/vo/SaveUserVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/DeptService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/Dept.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="76" column="44" selection-start-line="76" selection-start-column="44" selection-end-line="76" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/vo/UserSearchVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/LeaseInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/LeaseInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="159" column="5" selection-start-line="159" selection-start-column="5" selection-end-line="159" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/InstanceResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="70" column="23" lean-forward="true" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="197" column="12" selection-start-line="197" selection-start-column="12" selection-end-line="197" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/InstanceInfoRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/repository/LeaseInfoRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-609">
-          <caret line="107" column="38" lean-forward="true" selection-start-line="107" selection-start-column="38" selection-end-line="107" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/InstanceInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="87" column="4" selection-start-line="87" selection-start-column="4" selection-end-line="88" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/ApplicationServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2398">
-          <caret line="118" column="49" selection-start-line="118" selection-start-column="49" selection-end-line="118" selection-end-column="49" />
+        <state relative-caret-position="176">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cloud-gateway/src/test/java/com/kenji/cloud/service/impl/ApplicationServiceImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
+        <state relative-caret-position="203">
+          <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eureka-client/src/main/java/com/netflix/appinfo/DataCenterInfo.java">
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/LeaseInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="638">
+          <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/ApplicationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/CloudGateway.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/entity/InstanceInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2959">
-          <caret line="519" lean-forward="true" selection-start-line="519" selection-end-line="519" />
+        <state relative-caret-position="-7404">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/InvokeController.java">
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/netflix/eureka/resources/ApplicationResource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="21" column="96" selection-start-line="21" selection-start-column="96" selection-end-line="21" selection-end-column="96" />
+        <state relative-caret-position="528">
+          <caret line="214" selection-start-line="214" selection-end-line="214" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/UserController.java">
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/LeaseInfoService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="198">
+          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/LeaseInfoServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
           <folding>
-            <element signature="e#475#476#0" expanded="true" />
-            <element signature="e#521#522#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>Gradle : com.kenji.cloud : eureka-server-1.0-SNAPSHOT.war</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Web</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>cloud</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Gradle: antlr:antlr:2.7.7</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/web/ApplicationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="73" column="21" lean-forward="true" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud-gateway/src/main/java/com/kenji/cloud/service/impl/ApplicationServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="36" column="26" lean-forward="true" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

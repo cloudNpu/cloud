@@ -26,9 +26,8 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-    public String deleteApp(Long instanceInfoId) {
-        Optional<InstanceInfo> info=instanceInfoRepository.findById(instanceInfoId);
-        instanceInfoRepository.delete(info.get());
+    public String deleteApp(InstanceInfo info) {
+        instanceInfoRepository.delete(info);
         return null;
     }
 
@@ -40,7 +39,6 @@ public class ApplicationServiceImpl implements ApplicationService {
             if (infos.get(i).getAppName().equals(appName)) {
                 InstanceInfo tmp = infos.get(i);
                 tmp.setVisible(true);
-                instanceInfoRepository.delete(infos.get(i));
                 instanceInfoRepository.save(tmp);
                 flag=false;
             }
@@ -59,7 +57,6 @@ public class ApplicationServiceImpl implements ApplicationService {
             if (infos.get(i).getAppName().equals(appName)){
                 InstanceInfo tmp=infos.get(i);
                 tmp.setVisible(false);
-                instanceInfoRepository.delete(infos.get(i));
                 instanceInfoRepository.save(tmp);
                 flag=false;
             }
@@ -69,11 +66,6 @@ public class ApplicationServiceImpl implements ApplicationService {
         return true;
     }
 
-    @Override
-    public InstanceInfo updateInstance(Long instanceInfoId) {
-        Optional<InstanceInfo> info=instanceInfoRepository.findById(instanceInfoId);
-        return info.get();
-    }
 
     @Override
     public InstanceInfo queryInstance(Long instanceInfoId) {
@@ -94,11 +86,11 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-    public List<InstanceInfo> queryByVisible(Boolean visible) {
+    public List<InstanceInfo> queryByVisible(boolean visible) {
         List<InstanceInfo> infos=instanceInfoRepository.findAll();
         List<InstanceInfo> res=new ArrayList<>();
         for (int i=0;i<infos.size();++i){
-            if (infos.get(i).getVisible()==(visible))
+            if (infos.get(i).getVisible()==visible)
                 res.add(infos.get(i));
 
         }
@@ -124,7 +116,7 @@ public class ApplicationServiceImpl implements ApplicationService {
         List<InstanceInfo> infos=instanceInfoRepository.findAll();
         List<InstanceInfo> res=new ArrayList<>();
         for (int i=0;i<infos.size();++i){
-            if (infos.get(i).getIPAddr().equals(ipAddr))
+            if (infos.get(i).getIpAddr().equals(ipAddr))
                 res.add(infos.get(i));
 
         }
@@ -137,10 +129,10 @@ public class ApplicationServiceImpl implements ApplicationService {
     return info.getStatus().name();
     }
 
-    @Override
-    public List<InstanceInfo> getUserApp(User user) {
-        //此处代码得用到User的repository来findAll；等以后再写。
-        //遍历所有User对象，.equals(userName)，得到User对象user，返回user,instanceInfos.
-        return null;
-    }
+//    @Override
+//    public List<InstanceInfo> getUserApp(User user) {
+//        //此处代码得用到User的repository来findAll；等以后再写。
+//        //遍历所有User对象，.equals(userName)，得到User对象user，返回user,instanceInfos.
+//        return null;
+//    }
 }

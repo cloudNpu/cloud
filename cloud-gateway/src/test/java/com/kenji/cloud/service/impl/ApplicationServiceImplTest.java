@@ -9,6 +9,7 @@ import com.kenji.cloud.repository.LeaseInfoRepository;
 import com.kenji.cloud.repository.UserRepository;
 import com.kenji.cloud.service.ApplicationService;
 import com.kenji.cloud.service.impl.ApplicationServiceImpl;
+import org.aspectj.bridge.MessageWriter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,13 +37,11 @@ public class ApplicationServiceImplTest {
     @Test
     public void save(){
         InstanceInfo info = new InstanceInfo();
-        info.setIpAddr("192.168.0.1");
-        info.setInstanceId("111222");
+        info.setIpAddr("192.168.22.33");
+        info.setInstanceId("432432");
         info.setAppName("hello1");
         info.setAppGroupName("zsw");
-        info.setPort(2211);
-
-
+        info.setPort(2233);
 
         info.setVisible(false);
         info.setSecurePort(2222);
@@ -57,16 +56,20 @@ public class ApplicationServiceImplTest {
         Optional<User> user = userRepository.findById(1l);
         info.setUser(user.get());
 
-       Optional<LeaseInfo> leaseInfo=leaseInfoRepository.findById(2);
-       info.setLeaseInfo(leaseInfo.get());
+//       Optional<LeaseInfo> leaseInfo=leaseInfoRepository.findById(2);
+//       info.setLeaseInfo(leaseInfo.get());
+
+        LeaseInfo leaseInfo= new LeaseInfo();
+        leaseInfoRepository.save(leaseInfo);
+        info.setLeaseInfo(leaseInfo);
 
         instanceInfoRepository.save(info);
     }
 
     @Test
     public void delete(){
-        InstanceInfo info=instanceInfoRepository.findById(1L).get();
-        instanceInfoRepository.delete(info);
+        InstanceInfo info=instanceInfoRepository.findById(11L).get();
+        applicationService.deleteApp(info);
     }
 
     @Test
@@ -83,4 +86,8 @@ public class ApplicationServiceImplTest {
         Optional<InstanceInfo> info=instanceInfoRepository.findById(2l);
 
     }
+
+
+
+
 }
