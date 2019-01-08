@@ -1,6 +1,11 @@
 package com.kenji.cloud.service;
 
 import com.kenji.cloud.entity.Role;
+import com.kenji.cloud.entity.RoleMenu;
+import com.kenji.cloud.entity.UserRole;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
 
 /**
  * @Author: Cjmmy
@@ -21,5 +26,24 @@ public interface RoleService {
      */
 
     Role updateRole(Long id, Role role);
+
+    /**
+     * 通过角色名称查询角色
+     * @param roleName
+     * @return
+     */
+    Role getRoleByRoleName(String roleName);
+
+    /**
+     * 删除角色
+     * @param id
+     */
+    void deleteRole(Long id);
+
+    /**
+     * 为角色授予权限
+     * @param roleMenus
+     */
+    void addMenusForRoles(List<RoleMenu> roleMenus);
 }
 
