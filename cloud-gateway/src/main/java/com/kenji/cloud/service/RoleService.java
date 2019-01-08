@@ -19,5 +19,7 @@ public interface RoleService {
      * @param role
      * @return
      */
+
     Role updateRole(Long id, Role role);
 }
+
