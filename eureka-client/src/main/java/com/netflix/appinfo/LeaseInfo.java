@@ -111,8 +111,6 @@ public class LeaseInfo {
             return this;
         }
 
-
-
         /**
          * Sets the client specified setting for eviction (e.g. how long to wait
          * without renewal event).

@@ -11,4 +11,5 @@ public interface AppLogRepository extends JpaRepository<AppLog, Long> {
     @Transactional
     @Query(value = "delete from applog where USERID=?",nativeQuery = true)
     int deleteByUserId(Long id);
+
 }

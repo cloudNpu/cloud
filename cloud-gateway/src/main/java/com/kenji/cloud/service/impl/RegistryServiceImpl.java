@@ -6,6 +6,7 @@ import com.netflix.discovery.shared.Applications;
 import com.netflix.eureka.EurekaServerContext;
 import org.springframework.stereotype.Service;
 
+
 import javax.inject.Inject;
 
 @Service("registryService")

@@ -1,5 +1,7 @@
 package com.kenji.cloud.entity;
 
+import com.netflix.eureka.lease.Lease;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,7 +15,6 @@ public class LeaseInfo extends com.netflix.appinfo.LeaseInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    public LeaseInfo(){}
 
     /**
      * TODO: note about renewalTimestamp legacy:
@@ -34,7 +35,7 @@ public class LeaseInfo extends com.netflix.appinfo.LeaseInfo {
     public LeaseInfo(int renewalIntervalInSecs, int durationInSecs, long registrationTimestamp, Long lastRenewalTimestamp, long lastRenewalTimestampLegacy, long evictionTimestamp, long serviceUpTimestamp) {
         super(renewalIntervalInSecs, durationInSecs, registrationTimestamp, lastRenewalTimestamp, lastRenewalTimestampLegacy, evictionTimestamp, serviceUpTimestamp);
     }
-
+    public LeaseInfo(){}
 //    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "leaseInfo")
 //    private List<InstanceInfo> instanceInfos;
 

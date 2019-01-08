@@ -11,4 +11,5 @@ public interface InstanceInfoRepository extends JpaRepository<InstanceInfo,Long>
     @Transactional
     @Query(value = "delete from instanceinfo where USERID=?",nativeQuery = true)
     int deleteByUserId(Long id);
+
 }

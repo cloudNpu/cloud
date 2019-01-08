@@ -36,13 +36,11 @@ public class ApplicationServiceImplTest {
     @Test
     public void save(){
         InstanceInfo info = new InstanceInfo();
-        info.setIpAddr("192.168.0.1");
-        info.setInstanceId("111222");
+        info.setIpAddr("192.168.22.33");
+        info.setInstanceId("432432");
         info.setAppName("hello1");
         info.setAppGroupName("zsw");
-        info.setPort(2211);
-
-
+        info.setPort(2233);
 
         info.setVisible(false);
         info.setSecurePort(2222);
@@ -65,8 +63,8 @@ public class ApplicationServiceImplTest {
 
     @Test
     public void delete(){
-        InstanceInfo info=instanceInfoRepository.findById(1L).get();
-        instanceInfoRepository.delete(info);
+        InstanceInfo info=instanceInfoRepository.findById(11L).get();
+        applicationService.deleteApp(info);
     }
 
     @Test
@@ -83,4 +81,8 @@ public class ApplicationServiceImplTest {
         Optional<InstanceInfo> info=instanceInfoRepository.findById(2l);
 
     }
+
+
+
+
 }
