@@ -11,7 +11,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
-//增加找不到记录的失败情况的反馈
+/**
+ * @Author yanghuiwen
+ * @Date 2019-01-08
+ */
 
 @Service
 public class UserAppServiceImpl implements UserAppService {
@@ -19,19 +22,16 @@ public class UserAppServiceImpl implements UserAppService {
     @Autowired
     private UserAppRepository userAppRepository;
 
-    //ok
     @Override
     public int saveUserApp(UserApp userApp) {
         return userAppRepository.save(userApp.getAppName(), userApp.getUser().getId(), userApp.getOperator().getId(), userApp.getCreateDate(),userApp.getComment());
     }
 
-    //ok
     @Override
     public int deleteUserApp(UserApp userApp) {
         return userAppRepository.deleteByUserAppId(userApp.getId());
     }
 
-    //需不需要区别全部删除，部分删除，零删除情况？
     @Override
     public int deleteUserApps(long[] ids){
         int count = 0;
