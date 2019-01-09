@@ -195,19 +195,32 @@ public class ApplicationResource {
             this.leaseInfoService = (LeaseInfoService) CloudGateway.getBean("leaseInfoService");
         }
         List<com.kenji.cloud.entity.InstanceInfo> infos = applicationService.queryByAppName(info.getAppName());
-        com.kenji.cloud.entity.InstanceInfo info1 = new com.kenji.cloud.entity.InstanceInfo();
-        BeanUtils.copyProperties(info, info1);
-        for (int i = 0; i < infos.size(); ++i) {
-            if (infos.get(i).getInstanceId().equals(info1.getInstanceId())) {
-                applicationService.deleteApp(infos.get(i));
+        /**
+         * @author SHI Jing
+         * @date 2019/1/7 20:46
+         */
+        boolean flag = false;
+        for (com.kenji.cloud.entity.InstanceInfo inf: infos){
+            if (inf.getAppName().equals(info.getAppName()) && inf.getIpAddr().equals(info.getIPAddr()) && inf.getPort()==info.getPort()){
+                flag = true;
             }
         }
-        com.kenji.cloud.entity.LeaseInfo leaseInfo = new com.kenji.cloud.entity.LeaseInfo();
-        BeanUtils.copyProperties(info.getLeaseInfo(), leaseInfo);
-        leaseInfoService.addLeaseInfo(leaseInfo);
-        info1.setLeaseInfo(leaseInfo);
-        applicationService.addApp(info1);
-        info1.setInstanceInfoId(info1.getInstanceInfoId()-1);
+        if (flag == false){
+            com.kenji.cloud.entity.InstanceInfo info1 = new com.kenji.cloud.entity.InstanceInfo();
+            BeanUtils.copyProperties(info, info1);
+            //该循环可以考虑删除
+            for (int i = 0; i < infos.size(); ++i) {
+                if (infos.get(i).getInstanceId().equals(info1.getInstanceId())) {
+                    applicationService.deleteApp(infos.get(i));
+                }
+            }
+            com.kenji.cloud.entity.LeaseInfo leaseInfo = new com.kenji.cloud.entity.LeaseInfo();
+            BeanUtils.copyProperties(info.getLeaseInfo(), leaseInfo);
+            leaseInfoService.addLeaseInfo(leaseInfo);
+            info1.setLeaseInfo(leaseInfo);
+            applicationService.addApp(info1);
+            info1.setInstanceInfoId(info1.getInstanceInfoId()-1);
+        }
         return Response.status(204).build();  // 204 to be backwards compatible
     }
 
