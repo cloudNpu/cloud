@@ -1,5 +1,6 @@
 package com.kenji.cloud.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ import java.util.List;
  */
 @Entity
 @Data
+@JsonIgnoreProperties(value = {"users"})
 public class Dept {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +25,7 @@ public class Dept {
     //操作时间
     @Column(name = "OPERDATE")
     private Date operDate;
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "dept")
     private List<User> users = new ArrayList<>();
 

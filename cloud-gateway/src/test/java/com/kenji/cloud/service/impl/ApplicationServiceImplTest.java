@@ -5,7 +5,6 @@ import com.kenji.cloud.entity.InstanceInfo;
 import com.kenji.cloud.entity.LeaseInfo;
 import com.kenji.cloud.entity.User;
 import com.kenji.cloud.repository.InstanceInfoRepository;
-import com.kenji.cloud.repository.LeaseInfoRepository;
 import com.kenji.cloud.repository.UserRepository;
 import com.kenji.cloud.service.ApplicationService;
 import com.kenji.cloud.service.impl.ApplicationServiceImpl;
@@ -24,8 +23,7 @@ public class ApplicationServiceImplTest {
     @Autowired
     private InstanceInfoRepository instanceInfoRepository;
 
-    @Autowired
-    private LeaseInfoRepository leaseInfoRepository;
+
 
     @Autowired
     private UserRepository userRepository;
@@ -57,8 +55,8 @@ public class ApplicationServiceImplTest {
         Optional<User> user = userRepository.findById(1l);
         info.setUser(user.get());
 
-       Optional<LeaseInfo> leaseInfo=leaseInfoRepository.findById(2);
-       info.setLeaseInfo(leaseInfo.get());
+//       Optional<LeaseInfo> leaseInfo=leaseInfoRepository.findById(2);
+//       info.setLeaseInfo(leaseInfo.get());
 
         instanceInfoRepository.save(info);
     }
