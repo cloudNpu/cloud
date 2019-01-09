@@ -129,6 +129,11 @@ public class ApplicationServiceImpl implements ApplicationService {
     return info.getStatus().name();
     }
 
+    @Override
+    public String getIpAddrByHostAndPort(String host, Integer port) {
+        return instanceInfoRepository.getIpAddrByHostAndPort(host,Long.valueOf(port));
+    }
+
 //    @Override
 //    public List<InstanceInfo> getUserApp(User user) {
 //        //此处代码得用到User的repository来findAll；等以后再写。

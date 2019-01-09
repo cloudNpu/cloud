@@ -12,4 +12,7 @@ public interface InstanceInfoRepository extends JpaRepository<InstanceInfo,Long>
     @Query(value = "delete from instanceinfo where USERID=?",nativeQuery = true)
     int deleteByUserId(Long id);
 
+    @Query(value="select i.IPADDR from instanceinfo i  WHERE i.HOSTNAME=?1 and i.PORT=?2",nativeQuery = true)
+    String getIpAddrByHostAndPort(String host,Long port);
+
 }

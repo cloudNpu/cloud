@@ -16,7 +16,9 @@ public interface ApplicationService extends Serializable {
     List<InstanceInfo> queryByVisible(boolean visible);
     List<InstanceInfo> queryByPort(Integer port);
     List<InstanceInfo> queryByIpAddr(String ipAddr);
+    String getIpAddrByHostAndPort(String host,Integer port);
 
     String getAppStatus(InstanceInfo info);
+
    // List<InstanceInfo> getUserApp(User user);
 }
