@@ -34,7 +34,7 @@ import java.util.Enumeration;
 @JsonRootName("dataCenterInfo")
 @JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, include = As.PROPERTY, property = "@class")
 @JsonTypeIdResolver(DataCenterTypeInfoResolver.class)
-public interface DataCenterInfo {
+public interface DataCenterInfo extends Serializable{
     enum Name {Netflix, Amazon, MyOwn}
 
     Name getName();

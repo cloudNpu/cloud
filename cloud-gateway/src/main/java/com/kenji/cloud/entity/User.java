@@ -1,10 +1,10 @@
 package com.kenji.cloud.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.kenji.cloud.CloudGateway;
 import com.kenji.cloud.repository.UserRepository;
 import com.kenji.cloud.repository.UserRoleRepository;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,6 +18,8 @@ import java.util.List;
 
 @Entity
 @Data
+@JsonIgnoreProperties(value = {"userRoles","instanceInfos","userApps","appLogs","sysLogs","operator","users"
+                              ,"enabled","authorities","accountNonExpired","accountNonLocked","credentialsNonExpired"})
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

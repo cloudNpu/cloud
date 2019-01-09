@@ -1,5 +1,7 @@
 package com.kenji.cloud.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,13 +16,14 @@ public class Menu {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //上级菜单ID
+    /**
+     * 上级菜单ID
+     */
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "MENUFID")
     private Menu menu;
-
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "menu")
-    private List<Menu> menus;
+    private List<Menu> menus = new ArrayList<>();
 
     private String name;
     private String icon;

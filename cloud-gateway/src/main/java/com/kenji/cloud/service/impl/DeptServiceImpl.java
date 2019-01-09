@@ -2,15 +2,16 @@ package com.kenji.cloud.service.impl;
 
 import com.kenji.cloud.entity.Dept;
 import com.kenji.cloud.repository.DeptRepository;
+import com.kenji.cloud.repository.UserRepository;
 import com.kenji.cloud.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 @Service
 public class DeptServiceImpl implements DeptService {
 
     private DeptRepository deptRepository;
+    private UserRepository userRepository;
 
     public DeptRepository getDeptRepository() {
         return deptRepository;
@@ -24,7 +25,30 @@ public class DeptServiceImpl implements DeptService {
 
     @Transactional
     @Override
-    public Dept save(Dept dept) {
+    public Dept saveDept(Dept dept) {
         return deptRepository.save(dept);
     }
+
+    @Transactional
+    @Override
+    public void deleteDept(Long[] ids){
+        // deptRepository.findByDeptName(dept.getDeptName());
+        if (ids.length==0) return;
+        for (Long id : ids) {
+            deptRepository.updateUserDeptIdToDefault(id);
+            deptRepository.deleteById(id);
+        }
+
+    }
+
+    public Dept findById(Long id){
+        Dept dept = deptRepository.findById(id).get();
+        return dept;
+    }
+
+    public Dept updateDept(Dept dept){
+        return deptRepository.save(dept);
+    }
+
+
 }
