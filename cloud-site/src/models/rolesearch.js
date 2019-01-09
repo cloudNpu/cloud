@@ -1,7 +1,12 @@
-import { queryRule, removeRule, addRule, updateRule } from "@/services/api";
+import {
+  addRole,
+  deleteRole,
+  queryRole,
+  updateRole
+} from "@/services/rolesearch";
 
 export default {
-  namespace: "rule",
+  namespace: "rolesearch",
 
   state: {
     data: {
@@ -12,14 +17,14 @@ export default {
 
   effects: {
     *fetch({ payload }, { call, put }) {
-      const response = yield (yield call(queryRule, payload)).json();
+      const response = yield (yield call(queryRole, payload)).json();
       yield put({
         type: "save",
         payload: response
       });
     },
     *add({ payload, callback }, { call, put }) {
-      const response = yield (yield call(addRule, payload)).json();
+      const response = yield (yield call(addRole, payload)).json();
       //console.log(response);
       yield put({
         type: "save",
@@ -27,8 +32,8 @@ export default {
       });
       if (callback) callback();
     },
-    *remove({ payload, callback }, { call, put }) {
-      const response = yield (yield call(removeRule, payload)).json();
+    *delete({ payload, callback }, { call, put }) {
+      const response = yield (yield call(deleteRole, payload)).json();
       yield put({
         type: "save",
         payload: response
@@ -36,7 +41,7 @@ export default {
       if (callback) callback();
     },
     *update({ payload, callback }, { call, put }) {
-      const response = yield (yield call(updateRule, payload)).json();
+      const response = yield (yield call(updateRole, payload)).json();
       yield put({
         type: "save",
         payload: response

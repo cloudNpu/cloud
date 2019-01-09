@@ -8,4 +8,5 @@ import com.kenji.cloud.entity.LeaseInfo;
  */
 public interface LeaseInfoService {
     String addLeaseInfo(LeaseInfo leaseInfo);
+    void  deleteLeaseInfo(Integer id);
 }

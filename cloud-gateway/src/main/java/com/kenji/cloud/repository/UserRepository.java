@@ -9,10 +9,12 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 
-public interface UserRepository extends JpaRepository<User,Long>, JpaSpecificationExecutor<User>, UserRepositoryCustom {
+public interface UserRepository extends JpaRepository<User,Long>, UserRepositoryCustom {
+
     User findByUsername(String username);
 
-
+    @Query("from User u join fetch u.dept where u.id=?1")
+    User findByUserId(Long id);
 
     @Modifying
     @Transactional
