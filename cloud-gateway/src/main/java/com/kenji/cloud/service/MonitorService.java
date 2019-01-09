@@ -1,7 +1,6 @@
 //package com.kenji.cloud.service;
 //
-//import com.netflix.appinfo.InstanceInfo;
-//
+//import com.kenji.cloud.entity.InstanceInfo;
 ///**
 // * @Author: Cjmmy
 // * @Date: 2018/12/6 5:24 PM
@@ -20,4 +19,11 @@
 //     * @param status
 //     */
 //    void updateStatus(String appName, InstanceInfo.InstanceStatus status);
+//
+//    /**
+//     * 根据实例ID获取查询实例调用次数
+//     * @param instanceInfoId
+//     * @return
+//     */
+//    Integer getInvokeCount(Long instanceInfoId);
 //}

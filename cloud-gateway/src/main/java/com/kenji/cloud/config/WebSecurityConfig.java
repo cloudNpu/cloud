@@ -93,15 +93,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/**/*.js").permitAll()
                 .antMatchers("/auth/**").permitAll()
                 .antMatchers("/eureka/apps/**").permitAll();
-                /*.withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>(){
-
-                    @Override
-                    public <O extends FilterSecurityInterceptor> O postProcess(O fsi) {
-                        fsi.setSecurityMetadataSource(mySecurityMetadataSource(fsi.getSecurityMetadataSource()));
-                        return fsi;
-                    }
-
-                }).anyRequest().authenticated().accessDecisionManager(accessDecisionManager());*/
+//                .withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>(){
+//
+//                    @Override
+//                    public <O extends FilterSecurityInterceptor> O postProcess(O fsi) {
+//                        fsi.setSecurityMetadataSource(mySecurityMetadataSource(fsi.getSecurityMetadataSource()));
+//                        return fsi;
+//                    }
+//
+//                }).anyRequest().authenticated().accessDecisionManager(accessDecisionManager());
 
 
         httpSecurity.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);

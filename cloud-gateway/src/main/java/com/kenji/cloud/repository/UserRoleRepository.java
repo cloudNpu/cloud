@@ -21,6 +21,11 @@ public interface UserRoleRepository extends JpaRepository<UserRole, Long> {
     @Query(value = "delete from user_role where USERID=?",nativeQuery = true)
     int deleteByUserId(Long userId);
 
+    @Modifying
+    @Transactional
+    @Query(value = "delete from user_role where ROLEID =?", nativeQuery = true)
+    void deleteByRoleId(Long roleId);
+
     @Query(value = "select roleid from user_role where userid=?",nativeQuery = true)
     Long[] getRoleIdsByUserID(Long userId);
 

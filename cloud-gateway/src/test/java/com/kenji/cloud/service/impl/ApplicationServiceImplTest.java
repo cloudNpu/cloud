@@ -5,9 +5,11 @@ import com.kenji.cloud.entity.InstanceInfo;
 import com.kenji.cloud.entity.LeaseInfo;
 import com.kenji.cloud.entity.User;
 import com.kenji.cloud.repository.InstanceInfoRepository;
+import com.kenji.cloud.repository.LeaseInfoRepository;
 import com.kenji.cloud.repository.UserRepository;
 import com.kenji.cloud.service.ApplicationService;
 import com.kenji.cloud.service.impl.ApplicationServiceImpl;
+import org.aspectj.bridge.MessageWriter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +25,8 @@ public class ApplicationServiceImplTest {
     @Autowired
     private InstanceInfoRepository instanceInfoRepository;
 
-
+    @Autowired
+    private LeaseInfoRepository leaseInfoRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -40,8 +43,6 @@ public class ApplicationServiceImplTest {
         info.setAppGroupName("zsw");
         info.setPort(2233);
 
-
-
         info.setVisible(false);
         info.setSecurePort(2222);
         info.setSid("see");
@@ -57,6 +58,10 @@ public class ApplicationServiceImplTest {
 
 //       Optional<LeaseInfo> leaseInfo=leaseInfoRepository.findById(2);
 //       info.setLeaseInfo(leaseInfo.get());
+
+        LeaseInfo leaseInfo= new LeaseInfo();
+        leaseInfoRepository.save(leaseInfo);
+        info.setLeaseInfo(leaseInfo);
 
         instanceInfoRepository.save(info);
     }

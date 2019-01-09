@@ -39,7 +39,6 @@ public class ApplicationServiceImpl implements ApplicationService {
             if (infos.get(i).getAppName().equals(appName)) {
                 InstanceInfo tmp = infos.get(i);
                 tmp.setVisible(true);
-                instanceInfoRepository.delete(infos.get(i));
                 instanceInfoRepository.save(tmp);
                 flag=false;
             }
@@ -58,7 +57,6 @@ public class ApplicationServiceImpl implements ApplicationService {
             if (infos.get(i).getAppName().equals(appName)){
                 InstanceInfo tmp=infos.get(i);
                 tmp.setVisible(false);
-                instanceInfoRepository.delete(infos.get(i));
                 instanceInfoRepository.save(tmp);
                 flag=false;
             }
@@ -118,7 +116,7 @@ public class ApplicationServiceImpl implements ApplicationService {
         List<InstanceInfo> infos=instanceInfoRepository.findAll();
         List<InstanceInfo> res=new ArrayList<>();
         for (int i=0;i<infos.size();++i){
-            if (infos.get(i).getIPAddr().equals(ipAddr))
+            if (infos.get(i).getIpAddr().equals(ipAddr))
                 res.add(infos.get(i));
 
         }
