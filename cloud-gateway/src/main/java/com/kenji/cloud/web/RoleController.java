@@ -2,14 +2,12 @@ package com.kenji.cloud.web;
 
 import com.kenji.cloud.entity.Role;
 import com.kenji.cloud.entity.RoleMenu;
-import com.kenji.cloud.entity.UserRole;
 import com.kenji.cloud.service.impl.RoleServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.ws.rs.QueryParam;
 import java.util.List;
 
 /**

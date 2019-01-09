@@ -1,10 +1,7 @@
 package com.kenji.cloud.service.impl;
 
-import com.kenji.cloud.entity.Menu;
 import com.kenji.cloud.entity.Role;
 import com.kenji.cloud.entity.RoleMenu;
-import com.kenji.cloud.entity.UserRole;
-import com.kenji.cloud.repository.MenuRoleRepository;
 import com.kenji.cloud.repository.RoleMenuRepository;
 import com.kenji.cloud.repository.RoleRepository;
 import com.kenji.cloud.repository.UserRoleRepository;
@@ -13,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -47,15 +43,16 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public void deleteRole(Long id) {
+        roleMenuRepository.deleteByRoleId(id);
         userRoleRepository.deleteByRoleId(id);
         roleRepository.deleteById(id);
     }
 
     @Override
     public void addMenusForRoles(List<RoleMenu> roleMenus) {
-        roleMenus.stream().forEach(roleMenu -> {
-            roleMenuRepository.save(roleMenu);
-        });
+        roleMenus.stream().forEach(roleMenu ->
+            roleMenuRepository.save(roleMenu)
+        );
     }
 
 
