@@ -11,7 +11,6 @@ import java.util.List;
 
 @Entity
 @Data
-@JsonIgnoreProperties(value = {"userRoles","roleMenus"})
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

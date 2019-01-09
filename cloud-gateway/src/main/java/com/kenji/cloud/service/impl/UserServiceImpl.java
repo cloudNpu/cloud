@@ -1,10 +1,12 @@
 package com.kenji.cloud.service.impl;
 
 import com.kenji.cloud.entity.Dept;
+import com.kenji.cloud.entity.Role;
 import com.kenji.cloud.entity.User;
 import com.kenji.cloud.repository.*;
 import com.kenji.cloud.service.UserRoleService;
 import com.kenji.cloud.service.UserService;
+import com.kenji.cloud.vo.RoleReturnVo;
 import com.kenji.cloud.vo.SaveUserVo;
 import com.kenji.cloud.vo.UserReturnVo;
 import com.kenji.cloud.vo.UserSearchVo;
@@ -66,9 +68,20 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public User findById(Long id) {
+    public UserReturnVo findById(Long id) {
         User user = userRepository.findByUserId(id);
-        return user;
+        List<RoleReturnVo> roles = userRoleService.getRolesByUserId(id);
+        UserReturnVo userReturnVo = new UserReturnVo();
+        userReturnVo.setId(user.getId().toString());
+        userReturnVo.setUsername(user.getUsername());
+        userReturnVo.setPassword(user.getPassword());
+        userReturnVo.setSex(user.getSex());
+        userReturnVo.setDeptName(user.getDept().getDeptName());
+        userReturnVo.setBirthday(user.getBirthday().toString());
+        userReturnVo.setOfficeTel(user.getOfficeTel());
+        userReturnVo.setMobile(user.getMobile());
+        userReturnVo.setRoleList(roles);
+        return userReturnVo;
     }
 
     @Override
@@ -85,7 +98,7 @@ public class UserServiceImpl implements UserService {
             ret.setBirthday(cells[4].toString());
             if (cells[5]!=null) ret.setMobile(cells[5].toString());
             if (cells[6]!=null) ret.setOfficeTel(cells[6].toString());
-            if (cells[7]!=null) ret.setRoleNames(cells[7].toString());
+            if (cells[7]!=null) ret.setRoles(cells[7].toString());
             list.add(ret);
         }
         return list;

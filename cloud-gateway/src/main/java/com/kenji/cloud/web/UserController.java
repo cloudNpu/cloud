@@ -4,6 +4,7 @@ import com.kenji.cloud.entity.Role;
 import com.kenji.cloud.entity.User;
 import com.kenji.cloud.service.UserRoleService;
 import com.kenji.cloud.service.UserService;
+import com.kenji.cloud.vo.RoleReturnVo;
 import com.kenji.cloud.vo.SaveUserVo;
 import com.kenji.cloud.vo.UserReturnVo;
 import com.kenji.cloud.vo.UserSearchVo;
@@ -87,9 +88,9 @@ public class UserController {
      * @return org.springframework.http.ResponseEntity<com.kenji.cloud.entity.User>
      **/
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable Long id) {
-        User user = userService.findById(id);
-        return ResponseEntity.status(200).body(user);
+    public ResponseEntity<UserReturnVo> getUserById(@PathVariable Long id) {
+        UserReturnVo vo = userService.findById(id);
+        return ResponseEntity.status(200).body(vo);
     }
 
     /**
@@ -133,8 +134,8 @@ public class UserController {
      * @return org.springframework.http.ResponseEntity<java.util.List<com.kenji.cloud.entity.Role>>
      **/
     @GetMapping("/roles/{id}")
-    public ResponseEntity<List<Role>> getRolesByUserId(@PathVariable Long id) {
-        List<Role> list;
+    public ResponseEntity<List<RoleReturnVo>> getRolesByUserId(@PathVariable Long id) {
+        List<RoleReturnVo> list;
         try {
             list = userRoleService.getRolesByUserId(id);
         } catch (Exception e) {

@@ -1,6 +1,5 @@
 package com.kenji.cloud.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.kenji.cloud.CloudGateway;
 import com.kenji.cloud.repository.UserRepository;
 import com.kenji.cloud.repository.UserRoleRepository;
@@ -18,8 +17,6 @@ import java.util.List;
 
 @Entity
 @Data
-@JsonIgnoreProperties(value = {"userRoles","instanceInfos","userApps","appLogs","sysLogs","operator","users"
-                              ,"enabled","authorities","accountNonExpired","accountNonLocked","credentialsNonExpired"})
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

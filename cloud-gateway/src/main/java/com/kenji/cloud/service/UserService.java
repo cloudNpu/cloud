@@ -12,7 +12,7 @@ public interface UserService {
 
     User updateUser(User user);
 
-    User findById(Long id);
+    UserReturnVo findById(Long id);
 
     List<UserReturnVo> findSearch(UserSearchVo userSearchVo);
 

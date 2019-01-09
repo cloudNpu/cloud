@@ -7,6 +7,7 @@ import com.kenji.cloud.repository.RoleRepository;
 import com.kenji.cloud.repository.UserRepository;
 import com.kenji.cloud.repository.UserRoleRepository;
 import com.kenji.cloud.service.UserRoleService;
+import com.kenji.cloud.vo.RoleReturnVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -69,11 +70,18 @@ public class UserRoleServiceImpl implements UserRoleService {
     }
 
     @Override
-    public List<Role> getRolesByUserId(Long userId) {
+    public List<RoleReturnVo> getRolesByUserId(Long userId) {
         List<UserRole> userRoles=userRoleRepository.getUserRolesByUserId(userId);
-        List<Role> roles = new ArrayList<>();
+        List<RoleReturnVo> roles = new ArrayList<>();
         for (UserRole userRole : userRoles) {
-            roles.add(userRole.getRole());
+            Role role = userRole.getRole();
+            RoleReturnVo roleReturnVo = new RoleReturnVo();
+            roleReturnVo.setId(role.getId());
+            roleReturnVo.setName(role.getName());
+            roleReturnVo.setValue(role.getValue());
+            roleReturnVo.setDescription(role.getDescription());
+            roleReturnVo.setCreateDate(role.getCreateDate());
+            roles.add(roleReturnVo);
         }
         return roles;
     }
