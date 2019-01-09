@@ -35,7 +35,7 @@ public class DynamicRule extends AbstractLoadBalancerRule {
         int count = 0;
 
         List<Server> allServers = lb.getAllServers();
-
+        server = allServers.get(0);
 //        while (server == null && count++ < 10) {
 //            List<Server> reachableServers = lb.getReachableServers();
 //            List<Server> allServers = lb.getAllServers();
@@ -91,6 +91,6 @@ public class DynamicRule extends AbstractLoadBalancerRule {
     @Override
     public Server choose(Object key) {
 
-        return null;
+        return choose(getLoadBalancer(), key);
     }
 }
