@@ -26,7 +26,7 @@ public class UserRoleServiceImpl implements UserRoleService {
 
     /*
      * 保存用户与角色之间的关系
-     * ps.如何避免userrole关系被重复添加
+     *
      * */
     @Transactional
     @Override
@@ -58,25 +58,23 @@ public class UserRoleServiceImpl implements UserRoleService {
     /*
      * 通过传入用户ids和将要关联的角色id修改与用户角色关系
      * */
+    @Transactional
     @Override
-    public List<UserRole> updateUserRoles(Long userIds, Long operatorId, Long[] roleIds) {
-
-        return null;
-    }
-
-    public List<Role> getRolesByUserId(Long userId) {
-        List<Role> list = new ArrayList<>();
-        Long[] roleIds = userRoleRepository.getRoleIdsByUserID(userId);
-        for (Long roleId : roleIds) {
-            Role role = roleRepository.findById(roleId).get();
-            list.add(role);
+    public List<UserRole> updateUserRoles(Long[] userIds, Long[] roleIds, Long operatorId) {
+        List<UserRole> list = new ArrayList<>();
+        for (Long userId : userIds) {
+            list.addAll(saveAll(userId, operatorId, roleIds));
         }
         return list;
     }
-   /* private Long[] getRoleIdsByUserId(Long userId, Long[] roleIds) {
-        Long[] oldRoleids=userRoleRepository.getRoleIdsByUserID(userId);
-        Set<Long> set = new HashSet<Long>(Arrays.asList(oldRoleids));
-        set.addAll(Arrays.asList(roleIds));
-        return set.toArray(new Long[set.size()]);
-    }*/
+
+    @Override
+    public List<Role> getRolesByUserId(Long userId) {
+        List<UserRole> userRoles=userRoleRepository.getUserRolesByUserId(userId);
+        List<Role> roles = new ArrayList<>();
+        for (UserRole userRole : userRoles) {
+            roles.add(userRole.getRole());
+        }
+        return roles;
+    }
 }
