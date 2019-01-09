@@ -38,19 +38,23 @@ public class UserRepositoryImpl extends SimpleJpaRepository<User, Long> implemen
 
 
     @Override
-    public List<User> findByProperties(UserSearchVo conditions) {//，u.userRoles
-        /*
-        * select u.id,u.username,d.DEPTNAME,u.sex,u.BIRTHDAY,u.MOBILE,u.OFFICETEL,GROUP_CONCAT(r.NAME) as roles
-        * from user u join dept d on d.ID=u.DEPTID
-        * LEFT JOIN user_role ur on u.id=ur.userid
-        * LEFT JOIN role r on r.id=ur.roleid
-        * where u.username = '123'
-         * and exists (select 1 from user_role ur where ur.userid=u.id and ur.roleid = 1)
-         * and exists (select 1 from user_role ur where ur.userid=u.id and ur.roleid = 2)
-          * GROUP BY u.ID;
-        * */
-        StringBuffer sb = new StringBuffer("select u.id,u.username,d.DEPTNAME,u.sex,u.BIRTHDAY,u.MOBILE,u.OFFICETEL,GROUP_CONCAT(r.NAME) as roles from user u join dept d on d.ID=u.DEPTID LEFT JOIN user_role ur on u.id=ur.userid LEFT JOIN role r on r.id=ur.roleid where 1=1");
-
+    public List<User> findByProperties(UserSearchVo conditions) {
+        Long[] ids = conditions.getRoleIds();
+        StringBuilder sb = new StringBuilder("select u.id,u.username,dept.deptname,u.sex,u.birthday,u.mobile," +
+                "u.officetel,group_concat(role.name) as roles from ");
+        if (ids != null && ids.length > 0) {
+            StringBuilder sd1 = new StringBuilder("(select userid FROM user_role where ROLEID in (");
+            for (Long id : ids) {
+                sd1.append(id).append(",");
+            }
+            sd1.deleteCharAt(sd1.length() - 1);
+            sd1.append(") GROUP BY userid HAVING COUNT(ROLEID)>=").append(ids.length).append(") us" +
+                    ",user u,user_role ur,role,dept where us.userid=u.id " +
+                    "and u.id=ur.userid and ur.roleid=role.id and u.deptid=dept.id");
+            sb.append(sd1);
+        } else {
+            sb.append("user u,user_role ur,role,dept where u.id=ur.userid and ur.roleid=role.id and u.deptid=dept.id");
+        }
         if (StringUtils.isNotBlank(conditions.getUsername()))
             sb.append(" and u.username like '%").append(conditions.getUsername()).append("%'");
         if (conditions.getDeptId()!=null)
@@ -63,16 +67,9 @@ public class UserRepositoryImpl extends SimpleJpaRepository<User, Long> implemen
             sb.append(" and u.sex = '").append(conditions.getSex()).append("'");
         if (conditions.getBirthday()!=null)
             sb.append(" and u.birthday = '").append(conditions.getBirthday()).append("'");
-        Long[] ids = conditions.getRoleIds();
-        if (ids!=null&&ids.length>0){
-            for (Long id : ids) {
-                sb.append(" and exists (select 1 from user_role ur where ur.userid=u.id and ur.roleid = ").append(id).append(")");
-            }
-        }
         sb.append(" group by u.id");
         String hql = sb.toString();
         System.out.println(hql);
-//        List<User> users = entityManager.createQuery(hql).getResultList();
         List rows= entityManager.createNativeQuery(hql).getResultList();
         return rows;
     }

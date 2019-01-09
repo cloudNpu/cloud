@@ -37,8 +37,8 @@ public class UserRepositoryTest {
     @Test
     public void findByProperties() {
         UserSearchVo conditions = new UserSearchVo();
-        conditions.setSex("1");
-
+        Long[] ids = {1L, 2L};
+        conditions.setRoleIds(ids);
         List rows = userRepository.findByProperties(conditions);
         for (Object row : rows) {
             Object[] cells = (Object[]) row;
