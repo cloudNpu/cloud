@@ -6,11 +6,15 @@ import com.kenji.cloud.repository.RoleMenuRepository;
 import com.kenji.cloud.repository.RoleRepository;
 import com.kenji.cloud.repository.UserRoleRepository;
 import com.kenji.cloud.service.RoleService;
+import com.kenji.cloud.vo.RoleVO;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @Author: Cjmmy
@@ -53,6 +57,18 @@ public class RoleServiceImpl implements RoleService {
         roleMenus.stream().forEach(roleMenu ->
             roleMenuRepository.save(roleMenu)
         );
+    }
+
+    @Override
+    public List<RoleVO> getRoles() {
+        List<Role> roles = roleRepository.findAll();
+        List<RoleVO> roleVOs = new ArrayList<>();
+        roles.stream().forEach(role -> {
+            RoleVO roleVO = new RoleVO();
+            BeanUtils.copyProperties(role,roleVO);
+            roleVOs.add(roleVO);
+        });
+        return roleVOs;
     }
 
 
