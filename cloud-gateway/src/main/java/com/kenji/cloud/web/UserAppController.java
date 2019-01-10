@@ -3,6 +3,7 @@ package com.kenji.cloud.web;
 import com.kenji.cloud.entity.User;
 import com.kenji.cloud.entity.UserApp;
 import com.kenji.cloud.service.UserAppService;
+import com.kenji.cloud.vo.UserAppReturnVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,8 +51,8 @@ public class UserAppController {
     @GetMapping("/{id}")
     public ResponseEntity getUserAppById(@PathVariable Long id) {
         try{
-            UserApp userApp = userAppService.findUserAppById(id);
-            return ResponseEntity.ok(userApp);
+            UserAppReturnVo userAppReturnVo = userAppService.findUserAppById(id);
+            return ResponseEntity.ok(userAppReturnVo);
         }
         catch (Exception e){
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查找失败 "+ e.getMessage());
@@ -59,10 +60,10 @@ public class UserAppController {
     }
 
 
-    @GetMapping("/users/{id}")
-    public ResponseEntity getUserAppsByUserId(@PathVariable Long id) {
+    @GetMapping("/user?name={uname}")
+    public ResponseEntity getUserAppsByUsername(@PathVariable("uname") String uname) {
         try {
-            List<UserApp> userApps = userAppService.findUserAppByUserId(id);
+            List<UserAppReturnVo> userApps = userAppService.findUserAppsByUsername(uname);
             return ResponseEntity.ok(userApps);
         }
         catch (Exception e){
@@ -98,7 +99,7 @@ public class UserAppController {
     @GetMapping()
     public ResponseEntity getUserApps() {
         try {
-            List<UserApp> userApps = userAppService.findAllUserApps();
+            List<UserAppReturnVo> userApps = userAppService.findAllUserApps();
             return ResponseEntity.ok(userApps);
         }
         catch (Exception e){

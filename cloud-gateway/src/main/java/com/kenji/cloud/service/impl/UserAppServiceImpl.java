@@ -3,7 +3,9 @@ package com.kenji.cloud.service.impl;
 import com.kenji.cloud.entity.User;
 import com.kenji.cloud.entity.UserApp;
 import com.kenji.cloud.repository.UserAppRepository;
+import com.kenji.cloud.repository.UserRepository;
 import com.kenji.cloud.service.UserAppService;
+import com.kenji.cloud.vo.UserAppReturnVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +23,9 @@ public class UserAppServiceImpl implements UserAppService {
 
     @Autowired
     private UserAppRepository userAppRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public int saveUserApp(UserApp userApp) {
@@ -111,19 +116,44 @@ public class UserAppServiceImpl implements UserAppService {
         return userAppRepository.findByUser(user);
     }
 
+
     @Override
-    public  List<UserApp> findUserAppByUserId(long id){
-        return userAppRepository.findByUserId(id);
+    public List<UserAppReturnVo> findUserAppsByUsername(String username){
+        List<UserAppReturnVo> userAppReturnVos = new ArrayList<>();
+        User user = userRepository.findByUsername(username);
+        long userId = user.getId();
+        List<UserApp> userApps = userAppRepository.findByUserId(userId);
+        for(UserApp ua:userApps){
+            UserAppReturnVo uarv = new UserAppReturnVo(ua);
+            userAppReturnVos.add(uarv);
+        }
+        return userAppReturnVos;
     }
 
     @Override
-    public UserApp findUserAppById(long id){
-        return userAppRepository.findById(id);
+    public UserAppReturnVo findUserAppById(long id){
+        UserApp ua = userAppRepository.findById(id);
+        UserAppReturnVo uarv = new UserAppReturnVo(ua);
+        return uarv;
+
     }
 
     @Override
-    public List<UserApp> findAllUserApps(){
-        return userAppRepository.findAll();
+    public List<UserAppReturnVo> findAllUserApps(){
+        List<UserAppReturnVo> userAppReturnVos = new ArrayList<>();
+        List<UserApp> userApps = userAppRepository.findAll();
+        for(UserApp ua:userApps){
+            UserAppReturnVo uar = new UserAppReturnVo();
+            uar.setId(ua.getId());
+            uar.setAppname(ua.getAppName());
+            uar.setUserId(ua.getUser().getId());
+            uar.setOperatorId(ua.getOperator().getId());
+            uar.setCreateDate(ua.getCreateDate());
+            uar.setComment(ua.getComment());
+            userAppReturnVos.add(uar);
+        }
+
+        return userAppReturnVos;
     }
 
 
