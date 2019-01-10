@@ -50,7 +50,7 @@ import java.util.Optional;
 
 /**
  * A <em>jersey</em> resource that handles request related to a particular
- * {@link com.netflix.discovery.shared.Application}.
+ * {@link Application}.
  *
  * @author Karthik Ranganathan, Greg Kim
  *
@@ -81,7 +81,7 @@ public class ApplicationResource {
     }
 
     /**
-     * Gets information about a particular {@link com.netflix.discovery.shared.Application}.
+     * Gets information about a particular {@link Application}.
      *
      * @param version      the version of the request.
      * @param acceptHeader the accept header of the request to indicate whether to serve
@@ -208,18 +208,12 @@ public class ApplicationResource {
         if (flag == false){
             com.kenji.cloud.entity.InstanceInfo info1 = new com.kenji.cloud.entity.InstanceInfo();
             BeanUtils.copyProperties(info, info1);
-            //该循环可以考虑删除
-            for (int i = 0; i < infos.size(); ++i) {
-                if (infos.get(i).getInstanceId().equals(info1.getInstanceId())) {
-                    applicationService.deleteApp(infos.get(i));
-                }
-            }
             com.kenji.cloud.entity.LeaseInfo leaseInfo = new com.kenji.cloud.entity.LeaseInfo();
             BeanUtils.copyProperties(info.getLeaseInfo(), leaseInfo);
             leaseInfoService.addLeaseInfo(leaseInfo);
             info1.setLeaseInfo(leaseInfo);
+            info1.setVisible(true);
             applicationService.addApp(info1);
-            info1.setInstanceInfoId(info1.getInstanceInfoId()-1);
         }
         return Response.status(204).build();  // 204 to be backwards compatible
     }
@@ -237,4 +231,74 @@ public class ApplicationResource {
         return str == null || str.isEmpty();
     }
 
+
+
+
+
+
+    @PUT
+    @Consumes({"application/json", "application/xml"})
+    public Response updateInstance(InstanceInfo info,
+                                @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication) {
+        logger.debug("Registering instance {} (replication={})", info.getId(), isReplication);
+        // validate that the instanceinfo contains all the necessary required fields
+        if (isBlank(info.getId())) {
+            return Response.status(400).entity("Missing instanceId").build();
+        } else if (isBlank(info.getHostName())) {
+            return Response.status(400).entity("Missing hostname").build();
+        } else if (isBlank(info.getIPAddr())) {
+            return Response.status(400).entity("Missing ip address").build();
+        } else if (isBlank(info.getAppName())) {
+            return Response.status(400).entity("Missing appName").build();
+        } else if (!appName.equals(info.getAppName())) {
+            return Response.status(400).entity("Mismatched appName, expecting " + appName + " but was " + info.getAppName()).build();
+        } else if (info.getDataCenterInfo() == null) {
+            return Response.status(400).entity("Missing dataCenterInfo").build();
+        } else if (info.getDataCenterInfo().getName() == null) {
+            return Response.status(400).entity("Missing dataCenterInfo Name").build();
+        }
+
+        // handle cases where clients may be registering with bad DataCenterInfo with missing data
+        DataCenterInfo dataCenterInfo = info.getDataCenterInfo();
+        if (dataCenterInfo instanceof UniqueIdentifier) {
+            String dataCenterInfoId = ((UniqueIdentifier) dataCenterInfo).getId();
+            if (isBlank(dataCenterInfoId)) {
+                boolean experimental = "true".equalsIgnoreCase(serverConfig.getExperimental("registration.validation.dataCenterInfoId"));
+                if (experimental) {
+                    String entity = "DataCenterInfo of type " + dataCenterInfo.getClass() + " must contain a valid id";
+                    return Response.status(400).entity(entity).build();
+                } else if (dataCenterInfo instanceof AmazonInfo) {
+                    AmazonInfo amazonInfo = (AmazonInfo) dataCenterInfo;
+                    String effectiveId = amazonInfo.get(AmazonInfo.MetaDataKey.instanceId);
+                    if (effectiveId == null) {
+                        amazonInfo.getMetadata().put(AmazonInfo.MetaDataKey.instanceId.getName(), info.getId());
+                    }
+                } else {
+                    logger.warn("Registering DataCenterInfo of type {} without an appropriate id", dataCenterInfo.getClass());
+                }
+            }
+        }
+
+        registry.renew(info.getAppName(), info.getInstanceId(), false);     //服务更新
+        if (this.applicationService == null) {
+            this.applicationService = (ApplicationService) CloudGateway.getBean("applicationService");
+        }
+        if (this.leaseInfoService == null) {
+            this.leaseInfoService = (LeaseInfoService) CloudGateway.getBean("leaseInfoService");
+        }
+        System.out.println(info.getAppName()+"        "+info.getId());
+        List<com.kenji.cloud.entity.InstanceInfo> infos = applicationService.queryByAppName(info.getAppName());
+        com.kenji.cloud.entity.InstanceInfo info1=new com.kenji.cloud.entity.InstanceInfo();
+        com.kenji.cloud.entity.LeaseInfo leaseInfo = new com.kenji.cloud.entity.LeaseInfo();
+        for (int i = 0;i<infos.size();++i){
+            if (infos.get(i).getInstanceId().equals(info.getInstanceId())&&infos.get(i).getPort()==info.getPort()){
+                info1=applicationService.queryInstance(infos.get(i).getInstanceInfoId());
+                leaseInfo=infos.get(i).getLeaseInfo();
+            }
+        }
+        BeanUtils.copyProperties(info,info1 );
+        info1.setLeaseInfo(leaseInfo);
+        applicationService.addApp(info1);
+        return Response.status(204).build();  // 204 to be backwards compatible
+    }
 }
