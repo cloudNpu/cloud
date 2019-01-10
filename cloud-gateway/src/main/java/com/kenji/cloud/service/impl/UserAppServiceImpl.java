@@ -67,19 +67,27 @@ public class UserAppServiceImpl implements UserAppService {
     @Override
     public List<UserApp> updateUserApps(long userid, List<UserApp> userApps){
         //查找该用户的所有userapp，与list的userapp比较，把用户多的删掉，用户少的保存
-        List<UserApp> toDel = new ArrayList<UserApp>();
-        List<UserApp> toAdd = new ArrayList<UserApp>();
         List<UserApp> oldApps = userAppRepository.findByUserId(userid);
+
+        List<Long> oldIds = new ArrayList<Long>();
+        List<Long> newIds = new ArrayList<Long>();
+
+        for (UserApp ua:oldApps)
+            oldIds.add(ua.getId());
+        for(UserApp ua:userApps)
+            newIds.add(ua.getId());
+
+
         if(!userApps.isEmpty()){
             for(UserApp ua:oldApps){
-                if(!userApps.contains(ua)){
+                if(!newIds.contains(ua.getId())){
                     userAppRepository.deleteByUserAppId(ua.getId());
                 }
 
             }
            // userAppRepository.deleteAll(toDel);
             for(UserApp ua:userApps){
-                if(!oldApps.contains(ua)){
+                if(!oldIds.contains(ua.getId())){
                     userAppRepository.save(ua.getAppName(),
                             ua.getUser().getId(),
                             ua.getOperator().getId(),
