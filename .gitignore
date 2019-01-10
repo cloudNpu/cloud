@@ -63,6 +63,7 @@ out
 *.iml
 atlassian-ide-plugin.xml
 
+
 # Eclipse specific files/directories
 .classpath
 .project

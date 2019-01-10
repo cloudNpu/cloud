@@ -1,19 +1,21 @@
 package com.kenji.cloud.service.impl;
 
-import com.kenji.cloud.entity.*;
+import com.kenji.cloud.entity.Dept;
+import com.kenji.cloud.entity.Role;
+import com.kenji.cloud.entity.User;
 import com.kenji.cloud.repository.*;
 import com.kenji.cloud.service.UserRoleService;
 import com.kenji.cloud.service.UserService;
+import com.kenji.cloud.vo.RoleReturnVo;
 import com.kenji.cloud.vo.SaveUserVo;
+import com.kenji.cloud.vo.UserReturnVo;
 import com.kenji.cloud.vo.UserSearchVo;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.criteria.Predicate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -44,13 +46,14 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public User saveUser(SaveUserVo saveUserVo) {
-        Long operatorId = saveUserVo.getOperatorId();
         User saveUser = saveUserVo.getUser();
         Long deptId = saveUser.getDept().getId();
         Dept dept = deptRepository.findById(deptId).get();
         saveUser.setDept(dept);
+        saveUser.setCreateDate(new Date());
         User user = userRepository.save(saveUser);
         Long userId = user.getId();
+        Long operatorId = saveUserVo.getOperatorId();
         Long[] roleIds = saveUserVo.getRoleIds();
         userRoleService.saveAll(userId, operatorId, roleIds);
         return user;
@@ -58,39 +61,46 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User updateUser(User user) {
+        Dept dept =deptRepository.findById(user.getDept().getId()).get();
+        user.setDept(dept);
         return userRepository.save(user);
     }
 
 
     @Override
-    public User findById(Long id) {
-        User user = userRepository.findById(id).get();
-        return user;
+    public UserReturnVo findById(Long id) {
+        User user = userRepository.findByUserId(id);
+        List<RoleReturnVo> roles = userRoleService.getRolesByUserId(id);
+        UserReturnVo userReturnVo = new UserReturnVo();
+        userReturnVo.setId(user.getId().toString());
+        userReturnVo.setUsername(user.getUsername());
+        userReturnVo.setPassword(user.getPassword());
+        userReturnVo.setSex(user.getSex());
+        userReturnVo.setDeptName(user.getDept().getDeptName());
+        userReturnVo.setBirthday(user.getBirthday().toString());
+        userReturnVo.setOfficeTel(user.getOfficeTel());
+        userReturnVo.setMobile(user.getMobile());
+        userReturnVo.setRoleList(roles);
+        return userReturnVo;
     }
 
     @Override
-    public List<User> findSearch(UserSearchVo model) {
-        List<User> list = userRepository.findAll((Specification<User>) (root, query, criteriaBuilder) -> {
-            List<Predicate> list1 = new ArrayList<>();
-
-
-            if (StringUtils.isNotBlank(model.getUsername())) {
-                list1.add(criteriaBuilder.like(root.get("username"), '%'+model.getUsername()+'%'));
-            }
-            if (StringUtils.isNotBlank(model.getMobile())) {
-                list1.add(criteriaBuilder.like(root.get("mobile"), model.getMobile()));
-            }
-            if (StringUtils.isNotBlank(model.getOfficeTel())) {
-                list1.add(criteriaBuilder.like(root.get("officeTel"), model.getOfficeTel()));
-            }
-            if (StringUtils.isNotBlank(model.getSex())) {
-                list1.add(criteriaBuilder.equal(root.get("sex"), model.getSex()));
-            }
-
-
-            Predicate[] p = new Predicate[list1.size()];
-            return criteriaBuilder.and(list1.toArray(p));
-        });
+    public List<UserReturnVo> findSearch(UserSearchVo conditions) {
+        List rows =userRepository.findByProperties(conditions);
+        List<UserReturnVo> list = new ArrayList<>();
+        for (Object row : rows) {
+            Object[] cells = (Object[]) row;
+            UserReturnVo ret = new UserReturnVo();
+            ret.setId(cells[0].toString());
+            ret.setUsername(cells[1].toString());
+            ret.setDeptName(cells[2].toString());
+            ret.setSex(cells[3].toString());
+            ret.setBirthday(cells[4].toString());
+            if (cells[5]!=null) ret.setMobile(cells[5].toString());
+            if (cells[6]!=null) ret.setOfficeTel(cells[6].toString());
+            if (cells[7]!=null) ret.setRoles(cells[7].toString());
+            list.add(ret);
+        }
         return list;
     }
 

@@ -1,6 +1,10 @@
 package com.kenji.cloud.entity;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,6 +18,7 @@ import java.util.Date;
 @Data
 public class UserApp {
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "APPNAME")
@@ -27,10 +32,12 @@ public class UserApp {
     @JoinColumn(name = "OPERATORID")
     private User operator;
 
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "CREATEDATE")
     private Date createDate;
 
+    @Column(name = "COMMENT")
     private String comment;
 
     @Override
@@ -44,4 +51,21 @@ public class UserApp {
                 ", comment='" + comment + '\'' +
                 '}';
     }
+
+
+    @JsonCreator
+    public UserApp(@JsonProperty("id") long id,
+                   @JsonProperty("appName") String appName,
+                   @JsonProperty("user") User user,
+                   @JsonProperty("operator") User operator,
+                   @JsonProperty("createDate") Date createDate,
+                   @JsonProperty("comment") String comment){
+        this.id = id;
+        this.appName = appName;
+        this.user = user;
+        this.operator = operator;
+        this.createDate = createDate;
+        this.comment = comment;
+    }
+
 }

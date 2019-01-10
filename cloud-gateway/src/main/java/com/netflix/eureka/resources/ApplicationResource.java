@@ -18,7 +18,9 @@ package com.netflix.eureka.resources;
 
 import com.kenji.cloud.CloudGateway;
 import com.kenji.cloud.repository.InstanceInfoRepository;
+import com.kenji.cloud.repository.LeaseInfoRepository;
 import com.kenji.cloud.service.ApplicationService;
+import com.kenji.cloud.service.LeaseInfoService;
 import com.netflix.appinfo.*;
 import com.netflix.discovery.shared.Application;
 import com.netflix.eureka.EurekaServerConfig;
@@ -57,11 +59,13 @@ import java.util.Optional;
 public class ApplicationResource {
     private static final Logger logger = LoggerFactory.getLogger(ApplicationResource.class);
     private ApplicationService applicationService;
+    private LeaseInfoService leaseInfoService;
     private final String appName;
     private final EurekaServerConfig serverConfig;
     private final PeerAwareInstanceRegistry registry;
     private final ResponseCache responseCache;
     InstanceInfoRepository instanceInfoRepository;
+    LeaseInfoRepository leaseInfoRepository;
 
     ApplicationResource(String appName,
                         EurekaServerConfig serverConfig,
@@ -79,13 +83,11 @@ public class ApplicationResource {
     /**
      * Gets information about a particular {@link com.netflix.discovery.shared.Application}.
      *
-     * @param version
-     *            the version of the request.
-     * @param acceptHeader
-     *            the accept header of the request to indicate whether to serve
-     *            JSON or XML data.
+     * @param version      the version of the request.
+     * @param acceptHeader the accept header of the request to indicate whether to serve
+     *                     JSON or XML data.
      * @return the response containing information about a particular
-     *         application.
+     * application.
      */
     @GET
     public Response getApplication(@PathParam("version") String version,
@@ -125,8 +127,7 @@ public class ApplicationResource {
     /**
      * Gets information about a particular instance of an application.
      *
-     * @param id
-     *            the unique identifier of the instance.
+     * @param id the unique identifier of the instance.
      * @return information about a particular instance.
      */
     @Path("{id}")
@@ -139,11 +140,9 @@ public class ApplicationResource {
      * Registers information about a particular instance for an
      * {@link Application}.
      *
-     * @param info
-     *            {@link InstanceInfo} information of the instance.
-     * @param isReplication
-     *            a header parameter containing information whether this is
-     *            replicated from other nodes.
+     * @param info          {@link InstanceInfo} information of the instance.
+     * @param isReplication a header parameter containing information whether this is
+     *                      replicated from other nodes.
      */
     @POST
     @Consumes({"application/json", "application/xml"})
@@ -192,17 +191,36 @@ public class ApplicationResource {
         if (this.applicationService == null) {
             this.applicationService = (ApplicationService) CloudGateway.getBean("applicationService");
         }
-        List<com.kenji.cloud.entity.InstanceInfo> infos=applicationService.queryByAppName(info.getAppName());
-        com.kenji.cloud.entity.InstanceInfo info1=new com.kenji.cloud.entity.InstanceInfo();
-        BeanUtils.copyProperties(info, info1);
-        for (int i = 0;i<infos.size();++i){
-            if (infos.get(i).getInstanceId().equals(info1.getInstanceId())){
-                applicationService.deleteApp(infos.get(i));
-            System.out.println(infos.get(i));}
+        if (this.leaseInfoService == null) {
+            this.leaseInfoService = (LeaseInfoService) CloudGateway.getBean("leaseInfoService");
         }
-
-        applicationService.addApp(info1);
-
+        List<com.kenji.cloud.entity.InstanceInfo> infos = applicationService.queryByAppName(info.getAppName());
+        /**
+         * @author SHI Jing
+         * @date 2019/1/7 20:46
+         */
+        boolean flag = false;
+        for (com.kenji.cloud.entity.InstanceInfo inf: infos){
+            if (inf.getAppName().equals(info.getAppName()) && inf.getIpAddr().equals(info.getIPAddr()) && inf.getPort()==info.getPort()){
+                flag = true;
+            }
+        }
+        if (flag == false){
+            com.kenji.cloud.entity.InstanceInfo info1 = new com.kenji.cloud.entity.InstanceInfo();
+            BeanUtils.copyProperties(info, info1);
+            //该循环可以考虑删除
+            for (int i = 0; i < infos.size(); ++i) {
+                if (infos.get(i).getInstanceId().equals(info1.getInstanceId())) {
+                    applicationService.deleteApp(infos.get(i));
+                }
+            }
+            com.kenji.cloud.entity.LeaseInfo leaseInfo = new com.kenji.cloud.entity.LeaseInfo();
+            BeanUtils.copyProperties(info.getLeaseInfo(), leaseInfo);
+            leaseInfoService.addLeaseInfo(leaseInfo);
+            info1.setLeaseInfo(leaseInfo);
+            applicationService.addApp(info1);
+            info1.setInstanceInfoId(info1.getInstanceInfoId()-1);
+        }
         return Response.status(204).build();  // 204 to be backwards compatible
     }
 
@@ -218,4 +236,5 @@ public class ApplicationResource {
     private boolean isBlank(String str) {
         return str == null || str.isEmpty();
     }
+
 }

@@ -1,55 +1,56 @@
-import { queryRule, removeRule, addRule, updateRule } from '@/services/api';
+import { queryRule, removeRule, addRule, updateRule } from "@/services/api";
 
 export default {
-  namespace: 'rule',
+  namespace: "rule",
 
   state: {
     data: {
       list: [],
-      pagination: {},
-    },
+      pagination: {}
+    }
   },
 
   effects: {
     *fetch({ payload }, { call, put }) {
-      const response = yield call(queryRule, payload);
+      const response = yield (yield call(queryRule, payload)).json();
       yield put({
-        type: 'save',
-        payload: response,
+        type: "save",
+        payload: response
       });
     },
     *add({ payload, callback }, { call, put }) {
-      const response = yield call(addRule, payload);
+      const response = yield (yield call(addRule, payload)).json();
+      //console.log(response);
       yield put({
-        type: 'save',
-        payload: response,
+        type: "save",
+        payload: response
       });
       if (callback) callback();
     },
     *remove({ payload, callback }, { call, put }) {
-      const response = yield call(removeRule, payload);
+      const response = yield (yield call(removeRule, payload)).json();
       yield put({
-        type: 'save',
-        payload: response,
+        type: "save",
+        payload: response
       });
       if (callback) callback();
     },
     *update({ payload, callback }, { call, put }) {
-      const response = yield call(updateRule, payload);
+      const response = yield (yield call(updateRule, payload)).json();
       yield put({
-        type: 'save',
-        payload: response,
+        type: "save",
+        payload: response
       });
       if (callback) callback();
-    },
+    }
   },
 
   reducers: {
     save(state, action) {
       return {
         ...state,
-        data: action.payload,
+        data: action.payload
       };
-    },
-  },
+    }
+  }
 };

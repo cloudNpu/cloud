@@ -39,7 +39,6 @@ public class ApplicationServiceImpl implements ApplicationService {
             if (infos.get(i).getAppName().equals(appName)) {
                 InstanceInfo tmp = infos.get(i);
                 tmp.setVisible(true);
-                instanceInfoRepository.delete(infos.get(i));
                 instanceInfoRepository.save(tmp);
                 flag=false;
             }
@@ -58,7 +57,6 @@ public class ApplicationServiceImpl implements ApplicationService {
             if (infos.get(i).getAppName().equals(appName)){
                 InstanceInfo tmp=infos.get(i);
                 tmp.setVisible(false);
-                instanceInfoRepository.delete(infos.get(i));
                 instanceInfoRepository.save(tmp);
                 flag=false;
             }
@@ -129,6 +127,11 @@ public class ApplicationServiceImpl implements ApplicationService {
     @Override
     public String getAppStatus(InstanceInfo info) {
     return info.getStatus().name();
+    }
+
+    @Override
+    public String getIpAddrByHostAndPort(String host, Integer port) {
+        return instanceInfoRepository.getIpAddrByHostAndPort(host,Long.valueOf(port));
     }
 
 //    @Override
