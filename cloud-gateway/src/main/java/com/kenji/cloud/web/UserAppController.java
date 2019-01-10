@@ -35,7 +35,7 @@ public class UserAppController {
     }
 
     @DeleteMapping()
-    public ResponseEntity<String> deleteUserById(@RequestBody long[] ids) {
+    public ResponseEntity<String> deleteUserAppsById(@RequestBody long[] ids) {
         //删除成功返回值是1，失败（包括没有对应记录）为0
         try {
             int a = userAppService.deleteUserApps(ids);
@@ -48,7 +48,7 @@ public class UserAppController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity getUserApps(@PathVariable Long id) {
+    public ResponseEntity getUserAppById(@PathVariable Long id) {
         try{
             UserApp userApp = userAppService.findUserAppById(id);
             return ResponseEntity.ok(userApp);
@@ -82,6 +82,7 @@ public class UserAppController {
         }
     }
 
+    //逻辑需要修改，以用户id为主
     @PutMapping("/{id}")
     public ResponseEntity<String> updateUserApps(@PathVariable Long id, @RequestBody List<UserApp> userApps){
         try {
