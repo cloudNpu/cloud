@@ -48,6 +48,7 @@ public class InvokeController {
         InstanceInfo info = applicationService.queryByAppName(serName[1]).get(0);
         if (info.getMethod().equals("POST")){
 
+
         }
         if (info.getMethod().equals("DELETE")){
             restTemplate.delete("http://" + serviceName + "/" + param, String.class);
