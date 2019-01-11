@@ -3,6 +3,7 @@ package com.kenji.cloud.service;
 import com.kenji.cloud.entity.Role;
 import com.kenji.cloud.entity.RoleMenu;
 import com.kenji.cloud.entity.UserRole;
+import com.kenji.cloud.vo.RoleVO;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
@@ -45,5 +46,11 @@ public interface RoleService {
      * @param roleMenus
      */
     void addMenusForRoles(List<RoleMenu> roleMenus);
+
+    /**
+     * 获取所有角色信息
+     * @return
+     */
+    List<RoleVO> getRoles();
 }
 

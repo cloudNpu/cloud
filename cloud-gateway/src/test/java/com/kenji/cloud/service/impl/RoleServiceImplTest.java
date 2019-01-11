@@ -6,7 +6,9 @@ import com.kenji.cloud.entity.RoleMenu;
 import com.kenji.cloud.repository.MenuRepository;
 import com.kenji.cloud.repository.RoleMenuRepository;
 import com.kenji.cloud.repository.RoleRepository;
+import com.kenji.cloud.vo.RoleVO;
 import com.netflix.discovery.converters.Auto;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -70,5 +73,12 @@ public class RoleServiceImplTest {
         ArrayList<RoleMenu> roleMenus = new ArrayList<>();
         roleMenus.add(roleMenu);
         roleService.addMenusForRoles(roleMenus);
+    }
+
+    @Test
+    public void findAll() {
+        List<RoleVO> roles = roleService.getRoles();
+        roles.stream().forEach(System.out::println);
+        //Assert.assertNotEquals(0,roles.size());
     }
 }

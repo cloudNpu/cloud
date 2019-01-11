@@ -3,6 +3,7 @@ package com.kenji.cloud.web;
 import com.kenji.cloud.entity.Role;
 import com.kenji.cloud.entity.RoleMenu;
 import com.kenji.cloud.service.impl.RoleServiceImpl;
+import com.kenji.cloud.vo.RoleVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,8 +40,8 @@ public class RoleController {
         }
     }
 
-    @RequestMapping(value = "/roles", method = RequestMethod.GET)
-    public ResponseEntity getRoleByRoleName(@RequestParam("roleName") String roleName) {
+    @RequestMapping(value = "/roles/{roleName}", method = RequestMethod.GET)
+    public ResponseEntity getRoleByRoleName(@PathVariable("roleName") String roleName) {
         Role role = roleService.getRoleByRoleName(roleName);
         if (role != null) {
             return ResponseEntity.ok(role);
@@ -65,6 +66,16 @@ public class RoleController {
             return ResponseEntity.ok("授权成功");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("授权失败！\r\n失败原因："+e.getMessage());
+        }
+    }
+    @RequestMapping(value = "/roles",method = RequestMethod.GET)
+    public ResponseEntity<List<RoleVO>> getRoles() {
+        try {
+            List<RoleVO> roleVOs = roleService.getRoles();
+
+            return ResponseEntity.ok(roleVOs);
+        } catch (Exception e) {
+            return null;
         }
     }
 }

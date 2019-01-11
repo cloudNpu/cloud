@@ -2,6 +2,7 @@ package com.kenji.cloud.service;
 
 import com.kenji.cloud.entity.User;
 import com.kenji.cloud.entity.UserApp;
+import com.kenji.cloud.vo.UserAppReturnVo;
 
 import java.util.List;
 
@@ -14,11 +15,12 @@ public interface UserAppService {
 
     List<UserApp> findUserAppByUser(User user);
 
-    List<UserApp> findUserAppByUserId(long userId);
 
-    UserApp findUserAppById(long id);
+    List<UserAppReturnVo> findUserAppsByUsername(String username);
 
-    List<UserApp> findAllUserApps();
+    UserAppReturnVo findUserAppById(long id);
+
+    List<UserAppReturnVo> findAllUserApps();
 
     int deleteUserApp(UserApp userApp);
 

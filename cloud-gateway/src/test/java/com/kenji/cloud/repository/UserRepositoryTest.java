@@ -109,8 +109,8 @@ public class UserRepositoryTest {
 
     @Test
     public void findByUserId() {
-        User user = userService.findById(1L);
-        System.out.println(user);
+        //User user = userService.findById(1L);
+        //System.out.println(user);
     }
 
     @Test
@@ -123,9 +123,9 @@ public class UserRepositoryTest {
 
     @Test
     public void getRolesByUserId() {
-        List<Role> roles = userRoleService.getRolesByUserId(8L);
-        for (Role role : roles) {
-            System.out.println(role);
-        }
+        //List<Role> roles = userRoleService.getRolesByUserId(8L);
+        //for (Role role : roles) {
+        //    System.out.println(role);
+        //}
     }
 }

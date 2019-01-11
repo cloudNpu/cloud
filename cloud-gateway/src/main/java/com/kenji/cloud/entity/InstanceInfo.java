@@ -123,6 +123,16 @@ public class InstanceInfo{
     private volatile String complexType;
     @Column(name = "INVOKECOUNT")
     private volatile String invokeCount;
+    @Column(name = "METHOD")
+    private String method;
+
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
+    }
 
     public Long getInstanceInfoId() {
         return InstanceInfoId;

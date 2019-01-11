@@ -1,8 +1,12 @@
 package com.kenji.cloud.web;
 
+import com.kenji.cloud.entity.InstanceInfo;
 import com.kenji.cloud.loadbalance.DynamicRule;
+import com.kenji.cloud.service.ApplicationService;
+import com.netflix.discovery.shared.Application;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.loadbalancer.*;
+import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
@@ -31,15 +35,33 @@ public class InvokeController {
     @Autowired
     private LoadBalancerClient loadBalancer;
 
+    @Autowired
+    private ApplicationService applicationService;
+
+
 //    @Autowired
 //    private BaseLoadBalancer baseLoadBalancer;
 
     @RequestMapping(value = "/invoke", method = RequestMethod.GET)
     public String invoke(@RequestParam String serviceName, @RequestParam String param) {
+        String[] serName=serviceName.split("/");
+        InstanceInfo info = applicationService.queryByAppName(serName[1]).get(0);
+        if (info.getMethod().equals("POST")){
+
+
+        }
+        if (info.getMethod().equals("DELETE")){
+            restTemplate.delete("http://" + serviceName + "/" + param, String.class);
+            return null;
+        }
+        if (info.getMethod().equals("PUT")){
+            //return restTemplate.put(, );
+        }
+//        if (info.getMethod().equals("GET")){ return restTemplate.getForObject("http://" + serviceName + "/" + param, String.class) ;}
         return restTemplate.getForObject("http://" + serviceName + "/" + param, String.class) ;
     }
 
-    //注意请求的数据为x-www-form
+    //注意请求的数据为x-www-form （带）负载均衡策略的复杂类型调用
     @RequestMapping(value = "/invoke", method = RequestMethod.POST)
     public String invoke(@RequestParam Map<String, String> requestParams) throws IllegalAccessException, InstantiationException {
 
@@ -56,16 +78,16 @@ public class InvokeController {
         return result;
     }
 
-    //注意请求的数据为x-wwww-form
-    @RequestMapping(value = "/invokeForJson", method = RequestMethod.POST)
-    public String invokeForJson(@RequestBody Map<String, String> requestParams) {
-        HttpHeaders headers = new HttpHeaders();
-        MediaType type = MediaType.parseMediaType("application/json; charset=UTF-8");
-        headers.setContentType(type);
-        HttpEntity<String> entity = new HttpEntity<String>(requestParams.get("params"), headers);
-        String result = restTemplate.postForObject("http://" + requestParams.get("serviceName"), entity, String.class);
-        return result;
-    }
+//    //注意请求的数据为x-wwww-form
+//    @RequestMapping(value = "/invokeForJson", method = RequestMethod.POST)
+//    public String invokeForJson(@RequestBody Map<String, String> requestParams) {
+//        HttpHeaders headers = new HttpHeaders();
+//        MediaType type = MediaType.parseMediaType("application/json; charset=UTF-8");
+//        headers.setContentType(type);
+//        HttpEntity<String> entity = new HttpEntity<String>(requestParams.get("params"), headers);
+//        String result = restTemplate.postForObject("http://" + requestParams.get("serviceName"), entity, String.class);
+//        return result;
+//    }
 
 
     public String invokeError(String serviceName, String param) {
