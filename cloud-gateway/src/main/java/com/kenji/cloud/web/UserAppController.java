@@ -48,7 +48,7 @@ public class UserAppController {
     }
 
 
-    @GetMapping("/{id}")
+    @GetMapping("/userAppId/{id}")
     public ResponseEntity getUserAppById(@PathVariable Long id) {
         try{
             UserAppReturnVo userAppReturnVo = userAppService.findUserAppById(id);
@@ -60,8 +60,8 @@ public class UserAppController {
     }
 
 
-    @GetMapping("/user?name={uname}")
-    public ResponseEntity getUserAppsByUsername(@PathVariable("uname") String uname) {
+    @GetMapping("/user/{username}")
+    public ResponseEntity getUserAppsByUsername(@PathVariable("username") String uname) {
         try {
             List<UserAppReturnVo> userApps = userAppService.findUserAppsByUsername(uname);
             return ResponseEntity.ok(userApps);
