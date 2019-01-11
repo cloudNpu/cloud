@@ -25,12 +25,12 @@ public interface UserRepository extends JpaRepository<User,Long>, UserRepository
     @Transactional
     @Query(value = "delete from user where id = ?",nativeQuery = true)
     void deleteUserById(Long id);
-/**
- * @author SHI Jing
- * @date 2018/12/26 10:28
- */
-    @Query("select u from User u join fetch u.userRoles userRoles join fetch userRoles.role where u.username=?1")
-    User findByUsername2(String username);
+    /**
+     * @author SHI Jing
+     * @date 2018/12/26 10:28
+     */
+    @Query("select u from User u join fetch u.userRoles userRoles join fetch userRoles.role where u.username = ?1")
+    User findUserAndRoleByUsername(String username);
 
 
     @Query("select u from User u join fetch u.userRoles ur where u.id = :id")
