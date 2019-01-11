@@ -122,7 +122,7 @@ public class InstanceInfo{
     @Column(name = "COMPLEXTYPE")
     private volatile String complexType;
     @Column(name = "INVOKECOUNT")
-    private volatile String invokeCount;
+    private volatile Long invokeCount;
     @Column(name = "METHOD")
     private String method;
 
@@ -445,20 +445,13 @@ public class InstanceInfo{
         this.complexType = complexType;
     }
 
-
-    public String getInvokeCount() {
+    public Long getInvokeCount() {
         return invokeCount;
     }
 
-    public void setInvokeCount(String invokeCount) {
+    public void setInvokeCount(Long invokeCount) {
         this.invokeCount = invokeCount;
     }
-
-
-
-
-
-
 
     @Column(name = "STATUS")
     @Enumerated(EnumType.STRING)

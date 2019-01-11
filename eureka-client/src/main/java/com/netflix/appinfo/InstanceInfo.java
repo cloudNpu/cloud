@@ -27,6 +27,7 @@ import com.netflix.discovery.converters.Auto;
 import com.netflix.discovery.converters.EurekaJacksonCodec.InstanceInfoSerializer;
 import com.netflix.discovery.provider.Serializer;
 import com.netflix.discovery.util.StringCache;
+import com.sun.org.apache.bcel.internal.generic.RETURN;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import org.slf4j.Logger;
@@ -168,7 +169,7 @@ public class InstanceInfo {
     @Auto
     private volatile String method;
     @Auto
-    private volatile String invokeCount;
+    private volatile Long invokeCount;
 
 
     public InstanceInfo() {
@@ -394,7 +395,7 @@ public class InstanceInfo {
             @JsonProperty("outputParams") String outputParams,
             @JsonProperty("complexType") String complexType,
             @JsonProperty("method") String method,
-            @JsonProperty("invokeCount") String invokeCount) {
+            @JsonProperty("invokeCount") Long invokeCount) {
         this.instanceId = instanceId;
         this.sid = sid;
         this.appName = StringCache.intern(appName);
@@ -1594,12 +1595,11 @@ public class InstanceInfo {
         this.method = method;
     }
 
-    @JsonProperty("invokeCount")
-    public String getInvokeCount() {
+    public Long getInvokeCount() {
         return invokeCount;
     }
 
-    public void setInvokeCount(String invokeCount) {
+    public void setInvokeCount(Long invokeCount) {
         this.invokeCount = invokeCount;
     }
 
