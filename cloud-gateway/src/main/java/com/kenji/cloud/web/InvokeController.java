@@ -48,14 +48,15 @@ public class InvokeController {
         InstanceInfo info = applicationService.queryByAppName(serName[1]).get(0);
         info.setInvokeCount(info.getInvokeCount()+1);
         if (info.getMethod().equals("POST")){
-
+            return restTemplate.postForObject("http://" + serviceName + "/" + param, serName[1],String.class);
         }
         if (info.getMethod().equals("DELETE")){
             restTemplate.delete("http://" + serviceName + "/" + param, String.class);
             return null;
         }
         if (info.getMethod().equals("PUT")){
-            //return restTemplate.put();
+           restTemplate.put("http://" + serviceName + "/" + param, serName[1]);
+           return null;
         }
 //        if (info.getMethod().equals("GET")){ return restTemplate.getForObject("http://" + serviceName + "/" + param, String.class) ;}
         return restTemplate.getForObject("http://" + serviceName + "/" + param, String.class) ;

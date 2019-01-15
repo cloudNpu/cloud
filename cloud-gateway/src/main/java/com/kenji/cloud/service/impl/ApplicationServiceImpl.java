@@ -119,7 +119,6 @@ public class ApplicationServiceImpl implements ApplicationService {
         for (int i=0;i<infos.size();++i){
             if (infos.get(i).getIpAddr().equals(ipAddr))
                 res.add(infos.get(i));
-
         }
         //遍历所有InstanceInfo对象，.equals（ipAddr），存入List。
         return res;
