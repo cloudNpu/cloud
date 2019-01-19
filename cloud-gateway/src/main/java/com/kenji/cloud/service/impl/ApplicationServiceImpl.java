@@ -5,6 +5,7 @@ import com.kenji.cloud.entity.User;
 import com.kenji.cloud.repository.InstanceInfoRepository;
 import com.kenji.cloud.service.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -132,5 +133,11 @@ public class ApplicationServiceImpl implements ApplicationService {
     @Override
     public String getIpAddrByHostAndPort(String host, Integer port) {
         return instanceInfoRepository.getIpAddrByHostAndPort(host,Long.valueOf(port));
+    }
+
+    @Override
+    public InstanceInfo queryPageInstance(Long instanceInfoId) {
+        //Page<InstanceInfo>
+        return null;
     }
 }

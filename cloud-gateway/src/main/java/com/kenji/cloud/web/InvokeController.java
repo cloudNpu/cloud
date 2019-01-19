@@ -18,6 +18,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -46,6 +47,7 @@ public class InvokeController {
     public String invoke(@RequestParam String serviceName, @RequestParam String param) {
         String[] serName=serviceName.split("/");
         InstanceInfo info = applicationService.queryByAppName(serName[1]).get(0);
+        if (info.getVisible()==false) return "服务未发布，无法调用";
         info.setInvokeCount(info.getInvokeCount()+1);
         if (info.getMethod().equals("POST")){
             return restTemplate.postForObject("http://" + serviceName + "/" + param, serName[1],String.class);
@@ -75,8 +77,24 @@ public class InvokeController {
         MediaType type = MediaType.parseMediaType("application/json; charset=UTF-8");
         headers.setContentType(type);
         HttpEntity<String> entity = new HttpEntity<String>(requestParams.get("params"), headers);
-        String result = restTemplate.postForObject("http://" + requestParams.get("serviceName"), entity, String.class);
-        return result;
+
+        InstanceInfo info = applicationService.queryByAppName(serviceNames[1]).get(0);
+        if (info.getVisible()==false) return "服务未发布，无法调用";
+        info.setInvokeCount(info.getInvokeCount()+1);
+        if (info.getMethod().equals("POST")){
+            return restTemplate.postForObject("http://" +requestParams.get("serviceName"), serviceNames[1],String.class);
+        }
+        if (info.getMethod().equals("DELETE")){
+            restTemplate.delete("http://" + requestParams.get("serviceName"), String.class);
+            return null;
+        }
+        if (info.getMethod().equals("PUT")){
+            restTemplate.put("http://" + requestParams.get("serviceName"), serviceNames[1]);
+            return null;
+        }
+        else
+            return  restTemplate.postForObject("http://" + requestParams.get("serviceName"), entity, String.class);
+
     }
 
 //    //注意请求的数据为x-wwww-form
