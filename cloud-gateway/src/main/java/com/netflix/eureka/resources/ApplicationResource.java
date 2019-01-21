@@ -200,13 +200,14 @@ public class ApplicationResource {
          * @date 2019/1/7 20:46
          */
         boolean flag = false;
+        com.kenji.cloud.entity.InstanceInfo info1 = new com.kenji.cloud.entity.InstanceInfo();
         for (com.kenji.cloud.entity.InstanceInfo inf: infos){
             if (inf.getAppName().equals(info.getAppName()) && inf.getIpAddr().equals(info.getIPAddr()) && inf.getPort()==info.getPort()){
                 flag = true;
             }
         }
         if (flag == false){
-            com.kenji.cloud.entity.InstanceInfo info1 = new com.kenji.cloud.entity.InstanceInfo();
+
             BeanUtils.copyProperties(info, info1);
             com.kenji.cloud.entity.LeaseInfo leaseInfo = new com.kenji.cloud.entity.LeaseInfo();
             BeanUtils.copyProperties(info.getLeaseInfo(), leaseInfo);
@@ -215,7 +216,8 @@ public class ApplicationResource {
             info1.setVisible(true);
             applicationService.addApp(info1);
         }
-        return Response.status(204).build();  // 204 to be backwards compatible
+        return Response.ok(info1.getInstanceInfoId()).build();
+        //return Response.status(204).build();  // 204 to be backwards compatible
     }
 
     /**

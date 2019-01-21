@@ -93,7 +93,7 @@ public class InvokeController {
             return null;
         }
         else
-            return  restTemplate.postForObject("http://" + requestParams.get("serviceName"), entity, String.class);
+            return  restTemplate.getForObject("http://" + requestParams.get("serviceName"), String.class);
 
     }
 
