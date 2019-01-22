@@ -2,6 +2,8 @@ package com.kenji.cloud.entity;
 
 
 
+import com.kenji.cloud.repository.UserRepository;
+import com.kenji.cloud.service.UserService;
 import com.netflix.appinfo.DataCenterInfo;
 import com.netflix.appinfo.providers.DataCenterInfoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -142,9 +144,12 @@ public class InstanceInfo{
         InstanceInfoId = instanceInfoId;
     }
 
+
     public User getUser() {
-        return user;
-    }
+        return null;
+    }//权宜之计，需要修改
+
+
 
     public void setUser(User user) {
         this.user = user;
