@@ -83,6 +83,24 @@ export default [
         ]
       },
 
+        //menu
+        {
+            path: "/menus",
+            icon: "menu-fold",
+            name: "menus",
+            routes: [
+                {
+                    path: "/menus/first",
+                    name: "first",
+                    component: "./Menus/First"
+                },
+                {
+                    path: "/menus/add",
+                    name: "add",
+                    component: "./Menus/Add"
+                }
+            ]
+        },
       // forms
       {
         path: "/form",
