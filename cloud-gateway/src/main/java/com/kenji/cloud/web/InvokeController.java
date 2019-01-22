@@ -45,24 +45,46 @@ public class InvokeController {
 
     @RequestMapping(value = "/invoke", method = RequestMethod.GET)
     public String invoke(@RequestParam String serviceName, @RequestParam String param) {
-        String[] serName=serviceName.split("/");
-        InstanceInfo info = applicationService.queryByAppName(serName[1]).get(0);
+
+        InstanceInfo info = applicationService.queryByAppName(serviceName).get(0);
         if (info.getVisible()==false) return "服务未发布，无法调用";
-        info.setInvokeCount(info.getInvokeCount()+1);
+       // info.invokeCount++;
+        info.setMethod("GET");
         if (info.getMethod().equals("POST")){
-            return restTemplate.postForObject("http://" + serviceName + "/" + param, serName[1],String.class);
+            return restTemplate.postForObject("http://" + serviceName + "/" + param, serviceName,String.class);
         }
         if (info.getMethod().equals("DELETE")){
             restTemplate.delete("http://" + serviceName + "/" + param, String.class);
             return null;
         }
         if (info.getMethod().equals("PUT")){
-           restTemplate.put("http://" + serviceName + "/" + param, serName[1]);
+           restTemplate.put("http://" + serviceName + "/" + param, serviceName);
            return null;
         }
-//        if (info.getMethod().equals("GET")){ return restTemplate.getForObject("http://" + serviceName + "/" + param, String.class) ;}
         return restTemplate.getForObject("http://" + serviceName + "/" + param, String.class) ;
     }
+
+    @RequestMapping(value = "/invoke1", method = RequestMethod.GET)
+    public String invoke1(@RequestParam String serviceName, @RequestParam String param,@RequestParam String strategy) {
+        setStrategy(serviceName,strategy);
+        InstanceInfo info = applicationService.queryByAppName(serviceName).get(0);
+        if (info.getVisible()==false) return "服务未发布，无法调用";
+        // info.invokeCount++;
+        info.setMethod("GET");
+        if (info.getMethod().equals("POST")){
+            return restTemplate.postForObject("http://" + serviceName + "/" + param, serviceName,String.class);
+        }
+        if (info.getMethod().equals("DELETE")){
+            restTemplate.delete("http://" + serviceName + "/" + param, String.class);
+            return null;
+        }
+        if (info.getMethod().equals("PUT")){
+            restTemplate.put("http://" + serviceName + "/" + param, serviceName);
+            return null;
+        }
+        return restTemplate.getForObject("http://" + serviceName + "/" + param, String.class) ;
+    }
+
 
     //注意请求的数据为x-www-form （带）负载均衡策略的复杂类型调用
     @RequestMapping(value = "/invoke", method = RequestMethod.POST)
@@ -78,23 +100,23 @@ public class InvokeController {
         headers.setContentType(type);
         HttpEntity<String> entity = new HttpEntity<String>(requestParams.get("params"), headers);
 
-        InstanceInfo info = applicationService.queryByAppName(serviceNames[1]).get(0);
+        InstanceInfo info = applicationService.queryByAppName(serviceNames[0]).get(0);
+        info.setMethod("POST");
         if (info.getVisible()==false) return "服务未发布，无法调用";
-        info.setInvokeCount(info.getInvokeCount()+1);
-        if (info.getMethod().equals("POST")){
-            return restTemplate.postForObject("http://" +requestParams.get("serviceName"), serviceNames[1],String.class);
+        //info.setInvokeCount(info.getInvokeCount()+1);
+        if (info.getMethod().equals("GET")){
+            return restTemplate.getForObject("http://" +requestParams.get("serviceName"),String.class);
         }
         if (info.getMethod().equals("DELETE")){
             restTemplate.delete("http://" + requestParams.get("serviceName"), String.class);
             return null;
         }
         if (info.getMethod().equals("PUT")){
-            restTemplate.put("http://" + requestParams.get("serviceName"), serviceNames[1]);
+            restTemplate.put("http://" + requestParams.get("serviceName"), serviceNames[0]);
             return null;
         }
-        else
-            return  restTemplate.getForObject("http://" + requestParams.get("serviceName"), String.class);
 
+        return  restTemplate.postForObject("http://" + requestParams.get("serviceName"),entity, String.class);
     }
 
 //    //注意请求的数据为x-wwww-form

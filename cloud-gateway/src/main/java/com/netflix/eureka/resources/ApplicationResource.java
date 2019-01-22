@@ -17,10 +17,13 @@
 package com.netflix.eureka.resources;
 
 import com.kenji.cloud.CloudGateway;
+import com.kenji.cloud.entity.User;
 import com.kenji.cloud.repository.InstanceInfoRepository;
 import com.kenji.cloud.repository.LeaseInfoRepository;
+import com.kenji.cloud.repository.UserRepository;
 import com.kenji.cloud.service.ApplicationService;
 import com.kenji.cloud.service.LeaseInfoService;
+import com.kenji.cloud.service.UserService;
 import com.netflix.appinfo.*;
 import com.netflix.discovery.shared.Application;
 import com.netflix.eureka.EurekaServerConfig;
@@ -60,12 +63,14 @@ public class ApplicationResource {
     private static final Logger logger = LoggerFactory.getLogger(ApplicationResource.class);
     private ApplicationService applicationService;
     private LeaseInfoService leaseInfoService;
+    private UserService userService;
     private final String appName;
     private final EurekaServerConfig serverConfig;
     private final PeerAwareInstanceRegistry registry;
     private final ResponseCache responseCache;
     InstanceInfoRepository instanceInfoRepository;
     LeaseInfoRepository leaseInfoRepository;
+    UserRepository userRepository;
 
     ApplicationResource(String appName,
                         EurekaServerConfig serverConfig,
@@ -194,13 +199,21 @@ public class ApplicationResource {
         if (this.leaseInfoService == null) {
             this.leaseInfoService = (LeaseInfoService) CloudGateway.getBean("leaseInfoService");
         }
+        //userService
+        if (this.userService == null) {
+            this.userService = (UserService) CloudGateway.getBean("userService");
+        }
+
+
+
         List<com.kenji.cloud.entity.InstanceInfo> infos = applicationService.queryByAppName(info.getAppName());
         /**
          * @author SHI Jing
          * @date 2019/1/7 20:46
          */
-        boolean flag = false;
+
         com.kenji.cloud.entity.InstanceInfo info1 = new com.kenji.cloud.entity.InstanceInfo();
+        boolean flag = false;
         for (com.kenji.cloud.entity.InstanceInfo inf: infos){
             if (inf.getAppName().equals(info.getAppName()) && inf.getIpAddr().equals(info.getIPAddr()) && inf.getPort()==info.getPort()){
                 flag = true;
@@ -214,10 +227,14 @@ public class ApplicationResource {
             leaseInfoService.addLeaseInfo(leaseInfo);
             info1.setLeaseInfo(leaseInfo);
             info1.setVisible(true);
+
+            User user=userService.getUser(1l);
+
+            info1.setUser(user);
+            info.setInvokeCount(2l);
             applicationService.addApp(info1);
         }
-        return Response.ok(info1.getInstanceInfoId()).build();
-        //return Response.status(204).build();  // 204 to be backwards compatible
+        return Response.status(204).build();  // 204 to be backwards compatible
     }
 
     /**

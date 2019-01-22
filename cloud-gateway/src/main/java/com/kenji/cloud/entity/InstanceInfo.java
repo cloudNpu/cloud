@@ -34,7 +34,7 @@ public class InstanceInfo{
     @Column(name = "ID")
     private Long InstanceInfoId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "USERID")
     private User user;
 
@@ -122,7 +122,7 @@ public class InstanceInfo{
     @Column(name = "COMPLEXTYPE")
     private volatile String complexType;
     @Column(name = "INVOKECOUNT")
-    private volatile Long invokeCount;
+    public volatile Long invokeCount;
     @Column(name = "METHOD")
     private String method;
 
