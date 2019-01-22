@@ -49,15 +49,14 @@ class DepartmentList extends PureComponent {
     }
   };
 
-  //添加
+  //表新数据
   newMember = () => {
     const { data } = this.state;
     const newData = data.map(item => ({ ...item }));
     newData.push({
       key: `NEW_TEMP_ID_${this.index}`,
-      workId: "",
-      name: "",
-      department: "",
+      deptName: "",
+      description: "",
       editable: true,
       isNew: true
     });
@@ -111,7 +110,6 @@ class DepartmentList extends PureComponent {
       const target = this.getRowByKey(key) || {};
       if (
         !target.deptName ||
-       /* !target.departmentId ||*/
         !target.description
       ) {
         message.error("请填写完整部门信息。");
@@ -122,7 +120,7 @@ class DepartmentList extends PureComponent {
         return;
       }
 
-      // console.log(target);
+      //console.log(target);
       const { dispatch } = this.props;
       dispatch({
         type: "department/save",
@@ -181,27 +179,7 @@ class DepartmentList extends PureComponent {
           return text;
         }
       },
-   /*   {
-        title: "部门编号",
-        dataIndex: "departmentId",
-        key: "departmentId",
-        width: "20%",
-        render: (text, record) => {
-          if (record.editable) {
-            return (
-              <Input
-                value={text}
-                onChange={e =>
-                  this.handleFieldChange(e, "departmentId", record.key)
-                }
-                onKeyPress={e => this.handleKeyPress(e, record.key)}
-                placeholder="部门编号"
-              />
-            );
-          }
-          return text;
-        }
-      },*/
+
       {
         title: "部门描述",
         dataIndex: "description",
