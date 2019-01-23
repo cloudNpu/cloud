@@ -27,6 +27,7 @@ import com.netflix.discovery.converters.Auto;
 import com.netflix.discovery.converters.EurekaJacksonCodec.InstanceInfoSerializer;
 import com.netflix.discovery.provider.Serializer;
 import com.netflix.discovery.util.StringCache;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 import com.sun.org.apache.bcel.internal.generic.RETURN;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
@@ -138,13 +139,19 @@ public class InstanceInfo {
     private volatile int countryId = DEFAULT_COUNTRY_ID; // Defaults to US
     private volatile boolean isSecurePortEnabled = false;
     private volatile boolean isUnsecurePortEnabled = true;
-    private volatile DataCenterInfo dataCenterInfo;
-    private volatile String hostName;
+
+    private volatile DataCenterInfo dataCenterInfo=new DataCenterInfo() {
+        @Override
+        public Name getName() {
+            return Name.MyOwn;
+        }
+    };
+    private volatile String hostName="1";
     private volatile InstanceStatus status = InstanceStatus.UP;
     private volatile InstanceStatus overriddenStatus = InstanceStatus.UNKNOWN;
     @XStreamOmitField
     private volatile boolean isInstanceInfoDirty = false;
-    private volatile LeaseInfo leaseInfo;
+    private volatile LeaseInfo leaseInfo=new LeaseInfo();
     @Auto
     private volatile Boolean isCoordinatingDiscoveryServer = Boolean.FALSE;
     @XStreamAlias("metadata")
@@ -648,6 +655,7 @@ public class InstanceInfo {
             }
             return this;
         }
+
 
         public Builder setAppGroupNameForDeser(String appGroupName) {
             result.appGroupName = appGroupName;

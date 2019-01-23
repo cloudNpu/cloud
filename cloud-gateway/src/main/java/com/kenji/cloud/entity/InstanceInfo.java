@@ -2,6 +2,8 @@ package com.kenji.cloud.entity;
 
 
 
+import com.kenji.cloud.repository.UserRepository;
+import com.kenji.cloud.service.UserService;
 import com.netflix.appinfo.DataCenterInfo;
 import com.netflix.appinfo.providers.DataCenterInfoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +36,7 @@ public class InstanceInfo{
     @Column(name = "ID")
     private Long InstanceInfoId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "USERID")
     private User user;
 
@@ -122,7 +124,7 @@ public class InstanceInfo{
     @Column(name = "COMPLEXTYPE")
     private volatile String complexType;
     @Column(name = "INVOKECOUNT")
-    private volatile Long invokeCount;
+    public volatile Long invokeCount;
     @Column(name = "METHOD")
     private String method;
 
@@ -142,9 +144,12 @@ public class InstanceInfo{
         InstanceInfoId = instanceInfoId;
     }
 
+
     public User getUser() {
-        return user;
-    }
+        return null;
+    }//权宜之计，需要修改
+
+
 
     public void setUser(User user) {
         this.user = user;

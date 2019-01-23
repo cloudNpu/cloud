@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { Card, Button, Form, Icon, Input, Popover } from "antd";
+import { Card, Form, Icon, Popover } from "antd";
 import { connect } from "dva";
 import router from "umi/router";
 import PageHeaderWrapper from "@/components/PageHeaderWrapper";
@@ -13,21 +13,18 @@ const fieldLabels = {
 const tableData = [
   {
     key: "1",
-   /* departmentId: "01",*/
-      deptName: "技术部",
-      description: "技术部"
+    deptName: "技术部",
+    description: "技术部"
   },
   {
     key: "2",
-   /* departmentId: "02",*/
-      deptName: "人力资源部",
-      description: "人力资源部"
+    deptName: "人力资源部",
+    description: "人力资源部"
   },
   {
     key: "3",
-    /*departmentId: "03",*/
-      deptName: "市场部",
-      description: "市场部"
+    deptName: "市场部",
+    description: "市场部"
   }
 ];
 
@@ -41,7 +38,6 @@ const formItemLayout = {
 };
 
 @connect(({ loading }) => ({
-  /*submitting: loading.effects['department/submitDepartmentEdit'],*/
   loading: loading.models.department
 }))
 @Form.create()
@@ -119,25 +115,10 @@ class DepartmentEdit extends PureComponent {
       }
     });
   };
-  /* validate = () => {
-        const {
-            form: { validateFieldsAndScroll },
-            dispatch,
-        } = this.props;
-        validateFieldsAndScroll((error, values) => {
-            if (!error) {
-                // submit the values
-                dispatch({
-                    type: 'department/submitDepartmentEdit',
-                    payload: values,
-                });
-            }
-        });
-    };*/
+
   render() {
     const {
       form: { getFieldDecorator }
-      /* submitting,*/
     } = this.props;
     const { width } = this.state;
 

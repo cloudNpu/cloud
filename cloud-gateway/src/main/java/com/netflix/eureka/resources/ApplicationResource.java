@@ -17,10 +17,13 @@
 package com.netflix.eureka.resources;
 
 import com.kenji.cloud.CloudGateway;
+import com.kenji.cloud.entity.User;
 import com.kenji.cloud.repository.InstanceInfoRepository;
 import com.kenji.cloud.repository.LeaseInfoRepository;
+import com.kenji.cloud.repository.UserRepository;
 import com.kenji.cloud.service.ApplicationService;
 import com.kenji.cloud.service.LeaseInfoService;
+import com.kenji.cloud.service.UserService;
 import com.netflix.appinfo.*;
 import com.netflix.discovery.shared.Application;
 import com.netflix.eureka.EurekaServerConfig;
@@ -60,12 +63,14 @@ public class ApplicationResource {
     private static final Logger logger = LoggerFactory.getLogger(ApplicationResource.class);
     private ApplicationService applicationService;
     private LeaseInfoService leaseInfoService;
+    private UserService userService;
     private final String appName;
     private final EurekaServerConfig serverConfig;
     private final PeerAwareInstanceRegistry registry;
     private final ResponseCache responseCache;
     InstanceInfoRepository instanceInfoRepository;
     LeaseInfoRepository leaseInfoRepository;
+    UserRepository userRepository;
 
     ApplicationResource(String appName,
                         EurekaServerConfig serverConfig,
@@ -194,11 +199,20 @@ public class ApplicationResource {
         if (this.leaseInfoService == null) {
             this.leaseInfoService = (LeaseInfoService) CloudGateway.getBean("leaseInfoService");
         }
+        //userService
+        if (this.userService == null) {
+            this.userService = (UserService) CloudGateway.getBean("userService");
+        }
+
+
+
         List<com.kenji.cloud.entity.InstanceInfo> infos = applicationService.queryByAppName(info.getAppName());
         /**
          * @author SHI Jing
          * @date 2019/1/7 20:46
          */
+
+        com.kenji.cloud.entity.InstanceInfo info1 = new com.kenji.cloud.entity.InstanceInfo();
         boolean flag = false;
         for (com.kenji.cloud.entity.InstanceInfo inf: infos){
             if (inf.getAppName().equals(info.getAppName()) && inf.getIpAddr().equals(info.getIPAddr()) && inf.getPort()==info.getPort()){
@@ -206,13 +220,18 @@ public class ApplicationResource {
             }
         }
         if (flag == false){
-            com.kenji.cloud.entity.InstanceInfo info1 = new com.kenji.cloud.entity.InstanceInfo();
+
             BeanUtils.copyProperties(info, info1);
             com.kenji.cloud.entity.LeaseInfo leaseInfo = new com.kenji.cloud.entity.LeaseInfo();
             BeanUtils.copyProperties(info.getLeaseInfo(), leaseInfo);
             leaseInfoService.addLeaseInfo(leaseInfo);
             info1.setLeaseInfo(leaseInfo);
             info1.setVisible(true);
+
+            User user=userService.getUser(1l);
+
+            info1.setUser(user);
+            info1.setInvokeCount(0l);
             applicationService.addApp(info1);
         }
         return Response.status(204).build();  // 204 to be backwards compatible
@@ -278,8 +297,8 @@ public class ApplicationResource {
                 }
             }
         }
-
-        registry.renew(info.getAppName(), info.getInstanceId(), false);     //服务更新
+        registry.register(info, "true".equals(isReplication));   //真正的服务注册在这，前面都是對註冊信息校验
+        //registry.renew(info.getAppName(), info.getInstanceId(), false);     //服务更新
         if (this.applicationService == null) {
             this.applicationService = (ApplicationService) CloudGateway.getBean("applicationService");
         }

@@ -15,14 +15,15 @@ export default {
   },
 
   effects: {
-    /*  *submitDepartmentEdit({ payload }, { call, put }) {
-            yield call(fakeDepartmentEdit, payload);
-            message.success('提交成功');
-        },*/
 
     *save({ payload }, { call, put }) {
+       // yield call(addDept, payload)
       const response = yield call(addDept, payload);
-      if (response.status == 200) {
+
+      console.log(response);
+        //console.log( response);
+
+      if (response.status===200) {
         message.success("提交成功");
       } else message.success("提交失败");
     },
@@ -31,8 +32,8 @@ export default {
       const response = yield call(deleteDept, payload);
       /* console.log(response);*/
       const { msg } = JSON.parse(response);
-      /* console.log(msg);*/
-      if (response.status == 204) {
+     /*  console.log(msg);*/
+      if (response.status === 204) {
         message.success("删除成功");
       } else message.success(msg);
     }
