@@ -82,6 +82,52 @@ export default [
           }
         ]
       },
+      //APP
+      {
+        name: "app",
+        icon: "smile",
+        path: "/app",
+        routes: [
+          {
+            path: "/app/search",
+            name: "search",
+            component: "./App/Search/AppList",
+            routes: [
+              {
+                path: "/app/search",
+                redirect: "/app/search/applist"
+              }
+            ]
+          }
+        ]
+      },
+      //users
+      {
+        name: "users",
+        icon: "team",
+        path: "/users",
+        routes: [
+          {
+            path: "/users/found",
+            name: "found",
+            component: "./Users/Found"
+          }
+        ]
+      },
+      //Center个人首页
+      {
+        name: "center",
+        icon: "user",
+        path: "/center",
+        routes: [
+          {
+            path: "/center/center",
+            name: "center",
+            component: "./Center/Center"
+          }
+        ]
+      },
+      //
 
       // forms
       {

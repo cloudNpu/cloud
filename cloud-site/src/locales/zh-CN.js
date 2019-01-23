@@ -116,7 +116,14 @@ export default {
   "menu.role.update": "编辑角色",
   "menu.role.search": "检索角色",
   "menu.role.authorize": "角色授权",
-
+  //
+  "menu.app": "服务管理",
+  "menu.app.search": "服务检索",
+  "menu.users": "用户管理",
+  "menu.users.found": "用户检索",
+  "menu.center": "个人中心",
+  "menu.center.center": "个人信息",
+  //
   "app.login.message-invalid-credentials": "账户或密码错误（admin/888888）",
   "app.login.message-invalid-verification-code": "验证码错误",
   "app.login.tab-login-credentials": "账户密码登录",
@@ -194,8 +201,19 @@ export default {
   "app.settings.basic.change-avatar": "更换头像",
   "app.settings.basic.email": "邮箱",
   "app.settings.basic.email-message": "请输入您的邮箱!",
-  "app.settings.basic.nickname": "昵称",
-  "app.settings.basic.nickname-message": "请输入您的昵称!",
+  //
+  "app.settings.basic.nickname": "用户名", //昵称
+  "app.settings.basic.nickname-message": "请输入您的用户名!",
+  "app.settings.basic.dept": "所在部门",
+  "app.settings.basic.dept-message": "请输入所在部门!",
+  "app.settings.basic.change": "修改密码",
+  "app.settings.basic.old": "旧密码",
+  "app.settings.basic.old-message": "请输入旧密码",
+  "app.settings.basic.new": "新密码",
+  "app.settings.basic.new-message": "请输入新密码",
+  "app.settings.basic.again": "新密码确认",
+  "app.settings.basic.again-message": "请再次确认新密码",
+  //
   "app.settings.basic.profile": "个人简介",
   "app.settings.basic.profile-message": "请输入个人简介!",
   "app.settings.basic.profile-placeholder": "个人简介",
