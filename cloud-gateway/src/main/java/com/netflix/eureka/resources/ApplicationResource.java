@@ -231,7 +231,7 @@ public class ApplicationResource {
             User user=userService.getUser(1l);
 
             info1.setUser(user);
-            info.setInvokeCount(2l);
+            info1.setInvokeCount(0l);
             applicationService.addApp(info1);
         }
         return Response.status(204).build();  // 204 to be backwards compatible
@@ -297,8 +297,8 @@ public class ApplicationResource {
                 }
             }
         }
-
-        registry.renew(info.getAppName(), info.getInstanceId(), false);     //服务更新
+        registry.register(info, "true".equals(isReplication));   //真正的服务注册在这，前面都是對註冊信息校验
+        //registry.renew(info.getAppName(), info.getInstanceId(), false);     //服务更新
         if (this.applicationService == null) {
             this.applicationService = (ApplicationService) CloudGateway.getBean("applicationService");
         }
