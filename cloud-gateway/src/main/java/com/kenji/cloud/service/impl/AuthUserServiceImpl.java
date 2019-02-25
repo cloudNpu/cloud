@@ -29,7 +29,7 @@ public class AuthUserServiceImpl implements UserDetailsService {
          * @author SHI Jing
          * @date 2018/12/26 10:28
          */
-        User user = userRepository.findByUsername2(username);
+        User user = userRepository.findUserAndRoleByUsername(username);
         //User user = userRepository.findByUsername(username);
         if(user == null) {
             throw new UsernameNotFoundException("用户不存在");

@@ -15,16 +15,6 @@
  */
 package com.netflix.appinfo;
 
-import java.io.Serializable;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.Function;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -37,10 +27,16 @@ import com.netflix.discovery.converters.Auto;
 import com.netflix.discovery.converters.EurekaJacksonCodec.InstanceInfoSerializer;
 import com.netflix.discovery.provider.Serializer;
 import com.netflix.discovery.util.StringCache;
+import com.sun.org.apache.bcel.internal.generic.NEW;
+import com.sun.org.apache.bcel.internal.generic.RETURN;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
 
 /**
  * The class that holds information required for registration with
@@ -143,13 +139,19 @@ public class InstanceInfo {
     private volatile int countryId = DEFAULT_COUNTRY_ID; // Defaults to US
     private volatile boolean isSecurePortEnabled = false;
     private volatile boolean isUnsecurePortEnabled = true;
-    private volatile DataCenterInfo dataCenterInfo;
-    private volatile String hostName;
+
+    private volatile DataCenterInfo dataCenterInfo=new DataCenterInfo() {
+        @Override
+        public Name getName() {
+            return Name.MyOwn;
+        }
+    };
+    private volatile String hostName="1";
     private volatile InstanceStatus status = InstanceStatus.UP;
     private volatile InstanceStatus overriddenStatus = InstanceStatus.UNKNOWN;
     @XStreamOmitField
     private volatile boolean isInstanceInfoDirty = false;
-    private volatile LeaseInfo leaseInfo;
+    private volatile LeaseInfo leaseInfo=new LeaseInfo();
     @Auto
     private volatile Boolean isCoordinatingDiscoveryServer = Boolean.FALSE;
     @XStreamAlias("metadata")
@@ -174,7 +176,7 @@ public class InstanceInfo {
     @Auto
     private volatile String method;
     @Auto
-    private volatile String invokeCount;
+    private volatile Long invokeCount;
 
 
     public InstanceInfo() {
@@ -400,7 +402,7 @@ public class InstanceInfo {
             @JsonProperty("outputParams") String outputParams,
             @JsonProperty("complexType") String complexType,
             @JsonProperty("method") String method,
-            @JsonProperty("invokeCount") String invokeCount) {
+            @JsonProperty("invokeCount") Long invokeCount) {
         this.instanceId = instanceId;
         this.sid = sid;
         this.appName = StringCache.intern(appName);
@@ -653,6 +655,7 @@ public class InstanceInfo {
             }
             return this;
         }
+
 
         public Builder setAppGroupNameForDeser(String appGroupName) {
             result.appGroupName = appGroupName;
@@ -1600,12 +1603,11 @@ public class InstanceInfo {
         this.method = method;
     }
 
-    @JsonProperty("invokeCount")
-    public String getInvokeCount() {
+    public Long getInvokeCount() {
         return invokeCount;
     }
 
-    public void setInvokeCount(String invokeCount) {
+    public void setInvokeCount(Long invokeCount) {
         this.invokeCount = invokeCount;
     }
 

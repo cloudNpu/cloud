@@ -18,7 +18,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Service
+
+@Service(value = "userService")
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
@@ -135,4 +136,8 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    @Override//张书玮自用
+    public User getUser(Long id) {
+      return userRepository.findById(id).get();
+    }
 }

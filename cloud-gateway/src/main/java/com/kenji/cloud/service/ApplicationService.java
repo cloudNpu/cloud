@@ -12,6 +12,7 @@ public interface ApplicationService extends Serializable {
     boolean publishApp(String appName);
     boolean hideApp(String appName);
     InstanceInfo queryInstance(Long instanceInfoId);
+    InstanceInfo queryPageInstance(Long instanceInfoId);
     List<InstanceInfo> queryByAppName(String appName);
     List<InstanceInfo> queryByVisible(boolean visible);
     List<InstanceInfo> queryByPort(Integer port);

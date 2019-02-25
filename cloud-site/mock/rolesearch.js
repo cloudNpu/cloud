@@ -31,7 +31,7 @@ function getRole(req, res, u) {
       current: parseInt(params.currentPage, 10) || 1
     }
   };
-  // console.log(result);
+   //console.log(result);
   return res.json(result);
 }
 function postRole(req, res, u, b) {

@@ -1,9 +1,12 @@
 function addDept(req, res) {
+ // console.log(req.params);
   const { dept } = req.body;
-  if (dept.deptName === undefined) {
+   // console.log(dept);
+  if (dept.deptName===undefined) {
     res.send({ status: 400, msg: "提交信息为空" });
   } else {
     res.send({ status: 200 });
+
   }
 }
 
@@ -16,8 +19,8 @@ function deleteDept(req, res) {
 }
 
 export default {
-  /*'POST /api/depts': addDept,*/
-  'POST /depts': addDept,
-  /* 'DELETE /api/depts/:id': deleteDept,*/
-  'DELETE /depts/id': deleteDept
+  'POST /api/depts': addDept,
+ /* 'POST /depts': addDept,*/
+   'DELETE /api/depts/:id': deleteDept,
+ /* 'DELETE /depts/:id': deleteDept*/
 };

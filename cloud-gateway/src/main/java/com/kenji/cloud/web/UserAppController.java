@@ -3,6 +3,7 @@ package com.kenji.cloud.web;
 import com.kenji.cloud.entity.User;
 import com.kenji.cloud.entity.UserApp;
 import com.kenji.cloud.service.UserAppService;
+import com.kenji.cloud.vo.UserAppReturnVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +36,7 @@ public class UserAppController {
     }
 
     @DeleteMapping()
-    public ResponseEntity<String> deleteUserById(@RequestBody long[] ids) {
+    public ResponseEntity<String> deleteUserAppsById(@RequestBody long[] ids) {
         //删除成功返回值是1，失败（包括没有对应记录）为0
         try {
             int a = userAppService.deleteUserApps(ids);
@@ -47,11 +48,11 @@ public class UserAppController {
     }
 
 
-    @GetMapping("/{id}")
-    public ResponseEntity getUserApps(@PathVariable Long id) {
+    @GetMapping("/userAppId/{id}")
+    public ResponseEntity getUserAppById(@PathVariable Long id) {
         try{
-            UserApp userApp = userAppService.findUserAppById(id);
-            return ResponseEntity.ok(userApp);
+            UserAppReturnVo userAppReturnVo = userAppService.findUserAppById(id);
+            return ResponseEntity.ok(userAppReturnVo);
         }
         catch (Exception e){
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查找失败 "+ e.getMessage());
@@ -59,10 +60,10 @@ public class UserAppController {
     }
 
 
-    @GetMapping("/users/{id}")
-    public ResponseEntity getUserAppsByUserId(@PathVariable Long id) {
+    @GetMapping("/user/{username}")
+    public ResponseEntity getUserAppsByUsername(@PathVariable("username") String uname) {
         try {
-            List<UserApp> userApps = userAppService.findUserAppByUserId(id);
+            List<UserAppReturnVo> userApps = userAppService.findUserAppsByUsername(uname);
             return ResponseEntity.ok(userApps);
         }
         catch (Exception e){
@@ -82,6 +83,7 @@ public class UserAppController {
         }
     }
 
+    //逻辑需要修改，以用户id为主
     @PutMapping("/{id}")
     public ResponseEntity<String> updateUserApps(@PathVariable Long id, @RequestBody List<UserApp> userApps){
         try {
@@ -97,7 +99,7 @@ public class UserAppController {
     @GetMapping()
     public ResponseEntity getUserApps() {
         try {
-            List<UserApp> userApps = userAppService.findAllUserApps();
+            List<UserAppReturnVo> userApps = userAppService.findAllUserApps();
             return ResponseEntity.ok(userApps);
         }
         catch (Exception e){

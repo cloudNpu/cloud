@@ -28,7 +28,7 @@ public class ApplicationController {
     @Inject
     private EurekaServerContext eurekaServerContext;
 
-    @Transactional
+
     @RequestMapping(value = "/instanceInfoIds",method = RequestMethod.DELETE)
     public ResponseEntity<String> deleteInstances(@RequestParam("instanceInfoId") Long[] instanceInfoId, @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication){
         try {
@@ -47,7 +47,7 @@ public class ApplicationController {
         }
 
     }
-    @Transactional
+
     @RequestMapping(value = "/apps/appName",method= RequestMethod.PUT)
     public ResponseEntity<String> publishApp1(@RequestParam("appName") String appName,@RequestParam("isPublished") String isPublished ){
         if(isPublished.equals("true")){
@@ -86,7 +86,7 @@ return ResponseEntity.status(HttpStatus.FORBIDDEN).body("输入格式错误");
 
 
 
-    @Transactional
+
     @GetMapping(value = "/apps/instanceInfoId")
     public ResponseEntity queryInstance(@RequestParam Long instanceInfoId){
         try {
@@ -97,7 +97,7 @@ return ResponseEntity.status(HttpStatus.FORBIDDEN).body("输入格式错误");
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
         } }
-    @Transactional
+
     @GetMapping(value = "/apps/appName")
     public ResponseEntity queryInstancesByAppName(@RequestParam("appName") String appName){
         try {
@@ -108,7 +108,7 @@ return ResponseEntity.status(HttpStatus.FORBIDDEN).body("输入格式错误");
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
         }
     }
-    @Transactional
+
     @GetMapping(value = "/apps/visible")
     public ResponseEntity queryInstancesByVisible(@RequestParam("visible") Boolean visible){
         try {
@@ -119,7 +119,7 @@ return ResponseEntity.status(HttpStatus.FORBIDDEN).body("输入格式错误");
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
         }
     }
-    @Transactional
+
     @GetMapping(value = "/apps/ipAddr")
     public ResponseEntity queryInstancesByIpAddr(@RequestParam("ipAddr") String ipAddr){
         try {
@@ -129,7 +129,7 @@ return ResponseEntity.status(HttpStatus.FORBIDDEN).body("输入格式错误");
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
         }
     }
-    @Transactional
+
     @GetMapping(value = "/apps/port")
     public ResponseEntity<Object> queryInstancesByPort(@RequestParam("port") Integer port){
         try {
@@ -139,7 +139,7 @@ return ResponseEntity.status(HttpStatus.FORBIDDEN).body("输入格式错误");
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
         }
     }
-    @Transactional
+
     @GetMapping(value = "/apps/status")
     public ResponseEntity getAppStatus(@RequestParam("appName") String appName){
         try {
@@ -150,7 +150,7 @@ return ResponseEntity.status(HttpStatus.FORBIDDEN).body("输入格式错误");
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
         }
     }
-    @Transactional
+
     @GetMapping(value = "/apps/invokeCount")
     public ResponseEntity getInvokeCount(@RequestParam("instanceInfoId") Long instanceInfoId){
         try {
@@ -159,7 +159,5 @@ return ResponseEntity.status(HttpStatus.FORBIDDEN).body("输入格式错误");
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
         }
-
-
     }
 }

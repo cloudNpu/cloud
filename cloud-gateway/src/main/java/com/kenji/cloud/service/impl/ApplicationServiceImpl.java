@@ -5,8 +5,10 @@ import com.kenji.cloud.entity.User;
 import com.kenji.cloud.repository.InstanceInfoRepository;
 import com.kenji.cloud.service.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -17,7 +19,7 @@ public class ApplicationServiceImpl implements ApplicationService {
     @Autowired
     private InstanceInfoRepository instanceInfoRepository;
 
-    //记得有些方法需要事务！！！
+
     @Override
     public String addApp(InstanceInfo info) {
         instanceInfoRepository.save(info);
@@ -30,7 +32,7 @@ public class ApplicationServiceImpl implements ApplicationService {
         instanceInfoRepository.delete(info);
         return null;
     }
-
+    @Transactional
     @Override
     public boolean publishApp(String appName) {
         List<InstanceInfo> infos=instanceInfoRepository.findAll();
@@ -48,7 +50,7 @@ public class ApplicationServiceImpl implements ApplicationService {
             return false;
         return true;
     }
-
+    @Transactional
     @Override
     public boolean hideApp(String appName) {
         List<InstanceInfo> infos=instanceInfoRepository.findAll();
@@ -72,7 +74,7 @@ public class ApplicationServiceImpl implements ApplicationService {
         Optional<InstanceInfo> info = instanceInfoRepository.findById(instanceInfoId);
         return info.get();
     }
-
+    @Transactional
     @Override
     public List<InstanceInfo> queryByAppName(String appName) {
         List<InstanceInfo> infos=instanceInfoRepository.findAll();
@@ -84,7 +86,7 @@ public class ApplicationServiceImpl implements ApplicationService {
         //遍历所有InstanceInfo对象，.equals（appName），存入List。
         return res;
     }
-
+    @Transactional
     @Override
     public List<InstanceInfo> queryByVisible(boolean visible) {
         List<InstanceInfo> infos=instanceInfoRepository.findAll();
@@ -97,7 +99,7 @@ public class ApplicationServiceImpl implements ApplicationService {
         //遍历所有InstanceInfo对象，.equals（visible），存入List。
         return res;
     }
-
+    @Transactional
     @Override
     public List<InstanceInfo> queryByPort(Integer port) {
         List<InstanceInfo> infos=instanceInfoRepository.findAll();
@@ -110,7 +112,7 @@ public class ApplicationServiceImpl implements ApplicationService {
         //遍历所有InstanceInfo对象，.equals（port），存入List。
         return res;
     }
-
+    @Transactional
     @Override
     public List<InstanceInfo> queryByIpAddr(String ipAddr) {
         List<InstanceInfo> infos=instanceInfoRepository.findAll();
@@ -118,7 +120,6 @@ public class ApplicationServiceImpl implements ApplicationService {
         for (int i=0;i<infos.size();++i){
             if (infos.get(i).getIpAddr().equals(ipAddr))
                 res.add(infos.get(i));
-
         }
         //遍历所有InstanceInfo对象，.equals（ipAddr），存入List。
         return res;
@@ -134,10 +135,9 @@ public class ApplicationServiceImpl implements ApplicationService {
         return instanceInfoRepository.getIpAddrByHostAndPort(host,Long.valueOf(port));
     }
 
-//    @Override
-//    public List<InstanceInfo> getUserApp(User user) {
-//        //此处代码得用到User的repository来findAll；等以后再写。
-//        //遍历所有User对象，.equals(userName)，得到User对象user，返回user,instanceInfos.
-//        return null;
-//    }
+    @Override
+    public InstanceInfo queryPageInstance(Long instanceInfoId) {
+        //Page<InstanceInfo>
+        return null;
+    }
 }
