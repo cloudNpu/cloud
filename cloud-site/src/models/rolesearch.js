@@ -17,14 +17,14 @@ export default {
 
   effects: {
     *fetch({ payload }, { call, put }) {
-      const response = yield (yield call(queryRole, payload)).json();
+      const response = yield call(queryRole, payload);
       yield put({
         type: "save",
         payload: response
       });
     },
     *add({ payload, callback }, { call, put }) {
-      const response = yield (yield call(addRole, payload)).json();
+      const response = yield call(addRole, payload);
       //console.log(response);
       yield put({
         type: "save",
@@ -33,7 +33,7 @@ export default {
       if (callback) callback();
     },
     *delete({ payload, callback }, { call, put }) {
-      const response = yield (yield call(deleteRole, payload)).json();
+      const response = yield call(deleteRole, payload);
       yield put({
         type: "save",
         payload: response
@@ -41,7 +41,7 @@ export default {
       if (callback) callback();
     },
     *update({ payload, callback }, { call, put }) {
-      const response = yield (yield call(updateRole, payload)).json();
+      const response = yield call(updateRole, payload);
       yield put({
         type: "save",
         payload: response

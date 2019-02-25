@@ -60,13 +60,13 @@ export default {
   externals: {
     "@antv/data-set": "DataSet"
   },
-   /* proxy: {
+    proxy: {
      '/api': {
        target: 'http://127.0.0.1:8080/',
        changeOrigin: true,
        pathRewrite: { '^/api': '' },
      },
-   },*/
+   },
   ignoreMomentLocale: true,
   lessLoaderOptions: {
     javascriptEnabled: true

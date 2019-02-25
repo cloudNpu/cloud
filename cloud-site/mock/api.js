@@ -325,27 +325,6 @@ function getFakeCaptcha(req, res) {
   return res.json("captcha-xxx");
 }
 
-/*function addDept(req,res) {
-  const {dept} = req.body;
-  if(dept.departmentName === undefined)  {
-    res.send({status: 400,'msg':'提交信息为空'});
-  }else {
-      res.send({status: 200});
-  }
-}
-
-function deleteDept(req,res) {
-    console.log(req.params);
-    res.send({
-        status:204,
-        msg : '删除成功'
-    })
-    // if(dept.departmentName == undefined)  {
-    //     res.send({status: 400,'msg':'提交信息为空'});
-    // }else {
-    //     res.send({status: 200});
-    // }
-}*/
 
 export default {
   "GET /api/project/notice": getNotice,
@@ -359,7 +338,4 @@ export default {
   "GET /api/fake_list": getFakeList,
   "POST /api/fake_list": postFakeList,
   "GET /api/captcha": getFakeCaptcha
-  /* 'POST /api/depts': addDept,
-  'DELETE /api/depts/:id': deleteDept,
-*/
 };

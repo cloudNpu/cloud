@@ -2,11 +2,11 @@ import request from "@/utils/request";
 import { stringify } from "qs";
 
 export async function queryRole(params) {
-  return request(`/api/role?${stringify(params)}`);
+  return request(`/api/roles?${stringify(params)}`);
 }
 
 export async function addRole(params) {
-    return request("/api/role", {
+    return request("/api/roles", {
         method: "POST",
         body: {
             ...params,
@@ -16,7 +16,7 @@ export async function addRole(params) {
 }
 
 export async function deleteRole(params) {
-  return request("/api/role", {
+  return request("/api/roles", {
     method: "POST",
     body: {
       ...params,
@@ -26,7 +26,7 @@ export async function deleteRole(params) {
 }
 
 export async function updateRole(params) {
-  return request("/api/role", {
+  return request("/api/roles", {
     method: "POST",
     body: {
       ...params,

@@ -442,18 +442,7 @@ class Found extends PureComponent {
           }
         });
         break;
-      //
-      /* case "roleAuthorize":
-          return[
-          <Modal
-                destroyOnClose
-                title="添加用户"
-                visible={modalVisible}
-                onOk={okHandle}
-               // onCancel={() => handleModalVisible()}
-            ></Modal>];
-          break;*/
-      //
+
       default:
         break;
     }

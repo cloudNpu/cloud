@@ -55,17 +55,26 @@ const CreateForm = Form.create()(props => {
           rules: [{ required: true, message: "角色名不能为空！" }]
         })(<Input placeholder="请输入" />)}
       </FormItem>
+        <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="VALUE"
+        >
+            {form.getFieldDecorator("value", {
+                rules: [{ required: true, message: "value值不能为空！" }]
+            })(<Input placeholder="请输入" />)}
+        </FormItem>
       <FormItem
         labelCol={{ span: 5 }}
         wrapperCol={{ span: 15 }}
         label="角色描述"
       >
-        {form.getFieldDecorator("desc", {
+        {form.getFieldDecorator("description", {
           rules: [
             {
-              required: true,
-              message: "请输入至少五个字符对角色进行描述！",
-              min: 5
+              required: false,
+             /* message: "请输入至少五个字符对角色进行描述！",
+              min: 5*/
             }
           ]
         })(<Input placeholder="请输入" />)}
@@ -83,10 +92,10 @@ const CreateForm = Form.create()(props => {
             mode={"multiple"}
             placeholder={"请选择"}
           >
-            <Option value="用户管理;">用户管理</Option>
-            <Option value="角色管理;">角色管理</Option>
-            <Option value="菜单管理;">菜单管理</Option>
-            <Option value="部门管理;">部门管理</Option>
+            <Option value="1">用户管理</Option>
+            <Option value="2">角色管理</Option>
+            <Option value="3">菜单管理</Option>
+            <Option value="4">部门管理</Option>
           </Select>
         )}
       </FormItem>
@@ -102,7 +111,8 @@ class UpdateForm extends PureComponent {
     this.state = {
       formVals: {
         name: props.values.name,
-        desc: props.values.desc,
+        value: props.values.value,
+        description: props.values.description,
         roleAuth: props.values.roleAuth,
         key: props.values.key
       },
@@ -175,17 +185,23 @@ class UpdateForm extends PureComponent {
           initialValue: formVals.name
         })(<Input placeholder="请输入" />)}
       </FormItem>,
-      <FormItem key="desc" {...this.formLayout} label="角色描述">
-        {form.getFieldDecorator("desc", {
+        <FormItem key="value" {...this.formLayout} label="VALUE">
+            {form.getFieldDecorator("value", {
+                rules: [{ required: true, message: "请输入value值！" }],
+                initialValue: formVals.value
+            })(<Input placeholder="请输入" />)}
+        </FormItem>,
+      <FormItem key="description" {...this.formLayout} label="角色描述">
+        {form.getFieldDecorator("description", {
           rules: [
             {
-              required: true,
-              message: "请输入至少五个字符对角色进行描述！",
-              min: 5
+              required: false,
+              /*message: "请输入至少五个字符对角色进行描述！",
+              min: 5*/
             }
           ],
-          initialValue: formVals.desc
-        })(<TextArea rows={4} placeholder="请输入至少五个字符" />)}
+          initialValue: formVals.description
+        })(<TextArea rows={4} /*placeholder="请输入至少五个字符"*/ />)}
       </FormItem>
     ];
   };
@@ -265,7 +281,11 @@ class Search extends PureComponent {
   columns = [
     {
       title: "角色名称",
-      dataIndex: "name"
+      dataIndex: "name",
+    },
+      {
+      title: "VALUE",
+      dataIndex: "value",
     },
     {
       title: "角色权限",
@@ -273,7 +293,7 @@ class Search extends PureComponent {
     },
     {
       title: "描述",
-      dataIndex: "desc"
+      dataIndex: "description"
     },
     {
       title: "操作",
