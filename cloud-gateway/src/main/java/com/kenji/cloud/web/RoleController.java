@@ -1,5 +1,6 @@
 package com.kenji.cloud.web;
 
+import com.kenji.cloud.entity.Menu;
 import com.kenji.cloud.entity.Role;
 import com.kenji.cloud.entity.RoleMenu;
 import com.kenji.cloud.service.impl.RoleServiceImpl;
@@ -21,10 +22,9 @@ public class RoleController {
     private RoleServiceImpl roleService;
 
     @RequestMapping(value = "/roles", method = RequestMethod.POST)
-    public ResponseEntity<String> addRole(@RequestBody Role role,@RequestBody List<RoleMenu> roleMenus) {
+    public ResponseEntity<String> addRole(@RequestBody Role role,@RequestBody List<Menu> Menus) {
         try {
-            roleService.addRole(role);
-            roleService.addMenusForRoles(roleMenus);
+            roleService.addRole(role,Menus);
             return ResponseEntity.ok("添加成功");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("添加失败！\r\n失败原因："+e.getMessage());

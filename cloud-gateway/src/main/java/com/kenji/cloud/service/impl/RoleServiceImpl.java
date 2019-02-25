@@ -1,7 +1,9 @@
 package com.kenji.cloud.service.impl;
 
+import com.kenji.cloud.entity.Menu;
 import com.kenji.cloud.entity.Role;
 import com.kenji.cloud.entity.RoleMenu;
+import com.kenji.cloud.entity.UserRole;
 import com.kenji.cloud.repository.RoleMenuRepository;
 import com.kenji.cloud.repository.RoleRepository;
 import com.kenji.cloud.repository.UserRoleRepository;
@@ -30,7 +32,15 @@ public class RoleServiceImpl implements RoleService {
     @Autowired
     private RoleMenuRepository roleMenuRepository;
     @Override
-    public void addRole(Role role) {
+    public void addRole(Role role, List<Menu> menus) {
+        List<RoleMenu> roleMenus = new ArrayList<>();
+        menus.stream().forEach(menu -> {
+            RoleMenu roleMenu = new RoleMenu();
+            roleMenu.setMenu(menu);
+            roleMenu.setRole(role);
+            roleMenus.add(roleMenu);
+        });
+        role.setRoleMenus(roleMenus);
         roleRepository.save(role);
     }
 

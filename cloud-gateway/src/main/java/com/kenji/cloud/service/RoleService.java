@@ -1,5 +1,6 @@
 package com.kenji.cloud.service;
 
+import com.kenji.cloud.entity.Menu;
 import com.kenji.cloud.entity.Role;
 import com.kenji.cloud.entity.RoleMenu;
 import com.kenji.cloud.entity.UserRole;
@@ -14,10 +15,11 @@ import java.util.List;
  */
 public interface RoleService {
     /**
-     * 添加菜单
+     * 添加角色
      * @param role
+     * @param menus
      */
-    void addRole(Role role);
+    void addRole(Role role, List<Menu> menus);
 
     /**
      * 根据ID更新角色信息
