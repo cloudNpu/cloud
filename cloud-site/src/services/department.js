@@ -1,7 +1,7 @@
 import request from "@/utils/request";
 export async function addDept(params) {
-    console.log(params);
-    console.log(params.dept);
+    //console.log(params);
+    //console.log(params.dept);
   return request('/api/depts', {
     method: "POST",
     body: params.dept

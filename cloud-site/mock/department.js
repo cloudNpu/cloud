@@ -1,7 +1,7 @@
 function addDept(req, res) {
  // console.log(req.params);
   const { dept } = req.body;
-    console.log(dept);
+   // console.log(dept);
   if (dept.deptName===undefined) {
     res.send({ status: 400, msg: "提交信息为空" });
   } else {

@@ -1,7 +1,6 @@
 import React, { PureComponent } from "react";
 import { Card, Form, Icon, Popover } from "antd";
 import { connect } from "dva";
-import router from "umi/router";
 import PageHeaderWrapper from "@/components/PageHeaderWrapper";
 import DepartmentList from "./DepartmentList";
 import styles from "./style.less";

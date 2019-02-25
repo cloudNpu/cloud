@@ -141,9 +141,14 @@ export default [
                     component: "./Menus/First"
                 },
                 {
-                    path: "/menus/add",
-                    name: "add",
-                    component: "./Menus/Add"
+                    path: "/menus/add-menu",
+                    name: "addMenu",
+                    component: "./Menus/AddMenu"
+                },
+                {
+                    path: "/menus/add-menuItem",
+                    name: "addMenuItem",
+                    component: "./Menus/AddMenuItem"
                 }
             ]
         },

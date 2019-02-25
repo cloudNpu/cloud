@@ -1,4 +1,3 @@
-import { routerRedux } from "dva/router";
 import { addDept, deleteDept } from "@/services/department";
 import { message } from "antd";
 
@@ -20,7 +19,7 @@ export default {
        // yield call(addDept, payload)
       const response = yield call(addDept, payload);
 
-      console.log(response);
+      //console.log(response);
         //console.log( response);
 
       if (response.status===200) {
@@ -38,15 +37,4 @@ export default {
       } else message.success(msg);
     }
   }
-  /*reducers: {
-        saveDepartmentEditData(state, { payload }) {
-            return {
-                ...state,
-                step: {
-                    ...state.step,
-                    ...payload,
-                },
-            };
-        },
-    },*/
 };

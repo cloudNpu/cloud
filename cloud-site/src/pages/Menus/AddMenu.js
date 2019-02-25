@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, {Fragment, PureComponent} from 'react';
 import { connect } from 'dva';
 import { formatMessage, FormattedMessage } from 'umi/locale';
 import {Form, Input,  Button, Card} from 'antd';
@@ -8,17 +8,17 @@ import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 const FormItem = Form.Item;
 
 @connect(({ loading }) => ({
-    loading: loading.models.menusAdd
+    submitting: loading.effects['menu/save'],
 }))
 @Form.create()
-class Add extends PureComponent {
+class AddMenu extends PureComponent {
     handleSubmit = e => {
         const { dispatch, form } = this.props;
         e.preventDefault();
         form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 dispatch({
-                    type: 'menusAdd/submitRegularForm',
+                    type: 'menu/save',
                     payload: values,
                 });
             }
@@ -113,12 +113,14 @@ class Add extends PureComponent {
                         </FormItem>
 
                         <FormItem {...submitFormLayout} style={{ marginTop: 32 }}>
-                            <Button type="primary" htmlType="submit" loading={submitting}>
-                                <FormattedMessage id="submit" />
+                            <Button type="primary" htmlType="submit" loading={submitting}>提交
                             </Button>
-                            <Button style={{ marginLeft: 100 }}>
-                                <FormattedMessage id="save" />
+
+                            <Button type="primary" htmlType="submit" loading={submitting} style={{ marginLeft: 100 }} onClick={"window.location.href = 'http://localhost:8000/menus/add-menu'"}>
+                                提交并继续添加
                             </Button>
+
+
                         </FormItem>
                     </Form>
                 </Card>
@@ -127,4 +129,4 @@ class Add extends PureComponent {
     }
 }
 
-export default Add;
+export default AddMenu;
