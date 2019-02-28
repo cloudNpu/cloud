@@ -17,7 +17,7 @@ export default {
 
     effects: {
         *fetch({ payload }, { call, put }) {
-            const response = yield (yield call(queryMenu, payload)).json();
+            const response = yield call(queryMenu, payload);
             yield put({
                 type: "save",
                 payload: response
@@ -25,16 +25,15 @@ export default {
         },
         *add({ payload, callback }, { call, put }) {
             const response = yield (yield call(addMenu, payload)).json();
+            //console.log(response);
             yield put({
                 type: "save",
                 payload: response
             });
-            //console.log(response);
             if (callback) callback();
         },
         *delete({ payload, callback }, { call, put }) {
             const response = yield (yield call(deleteMenu, payload)).json();
-            //console.log(response);
             yield put({
                 type: "save",
                 payload: response
@@ -43,7 +42,6 @@ export default {
         },
         *update({ payload, callback }, { call, put }) {
             const response = yield (yield call(updateMenu, payload)).json();
-           // console.log(response);
             yield put({
                 type: "save",
                 payload: response

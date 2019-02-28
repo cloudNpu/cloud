@@ -16,7 +16,7 @@ export async function addRole(params) {
 }
 
 export async function deleteRole(params) {
-  return request("/api/roles", {
+  return request("/api/roles/id", {
     method: "POST",
     body: {
       ...params,

@@ -1,9 +1,9 @@
-import React, {Fragment, PureComponent} from 'react';
+import React, { PureComponent} from 'react';
 import { connect } from 'dva';
 import { formatMessage, FormattedMessage } from 'umi/locale';
 import {Form, Input,  Button, Card} from 'antd';
 import PageHeaderWrapper from '@/components/PageHeaderWrapper';
-//import styles from './style.less';
+
 
 const FormItem = Form.Item;
 
@@ -51,10 +51,7 @@ class AddMenu extends PureComponent {
         };
 
         return (
-            <PageHeaderWrapper
-                title={<FormattedMessage id="app.forms.basic.title" />}
-                content={<FormattedMessage id="app.forms.basic.description" />}
-            >
+            <PageHeaderWrapper>
                 <Card bordered={false}>
                     <Form onSubmit={this.handleSubmit} hideRequiredMark style={{ marginTop: 8 }}>
                         <FormItem {...formItemLayout} label={<FormattedMessage id="name" />}>
@@ -119,7 +116,6 @@ class AddMenu extends PureComponent {
                             <Button type="primary" htmlType="submit" loading={submitting} style={{ marginLeft: 100 }} onClick={"window.location.href = 'http://localhost:8000/menus/add-menu'"}>
                                 提交并继续添加
                             </Button>
-
 
                         </FormItem>
                     </Form>

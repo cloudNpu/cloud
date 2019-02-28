@@ -112,8 +112,8 @@ export default {
   "menu.department": "部门管理",
   "menu.department.departmentEdit": "编辑部门",
   "menu.role": "角色管理",
-  "menu.role.add": "添加角色",
-  "menu.role.update": "编辑角色",
+  "menu.role.addRole": "添加角色",
+  "menu.role.updateRole": "编辑角色",
   "menu.role.search": "检索角色",
   "menu.role.authorize": "角色授权",
   //

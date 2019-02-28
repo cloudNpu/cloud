@@ -51,10 +51,7 @@ class AddMenu extends PureComponent {
         };
 
         return (
-            <PageHeaderWrapper
-                title={<FormattedMessage id="app.forms.basic.title" />}
-                content={<FormattedMessage id="app.forms.basic.description" />}
-            >
+            <PageHeaderWrapper>
                 <Card bordered={false}>
                     <Form onSubmit={this.handleSubmit} hideRequiredMark style={{ marginTop: 8 }}>
                         <FormItem {...formItemLayout} label={<FormattedMessage id="name" />}>

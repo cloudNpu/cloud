@@ -1,25 +1,9 @@
 import React, { PureComponent, Fragment } from "react";
 import { connect } from "dva";
-import {
-  Row,
-  Col,
-  Card,
-  Form,
-  Input,
-  Select,
-  Icon,
-  Button,
-  Dropdown,
-  Menu,
-  Modal,
-  message,
-  Steps,
-  Badge
-} from "antd";
+import {Row, Col, Card, Form, Input, Select, Icon, Button, Dropdown, Menu, Modal, message, Steps} from "antd";
 import StandardTable from "@/components/StandardTable";
 import PageHeaderWrapper from "@/components/PageHeaderWrapper";
 import styles from "./Search.less";
-
 const FormItem = Form.Item;
 const { Step } = Steps;
 const { TextArea } = Input;
@@ -73,8 +57,6 @@ const CreateForm = Form.create()(props => {
           rules: [
             {
               required: false,
-             /* message: "请输入至少五个字符对角色进行描述！",
-              min: 5*/
             }
           ]
         })(<Input placeholder="请输入" />)}
@@ -169,10 +151,10 @@ class UpdateForm extends PureComponent {
             initialValue: formVals.roleAuth
           })(
             <Select mode={"multiple"} style={{ width: "100%" }}>
-              <Option value="用户管理;">用户管理</Option>
-              <Option value="角色管理;">角色管理</Option>
-              <Option value="菜单管理;">菜单管理</Option>
-              <Option value="部门管理;">部门管理</Option>
+              <Option value="1">用户管理</Option>
+              <Option value="2">角色管理</Option>
+              <Option value="3">菜单管理</Option>
+              <Option value="4">部门管理</Option>
             </Select>
           )}
         </FormItem>
@@ -524,13 +506,15 @@ class Search extends PureComponent {
           <div className={styles.tableList}>
             <div className={styles.tableListForm}>{this.renderForm()}</div>
             <div className={styles.tableListOperator}>
+             <a href={'http://localhost:8000/role/addRole'}>
               <Button
                 icon="plus"
                 type="primary"
-                onClick={() => this.handleModalVisible(true)}
+                //onClick={() => this.handleModalVisible(true)}
               >
-                添加
+                新建
               </Button>
+             </a>
               {selectedRows.length > 0 && (
                 <span>
                   <Dropdown overlay={menu}>

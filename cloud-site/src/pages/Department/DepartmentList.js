@@ -73,7 +73,7 @@ class DepartmentList extends PureComponent {
     dispatch({
       type: "department/delete",
       payload: {
-        dept: data.filter(item => item.key == key)
+        dept: data.filter(item => item.key === key)
       }
     });
     this.setState({ data: newData });
@@ -132,7 +132,7 @@ class DepartmentList extends PureComponent {
       delete target.isNew;
       this.toggleEditable(e, key);
       const { data } = this.state;
-      const { onChange } = this.props
+      const { onChange } = this.props;
       onChange(data);
       this.setState({
         loading: false

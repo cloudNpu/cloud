@@ -1,10 +1,4 @@
-import {
-  addRole,
-  deleteRole,
-  queryRole,
-  updateRole
-} from "@/services/rolesearch";
-
+import {addRole, deleteRole, queryRole, updateRole} from "@/services/rolesearch";
 export default {
   namespace: "rolesearch",
 

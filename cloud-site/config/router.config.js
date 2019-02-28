@@ -51,13 +51,13 @@ export default [
             path: "/role/search",
             name: "search",
             component: "./Role/Search"
+          },
+          {
+            path: '/role/addRole',
+            name: 'addRole',
+            component: './Role/AddRole',
           }
-          /* {
-                    path: '/role/add',
-                    name: 'add',
-                    component: './Role/Add',
-                },
-                {
+               /*  {
                     path: '/role/update',
                     name: 'update',
                     component: './Role/Update',

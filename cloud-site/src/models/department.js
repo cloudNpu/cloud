@@ -27,9 +27,11 @@ export default {
       } else message.success("提交失败");
     },
 
-    *delete({ payload }, { call, put }) {
+    *delete({ payload }, { call}) {
+        //yield call(deleteDept, payload);
       const response = yield call(deleteDept, payload);
-      /* console.log(response);*/
+       //console.log(response);
+        //localStorage.clear();
       const { msg } = JSON.parse(response);
      /*  console.log(msg);*/
       if (response.status === 204) {
