@@ -3,8 +3,7 @@ import { formatMessage, FormattedMessage } from "umi/locale";
 import { Form, Input, Upload, Select, Button } from "antd";
 import { connect } from "dva";
 import styles from "./Center.less";
-//import GeographicView from './GeographicView';
-import PhoneView from "./PhoneView";
+//import PhoneView from "./PhoneView";
 // import { getTimeDistance } from '@/utils/utils';
 
 const FormItem = Form.Item;
@@ -51,12 +50,34 @@ const validatorPhone = (rule, value, callback) => {
 }))
 @Form.create()
 class Center extends Component {
+  //
+  /*static defaultProps = {
+        handleUpdate: () => {},
+       // handleUpdateModalVisible: () => {},
+        values: {}
+    };*/
+  //
   componentDidMount() {
     this.setBaseInfo();
   }
+  //
+  /* constructor(props) {
+         super(props);
+     this.state = {
+         currentUser: {
+             username: '张三',
+             dept: '技术部',
+             mobile: 13366668888,
+             avatar:
+                 "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png",
+             officeTel: 6666-4796521
 
+         },
+     };*/
+  //
   setBaseInfo = () => {
     const { currentUser, form } = this.props;
+    console.log(currentUser);
     Object.keys(form.getFieldsValue()).forEach(key => {
       const obj = {};
       obj[key] = currentUser[key] || null;
@@ -103,6 +124,7 @@ class Center extends Component {
             </FormItem>
             <FormItem label={formatMessage({ id: "app.settings.basic.dept" })}>
               {getFieldDecorator("dept", {
+                // initialValue: currentUser.dept
                 rules: [
                   {
                     required: true,

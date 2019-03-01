@@ -2,7 +2,9 @@ import {
   addFound,
   queryFound,
   removeFound,
-  updateFound
+  updateFound,
+  Add_user_role,
+  Add_user_app
 } from "../services/api";
 
 export default {
@@ -40,13 +42,32 @@ export default {
       if (callback) callback();
     },
     *update({ payload, callback }, { call, put }) {
-      //console.log('update');
       //console.log(payload);
       const response = yield (yield call(updateFound, payload)).json();
       yield put({
         type: "save",
         payload: response
       });
+      if (callback) callback();
+    },
+    *add_user_role({ payload, callback }, { call, put }) {
+      console.log(payload);
+      const response = yield (yield call(Add_user_role, payload)).json();
+      yield put({
+        type: "save",
+        payload: response
+      });
+      console.log(payload);
+      if (callback) callback();
+    },
+    *add_user_app({ payload, callback }, { call, put }) {
+      console.log(payload);
+      const response = yield (yield call(Add_user_app, payload)).json();
+      yield put({
+        type: "save",
+        payload: response
+      });
+      console.log(payload);
       if (callback) callback();
     }
   },

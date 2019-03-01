@@ -41,16 +41,10 @@ const statusMap = ["default", "success"];
 const status = ["DOWN", "UP"];
 
 const visibleMap = ["default", "success"];
-const visible = ["1", "0"];
+const visible = ["0", "1"];
 //新建弹出页面
 const CreateForm = Form.create()(props => {
-  const {
-    modalVisible,
-    form,
-    handleAdd,
-    //handleSubmit,
-    handleModalVisible
-  } = props;
+  const { modalVisible, form, handleAdd, handleModalVisible } = props;
   const okHandle = () => {
     form.validateFields((err, fieldsValue) => {
       if (err) return;
@@ -168,11 +162,11 @@ const CreateForm = Form.create()(props => {
   );
 
   /* const okSubmit = (e) => {
-      form.validateFields((err, fieldsValue) => {
-        var instanceInfo = JSON.parse(fieldsValue.txt);
-        console.log(instanceInfo);
-        handleAdd(instanceInfo);
-      });*/
+        form.validateFields((err, fieldsValue) => {
+          var instanceInfo = JSON.parse(fieldsValue.txt);
+          console.log(instanceInfo);
+          handleAdd(instanceInfo);
+        });*/
   // var instanceInfo = JSON.parse('{"app":"fdssf","port":"123423"}');
   //   var instanceInfo = JSON.parse(JSON.stringify(fieldsValue));
   // form.validateFields((err, fieldsValue) => {
@@ -186,12 +180,11 @@ const CreateForm = Form.create()(props => {
   // console.log(instanceInfo.port);
 });
 
-//配置三个步骤
+//配置
 @Form.create()
 class UpdateForm extends PureComponent {
   constructor(props) {
     super(props);
-
     this.state = {
       formVals: {
         key: props.values.key,
@@ -232,6 +225,7 @@ class UpdateForm extends PureComponent {
       );
     });
   };
+
   renderContent = (currentStep, formVals) => {
     const { form } = this.props;
     return [
@@ -281,6 +275,100 @@ class UpdateForm extends PureComponent {
     );
   }
 }
+//
+@Form.create()
+class ChangeForm extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      formVals: {
+        key: props.values.key,
+        visible: props.values.visible
+      },
+      currentStep: 0
+    };
+
+    this.formLayout = {
+      labelCol: { span: 7 },
+      wrapperCol: { span: 13 }
+    };
+  }
+
+  handleNext = currentStep => {
+    const { form, handleChange } = this.props;
+    const { formVals: oldValue } = this.state;
+    form.validateFields((err, fieldsValue) => {
+      if (err) return;
+      const formVals = { ...oldValue, ...fieldsValue };
+      this.setState(
+        {
+          formVals
+        },
+        () => {
+          if (currentStep === 0) {
+            handleChange(formVals); //点击确定，调用handleChange
+            console.log("successful call");
+          }
+        }
+      );
+    });
+  };
+
+  renderContent = (currentStep, formVals) => {
+    const { form } = this.props;
+    return [
+      <FormItem key="visible" {...this.formLayout} label="visible">
+        {form.getFieldDecorator("visible", {
+          initialValue: formVals.visible
+        })(
+          <Select style={{ width: "100%" }} /* mode={'multiple'}*/>
+            <Option value={1}>发布</Option>
+            <Option value={0}>撤回</Option>
+          </Select>
+        )}
+      </FormItem>
+    ];
+  };
+  renderFooter = currentStep => {
+    const { handleChangeModalVisible, values } = this.props;
+    return [
+      <Button
+        key="cancel"
+        onClick={() => handleChangeModalVisible(false, values)}
+      >
+        取消
+      </Button>,
+      <Button
+        key="submit"
+        type="primary"
+        onClick={() => this.handleNext(currentStep)}
+      >
+        完成
+      </Button>
+    ];
+  };
+
+  render() {
+    const { changeModalVisible, handleChangeModalVisible } = this.props;
+    const { currentStep, formVals } = this.state;
+
+    return (
+      <Modal
+        width={640}
+        bodyStyle={{ padding: "32px 40px 48px" }}
+        destroyOnClose
+        title="发布/撤回服务"
+        visible={changeModalVisible}
+        footer={this.renderFooter(currentStep)}
+        onCancel={() => handleChangeModalVisible()}
+        afterClose={() => handleChangeModalVisible()}
+      >
+        {this.renderContent(currentStep, formVals)}
+      </Modal>
+    );
+  }
+}
+//
 
 /* eslint react/no-multi-comp:0 */
 @connect(({ applist, loading }) => ({
@@ -292,10 +380,12 @@ class AppList extends PureComponent {
   state = {
     modalVisible: false,
     updateModalVisible: false,
+    changeModalVisible: false,
     expandForm: false,
     selectedRows: [],
     formValues: {},
-    stepFormValues: {}
+    stepFormValues: {},
+    stepFormValues1: {}
   };
   columns = [
     {
@@ -517,7 +607,9 @@ class AppList extends PureComponent {
             编辑
           </a>
           <Divider type="vertical" />
-          <a href="http://localhost:8000/users/found">授权</a>
+          <a onClick={() => this.handleChangeModalVisible(true, record)}>
+            切换状态
+          </a>
         </Fragment>
       )
     }
@@ -639,6 +731,12 @@ class AppList extends PureComponent {
       stepFormValues: record || {}
     });
   };
+  handleChangeModalVisible = (flag, record) => {
+    this.setState({
+      changeModalVisible: !!flag,
+      stepFormValues1: record || {}
+    });
+  };
 
   handleAdd = fields => {
     const { dispatch } = this.props;
@@ -660,24 +758,24 @@ class AppList extends PureComponent {
   };
   //
   /*  handleSubmit = instanceInfo => {
-    const { dispatch } = this.props;
-    dispatch({
-      type: "applist/add",
-      payload: {
-        app: instanceInfo.app,
-        instanceId: instanceInfo.instanceId,
-        ipAddr: instanceInfo.ipAddr,
-        port: instanceInfo.port,
-        userid: instanceInfo.userid,
-        status: instanceInfo.status,
-        visible: instanceInfo.visible,
-        appGroupName: instanceInfo.appGroupName
-      }
-    });
+  const { dispatch } = this.props;
+  dispatch({
+    type: "applist/add",
+    payload: {
+      app: instanceInfo.app,
+      instanceId: instanceInfo.instanceId,
+      ipAddr: instanceInfo.ipAddr,
+      port: instanceInfo.port,
+      userid: instanceInfo.userid,
+      status: instanceInfo.status,
+      visible: instanceInfo.visible,
+      appGroupName: instanceInfo.appGroupName
+    }
+  });
 
-    message.success("添加成功");
-    this.handleModalVisible();
-  };*/
+  message.success("添加成功");
+  this.handleModalVisible();
+};*/
   //
   handleUpdate = fields => {
     /*   JSON.parse(fields.sdl);*/
@@ -695,10 +793,23 @@ class AppList extends PureComponent {
         appGroupName: fields.appGroupName
       }
     });
-
     message.success("配置成功");
     this.handleUpdateModalVisible();
   };
+  //
+  handleChange = fields => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: "applist/change",
+      payload: {
+        key: fields.key,
+        visible: fields.visible
+      }
+    });
+    message.success("切换成功");
+    this.handleChangeModalVisible();
+  };
+  //
 
   renderSimpleForm() {
     const {
@@ -802,12 +913,13 @@ class AppList extends PureComponent {
       applist: { data },
       loading
     } = this.props;
-    // console.log(data);
     const {
       selectedRows,
       modalVisible,
       updateModalVisible,
-      stepFormValues
+      changeModalVisible,
+      stepFormValues,
+      stepFormValues1
     } = this.state;
     const menu = (
       <Menu onClick={this.handleMenuClick} selectedKeys={[]}>
@@ -823,6 +935,12 @@ class AppList extends PureComponent {
     const updateMethods = {
       handleUpdateModalVisible: this.handleUpdateModalVisible,
       handleUpdate: this.handleUpdate
+    };
+    //
+    const changeMethods = {
+      handleChangeModalVisible: this.handleChangeModalVisible,
+      handleChange: this.handleChange
+      //
     };
     return (
       <PageHeaderWrapper title="查询表格">
@@ -870,9 +988,15 @@ class AppList extends PureComponent {
             values={stepFormValues}
           />
         ) : null}
+        {stepFormValues1 && Object.keys(stepFormValues1).length ? (
+          <ChangeForm
+            {...changeMethods}
+            changeModalVisible={changeModalVisible}
+            values={stepFormValues1}
+          />
+        ) : null}
       </PageHeaderWrapper>
     );
   }
 }
 export default AppList;
-//export default TableList;

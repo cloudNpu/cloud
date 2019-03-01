@@ -19,7 +19,8 @@ import {
   Badge,
   Divider,
   Steps,
-  Radio
+  Radio,
+  Table
 } from "antd";
 import StandardTable from "@/components/StandardTable";
 import PageHeaderWrapper from "@/components/PageHeaderWrapper";
@@ -286,6 +287,171 @@ class UpdateForm extends PureComponent {
     );
   }
 }
+//服务授权部分，导入服务列表
+const AuthorizeForm = Form.create()(props => {
+  const {
+    authorizemodalVisible,
+    form,
+    handleAuthorize,
+    handleAuthorizeModalVisible,
+    selectedApps
+  } = props;
+  const okAHandle = () => {
+    form.validateFields((err, fieldsValue) => {
+      if (err) return;
+      form.resetFields();
+      handleAuthorize(fieldsValue);
+    });
+  };
+  var columns = [
+    {
+      title: "App",
+      dataIndex: "app"
+    },
+    {
+      title: "InstanceID",
+      dataIndex: "instanceId"
+    },
+    {
+      title: "  IpAddr",
+      dataIndex: "ipAddr"
+    },
+    {
+      title: "Port",
+      dataIndex: "port"
+    },
+    {
+      title: "UserId",
+      dataIndex: "userid"
+    }
+  ];
+  var data = [
+    {
+      key: "1",
+      app: "App1",
+      instanceId: "S1",
+      ipAddr: "10.0.0.0",
+      port: "8080",
+      userid: "张三"
+    },
+    {
+      key: "2",
+      app: "App2",
+      instanceId: "S2",
+      ipAddr: "10.0.0.0",
+      port: "8080",
+      userid: "李四"
+    },
+    {
+      key: "3",
+      app: "App3",
+      instanceId: "S3",
+      ipAddr: "10.0.0.0",
+      port: "8080",
+      userid: "王五"
+    },
+    {
+      key: "4",
+      app: "App4",
+      instanceId: "S4",
+      ipAddr: "10.0.0.0",
+      port: "8080",
+      userid: "赵六"
+    }
+  ];
+  var rowSelection = {
+    onSelect: function(record, selected, selectedRows) {
+      selectedApps.push(record.key);
+      //console.log(record, selected, selectedRows);
+    },
+    onSelectAll: function(selected, selectedRows) {
+      //console.log(selected, selectedRows);
+    }
+  };
+  return (
+    <Modal
+      destroyOnClose
+      title="服务授权"
+      visible={authorizemodalVisible}
+      onOk={okAHandle}
+      onCancel={() => handleAuthorizeModalVisible()}
+    >
+      <Table
+        columns={columns}
+        rowSelection={rowSelection}
+        rowKey={record => record.key} //特别注意，需要设置表格主键唯一id的名称，以优化react显示
+        dataSource={data}
+      />
+    </Modal>
+  );
+});
+//角色批量授权
+const RoleForm = Form.create()(props => {
+  const {
+    rolemodalVisible,
+    form,
+    handleRole,
+    handleRoleModalVisible,
+    selectedRoles
+  } = props;
+  const okRHandle = () => {
+    form.validateFields((err, fieldsValue) => {
+      if (err) return;
+      form.resetFields();
+      handleRole(fieldsValue);
+    });
+  };
+  var columns = [
+    {
+      title: "角色",
+      dataIndex: "role"
+    }
+  ];
+  var data = [
+    {
+      key: "1",
+      role: "角色一"
+    },
+    {
+      key: "2",
+      role: "角色二"
+    },
+    {
+      key: "3",
+      role: "角色三"
+    },
+    {
+      key: "4",
+      role: "角色四"
+    }
+  ];
+  var rowSelection = {
+    onSelect: function(record, selected, selectedRows) {
+      selectedRoles.push(record.key);
+      //console.log(record, selected, selectedRows);
+    },
+    onSelectAll: function(selected, selectedRows) {
+      //console.log(selected, selectedRows);
+    }
+  };
+  return (
+    <Modal
+      destroyOnClose
+      title="角色授权"
+      visible={rolemodalVisible}
+      onOk={okRHandle}
+      onCancel={() => handleRoleModalVisible()}
+    >
+      <Table
+        columns={columns}
+        rowSelection={rowSelection}
+        rowKey={record => record.key} //特别注意，需要设置表格主键唯一id的名称，以优化react显示
+        dataSource={data}
+      />
+    </Modal>
+  );
+});
+//
 
 /* eslint react/no-multi-comp:0 */
 @connect(({ found, loading }) => ({
@@ -299,6 +465,8 @@ class Found extends PureComponent {
     updateModalVisible: false,
     expandForm: false,
     selectedRows: [],
+    selectedApps: [],
+    selectedRoles: [],
     formValues: {},
     stepFormValues: {}
   };
@@ -335,7 +503,7 @@ class Found extends PureComponent {
       title: "出生日期",
       dataIndex: "birthday"
       /*sorter: false,
-            render: val => <span>{moment(val).format('YYYY-MM-DD')}</span>,*/
+                  render: val => <span>{moment(val).format('YYYY-MM-DD')}</span>,*/
     },
     {
       title: "移动电话",
@@ -357,8 +525,8 @@ class Found extends PureComponent {
           <a onClick={() => this.handleUpdateModalVisible(true, record)}>
             编辑
           </a>
-          <Divider type="vertical" />
-          <a href="">授权</a>
+          {/* <Divider type="vertical" />
+          <a href="">授权</a>*/}
         </Fragment>
       )
     }
@@ -407,6 +575,13 @@ class Found extends PureComponent {
       type: "found/fetch",
       payload: {}
     });
+    /* dispatch({
+             type: "found/fetch",
+             payload: {
+                 users: row,
+                 apps : row
+             }
+         });*/
   };
 
   toggleForm = () => {
@@ -441,8 +616,23 @@ class Found extends PureComponent {
             });
           }
         });
+        //console.log(selectedRows.map(row => row.key));能输出要删除行的key
         break;
-
+      //
+      case "roleAuthorize":
+        {
+          this.handleRoleModalVisible(true);
+          //console.log("the test is so difficult");
+        }
+        break;
+      case "appAuthorize":
+        {
+          this.handleAuthorizeModalVisible(true);
+          //console.log(selectedRows.map(row => row.key));//为选中用户的ID值
+          //console.log("give me a app");
+        }
+        break;
+      //
       default:
         break;
     }
@@ -483,7 +673,18 @@ class Found extends PureComponent {
       modalVisible: !!flag
     });
   };
-
+  //
+  handleAuthorizeModalVisible = flag => {
+    this.setState({
+      authorizemodalVisible: !!flag
+    });
+  };
+  handleRoleModalVisible = flag => {
+    this.setState({
+      rolemodalVisible: !!flag
+    });
+  };
+  //
   handleUpdateModalVisible = (flag, record) => {
     this.setState({
       updateModalVisible: !!flag,
@@ -508,7 +709,43 @@ class Found extends PureComponent {
     message.success("添加成功");
     this.handleModalVisible();
   };
+  //
+  handleAuthorize = fields => {
+    const { dispatch } = this.props;
+    const { selectedRows, selectedApps } = this.state;
+    let selectedUsers = [];
+    selectedRows.map(item => {
+      selectedUsers.push(item.key);
+    });
+    dispatch({
+      type: "found/add_user_app",
+      payload: {
+        users: selectedUsers,
+        apps: selectedApps
+      }
+    });
+    message.success("授权成功");
+    this.handleAuthorizeModalVisible();
+  };
+  handleRole = fields => {
+    const { dispatch } = this.props;
+    const { selectedRows, selectedRoles } = this.state;
+    let selectedUsers = [];
+    selectedRows.map(item => {
+      selectedUsers.push(item.key);
+    });
+    dispatch({
+      type: "found/add_user_role",
+      payload: {
+        users: selectedUsers,
+        roles: selectedRoles
+      }
+    });
+    message.success("授权成功");
+    this.handleRoleModalVisible();
+  };
 
+  //
   handleUpdate = fields => {
     const { dispatch } = this.props;
     dispatch({
@@ -664,7 +901,11 @@ class Found extends PureComponent {
     } = this.props;
     const {
       selectedRows,
+      selectedApps,
+      selectedRoles,
       modalVisible,
+      authorizemodalVisible,
+      rolemodalVisible,
       updateModalVisible,
       stepFormValues
     } = this.state;
@@ -679,6 +920,14 @@ class Found extends PureComponent {
     const parentMethods = {
       handleAdd: this.handleAdd,
       handleModalVisible: this.handleModalVisible
+    };
+    const authorizeMethods = {
+      handleAuthorize: this.handleAuthorize,
+      handleAuthorizeModalVisible: this.handleAuthorizeModalVisible
+    };
+    const roleMethods = {
+      handleRole: this.handleRole,
+      handleRoleModalVisible: this.handleRoleModalVisible
     };
     const updateMethods = {
       handleUpdateModalVisible: this.handleUpdateModalVisible,
@@ -719,6 +968,16 @@ class Found extends PureComponent {
           </div>
         </Card>
         <CreateForm {...parentMethods} modalVisible={modalVisible} />
+        <AuthorizeForm
+          {...authorizeMethods}
+          authorizemodalVisible={authorizemodalVisible}
+          selectedApps={selectedApps}
+        />
+        <RoleForm
+          {...roleMethods}
+          rolemodalVisible={rolemodalVisible}
+          selectedRoles={selectedRoles}
+        />
         {stepFormValues && Object.keys(stepFormValues).length ? (
           <UpdateForm
             {...updateMethods}

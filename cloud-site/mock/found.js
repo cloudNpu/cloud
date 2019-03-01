@@ -11,7 +11,8 @@ for (let i = 0; i < 46; i += 1) {
     birthday: `1990-01-${Math.floor(i / 2) + 1}`,
     mobile: "XXX-XXXX-XXXX",
     officeTel: "XXXX-XXXXXXX",
-    role: "普通用户"
+    role: "普通用户",
+    my_service: ""
   });
 }
 function getFound(req, res, u) {
@@ -103,7 +104,8 @@ function postFound(req, res, u, b) {
     mobile,
     officeTel,
     role,
-    key
+    key,
+    my_service
   } = body;
 
   switch (method) {
@@ -142,6 +144,21 @@ function postFound(req, res, u, b) {
         }
         return item;
       });
+      break;
+    case "add_user_app":
+      /* tableListDataSource = tableListDataSource.map(item => {
+                 if (item.key === key) {
+                     Object.assign(item.service, {
+                        service
+                     });
+                     return item.service;
+                 }
+                 return item.service;
+             });*/
+      console.log("receive successfully");
+      break;
+    case "add_user_role":
+      console.log("receive data successfully");
       break;
     default:
       break;

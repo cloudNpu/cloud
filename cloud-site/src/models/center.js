@@ -1,64 +1,35 @@
-import { queryProvince, queryCity } from "@/services/center";
+import { updateCenter } from "../services/api";
 
 export default {
   namespace: "center",
 
   state: {
-    province: [],
-    city: [],
-    isLoading: false
+    data: {
+      list: [],
+      currentUser: {}
+    }
   },
 
   effects: {
-    *fetchProvince(_, { call, put }) {
+    *update({ payload, callback }, { call, put }) {
+      //console.log('update');
+      //console.log(payload);
+      const response = yield (yield call(updateCenter, payload)).json();
       yield put({
-        type: "changeLoading",
-        payload: true
-      });
-      const response = yield call(queryProvince);
-      yield put({
-        type: "setProvince",
+        type: "save",
         payload: response
       });
-      yield put({
-        type: "changeLoading",
-        payload: false
-      });
-    },
-    *fetchCity({ payload }, { call, put }) {
-      yield put({
-        type: "changeLoading",
-        payload: true
-      });
-      const response = yield call(queryCity, payload);
-      yield put({
-        type: "setCity",
-        payload: response
-      });
-      yield put({
-        type: "changeLoading",
-        payload: false
-      });
+      if (callback) callback();
     }
   },
 
   reducers: {
-    setProvince(state, action) {
+    //处理所有同步逻辑
+    save(state, action) {
+      console.log(action.payload);
       return {
         ...state,
-        province: action.payload
-      };
-    },
-    setCity(state, action) {
-      return {
-        ...state,
-        city: action.payload
-      };
-    },
-    changeLoading(state, action) {
-      return {
-        ...state,
-        isLoading: action.payload
+        data: action.payload //数据返回给页面
       };
     }
   }

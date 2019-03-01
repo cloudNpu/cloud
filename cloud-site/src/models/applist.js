@@ -2,8 +2,10 @@ import {
   queryAppList,
   removeAppList,
   addAppList,
-  updateAppList
+  updateAppList,
+  changeAppList
 } from "@/services/api";
+//import {changeAppList} from "../services/api";
 
 export default {
   namespace: "applist",
@@ -48,8 +50,19 @@ export default {
         payload: response
       });
       if (callback) callback();
+    },
+
+    //
+    *change({ payload, callback }, { call, put }) {
+      const response = yield (yield call(changeAppList, payload)).json();
+      yield put({
+        type: "save",
+        payload: response
+      });
+      if (callback) callback();
     }
   },
+  //
   reducers: {
     save(state, action) {
       return {

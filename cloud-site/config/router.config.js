@@ -53,11 +53,11 @@ export default [
             component: "./Role/Search"
           },
           {
-            path: '/role/addRole',
-            name: 'addRole',
-            component: './Role/AddRole',
+            path: "/role/addRole",
+            name: "addRole",
+            component: "./Role/AddRole"
           }
-               /*  {
+          /*  {
                     path: '/role/update',
                     name: 'update',
                     component: './Role/Update',
@@ -114,44 +114,61 @@ export default [
           }
         ]
       },
-      //Center个人首页
+      //My
       {
-        name: "center",
+        name: "my",
         icon: "user",
-        path: "/center",
+        path: "/my",
         routes: [
           {
-            path: "/center/center",
+            path: "/my/center",
             name: "center",
-            component: "./Center/Center"
+            component: "./My/Center/Center",
+            routes: [
+              {
+                path: "/my/center",
+                component: "./My/Center/Center"
+              }
+            ]
+          },
+          {
+            path: "/my/service",
+            name: "service",
+            component: "./My/Service/Service",
+            routes: [
+              {
+                path: "/my/service",
+                component: "./My/Service/Service"
+              }
+            ]
           }
         ]
       },
       //
 
-        //menu
-        {
-            path: "/menus",
-            icon: "menu-fold",
-            name: "menus",
-            routes: [
-                {
-                    path: "/menus/first",
-                    name: "first",
-                    component: "./Menus/First"
-                },
-                {
-                    path: "/menus/add-menu",
-                    name: "addMenu",
-                    component: "./Menus/AddMenu"
-                },
-                {
-                    path: "/menus/add-menuItem",
-                    name: "addMenuItem",
-                    component: "./Menus/AddMenuItem"
-                }
-            ]
-        },
+      //menu
+      {
+        path: "/menus",
+        icon: "menu-fold",
+        name: "menus",
+        routes: [
+          {
+            path: "/menus/first",
+            name: "first",
+            component: "./Menus/First"
+          },
+          {
+            path: "/menus/add-menu",
+            name: "addMenu",
+            component: "./Menus/AddMenu"
+          },
+          {
+            path: "/menus/add-menuItem",
+            name: "addMenuItem",
+            component: "./Menus/AddMenuItem"
+          }
+        ]
+      },
       // forms
       {
         path: "/form",

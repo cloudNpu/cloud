@@ -6,7 +6,7 @@ let tableListDataSource = [];
 for (let i = 0; i < 46; i += 1) {
   tableListDataSource.push({
     key: i,
-    disabled: i % 6 === 0,
+    // disabled: i % 6 === 0,
     href: "https://ant.design",
     app: `App ${i}`,
     userid: "Tzbobby",
@@ -19,7 +19,6 @@ for (let i = 0; i < 46; i += 1) {
     visible: Math.floor(Math.random() * 10) % 2
   });
 }
-//ReactDOM.render(<Table columns={columns} dataSource={data} scroll={{ x: 1500, y: 300 }} />, mountNode);
 
 function getAppList(req, res, u) {
   let url = u;
@@ -134,6 +133,17 @@ function postAppList(req, res, u, b) {
             userid,
             status,
             appGroupName
+          });
+          return item;
+        }
+        return item;
+      });
+      break;
+    case "change":
+      tableListDataSource = tableListDataSource.map(item => {
+        if (item.key === key) {
+          Object.assign(item, {
+            visible
           });
           return item;
         }
