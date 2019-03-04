@@ -130,8 +130,8 @@ export default [
                 component: "./My/Center/Center"
               }
             ]
-          },
-          {
+          }
+          /*  {
             path: "/my/service",
             name: "service",
             component: "./My/Service/Service",
@@ -141,7 +141,7 @@ export default [
                 component: "./My/Service/Service"
               }
             ]
-          }
+          }*/
         ]
       },
       //
