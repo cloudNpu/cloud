@@ -1,5 +1,7 @@
 package com.kenji.cloud.entity;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.kenji.cloud.CloudGateway;
 import com.kenji.cloud.repository.UserRepository;
 import com.kenji.cloud.repository.UserRoleRepository;
@@ -28,7 +30,7 @@ public class User implements UserDetails {
     private String iconurl;
     //移动电话
     private String mobile;
-
+    public User(){}
     //办公电话
     @Column(name = "OFFICETEL")
     private String officeTel;
@@ -263,5 +265,21 @@ public class User implements UserDetails {
                 ", createdate=" + createDate +
                 ", lastPasswordResetDate=" + lastPasswordResetDate +
                 '}';
+    }
+    @JsonCreator
+    public User(@JsonProperty("id") long id,
+                   @JsonProperty("username") String username,
+                   @JsonProperty("password") String password,
+                   @JsonProperty("sex") String sex,
+                   @JsonProperty("birthday") Date birthday,
+                   @JsonProperty("mobile") String mobile,
+                   @JsonProperty("iconurl") String iconurl){
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.sex = sex;
+        this.birthday = birthday;
+        this.mobile = mobile;
+        this.iconurl=iconurl;
     }
 }

@@ -145,10 +145,12 @@ public class InstanceInfo{
     }
 
 
-    public User getUser() {
-        return null;
-    }//权宜之计，需要修改
-
+//    public User getUser() {
+//        return null;
+//    }//权宜之计，需要修改
+public User getUser() {
+    return user;
+}//权宜之计，需要修改
 
 
     public void setUser(User user) {

@@ -24,6 +24,7 @@ import com.kenji.cloud.repository.UserRepository;
 import com.kenji.cloud.service.ApplicationService;
 import com.kenji.cloud.service.LeaseInfoService;
 import com.kenji.cloud.service.UserService;
+import com.kenji.cloud.vo.UserReturnVo;
 import com.netflix.appinfo.*;
 import com.netflix.discovery.shared.Application;
 import com.netflix.eureka.EurekaServerConfig;
@@ -228,8 +229,9 @@ public class ApplicationResource {
             info1.setLeaseInfo(leaseInfo);
             info1.setVisible(true);
 
-            User user=userService.getUser(1l);
-
+            User user=new User();
+            UserReturnVo user1=userService.findById(1l);
+            BeanUtils.copyProperties(user1, user);
             info1.setUser(user);
             info1.setInvokeCount(0l);
             applicationService.addApp(info1);
