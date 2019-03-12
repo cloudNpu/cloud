@@ -51,7 +51,9 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public String login(User user) {
+        User currentUser = userRepository.findUserAndRoleByUsername(user.getUsername());
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
+        user.setId(currentUser.getId());
         final Authentication authentication = authenticationManager.authenticate(authenticationToken);
         SecurityContextHolder.getContext().setAuthentication(authentication);
         final UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());

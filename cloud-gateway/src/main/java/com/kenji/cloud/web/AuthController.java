@@ -29,10 +29,13 @@ public class AuthController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody User user) {
         final String token = authService.login(user);
-        System.out.println(user);
+        User currentUser = new User();
+        currentUser.setId(user.getId());
+        currentUser.setUsername(user.getUsername());
         Map<String,Object> result = new HashMap<>();
         result.put("currentAuthority", user.getUserRoles().get(0).getRole().getValue());
         result.put("token",token);
+        result.put("user",currentUser);
         return ResponseEntity.ok(result);
     }
 
