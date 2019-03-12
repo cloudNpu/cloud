@@ -37,6 +37,9 @@ export default {
             if (redirect.startsWith("/#")) {
               redirect = redirect.substr(2);
             }
+            /*if(redirect.match(/^\/.*#/)){
+             redirect=redirect.substr(redirect.indexOf('#')+1);
+           }*/
           } else {
             window.location.href = redirect;
             return;

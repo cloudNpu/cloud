@@ -974,7 +974,6 @@ class AppList extends PureComponent {
               loading={loading}
               data={data}
               columns={this.columns}
-              //  scroll={{ x: 1000, y: 300}}
               onSelectRow={this.handleSelectRows}
               onChange={this.handleStandardTableChange}
             />

@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from "react";
 import { formatMessage, FormattedMessage } from "umi/locale";
-import { Form, Input, Upload, Select, Button } from "antd";
+import { Form, Input, Upload, Select, Button, message } from "antd";
 import { connect } from "dva";
 import styles from "./Center.less";
-//import PhoneView from "./PhoneView";
+import PhoneView from "./PhoneView";
 // import { getTimeDistance } from '@/utils/utils';
 
 const FormItem = Form.Item;
@@ -45,43 +45,22 @@ const validatorPhone = (rule, value, callback) => {
   callback();
 };
 
-@connect(({ user }) => ({
-  currentUser: user.currentUser
+@connect(({ center }) => ({
+  currentUser: center.currentUser
 }))
 @Form.create()
 class Center extends Component {
-  //
-  /*static defaultProps = {
-        handleUpdate: () => {},
-       // handleUpdateModalVisible: () => {},
-        values: {}
-    };*/
-  //
   componentDidMount() {
     this.setBaseInfo();
   }
-  //
-  /* constructor(props) {
-         super(props);
-     this.state = {
-         currentUser: {
-             username: '张三',
-             dept: '技术部',
-             mobile: 13366668888,
-             avatar:
-                 "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png",
-             officeTel: 6666-4796521
-
-         },
-     };*/
-  //
   setBaseInfo = () => {
     const { currentUser, form } = this.props;
     console.log(currentUser);
+    //console.log(this.props);
     Object.keys(form.getFieldsValue()).forEach(key => {
       const obj = {};
       obj[key] = currentUser[key] || null;
-      form.setFieldsValue(obj);
+      form.setFieldsValue(obj); //将表中数据根据key值放入表中
     });
   };
 
@@ -98,7 +77,26 @@ class Center extends Component {
   getViewDom = ref => {
     this.view = ref;
   };
-
+  //currentUser不是对象，未找到对象！
+  handleUpdateForm = currentUser => {
+    const { dispatch } = this.props;
+    console.log("111111111111");
+    dispatch({
+      type: "center/update",
+      payload: {
+        key: currentUser.key,
+        username: currentUser.username,
+        dept: currentUser.dept,
+        mobile: currentUser.mobile,
+        officeTel: currentUser.officeTel,
+        avatar: currentUser.avatar,
+        new_passward: currentUser.new_passward,
+        new_passward_again: currentUser.new_passward_again
+      }
+    });
+    message.success("更新成功");
+  };
+  //
   render() {
     const {
       form: { getFieldDecorator }
@@ -106,11 +104,16 @@ class Center extends Component {
     return (
       <div className={styles.baseView} ref={this.getViewDom}>
         <div className={styles.left}>
-          <Form layout="vertical" onSubmit={this.handleSubmit} hideRequiredMark>
+          <Form
+            layout="vertical"
+            onSubmit={this.handleUpdateForm}
+            hideRequiredMark
+          >
             <FormItem
               label={formatMessage({ id: "app.settings.basic.nickname" })}
             >
-              {getFieldDecorator("name", {
+              {getFieldDecorator("username", {
+                //  initialValue:currentUser.username,
                 rules: [
                   {
                     required: true,
@@ -124,7 +127,6 @@ class Center extends Component {
             </FormItem>
             <FormItem label={formatMessage({ id: "app.settings.basic.dept" })}>
               {getFieldDecorator("dept", {
-                // initialValue: currentUser.dept
                 rules: [
                   {
                     required: true,
@@ -137,7 +139,7 @@ class Center extends Component {
               })(<Input />)}
             </FormItem>
             <FormItem label={formatMessage({ id: "app.settings.basic.phone" })}>
-              {getFieldDecorator("phone", {
+              {getFieldDecorator("officeTel", {
                 rules: [
                   {
                     required: true,
@@ -151,65 +153,34 @@ class Center extends Component {
               })(<PhoneView />)}
             </FormItem>
             <FormItem label={formatMessage({ id: "app.settings.basic.phone" })}>
-              {getFieldDecorator("tel", {
-                rules: [
-                  {
-                    required: true,
-                    message: formatMessage(
-                      { id: "app.settings.basic.phone-message" },
-                      {}
-                    )
-                  },
-                  { validator: validatorPhone }
-                ]
-              })(<Input />)}
+              {getFieldDecorator("mobile", {})(<Input />)}
             </FormItem>
-            <FormItem label={formatMessage({ id: "app.settings.basic.old" })}>
-              {getFieldDecorator("passward", {
-                rules: [
-                  {
-                    required: true,
-                    message: formatMessage(
-                      { id: "app.settings.basic.old-message" },
-                      {}
-                    )
-                  }
-                ]
-              })(<Input />)}
-            </FormItem>
+            {/* <FormItem label={formatMessage({ id: "app.settings.basic.old" })}>
+                            {getFieldDecorator("passward", {
+                                rules: [
+                                    {
+                                        required: true,
+                                        message: formatMessage(
+                                            { id: "app.settings.basic.old-message" },
+                                            {}
+                                        )
+                                    }
+                                ]
+                            })(<Input />)}
+                        </FormItem>*/}
             <FormItem label={formatMessage({ id: "app.settings.basic.new" })}>
-              {getFieldDecorator("name", {
-                rules: [
-                  {
-                    required: true,
-                    message: formatMessage(
-                      { id: "app.settings.basic.new-message" },
-                      {}
-                    )
-                  }
-                ]
-              })(<Input />)}
+              {getFieldDecorator("new_passward", {})(<Input />)}
             </FormItem>
             <FormItem label={formatMessage({ id: "app.settings.basic.again" })}>
-              {getFieldDecorator("name", {
-                rules: [
-                  {
-                    required: true,
-                    message: formatMessage(
-                      { id: "app.settings.basic.again-message" },
-                      {}
-                    )
-                  }
-                ]
-              })(<Input />)}
+              {getFieldDecorator("new_passward_again", {})(<Input />)}
             </FormItem>
-            <Button type="primary">
-              <FormattedMessage
-                id="app.settings.basic.update"
-                defaultMessage="Update Information"
-              />
-            </Button>
           </Form>
+          <Button type="primary" onClick={this.handleUpdateForm}>
+            <FormattedMessage
+              id="app.settings.basic.update"
+              defaultMessage="Update Information"
+            />
+          </Button>
         </div>
         <div className={styles.right}>
           <AvatarView avatar={this.getAvatarURL()} />

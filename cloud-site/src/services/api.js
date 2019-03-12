@@ -269,3 +269,6 @@ export async function updateCenter(params) {
     }
   });
 }
+export async function queryService() {
+  return request("/api/service");
+}

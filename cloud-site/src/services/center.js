@@ -1,9 +1,28 @@
 import request from "@/utils/request";
 
-export async function queryProvince() {
-  return request("/api/geographic/province");
+export async function query() {
+  return request("/api/users");
 }
 
-export async function queryCity(province) {
-  return request(`/api/geographic/city/${province}`);
+export async function queryCurrent() {
+  return request("/api/currentUser");
+}
+
+export async function updateUser(params) {
+  return request("/api/center", {
+    method: "POST",
+    body: {
+      ...params,
+      method: "update"
+    }
+  });
+}
+export async function updateCenter(params) {
+  return request("/api/found", {
+    method: "POST",
+    body: {
+      ...params,
+      method: "update"
+    }
+  });
 }

@@ -3,6 +3,7 @@ export default {
   // 支持值为 Object 和 Array
   "GET /api/currentUser": {
     name: "Serati Ma",
+    dept: "技术部",
     avatar:
       "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png",
     userid: "00000001",
@@ -74,10 +75,10 @@ export default {
   ],
 
   /*  'POST /api/role/add': (req, res) => {
-    const { roleName } = req.body;
-    console.log(roleName);
-  },
- */
+      const { roleName } = req.body;
+      console.log(roleName);
+    },
+   */
 
   "POST /api/auth/login": (req, res) => {
     const { password, username, type } = req.body;
