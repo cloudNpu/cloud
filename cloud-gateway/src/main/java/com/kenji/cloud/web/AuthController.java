@@ -3,6 +3,7 @@ package com.kenji.cloud.web;
 import com.kenji.cloud.entity.User;
 import com.kenji.cloud.service.AuthService;
 import com.kenji.cloud.vo.JwtAuthenticationResponse;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -30,12 +31,11 @@ public class AuthController {
     public ResponseEntity<?> createAuthenticationToken(@RequestBody User user) {
         final String token = authService.login(user);
         User currentUser = new User();
-        currentUser.setId(user.getId());
-        currentUser.setUsername(user.getUsername());
-        Map<String,Object> result = new HashMap<>();
+        BeanUtils.copyProperties(user, currentUser, "dept", "userRoles", "instanceInfos", "userApps", "appLogs", "sysLogs", "operator", "users", "lastPasswordResetDate");
+        Map<String, Object> result = new HashMap<>();
         result.put("currentAuthority", user.getUserRoles().get(0).getRole().getValue());
-        result.put("token",token);
-        result.put("user",currentUser);
+        result.put("token", token);
+        result.put("user", currentUser);
         return ResponseEntity.ok(result);
     }
 
