@@ -1,6 +1,20 @@
 import React, { PureComponent, Fragment } from "react";
 import { connect } from "dva";
-import {Row, Col, Card, Form, Input, Select, Icon, Button, Dropdown, Menu, Modal, message, Steps} from "antd";
+import {
+  Row,
+  Col,
+  Card,
+  Form,
+  Input,
+  Select,
+  Icon,
+  Button,
+  Dropdown,
+  Menu,
+  Modal,
+  message,
+  Steps
+} from "antd";
 import StandardTable from "@/components/StandardTable";
 import PageHeaderWrapper from "@/components/PageHeaderWrapper";
 import styles from "./Search.less";
@@ -39,15 +53,11 @@ const CreateForm = Form.create()(props => {
           rules: [{ required: true, message: "角色名不能为空！" }]
         })(<Input placeholder="请输入" />)}
       </FormItem>
-        <FormItem
-            labelCol={{ span: 5 }}
-            wrapperCol={{ span: 15 }}
-            label="VALUE"
-        >
-            {form.getFieldDecorator("value", {
-                rules: [{ required: true, message: "value值不能为空！" }]
-            })(<Input placeholder="请输入" />)}
-        </FormItem>
+      <FormItem labelCol={{ span: 5 }} wrapperCol={{ span: 15 }} label="VALUE">
+        {form.getFieldDecorator("value", {
+          rules: [{ required: true, message: "value值不能为空！" }]
+        })(<Input placeholder="请输入" />)}
+      </FormItem>
       <FormItem
         labelCol={{ span: 5 }}
         wrapperCol={{ span: 15 }}
@@ -56,7 +66,7 @@ const CreateForm = Form.create()(props => {
         {form.getFieldDecorator("description", {
           rules: [
             {
-              required: false,
+              required: false
             }
           ]
         })(<Input placeholder="请输入" />)}
@@ -66,7 +76,7 @@ const CreateForm = Form.create()(props => {
         wrapperCol={{ span: 15 }}
         label="角色授权"
       >
-        {form.getFieldDecorator("roleAuth", {
+        {form.getFieldDecorator("roleMenu", {
           /* initialValue: */
         })(
           <Select
@@ -74,10 +84,10 @@ const CreateForm = Form.create()(props => {
             mode={"multiple"}
             placeholder={"请选择"}
           >
-            <Option value="1">用户管理</Option>
-            <Option value="2">角色管理</Option>
-            <Option value="3">菜单管理</Option>
-            <Option value="4">部门管理</Option>
+            <Option value="用户管理">用户管理</Option>
+            <Option value="角色管理">角色管理</Option>
+            <Option value="菜单管理">菜单管理</Option>
+            <Option value="部门管理">部门管理</Option>
           </Select>
         )}
       </FormItem>
@@ -95,7 +105,7 @@ class UpdateForm extends PureComponent {
         name: props.values.name,
         value: props.values.value,
         description: props.values.description,
-        roleAuth: props.values.roleAuth,
+        roleMenu: props.values.roleMenu,
         key: props.values.key
       },
       currentStep: 0
@@ -146,15 +156,15 @@ class UpdateForm extends PureComponent {
     const { form } = this.props;
     if (currentStep === 1) {
       return [
-        <FormItem key="roleAuth" {...this.formLayout} label="角色授权">
-          {form.getFieldDecorator("roleAuth", {
-            initialValue: formVals.roleAuth
+        <FormItem key="roleMenu" {...this.formLayout} label="角色授权">
+          {form.getFieldDecorator("roleMenu", {
+            initialValue: formVals.roleMenu
           })(
             <Select mode={"multiple"} style={{ width: "100%" }}>
-              <Option value="1">用户管理</Option>
-              <Option value="2">角色管理</Option>
-              <Option value="3">菜单管理</Option>
-              <Option value="4">部门管理</Option>
+              <Option value="用户管理">用户管理</Option>
+              <Option value="角色管理">角色管理</Option>
+              <Option value="菜单管理">菜单管理</Option>
+              <Option value="部门管理">部门管理</Option>
             </Select>
           )}
         </FormItem>
@@ -167,17 +177,17 @@ class UpdateForm extends PureComponent {
           initialValue: formVals.name
         })(<Input placeholder="请输入" />)}
       </FormItem>,
-        <FormItem key="value" {...this.formLayout} label="VALUE">
-            {form.getFieldDecorator("value", {
-                rules: [{ required: true, message: "请输入value值！" }],
-                initialValue: formVals.value
-            })(<Input placeholder="请输入" />)}
-        </FormItem>,
+      <FormItem key="value" {...this.formLayout} label="VALUE">
+        {form.getFieldDecorator("value", {
+          rules: [{ required: true, message: "请输入value值！" }],
+          initialValue: formVals.value
+        })(<Input placeholder="请输入" />)}
+      </FormItem>,
       <FormItem key="description" {...this.formLayout} label="角色描述">
         {form.getFieldDecorator("description", {
           rules: [
             {
-              required: false,
+              required: false
               /*message: "请输入至少五个字符对角色进行描述！",
               min: 5*/
             }
@@ -263,15 +273,15 @@ class Search extends PureComponent {
   columns = [
     {
       title: "角色名称",
-      dataIndex: "name",
+      dataIndex: "name"
     },
-      {
+    {
       title: "VALUE",
-      dataIndex: "value",
+      dataIndex: "value"
     },
     {
       title: "角色权限",
-      dataIndex: "roleAuth"
+      dataIndex: "roleMenu"
     },
     {
       title: "描述",
@@ -416,9 +426,9 @@ class Search extends PureComponent {
     dispatch({
       type: "rolesearch/add",
       payload: {
-        desc: fields.desc,
+        description: fields.description,
         name: fields.name,
-        roleAuth: fields.roleAuth
+        roleMenu: fields.roleMenu
       }
     });
 
@@ -433,8 +443,8 @@ class Search extends PureComponent {
       type: "rolesearch/update",
       payload: {
         name: fields.name,
-        desc: fields.desc,
-        roleAuth: fields.roleAuth,
+        description: fields.description,
+        roleMenu: fields.roleMenu,
         key: fields.key
       }
     });
@@ -506,15 +516,15 @@ class Search extends PureComponent {
           <div className={styles.tableList}>
             <div className={styles.tableListForm}>{this.renderForm()}</div>
             <div className={styles.tableListOperator}>
-             <a href={'http://localhost:8000/role/addRole'}>
+              {/*     <a href={"/role/addRole"}>*/}
               <Button
                 icon="plus"
                 type="primary"
-                //onClick={() => this.handleModalVisible(true)}
+                onClick={() => this.handleModalVisible(true)}
               >
                 新建
               </Button>
-             </a>
+              {/*  </a>*/}
               {selectedRows.length > 0 && (
                 <span>
                   <Dropdown overlay={menu}>

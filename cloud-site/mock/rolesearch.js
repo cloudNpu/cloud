@@ -5,8 +5,9 @@ for (let i = 0; i < 46; i += 1) {
   roleSearchDataSource.push({
     key: i,
     name: `用户管理员 ${i}`,
+    value: `${i}`,
     roleAuth: "用户管理",
-    desc: "用于管理用户信息"
+    description: "用于管理用户信息"
   });
 }
 function getRole(req, res, u) {
@@ -31,7 +32,7 @@ function getRole(req, res, u) {
       current: parseInt(params.currentPage, 10) || 1
     }
   };
-   //console.log(result);
+  //console.log(result);
   return res.json(result);
 }
 function postRole(req, res, u, b) {

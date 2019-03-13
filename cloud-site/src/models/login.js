@@ -16,20 +16,22 @@ export default {
   effects: {
     *login({ payload }, { call, put }) {
       const response = yield call(fakeAccountLogin, payload);
-      // const res = yield response.json();
+      const res = yield response.json();
       // const res = response;
-      //console.log(response);
       yield put({
         type: "changeLoginStatus",
         payload: response
       });
-      // token.save(res.token);
       // Login successfully
       if (response.status === 200) {
+        yield token.save(res.token);
+        sessionStorage.setItem("user", stringify(res.user));
         reloadAuthorized();
         const urlParams = new URL(window.location.href);
         const params = getPageQuery();
         let { redirect } = params;
+        console.log(sessionStorage.getItem("TOKEN"));
+        console.log(sessionStorage.getItem("user").id);
         if (redirect) {
           const redirectUrlParams = new URL(redirect);
           if (redirectUrlParams.origin === urlParams.origin) {

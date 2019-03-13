@@ -1,4 +1,11 @@
-import {addRole, deleteRole, queryRole, updateRole} from "@/services/rolesearch";
+import {
+  addRole,
+  deleteRole,
+  queryRole,
+  updateRole,
+  menuList
+} from "@/services/rolesearch";
+
 export default {
   namespace: "rolesearch",
 
@@ -6,12 +13,14 @@ export default {
     data: {
       list: [],
       pagination: {}
-    }
+    },
+    menu: []
   },
 
   effects: {
     *fetch({ payload }, { call, put }) {
       const response = yield call(queryRole, payload);
+
       yield put({
         type: "save",
         payload: response
@@ -19,7 +28,7 @@ export default {
     },
     *add({ payload, callback }, { call, put }) {
       const response = yield call(addRole, payload);
-      //console.log(response);
+      console.log(response);
       yield put({
         type: "save",
         payload: response
@@ -41,6 +50,14 @@ export default {
         payload: response
       });
       if (callback) callback();
+    },
+    *menu(_, { call, put }) {
+      const response = yield call(menuList);
+
+      yield put({
+        type: "menuList",
+        payload: Array.isArray(response) ? response : []
+      });
     }
   },
 
@@ -49,6 +66,12 @@ export default {
       return {
         ...state,
         data: action.payload
+      };
+    },
+    menuList(state, action) {
+      return {
+        ...state,
+        menu: action.payload
       };
     }
   }

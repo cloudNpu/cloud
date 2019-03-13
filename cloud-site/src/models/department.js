@@ -14,26 +14,25 @@ export default {
   },
 
   effects: {
-
     *save({ payload }, { call, put }) {
-       // yield call(addDept, payload)
+      // yield call(addDept, payload)
       const response = yield call(addDept, payload);
 
-      //console.log(response);
-        //console.log( response);
+      // console.log(response);
+      //console.log( response);
 
-      if (response.status===200) {
+      if (response.status === 200) {
         message.success("提交成功");
       } else message.success("提交失败");
     },
 
-    *delete({ payload }, { call}) {
-        //yield call(deleteDept, payload);
+    *delete({ payload }, { call }) {
+      //yield call(deleteDept, payload);
       const response = yield call(deleteDept, payload);
-       //console.log(response);
-        //localStorage.clear();
+      //console.log(response);
+      //localStorage.clear();
       const { msg } = JSON.parse(response);
-     /*  console.log(msg);*/
+      /*  console.log(msg);*/
       if (response.status === 204) {
         message.success("删除成功");
       } else message.success(msg);

@@ -19,7 +19,5 @@ function deleteDept(req, res) {
 
 export default {
   "POST /api/depts": addDept,
-  /* 'POST /depts': addDept,*/
   "DELETE /api/depts/:id": deleteDept
-  /* 'DELETE /depts/:id': deleteDept*/
 };
