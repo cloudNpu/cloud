@@ -17,9 +17,8 @@ public interface RoleService {
     /**
      * 添加角色
      * @param role
-     * @param menus
      */
-    void addRole(Role role, List<Menu> menus);
+    void addRole(Role role);
 
     /**
      * 根据ID更新角色信息

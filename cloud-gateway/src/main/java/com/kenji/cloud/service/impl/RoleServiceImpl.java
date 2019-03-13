@@ -32,15 +32,7 @@ public class RoleServiceImpl implements RoleService {
     @Autowired
     private RoleMenuRepository roleMenuRepository;
     @Override
-    public void addRole(Role role, List<Menu> menus) {
-        List<RoleMenu> roleMenus = new ArrayList<>();
-        menus.stream().forEach(menu -> {
-            RoleMenu roleMenu = new RoleMenu();
-            roleMenu.setMenu(menu);
-            roleMenu.setRole(role);
-            roleMenus.add(roleMenu);
-        });
-        role.setRoleMenus(roleMenus);
+    public void addRole(Role role) {
         roleRepository.save(role);
     }
 

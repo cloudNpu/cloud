@@ -22,9 +22,9 @@ public class RoleController {
     private RoleServiceImpl roleService;
 
     @RequestMapping(value = "/roles", method = RequestMethod.POST)
-    public ResponseEntity<String> addRole(@RequestBody Role role,@RequestBody List<Menu> Menus) {
+    public ResponseEntity<String> addRole(@RequestBody Role role) {
         try {
-            roleService.addRole(role,Menus);
+            roleService.addRole(role);
             return ResponseEntity.ok("添加成功");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("添加失败！\r\n失败原因："+e.getMessage());
