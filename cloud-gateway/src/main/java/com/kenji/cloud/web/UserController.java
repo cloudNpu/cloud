@@ -105,13 +105,13 @@ public class UserController {
      * @return org.springframework.http.ResponseEntity<java.util.List<com.kenji.cloud.entity.User>>
      **/
     @GetMapping()
-    public ResponseEntity<List<UserReturnVo>> getUsersByCondition(@RequestHeader("username") String username,
-                                                                  @RequestHeader("deptId") Long deptId,
-                                                                  @RequestHeader("mobile") String mobile,
-                                                                  @RequestHeader("officeTel") String officeTel,
-                                                                  @RequestHeader("sex") String sex,
-                                                                  @RequestHeader("birthday") String birthdayStr,
-                                                                  @RequestHeader("roleIds") Long[] roleIds) {
+    public ResponseEntity<List<UserReturnVo>> getUsersByCondition(@RequestParam(name = "username", defaultValue = "") String username,
+                                                                  @RequestParam(name = "deptId", defaultValue = "") Long deptId,
+                                                                  @RequestParam(name = "mobile", defaultValue = "") String mobile,
+                                                                  @RequestParam(name = "officeTel", defaultValue = "") String officeTel,
+                                                                  @RequestParam(name = "sex", defaultValue = "") String sex,
+                                                                  @RequestParam(name = "birthday", defaultValue = "") String birthdayStr,
+                                                                  @RequestParam(name = "roleIds", defaultValue = "") Long[] roleIds) {
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date birthday = null;
         try {
