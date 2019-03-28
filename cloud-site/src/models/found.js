@@ -5,7 +5,7 @@ import {
   updateFound,
   Add_user_role,
   Add_user_app
-} from "../services/api";
+} from "../services/found";
 
 export default {
   namespace: "found",
@@ -19,14 +19,17 @@ export default {
 
   effects: {
     *fetch({ payload }, { call, put }) {
-      const response = yield call(queryFound, payload);
+      const response = yield (yield call(queryFound, payload)).json();
       yield put({
         type: "save",
-        payload: response
+        payload: {
+          list:response,
+          pagination: {current:1,pageSize:8}
+        }
       });
     },
     *add({ payload, callback }, { call, put }) {
-      const response = yield (yield call(addFound, payload)).json();
+      const response = yield call(addFound, payload);
       yield put({
         type: "save",
         payload: response

@@ -21,7 +21,7 @@ class LoginPage extends Component {
   onTabChange = type => {
     this.setState({ type });
   };
-
+//获取验证码
   onGetCaptcha = () =>
     new Promise((resolve, reject) => {
       this.loginForm.validateFields(['mobile'], {}, (err, values) => {
@@ -84,7 +84,7 @@ class LoginPage extends Component {
             <UserName name="username" placeholder="admin/user" />
             <Password
               name="password"
-              placeholder="888888/123456"
+              placeholder="admin"
               onPressEnter={() => this.loginForm.validateFields(this.handleSubmit)}
             />
           </Tab>

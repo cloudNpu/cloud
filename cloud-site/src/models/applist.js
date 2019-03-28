@@ -4,7 +4,7 @@ import {
   addAppList,
   updateAppList,
   changeAppList
-} from "@/services/api";
+} from "@/services/applist";
 //import {changeAppList} from "../services/api";
 
 export default {
@@ -18,16 +18,14 @@ export default {
   },
   effects: {
     *fetch({ payload }, { call, put }) {
-      const response = yield (yield call(queryAppList, payload)).json();
-      //console.log(response);
+      const response = yield call(queryAppList, payload);
       yield put({
         type: "save",
         payload: response
       });
     },
     *add({ payload, callback }, { call, put }) {
-      console.log(payload);
-      const response = yield (yield call(addAppList, payload)).json();
+      const response = yield call(addAppList, payload);
       yield put({
         type: "save",
         payload: response

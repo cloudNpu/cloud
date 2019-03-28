@@ -22,7 +22,7 @@ import {
   Radio,
   Table
 } from "antd";
-//import StandardTable from "@/components/StandardTable";
+import StandardTable from "@/components/StandardTable";
 import PageHeaderWrapper from "@/components/PageHeaderWrapper";
 
 import styles from "./Found.less";
@@ -120,10 +120,10 @@ const CreateForm = Form.create()(props => {
         <FormItem labelCol={{ span: 5 }} wrapperCol={{ span: 15 }} label="角色">
           {form.getFieldDecorator("role", {})(
             <Select style={{ width: "100%" }} mode={"multiple"}>
-              <Option value={"用户管理员"}>用户管理员</Option>
-              <Option value={"角色管理员"}>角色管理员</Option>
-              <Option value={"服务管理员"}>服务管理员</Option>
-              <Option value={"管理员"}>管理员</Option>
+              <Option value={"0"}>用户管理员</Option>
+              <Option value={"2"}>角色管理员</Option>
+              <Option value={"3"}>服务管理员</Option>
+              <Option value={"1"}>管理员</Option>
             </Select>
           )}
         </FormItem>
@@ -144,7 +144,7 @@ class UpdateForm extends PureComponent {
 
     this.state = {
       formVals: {
-        key: props.values.key,
+        id: props.values.id,
         username: props.values.username,
         sex: props.values.sex,
         dept: props.values.dept,
@@ -525,8 +525,6 @@ class Found extends PureComponent {
           <a onClick={() => this.handleUpdateModalVisible(true, record)}>
             编辑
           </a>
-          {/* <Divider type="vertical" />
-          <a href="">授权</a>*/}
         </Fragment>
       )
     }
@@ -535,11 +533,11 @@ class Found extends PureComponent {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch({
-      type: "found/fetch"
+      type: "found/fetch",
     });
   }
 
-  handleTableChange = (pagination, filtersArg, sorter) => {
+  handleStandardTableChange = (pagination, filtersArg, sorter) => {
     const { dispatch } = this.props;
     const { formValues } = this.state;
 
@@ -697,13 +695,17 @@ class Found extends PureComponent {
     dispatch({
       type: "found/add",
       payload: {
+        "user":{
         username: fields.username,
+        password:88888,
         sex: fields.sex,
-        dept: fields.dept,
+        dept: {"id": fields.dept},
         birthday: fields.birthday,
         mobile: fields.mobile,
         officeTel: fields.officeTel,
-        role: fields.role
+      },
+      operatorId: 1,
+      roleIds: fields.role
       }
     });
     message.success("添加成功");
@@ -751,7 +753,7 @@ class Found extends PureComponent {
     dispatch({
       type: "found/update",
       payload: {
-        key: fields.key,
+        id: fields.id,
         username: fields.username,
         sex: fields.sex,
         dept: fields.dept,
@@ -957,13 +959,13 @@ class Found extends PureComponent {
                 </span>
               )}
             </div>
-            <Table
+            <StandardTable
               selectedRows={selectedRows}
               loading={loading}
               data={data}
               columns={this.columns}
               onSelectRow={this.handleSelectRows}
-              onChange={this.handleTableChange}
+              onChange={this.handleStandardTableChange}
             />
           </div>
         </Card>

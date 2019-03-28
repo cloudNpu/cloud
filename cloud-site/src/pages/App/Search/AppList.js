@@ -53,7 +53,7 @@ const CreateForm = Form.create()(props => {
         handleAdd(fieldsValue);
       } else {
         var instanceInfo = JSON.parse(fieldsValue.txt);
-        console.log(instanceInfo);
+       // console.log(instanceInfo);
         handleAdd(instanceInfo);
       }
     });
@@ -743,14 +743,14 @@ class AppList extends PureComponent {
     dispatch({
       type: "applist/add",
       payload: {
-        app: fields.app,
-        instanceId: fields.instanceId,
-        ipAddr: fields.ipAddr,
-        port: fields.port,
-        userid: fields.userid,
-        status: fields.status,
-        appGroupName: fields.appGroupName
-      }
+                  app: fields.app,
+                  instanceId: fields.instanceId,
+                  ipAddr: fields.ipAddr,
+                  port: fields.port,
+                  userid: fields.userid,
+                  status: fields.status,
+                  appGroupName: fields.appGroupName
+              }
     });
 
     message.success("添加成功");
@@ -969,7 +969,7 @@ class AppList extends PureComponent {
                 </span>
               )}
             </div>
-            <StandardTable
+            <Table
               selectedRows={selectedRows}
               loading={loading}
               data={data}

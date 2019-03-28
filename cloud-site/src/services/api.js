@@ -104,8 +104,9 @@ export async function updateFakeList(params) {
 }
 
 export async function fakeAccountLogin(params) {
-  return request("/api/auth/login", {
-    method: "POST",
+ return request("/api/auth/login", {
+   // return request("/api/login/account", {
+        method: "POST",
     body: params
   });
 }
@@ -128,9 +129,7 @@ export async function getFakeCaptcha(mobile) {
 export async function queryAppList(params) {
   return request(`/api/applist?${stringify(params)}`);
 }
-export async function queryFound(params) {
-  return request(`/api/found?${stringify(params)}`);
-}
+
 export async function removeAppList(params) {
   return request("/api/applist", {
     method: "POST",
@@ -140,24 +139,56 @@ export async function removeAppList(params) {
     }
   });
 }
-export async function removeFound(params) {
-  return request("/api/found", {
-    method: "POST",
-    body: {
-      ...params,
-      method: "delete"
-    }
-  });
-}
+
 export async function addAppList(params) {
   //console.log(params);
   //console.log(`/api/cloud/apps/${params.app}`);
   /// "/api/applist"
   //${params.app}
-  return request("/api/applist" /*`/api/cloud/apps/APPLICATION0`*/, {
+  return request(`/api/cloud/apps/APPLICATION0`, {
     method: "POST",
     body: {
       ...params,
+    /* "instance":{
+            "instanceId": "i-00000000",
+            "app": "APPLICATION0",
+            "appGroupName": "APPLICATION0GROUP",
+            "ipAddr": "192.168.0.5",
+            "sid": "na",
+            "homePageUrl": "http://instance0.application0.com:8080/homepage",
+            "statusPageUrl": "http://instance0.application0.com:8080/status",
+            "healthCheckUrl": "http://instance0.application0.com:8080/healthcheck",
+            "secureHealthCheckUrl": "https://instance0.application0.com:8081/healthcheck",
+            "vipAddress": "application0:8080",
+            "secureVipAddress": "application0:8081",
+            "countryId": 1,
+            "dataCenterInfo": {
+                "@class": "com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo",
+                "name": "MyOwn"
+            },
+
+            "inputparm":"int,int",
+            "outputparm":"int",
+            "hostName": "instance0.application0.com",
+            "status": "UP",
+            "leaseInfo": {
+                "renewalIntervalInSecs": 300,
+                "durationInSecs": 60,
+                "registrationTimestamp": "0000-00-00 00:00:00",
+                "lastRenewalTimestamp": "0000-00-00 00:00:00",
+                "evictionTimestamp": "0000-00-00 00:00:00",
+                "serviceUpTimestamp": "0000-00-00 00:00:00"
+            },
+            "isCoordinatingDiscoveryServer": true,
+            "metadata": {
+                "appKey0": "0"
+            },
+            "lastUpdatedTimestamp": "0000-00-00 00:00:00",
+            "lastDirtyTimestamp": "0000-00-00 00:00:00",
+            "actionType": "ADDED",
+            "asgName": "application0ASG",
+            "overriddenStatus": "UNKNOWN"
+        }  ,*/
       method: "post"
     }
     /*{"instance":{
@@ -202,15 +233,7 @@ export async function addAppList(params) {
             }}*/
   });
 }
-export async function addFound(params) {
-  return request("/api/found", {
-    method: "POST",
-    body: {
-      ...params,
-      method: "post"
-    }
-  });
-}
+
 export async function updateAppList(params) {
   return request("/api/applist", {
     method: "POST",
@@ -230,36 +253,7 @@ export async function changeAppList(params) {
     }
   });
 }
-//
-export async function updateFound(params) {
-  return request("/api/found", {
-    method: "POST",
-    body: {
-      ...params,
-      method: "update"
-    }
-  });
-}
-//
-export async function Add_user_app(params) {
-  return request("/api/found", {
-    method: "POST",
-    body: {
-      ...params,
-      method: "add_user_app"
-    }
-  });
-}
-export async function Add_user_role(params) {
-  return request("/api/found", {
-    method: "POST",
-    body: {
-      ...params,
-      method: "add_user_role"
-    }
-  });
-}
-//
+
 export async function updateCenter(params) {
   return request("/api/center", {
     method: "POST",
@@ -272,3 +266,4 @@ export async function updateCenter(params) {
 export async function queryService() {
   return request("/api/service");
 }
+

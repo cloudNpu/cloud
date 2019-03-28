@@ -61,12 +61,12 @@ export default {
     "@antv/data-set": "DataSet"
   },
   proxy: {
-    "/api": {
-      target: "http://10.69.34.61:8080/",
-      changeOrigin: true,
-      pathRewrite: { "^/api": "" }
-    }
-  },
+        "/api": {
+            target: "http://10.69.34.61:8080/",
+            changeOrigin: true,
+            pathRewrite: { "^/api": "" }
+        }
+    },
   ignoreMomentLocale: true,
   lessLoaderOptions: {
     javascriptEnabled: true

@@ -3,7 +3,7 @@ import { formatMessage, FormattedMessage } from "umi/locale";
 import { Form, Input, Upload, Select, Button } from "antd";
 import { connect } from "dva";
 import styles from "./BaseView.less";
-import GeographicView from "./GeographicView";
+//import GeographicView from "./GeographicView";
 import PhoneView from "./PhoneView";
 // import { getTimeDistance } from '@/utils/utils';
 
@@ -72,7 +72,7 @@ class BaseView extends Component {
       const obj = {};
       obj[key] = currentUser[key] || null;
       form.setFieldsValue(obj);
-      console.log(obj);
+      //console.log(obj);
     });
   };
 
@@ -167,7 +167,7 @@ class BaseView extends Component {
                 </Select>
               )}
             </FormItem>
-            <FormItem
+         {/*   <FormItem
               label={formatMessage({ id: "app.settings.basic.geographic" })}
             >
               {getFieldDecorator("geographic", {
@@ -184,7 +184,7 @@ class BaseView extends Component {
                   }
                 ]
               })(<GeographicView />)}
-            </FormItem>
+            </FormItem>*/}
             <FormItem
               label={formatMessage({ id: "app.settings.basic.address" })}
             >
