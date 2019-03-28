@@ -12,7 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -101,7 +105,30 @@ public class UserController {
      * @return org.springframework.http.ResponseEntity<java.util.List<com.kenji.cloud.entity.User>>
      **/
     @GetMapping()
-    public ResponseEntity<List<UserReturnVo>> getUsersByCondition(@RequestBody UserSearchVo userSearchVo) {
+    public ResponseEntity<List<UserReturnVo>> getUsersByCondition(@RequestHeader("username") String username,
+                                                                  @RequestHeader("deptId") Long deptId,
+                                                                  @RequestHeader("mobile") String mobile,
+                                                                  @RequestHeader("officeTel") String officeTel,
+                                                                  @RequestHeader("sex") String sex,
+                                                                  @RequestHeader("birthday") String birthdayStr,
+                                                                  @RequestHeader("roleIds") Long[] roleIds) {
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date birthday = null;
+        try {
+            birthday = format.parse(birthdayStr);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        UserSearchVo userSearchVo = new UserSearchVo();
+        //Date birthday = new Date(birthdayStr);
+        userSearchVo.setUsername(username);
+        userSearchVo.setDeptId(deptId);
+        userSearchVo.setMobile(mobile);
+        userSearchVo.setOfficeTel(officeTel);
+        userSearchVo.setSex(sex);
+        userSearchVo.setBirthday(birthday);
+        //userSearchVo.setBirthday(null);
+        userSearchVo.setRoleIds(roleIds);
         List<UserReturnVo> list = userService.findSearch(userSearchVo);
         return ResponseEntity.status(200).body(list);
     }

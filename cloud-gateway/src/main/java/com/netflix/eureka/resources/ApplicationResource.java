@@ -230,9 +230,11 @@ public class ApplicationResource {
             info1.setVisible(true);
 
             User user=new User();
-            UserReturnVo user1=userService.findById(1l);
+            UserReturnVo user1=userService.findById(2l);
             BeanUtils.copyProperties(user1, user);
+            user.setId(1l);
             info1.setUser(user);
+
             info1.setInvokeCount(0l);
             applicationService.addApp(info1);
         }
