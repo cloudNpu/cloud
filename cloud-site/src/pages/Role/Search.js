@@ -13,7 +13,8 @@ import {
   Menu,
   Modal,
   message,
-  Steps
+  Steps,
+  Divider
 } from "antd";
 import StandardTable from "@/components/StandardTable";
 import PageHeaderWrapper from "@/components/PageHeaderWrapper";
@@ -71,26 +72,25 @@ const CreateForm = Form.create()(props => {
           ]
         })(<Input placeholder="请输入" />)}
       </FormItem>
-      <FormItem
-        labelCol={{ span: 5 }}
-        wrapperCol={{ span: 15 }}
-        label="角色授权"
-      >
-        {form.getFieldDecorator("roleMenu", {
-          /* initialValue: */
-        })(
-          <Select
-            style={{ width: "100%" }}
-            mode={"multiple"}
-            placeholder={"请选择"}
-          >
-            <Option value="用户管理">用户管理</Option>
-            <Option value="角色管理">角色管理</Option>
-            <Option value="菜单管理">菜单管理</Option>
-            <Option value="部门管理">部门管理</Option>
-          </Select>
-        )}
-      </FormItem>
+      {/*<FormItem*/}
+      {/*labelCol={{ span: 5 }}*/}
+      {/*wrapperCol={{ span: 15 }}*/}
+      {/*label="角色授权"*/}
+      {/*>*/}
+      {/*{form.getFieldDecorator("roleAuth", {*/}
+      {/*})(*/}
+      {/*<Select*/}
+      {/*style={{ width: "100%" }}*/}
+      {/*mode={"multiple"}*/}
+      {/*placeholder={"请选择"}*/}
+      {/*>*/}
+      {/*<Option value="1">用户管理</Option>*/}
+      {/*<Option value="2">角色管理</Option>*/}
+      {/*<Option value="3">菜单管理</Option>*/}
+      {/*<Option value="4">部门管理</Option>*/}
+      {/*</Select>*/}
+      {/*)}*/}
+      {/*</FormItem>*/}
     </Modal>
   );
 });
@@ -102,11 +102,10 @@ class UpdateForm extends PureComponent {
 
     this.state = {
       formVals: {
+        key: props.values.key,
         name: props.values.name,
         value: props.values.value,
-        description: props.values.description,
-        roleMenu: props.values.roleMenu,
-        key: props.values.key
+        description: props.values.description
       },
       currentStep: 0
     };
@@ -119,6 +118,7 @@ class UpdateForm extends PureComponent {
 
   handleNext = currentStep => {
     const { form, handleUpdate } = this.props;
+    //const { form1, handleMenu } = this.props;
     const { formVals: oldValue } = this.state;
     form.validateFields((err, fieldsValue) => {
       if (err) return;
@@ -136,6 +136,22 @@ class UpdateForm extends PureComponent {
         }
       );
     });
+    // form1.validateFields((err, fieldsValue) => {
+    //     if (err) return;
+    //     const formVals = { ...oldValue, ...fieldsValue };
+    //     this.setState(
+    //         {
+    //             formVals
+    //         },
+    //         () => {
+    //             if (currentStep < 1) {
+    //                 this.forward();
+    //             } else {
+    //                 handleMenu(formVals);
+    //             }
+    //         }
+    //     );
+    // });
   };
 
   backward = () => {
@@ -154,22 +170,22 @@ class UpdateForm extends PureComponent {
 
   renderContent = (currentStep, formVals) => {
     const { form } = this.props;
-    if (currentStep === 1) {
-      return [
-        <FormItem key="roleMenu" {...this.formLayout} label="角色授权">
-          {form.getFieldDecorator("roleMenu", {
-            initialValue: formVals.roleMenu
-          })(
-            <Select mode={"multiple"} style={{ width: "100%" }}>
-              <Option value="用户管理">用户管理</Option>
-              <Option value="角色管理">角色管理</Option>
-              <Option value="菜单管理">菜单管理</Option>
-              <Option value="部门管理">部门管理</Option>
-            </Select>
-          )}
-        </FormItem>
-      ];
-    }
+    // if (currentStep === 1) {
+    //     return [
+    //         <FormItem key="roleAuth" {...this.formLayout} label="角色授权">
+    //             {form.getFieldDecorator("roleAuth", {
+    //                 initialValue: formVals.roleAuth
+    //             })(
+    //                 <Select mode={"multiple"} style={{ width: "100%" }}>
+    //                     <Option value="1">用户管理</Option>
+    //                     <Option value="2">角色管理</Option>
+    //                     <Option value="3">菜单管理</Option>
+    //                     <Option value="4">部门管理</Option>
+    //                 </Select>
+    //             )}
+    //         </FormItem>
+    //     ];
+    // }
     return [
       <FormItem key="name" {...this.formLayout} label="角色名称">
         {form.getFieldDecorator("name", {
@@ -188,47 +204,45 @@ class UpdateForm extends PureComponent {
           rules: [
             {
               required: false
-              /*message: "请输入至少五个字符对角色进行描述！",
-              min: 5*/
             }
           ],
           initialValue: formVals.description
-        })(<TextArea rows={4} /*placeholder="请输入至少五个字符"*/ />)}
+        })(<TextArea rows={4} />)}
       </FormItem>
     ];
   };
 
   renderFooter = currentStep => {
     const { handleUpdateModalVisible } = this.props;
-    if (currentStep === 1) {
-      return [
-        <Button key="back" style={{ float: "left" }} onClick={this.backward}>
-          上一步
-        </Button>,
-        <Button key="cancel" onClick={() => handleUpdateModalVisible()}>
-          取消
-        </Button>,
-        <Button
-          key="submit"
-          type="primary"
-          onClick={() => this.handleNext(currentStep)}
-        >
-          完成
-        </Button>
-      ];
-    }
+    // if (currentStep === 1) {
     return [
+      //<Button key="back" style={{ float: "left" }} onClick={this.backward}>
+      //  上一步
+      //</Button>,
       <Button key="cancel" onClick={() => handleUpdateModalVisible()}>
         取消
       </Button>,
       <Button
-        key="forward"
+        key="submit"
         type="primary"
         onClick={() => this.handleNext(currentStep)}
       >
-        下一步
+        完成
       </Button>
     ];
+    // }
+    //  return [
+    //      <Button key="cancel" onClick={() => handleUpdateModalVisible()}>
+    //          取消
+    //      </Button>,
+    //      <Button
+    //          key="forward"
+    //          type="primary"
+    //          onClick={() => this.handleNext(currentStep)}
+    //      >
+    //          下一步
+    //      </Button>
+    //  ];
   };
 
   render() {
@@ -247,7 +261,116 @@ class UpdateForm extends PureComponent {
       >
         <Steps style={{ marginBottom: 28 }} size="small" current={currentStep}>
           <Step title="基本信息" />
-          <Step title="编辑角色属性" />
+          {/*<Step title="编辑角色属性" />*/}
+        </Steps>
+        {this.renderContent(currentStep, formVals)}
+      </Modal>
+    );
+  }
+}
+
+@Form.create()
+class MenuForm extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      formVals: {
+        roleMenu: props.values.roleMenu,
+        key: props.values.key
+      },
+      currentStep: 0
+    };
+
+    this.formLayout = {
+      labelCol: { span: 7 },
+      wrapperCol: { span: 13 }
+    };
+  }
+
+  handleNext = currentStep => {
+    const { form, handleMenu } = this.props;
+    const { formVals: oldValue } = this.state;
+    form.validateFields((err, fieldsValue) => {
+      if (err) return;
+      const formVals = { ...oldValue, ...fieldsValue };
+      this.setState(
+        {
+          formVals
+        },
+        () => {
+          if (currentStep < 1) {
+            this.forward();
+          } else {
+            handlemenu(formVals);
+          }
+        }
+      );
+    });
+  };
+
+  forward = () => {
+    const { currentStep } = this.state;
+    this.setState({
+      currentStep: currentStep + 1
+    });
+  };
+
+  renderContent = (currentStep, formVals) => {
+    const { form } = this.props;
+    return [
+      <FormItem key="roleMenu" {...this.formLayout} label="角色授权">
+        {form.getFieldDecorator("roleMenu", {
+          initialValue: formVals.roleMenu
+        })(
+          // <select name="menuVOs" id="menuVOs">
+          //     <c:forEach items="${menuVOs}" var="type">
+          //         <option value="${roleMenu_Id}">${roleMenu_Name}</option>
+          //     </c:forEach>
+          // </select>
+          <Select mode={"multiple"} style={{ width: "100%" }}>
+            <Option value="1">用户管理</Option>
+            <Option value="2">角色管理</Option>
+            <Option value="3">菜单管理</Option>
+            <Option value="4">部门管理</Option>
+          </Select>
+        )}
+      </FormItem>
+    ];
+  };
+
+  renderFooter = currentStep => {
+    const { handleMenuModalVisible } = this.props;
+    return [
+      <Button key="cancel" onClick={() => handleMenuModalVisible()}>
+        取消
+      </Button>,
+      <Button
+        key="submit"
+        type="primary"
+        onClick={() => this.handleNext(currentStep)}
+      >
+        完成
+      </Button>
+    ];
+  };
+
+  render() {
+    const { menuModalVisible, handleMenuModalVisible } = this.props;
+    const { currentStep, formVals } = this.state;
+
+    return (
+      <Modal
+        width={640}
+        bodyStyle={{ padding: "32px 40px 48px" }}
+        destroyOnClose
+        title="角色授权"
+        visible={menuModalVisible}
+        footer={this.renderFooter(currentStep)}
+        onCancel={() => handleMenuModalVisible()}
+      >
+        <Steps style={{ marginBottom: 28 }} size="small" current={currentStep}>
+          <Step title="角色授权" />
         </Steps>
         {this.renderContent(currentStep, formVals)}
       </Modal>
@@ -264,6 +387,7 @@ class Search extends PureComponent {
   state = {
     modalVisible: false,
     updateModalVisible: false,
+    menuModalVisible: false,
     expandForm: false,
     selectedRows: [],
     formValues: {},
@@ -294,6 +418,8 @@ class Search extends PureComponent {
           <a onClick={() => this.handleUpdateModalVisible(true, record)}>
             编辑
           </a>
+          <Divider type="vertical" />
+          <a onClick={() => this.handleMenuModalVisible(true, record)}>授权</a>
         </Fragment>
       )
     }
@@ -301,15 +427,17 @@ class Search extends PureComponent {
 
   componentDidMount() {
     const { dispatch } = this.props;
+    //console.log(dispatch);
     dispatch({
-      type: "rolesearch/fetch"
+      type: "rolesearch/fetch",
+      payload: {}
     });
   }
 
   handleStandardTableChange = (pagination, filtersArg, sorter) => {
     const { dispatch } = this.props;
     const { formValues } = this.state;
-
+    console.log();
     const filters = Object.keys(filtersArg).reduce((obj, key) => {
       const newObj = { ...obj };
       newObj[key] = getValue(filtersArg[key]);
@@ -322,7 +450,7 @@ class Search extends PureComponent {
       ...formValues,
       ...filters
     };
-    // console.log(params);
+    //console.log(params);
     if (sorter.field) {
       params.sorter = `${sorter.field}_${sorter.order}`;
     }
@@ -419,6 +547,12 @@ class Search extends PureComponent {
       stepFormValues: record || {}
     });
   };
+  handleMenuModalVisible = (flag, record) => {
+    this.setState({
+      menuModalVisible: !!flag,
+      stepFormValues: record || {}
+    });
+  };
 
   //添加
   handleAdd = fields => {
@@ -426,13 +560,14 @@ class Search extends PureComponent {
     dispatch({
       type: "rolesearch/add",
       payload: {
-        description: fields.description,
         name: fields.name,
-        roleMenu: fields.roleMenu
+        value: fields.value,
+        description: fields.description
       }
     });
-
+    //  console.log(dispatch);
     message.success("添加成功");
+
     this.handleModalVisible();
   };
 
@@ -442,15 +577,29 @@ class Search extends PureComponent {
     dispatch({
       type: "rolesearch/update",
       payload: {
+        key: fields.key,
         name: fields.name,
         description: fields.description,
+        value: fields.value
+      }
+    });
+    message.success("编辑成功");
+    this.handleUpdateModalVisible();
+  };
+
+  //授权
+  handleMenu = fields => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: "rolesearch/menu",
+      payload: {
         roleMenu: fields.roleMenu,
         key: fields.key
       }
     });
 
-    message.success("编辑成功");
-    this.handleUpdateModalVisible();
+    message.success("授权成功");
+    this.handleMenuModalVisible();
   };
 
   renderSimpleForm() {
@@ -490,6 +639,7 @@ class Search extends PureComponent {
       rolesearch: { data },
       loading
     } = this.props;
+    //console.log(this.props);
     const {
       selectedRows,
       modalVisible,
@@ -516,7 +666,6 @@ class Search extends PureComponent {
           <div className={styles.tableList}>
             <div className={styles.tableListForm}>{this.renderForm()}</div>
             <div className={styles.tableListOperator}>
-              {/*     <a href={"/role/addRole"}>*/}
               <Button
                 icon="plus"
                 type="primary"
@@ -524,7 +673,6 @@ class Search extends PureComponent {
               >
                 新建
               </Button>
-              {/*  </a>*/}
               {selectedRows.length > 0 && (
                 <span>
                   <Dropdown overlay={menu}>
@@ -535,6 +683,7 @@ class Search extends PureComponent {
                 </span>
               )}
             </div>
+
             <StandardTable
               selectedRows={selectedRows}
               loading={loading}

@@ -19,7 +19,7 @@ export default {
 
   effects: {
     *fetch({ payload }, { call, put }) {
-      const response = yield (yield call(queryFound, payload)).json();
+      const response = yield call(queryFound, payload);
       yield put({
         type: "save",
         payload: response
@@ -34,7 +34,7 @@ export default {
       if (callback) callback();
     },
     *remove({ payload, callback }, { call, put }) {
-      const response = yield (yield call(removeFound, payload)).json();
+      const response = yield call(removeFound, payload);
       yield put({
         type: "save",
         payload: response
@@ -43,7 +43,7 @@ export default {
     },
     *update({ payload, callback }, { call, put }) {
       //console.log(payload);
-      const response = yield (yield call(updateFound, payload)).json();
+      const response = yield call(updateFound, payload);
       yield put({
         type: "save",
         payload: response
@@ -52,7 +52,7 @@ export default {
     },
     *add_user_role({ payload, callback }, { call, put }) {
       console.log(payload);
-      const response = yield (yield call(Add_user_role, payload)).json();
+      const response = yield call(Add_user_role, payload);
       yield put({
         type: "save",
         payload: response
@@ -62,7 +62,7 @@ export default {
     },
     *add_user_app({ payload, callback }, { call, put }) {
       console.log(payload);
-      const response = yield (yield call(Add_user_app, payload)).json();
+      const response = yield call(Add_user_app, payload);
       yield put({
         type: "save",
         payload: response

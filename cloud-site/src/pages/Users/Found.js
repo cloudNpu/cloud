@@ -22,7 +22,7 @@ import {
   Radio,
   Table
 } from "antd";
-import StandardTable from "@/components/StandardTable";
+//import StandardTable from "@/components/StandardTable";
 import PageHeaderWrapper from "@/components/PageHeaderWrapper";
 
 import styles from "./Found.less";
@@ -539,7 +539,7 @@ class Found extends PureComponent {
     });
   }
 
-  handleStandardTableChange = (pagination, filtersArg, sorter) => {
+  handleTableChange = (pagination, filtersArg, sorter) => {
     const { dispatch } = this.props;
     const { formValues } = this.state;
 
@@ -957,13 +957,13 @@ class Found extends PureComponent {
                 </span>
               )}
             </div>
-            <StandardTable
+            <Table
               selectedRows={selectedRows}
               loading={loading}
               data={data}
               columns={this.columns}
               onSelectRow={this.handleSelectRows}
-              onChange={this.handleStandardTableChange}
+              onChange={this.handleTableChange}
             />
           </div>
         </Card>

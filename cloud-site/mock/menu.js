@@ -1,3 +1,4 @@
+/*
 function addMenu(req, res) {
     // console.log(req.params);
     const { menu } = req.body;
@@ -23,3 +24,4 @@ export default {
     'DELETE /api/menus': deleteMenu,
 
 };
+*/

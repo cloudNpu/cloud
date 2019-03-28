@@ -12,15 +12,19 @@ export default {
 
   effects: {
     *fetch({ payload }, { call, put }) {
-      const response = yield call(queryMenu, payload);
+      const response = yield (yield call(queryMenu, payload)).json();
+      console.log(response);
       yield put({
         type: "save",
-        payload: response
+        payload: {
+          list: response,
+          pagination: {}
+        }
       });
     },
     *add({ payload, callback }, { call, put }) {
       const response = yield call(addMenu, payload);
-      //console.log(response);
+      // console.log(response);
       yield put({
         type: "save",
         payload: response
@@ -28,7 +32,7 @@ export default {
       if (callback) callback();
     },
     *delete({ payload, callback }, { call, put }) {
-      const response = yield (yield call(deleteMenu, payload)).json();
+      const response = yield call(deleteMenu, payload);
       yield put({
         type: "save",
         payload: response
@@ -36,7 +40,7 @@ export default {
       if (callback) callback();
     },
     *update({ payload, callback }, { call, put }) {
-      const response = yield (yield call(updateMenu, payload)).json();
+      const response = yield call(updateMenu, payload);
       yield put({
         type: "save",
         payload: response
@@ -51,6 +55,7 @@ export default {
         ...state,
         data: action.payload
       };
+      // console.log(state);
     }
   }
 };

@@ -30,8 +30,8 @@ export default {
         const urlParams = new URL(window.location.href);
         const params = getPageQuery();
         let { redirect } = params;
-        console.log(sessionStorage.getItem("TOKEN"));
-        console.log(sessionStorage.getItem("user").id);
+        // console.log(sessionStorage.getItem("TOKEN"));
+        // console.log(sessionStorage.getItem("user").id);
         if (redirect) {
           const redirectUrlParams = new URL(redirect);
           if (redirectUrlParams.origin === urlParams.origin) {

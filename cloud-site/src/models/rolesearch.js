@@ -13,26 +13,28 @@ export default {
     data: {
       list: [],
       pagination: {}
-    },
-    menu: []
+    }
+    /*,
+      menu: []*/
   },
 
   effects: {
     *fetch({ payload }, { call, put }) {
       const response = yield call(queryRole, payload);
-
       yield put({
         type: "save",
         payload: response
       });
+      console.log(response);
     },
     *add({ payload, callback }, { call, put }) {
       const response = yield call(addRole, payload);
-      console.log(response);
+      //console.log(response);
       yield put({
         type: "save",
         payload: response
       });
+      // console.log(response);
       if (callback) callback();
     },
     *delete({ payload, callback }, { call, put }) {
@@ -51,7 +53,7 @@ export default {
       });
       if (callback) callback();
     },
-    *menu(_, { call, put }) {
+    *menu({ payload, callback }, { call, put }) {
       const response = yield call(menuList);
 
       yield put({
@@ -67,12 +69,12 @@ export default {
         ...state,
         data: action.payload
       };
-    },
+    } /*,
     menuList(state, action) {
       return {
         ...state,
         menu: action.payload
       };
-    }
+    }*/
   }
 };

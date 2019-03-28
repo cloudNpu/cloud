@@ -6,7 +6,7 @@ for (let i = 0; i < 46; i += 1) {
     key: i,
     name: `用户管理员 ${i}`,
     value: `${i}`,
-    roleAuth: "用户管理",
+    roleMenu: "用户管理",
     description: "用于管理用户信息"
   });
 }
@@ -41,7 +41,7 @@ function postRole(req, res, u, b) {
     url = req.url; // eslint-disable-line
   }
   const body = (b && b.body) || req.body;
-  const { method, name, desc, roleAuth, key } = body;
+  const { method, name, description, roleMenu, key } = body;
   switch (method) {
     /* eslint no-case-declarations:0 */
     case "delete":
@@ -54,14 +54,14 @@ function postRole(req, res, u, b) {
       roleSearchDataSource.unshift({
         key: i,
         name,
-        roleAuth,
-        desc
+        roleMenu,
+        description
       });
       break;
     case "update":
       roleSearchDataSource = roleSearchDataSource.map(item => {
         if (item.key === key) {
-          Object.assign(item, { desc, name, roleAuth });
+          Object.assign(item, { description, name, roleMenu });
           return item;
         }
         return item;
@@ -79,6 +79,6 @@ function postRole(req, res, u, b) {
   return res.json(result);
 }
 export default {
-  "GET /api/role": getRole,
-  "POST /api/role": postRole
+  "GET /api/roles": getRole,
+  "POST /api/roles": postRole
 };

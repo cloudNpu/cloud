@@ -18,7 +18,7 @@ export default {
       // yield call(addDept, payload)
       const response = yield call(addDept, payload);
 
-      // console.log(response);
+      console.log(response);
       //console.log( response);
 
       if (response.status === 200) {

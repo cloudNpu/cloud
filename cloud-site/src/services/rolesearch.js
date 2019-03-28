@@ -35,9 +35,12 @@ export async function updateRole(params) {
   });
 }
 
-export async function menuList() {
-  return request("/api/menus", {
-    method: "GET"
-    //body: params
-  });
+export async function menuList(params) {
+  return request(
+    `/api/menus?${stringify(params)}`
+    /*  , {
+    method: "GET",
+    body: params
+  }*/
+  );
 }
