@@ -22,7 +22,7 @@ spring:
 jwt:
   header: Authorization
   secret: mySecret
-  expiration: 1000
+  expiration: 604800 #1000
   tokenHead: Bearer
   route:
     authentication:
