@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -52,4 +53,10 @@ public class DeptServiceImplTest {
         System.out.println(deptService.findById(1l));
     }
 
+    @Test
+    public void findAll() {
+        List<Dept> depts = deptService.getDepts();
+        depts.stream().forEach(System.out::println);
+        //Assert.assertNotEquals(0,roles.size());
+    }
 }

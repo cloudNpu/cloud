@@ -7,6 +7,9 @@ import com.kenji.cloud.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
 @Service
 public class DeptServiceImpl implements DeptService {
 
@@ -41,6 +44,10 @@ public class DeptServiceImpl implements DeptService {
 
     }
 
+    public List<Dept> getDepts(){
+        List<Dept> depts = deptRepository.findAll();
+        return depts;
+    }
     public Dept findById(Long id){
         Dept dept = deptRepository.findById(id).get();
         return dept;

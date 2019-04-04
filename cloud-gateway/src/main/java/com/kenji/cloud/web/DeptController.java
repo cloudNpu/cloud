@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.ws.rs.core.Response;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -55,6 +56,11 @@ public class DeptController {
         return ResponseEntity.status(200).body(list);
     }
 */
+    @GetMapping()
+    public ResponseEntity<List<Dept>> getDepts() {
+            List<Dept> depts = deptService.getDepts();
+            return ResponseEntity.status(200).body(depts);
+    }
 
 
 }
