@@ -8,7 +8,7 @@ import java.util.List;
 public interface DeptService {
     Dept saveDept(Dept dept);
 
-    Dept updateDept(Dept dept);
+    Dept updateDept(Long id,Dept dept);
 
     Dept findById(Long id);
     /**

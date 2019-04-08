@@ -41,11 +41,10 @@ public class DeptServiceImplTest {
     @Test
     public void update() {
         Dept dept = new Dept();
-        dept.setId(11L);
         dept.setDeptName("预备役部");
         dept.setDescription("预备役部");
         dept.setOperDate(new Date());
-        deptService.updateDept(dept);
+        deptService.updateDept(3L,dept);
     }
 
     @Test

@@ -39,8 +39,8 @@ public class DeptController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateDept(@RequestBody Dept dept) {
-        deptService.updateDept(dept);
+    public ResponseEntity<String> updateDept(@PathVariable Long id,@RequestBody Dept dept) {
+        deptService.updateDept(id,dept);
         return ResponseEntity.status(201).body("修改成功！！！");
     }
 

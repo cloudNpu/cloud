@@ -53,7 +53,8 @@ public class DeptServiceImpl implements DeptService {
         return dept;
     }
 
-    public Dept updateDept(Dept dept){
+    public Dept updateDept(Long id,Dept dept){
+        dept.setId(id);
         return deptRepository.save(dept);
     }
 
