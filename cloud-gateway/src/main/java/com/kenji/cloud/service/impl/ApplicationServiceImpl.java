@@ -140,4 +140,9 @@ public class ApplicationServiceImpl implements ApplicationService {
         //Page<InstanceInfo>
         return null;
     }
+
+    @Override
+    public List<InstanceInfo> queryAllInstances(){
+        return instanceInfoRepository.findAll();
+    }
 }

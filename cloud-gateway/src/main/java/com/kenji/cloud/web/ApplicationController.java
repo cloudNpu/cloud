@@ -29,134 +29,151 @@ public class ApplicationController {
     private EurekaServerContext eurekaServerContext;
 
 
-    @RequestMapping(value = "/instanceInfoIds",method = RequestMethod.DELETE)
-    public ResponseEntity<String> deleteInstances(@RequestParam("instanceInfoId") Long[] instanceInfoId, @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication){
+    @RequestMapping(value = "/instanceInfoIds", method = RequestMethod.DELETE)
+    public ResponseEntity<String> deleteInstances(@RequestParam("instanceInfoId") Long[] instanceInfoId, @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication) {
         try {
-            for (int i=0;i<instanceInfoId.length;++i){
-                com.kenji.cloud.entity.InstanceInfo res=applicationService.queryInstance(instanceInfoId[i]);
+            for (int i = 0; i < instanceInfoId.length; ++i) {
+                com.kenji.cloud.entity.InstanceInfo res = applicationService.queryInstance(instanceInfoId[i]);
                 applicationService.deleteApp(res);
-                LeaseInfo leaseInfo=res.getLeaseInfo();
+                LeaseInfo leaseInfo = res.getLeaseInfo();
                 leaseInfoService.deleteLeaseInfo(leaseInfo.getId());
-                eurekaServerContext.getRegistry().cancel(res.getAppName(), res.getInstanceId(),false);
+                eurekaServerContext.getRegistry().cancel(res.getAppName(), res.getInstanceId(), false);
             }
             return ResponseEntity.ok("服务注销成功");
 
 
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("服务注销失败");
         }
 
     }
 
-    @RequestMapping(value = "/apps/appName",method= RequestMethod.PUT)
-    public ResponseEntity<String> publishApp1(@RequestParam("appName") String appName,@RequestParam("isPublished") String isPublished ){
-        if(isPublished.equals("true")){
-            return  publishApp(appName);
+    @RequestMapping(value = "/apps/appName", method = RequestMethod.PUT)
+    public ResponseEntity<String> publishApp1(@RequestParam("appName") String appName, @RequestParam("isPublished") String isPublished) {
+        if (isPublished.equals("true")) {
+            return publishApp(appName);
         }
-        if (isPublished.equals("false")){
-           return  hideApp(appName);
+        if (isPublished.equals("false")) {
+            return hideApp(appName);
         }
-return ResponseEntity.status(HttpStatus.FORBIDDEN).body("输入格式错误");
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body("输入格式错误");
     }
 
 
-
     //服务发布
-    public ResponseEntity<String> publishApp( String appName) {
+    public ResponseEntity<String> publishApp(String appName) {
         try {
-            if(applicationService.publishApp(appName))
-            return ResponseEntity.ok("服务发布成功");
+            if (applicationService.publishApp(appName))
+                return ResponseEntity.ok("服务发布成功");
             else return ResponseEntity.status(HttpStatus.FORBIDDEN).body("没有该服务");
-        }catch (Exception e) {
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("发布失败");
         }
     }
 
-              //服务撤回
-    public ResponseEntity<String> hideApp(String appName)
-    {try {
-        if(applicationService.hideApp(appName))
-        return ResponseEntity.ok("服务撤回成功");
-        else return ResponseEntity.status(HttpStatus.FORBIDDEN).body("没有该服务");
-    }catch (Exception e){
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).body("撤回失败");
+    //服务撤回
+    public ResponseEntity<String> hideApp(String appName) {
+        try {
+            if (applicationService.hideApp(appName))
+                return ResponseEntity.ok("服务撤回成功");
+            else return ResponseEntity.status(HttpStatus.FORBIDDEN).body("没有该服务");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("撤回失败");
+        }
     }
-    }
-
-
-
 
 
     @GetMapping(value = "/apps/instanceInfoId")
-    public ResponseEntity queryInstance(@RequestParam Long instanceInfoId){
+    public ResponseEntity queryInstance(@RequestParam Long instanceInfoId) {
         try {
-            InstanceInfo info=applicationService.queryInstance(instanceInfoId);
-            com.netflix.appinfo.InstanceInfo info1=new com.netflix.appinfo.InstanceInfo();
+            InstanceInfo info = applicationService.queryInstance(instanceInfoId);
+            com.netflix.appinfo.InstanceInfo info1 = new com.netflix.appinfo.InstanceInfo();
             BeanUtils.copyProperties(info, info1);
             return ResponseEntity.ok(info1);
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
-        } }
+        }
+    }
+
+    @GetMapping(value = "/apps")
+    public ResponseEntity queryAllInstances() {
+        try {
+            List<InstanceInfo> infos = applicationService.queryAllInstances();
+            List<com.netflix.appinfo.InstanceInfo> infos1 = new ArrayList<>();
+            //com.netflix.appinfo.InstanceInfo infoTemp = new com.netflix.appinfo.InstanceInfo();
+            for(InstanceInfo info:infos){
+                com.netflix.appinfo.InstanceInfo infoTemp = new com.netflix.appinfo.InstanceInfo();
+                BeanUtils.copyProperties(info, infoTemp);
+                infos1.add(infoTemp);
+            }
+
+            //BeanUtils.copyProperties(info, infoTemp);
+
+            return ResponseEntity.ok(infos1);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
+        }
+    }
 
     @GetMapping(value = "/apps/appName")
-    public ResponseEntity queryInstancesByAppName(@RequestParam("appName") String appName){
+    public ResponseEntity queryInstancesByAppName(@RequestParam("appName") String appName) {
         try {
-            List<InstanceInfo>infos=applicationService.queryByAppName(appName);
+            List<InstanceInfo> infos = applicationService.queryByAppName(appName);
 
             return ResponseEntity.ok(infos);
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
         }
     }
 
     @GetMapping(value = "/apps/visible")
-    public ResponseEntity queryInstancesByVisible(@RequestParam("visible") Boolean visible){
+    public ResponseEntity queryInstancesByVisible(@RequestParam("visible") Boolean visible) {
         try {
-            List<InstanceInfo> infos= applicationService.queryByVisible(visible);
+            List<InstanceInfo> infos = applicationService.queryByVisible(visible);
             System.out.println(infos);
             return ResponseEntity.ok(infos);
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
         }
     }
 
     @GetMapping(value = "/apps/ipAddr")
-    public ResponseEntity queryInstancesByIpAddr(@RequestParam("ipAddr") String ipAddr){
+    public ResponseEntity queryInstancesByIpAddr(@RequestParam("ipAddr") String ipAddr) {
         try {
-            List<InstanceInfo>infos= applicationService.queryByIpAddr(ipAddr);
+            List<InstanceInfo> infos = applicationService.queryByIpAddr(ipAddr);
             return ResponseEntity.ok(infos);
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
         }
     }
 
     @GetMapping(value = "/apps/port")
-    public ResponseEntity<Object> queryInstancesByPort(@RequestParam("port") Integer port){
+    public ResponseEntity<Object> queryInstancesByPort(@RequestParam("port") Integer port) {
         try {
-            List<InstanceInfo>infos= applicationService.queryByPort(port);
+            List<InstanceInfo> infos = applicationService.queryByPort(port);
             return ResponseEntity.ok(infos);
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
         }
     }
 
     @GetMapping(value = "/apps/status")
-    public ResponseEntity getAppStatus(@RequestParam("appName") String appName){
+    public ResponseEntity getAppStatus(@RequestParam("appName") String appName) {
         try {
-            List<InstanceInfo>infos= applicationService.queryByAppName(appName);
+            List<InstanceInfo> infos = applicationService.queryByAppName(appName);
             InstanceInfo info = infos.get(0);
             return ResponseEntity.ok(info.getStatus());
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
         }
     }
 
     @GetMapping(value = "/apps/invokeCount")
-    public ResponseEntity getInvokeCount(@RequestParam("instanceInfoId") Long instanceInfoId){
+    public ResponseEntity getInvokeCount(@RequestParam("instanceInfoId") Long instanceInfoId) {
         try {
-           InstanceInfo info=applicationService.queryInstance(instanceInfoId);
+            InstanceInfo info = applicationService.queryInstance(instanceInfoId);
             return ResponseEntity.ok(info.getInvokeCount());
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
         }
     }
