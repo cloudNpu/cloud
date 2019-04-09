@@ -11,7 +11,7 @@ import java.util.Date;
 @Data
 public class MenuVO {
     private Long id;
-    private Long menuFid;
+    private String menuFidName;
     private String name;
     private String icon;
     private String path;

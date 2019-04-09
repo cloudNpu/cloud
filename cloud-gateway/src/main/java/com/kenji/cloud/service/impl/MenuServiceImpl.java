@@ -67,16 +67,16 @@ public class MenuServiceImpl implements MenuService {
         for (Menu menu:menus){
             MenuVO menuVO = new MenuVO();
             Menu menuF = menu.getMenu();
-            Long menuFId;
+            String menuFName;
             if (menuF != null) {
-                menuFId = menuF.getId();
+                menuFName = menuF.getName();
                 BeanUtils.copyProperties(menu,menuVO);
-                menuVO.setMenuFid(menuFId);
+                menuVO.setMenuFidName(menuFName);
 
             }else {
-                menuFId = menu.getId();
+                menuFName = menu.getName();
                 BeanUtils.copyProperties(menu,menuVO);
-                menuVO.setMenuFid(menuFId);
+                menuVO.setMenuFidName(menuFName);
             }
             menuVOs.add(menuVO);
         }
