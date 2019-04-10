@@ -32,7 +32,7 @@ public class RoleController {
     }
 
     @RequestMapping(value = "/roles", method = RequestMethod.PUT)
-    public ResponseEntity updateRole(@RequestParam("id") Long id, Role role) {
+    public ResponseEntity updateRole(@RequestParam("id") Long id, @RequestBody Role role) {
         try {
             roleService.updateRole(id, role);
             ResponseEntity<List<RoleVO>> roles = getRoles();
