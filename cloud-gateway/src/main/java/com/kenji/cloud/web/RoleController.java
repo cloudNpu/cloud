@@ -34,8 +34,9 @@ public class RoleController {
     @RequestMapping(value = "/roles", method = RequestMethod.PUT)
     public ResponseEntity updateRole(@RequestParam("id") Long id, Role role) {
         try {
-            Role updateResult = roleService.updateRole(id, role);
-            return ResponseEntity.ok(updateResult);
+            roleService.updateRole(id, role);
+            ResponseEntity<List<RoleVO>> roles = getRoles();
+            return roles;
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("更新角色信息失败!\r\n失败原因："+e.getMessage());
         }

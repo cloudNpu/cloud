@@ -24,10 +24,9 @@ public interface RoleService {
      * 根据ID更新角色信息
      * @param id
      * @param role
-     * @return
      */
 
-    Role updateRole(Long id, Role role);
+    void updateRole(Long id, Role role);
 
     /**
      * 通过角色名称查询角色
