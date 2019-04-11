@@ -33,10 +33,21 @@ public class DeptController {
 
     @DeleteMapping()
     public ResponseEntity<List<Dept>> deleteDeptById(@RequestBody Map<String, Long[]> params) {
-        Long[] ids = params.get("ids");
-        deptService.deleteDept(ids);
+
+        try {
+            Long[] ids = params.get("ids");
+            deptService.deleteDept(ids);
+        } catch (Exception e) {
+            List<Dept> depts = deptService.getDepts();
+            return ResponseEntity.status(200).body(depts);
+        }
         List<Dept> depts = deptService.getDepts();
         return ResponseEntity.status(200).body(depts);
+
+        /*Long[] ids = params.get("ids");
+        deptService.deleteDept(ids);
+        List<Dept> depts = deptService.getDepts();
+        return ResponseEntity.status(200).body(depts);*/
     }
 
     @PutMapping("/{id}")
