@@ -15,28 +15,48 @@ export default {
       pagination: {}
     }
     /*,
-      menu: []*/
+          menu: []*/
   },
 
   effects: {
     *fetch({ payload }, { call, put }) {
-      const response = yield call(queryRole, payload);
+      const response = yield (yield call(queryRole, payload)).json();
       yield put({
         type: "save",
-        payload: response
-      });
-      console.log(response);
-    },
-    *add({ payload, callback }, { call, put }) {
-      const response = yield call(addRole, payload);
-      //console.log(response);
-      yield put({
-        type: "save",
-        payload: response
+        payload: {
+          list: response
+        }
       });
       // console.log(response);
+    },
+    *add({ payload, callback }, { call, put, select }) {
+      const response = yield call(addRole, payload);
+      //console.log(response);
+      const list = yield select(state => state.rolesearch.data.list);
+      list.push(payload);
+      console.log(list);
+      yield put({
+        type: "save",
+        payload: {
+          list: list
+          //   pagination: {}
+        }
+      });
       if (callback) callback();
     },
+
+    *update({ payload, callback }, { call, put }) {
+      const response = yield (yield call(updateRole, payload)).json();
+      yield put({
+        type: "save",
+        payload: {
+          list: response
+          //   pagination: {}
+        }
+      });
+      if (callback) callback();
+    },
+
     *delete({ payload, callback }, { call, put }) {
       const response = yield call(deleteRole, payload);
       yield put({
@@ -45,14 +65,7 @@ export default {
       });
       if (callback) callback();
     },
-    *update({ payload, callback }, { call, put }) {
-      const response = yield call(updateRole, payload);
-      yield put({
-        type: "save",
-        payload: response
-      });
-      if (callback) callback();
-    },
+
     *menu({ payload, callback }, { call, put }) {
       const response = yield call(menuList);
 
@@ -70,11 +83,11 @@ export default {
         data: action.payload
       };
     } /*,
-    menuList(state, action) {
-      return {
-        ...state,
-        menu: action.payload
-      };
-    }*/
+        menuList(state, action) {
+          return {
+            ...state,
+            menu: action.payload
+          };
+        }*/
   }
 };

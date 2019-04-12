@@ -10,13 +10,15 @@ import {
   Menu,
   Modal,
   message,
-  Table
+  Table,
+  Steps
 } from "antd";
 import StandardTable from "@/components/StandardTable";
 import PageHeaderWrapper from "@/components/PageHeaderWrapper";
 import styles from "./style.less";
 
 const FormItem = Form.Item;
+const { Step } = Steps;
 const getValue = obj =>
   Object.keys(obj)
     .map(key => obj[key])
@@ -53,7 +55,7 @@ const CreateForm = Form.create()(props => {
         wrapperCol={{ span: 15 }}
         label="父级菜单"
       >
-        {form.getFieldDecorator("menu", {
+        {form.getFieldDecorator("menuFidName", {
           //  rules: [{ required: true, message: "父级菜单不能为空！" }]
         })(<Input placeholder="请输入" />)}
       </FormItem>
@@ -104,18 +106,18 @@ const CreateForm = Form.create()(props => {
 
 @Form.create()
 class UpdateForm extends PureComponent {
-  static defaultProps = {
-    handleUpdate: () => {},
-    handleUpdateModalVisible: () => {},
-    values: {}
-  };
+  // static defaultProps = {
+  //     handleUpdate: () => {},
+  //     handleUpdateModalVisible: () => {},
+  //     values: {}
+  // };
   constructor(props) {
     super(props);
 
     this.state = {
       formVals: {
         name: props.values.name,
-        menu: { id: props.menu },
+        menuFidName: props.values.menuFidName,
         icon: props.values.icon,
         path: props.values.path,
         component: props.values.component,
@@ -123,9 +125,9 @@ class UpdateForm extends PureComponent {
         authority: props.values.authority,
         hideInMenu: props.values.hideInMenu,
         description: props.values.description,
-        key: props.values.key
+        id: props.values.id
       },
-      currentStep: 0
+      currentStep: 1
     };
 
     this.formLayout = {
@@ -145,13 +147,59 @@ class UpdateForm extends PureComponent {
           formVals
         },
         () => {
-          if (currentStep === 0) {
+          if (currentStep < 1) {
+            this.forward();
+          } else {
             handleUpdate(formVals);
           }
         }
       );
     });
   };
+
+  // forward = () => {
+  //     const { currentStep } = this.state;
+  //     this.setState({
+  //         currentStep: currentStep + 1
+  //     });
+  // };
+
+  renderFooter = currentStep => {
+    const { handleUpdateModalVisible } = this.props;
+    return [
+      <Button key="cancel" onClick={() => handleUpdateModalVisible()}>
+        取消
+      </Button>,
+      <Button
+        key="submit"
+        type="primary"
+        onClick={() => this.handleNext(currentStep)}
+      >
+        完成
+      </Button>
+    ];
+  };
+  render() {
+    const { updateModalVisible, handleUpdateModalVisible } = this.props;
+    const { currentStep, formVals } = this.state;
+    return (
+      <Modal
+        width={640}
+        bodyStyle={{ padding: "32px 40px 48px" }}
+        destroyOnClose
+        title="编辑菜单"
+        visible={updateModalVisible}
+        footer={this.renderFooter(currentStep)}
+        onCancel={() => handleUpdateModalVisible(false, values)}
+        // afterClose={() => handleUpdateModalVisible()}
+      >
+        <Steps style={{ marginBottom: 28 }} size="small" current={currentStep}>
+          <Step title="基本信息" />
+        </Steps>
+        {this.renderContent(currentStep, formVals)}
+      </Modal>
+    );
+  }
 
   renderContent = (currentStep, formVals) => {
     const { form } = this.props;
@@ -162,10 +210,10 @@ class UpdateForm extends PureComponent {
           initialValue: formVals.name
         })(<Input placeholder="请输入菜单名称" />)}
       </FormItem>,
-      <FormItem key="menu" {...this.formLayout} label="父级菜单">
-        {form.getFieldDecorator("menu", {
+      <FormItem key="menuFidName" {...this.formLayout} label="父级菜单">
+        {form.getFieldDecorator("menuFidName", {
           // rules: [{ required: true, message: "请输入父级菜单！" }],
-          initialValue: formVals.name
+          initialValue: formVals.menuFidName
         })(<Input placeholder="请输入父级菜单" />)}
       </FormItem>,
       <FormItem key="icon" {...this.formLayout} label="ICON">
@@ -210,42 +258,6 @@ class UpdateForm extends PureComponent {
       </FormItem>
     ];
   };
-  renderFooter = currentStep => {
-    const { handleUpdateModalVisible, values } = this.props;
-    return [
-      <Button
-        key="cancel"
-        onClick={() => handleUpdateModalVisible(false, values)}
-      >
-        取消
-      </Button>,
-      <Button
-        key="submit"
-        type="primary"
-        onClick={() => this.handleNext(currentStep)}
-      >
-        完成
-      </Button>
-    ];
-  };
-  render() {
-    const { updateModalVisible, handleUpdateModalVisible, values } = this.props;
-    const { currentStep, formVals } = this.state;
-    return (
-      <Modal
-        width={640}
-        bodyStyle={{ padding: "32px 40px 48px" }}
-        destroyOnClose
-        title="编辑菜单"
-        visible={updateModalVisible}
-        footer={this.renderFooter(currentStep)}
-        onCancel={() => handleUpdateModalVisible(false, values)}
-        afterClose={() => handleUpdateModalVisible()}
-      >
-        {this.renderContent(currentStep, formVals)}
-      </Modal>
-    );
-  }
 }
 
 @connect(({ first, loading }) => ({
@@ -270,7 +282,7 @@ class First extends PureComponent {
     },
     {
       title: "父级菜单",
-      dataIndex: "menu"
+      dataIndex: "menuFidName"
     },
     {
       title: "ICON",
@@ -355,13 +367,13 @@ class First extends PureComponent {
   handleMenuClick = e => {
     const { dispatch, modalVisible } = this.props;
     const { selectedRows } = this.state;
-    const okHandle = () => {
-      form.validateFields((err, fieldsValue) => {
-        if (err) return;
-        form.resetFields();
-        handleAdd(fieldsValue);
-      });
-    };
+    // const okHandle = () => {
+    //     form.validateFields((err, fieldsValue) => {
+    //         if (err) return;
+    //         form.resetFields();
+    //         handleAdd(fieldsValue);
+    //     });
+    // };
 
     if (!selectedRows) return;
     switch (e.key) {
@@ -369,7 +381,7 @@ class First extends PureComponent {
         dispatch({
           type: "first/delete",
           payload: {
-            key: selectedRows.map(row => row.key)
+            id: selectedRows.map(row => row.id)
           },
           callback: () => {
             this.setState({
@@ -408,7 +420,7 @@ class First extends PureComponent {
       type: "first/add",
       payload: {
         name: fields.name,
-        menu: { id: fields.menu },
+        menu: { id: fields.id },
         icon: fields.icon,
         path: fields.path,
         component: fields.component,
@@ -430,7 +442,7 @@ class First extends PureComponent {
       type: "first/update",
       payload: {
         name: fields.name,
-        menu: { id: fields.menu },
+        menu: { id: fields.menuFidName },
         icon: fields.icon,
         path: fields.path,
         component: fields.component,
@@ -438,7 +450,7 @@ class First extends PureComponent {
         authority: fields.authority,
         hideInMenu: fields.hideInMenu,
         description: fields.description,
-        key: fields.key
+        id: fields.id
       }
     });
     message.success("编辑成功");

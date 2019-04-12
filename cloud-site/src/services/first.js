@@ -2,7 +2,7 @@ import request from "@/utils/request";
 import { stringify } from "qs";
 
 export async function queryMenu(params) {
-  return request(`/api/menus?${stringify(params)}`);
+  return request(`/api/menus`);
 }
 
 export async function addMenu(params) {
@@ -10,30 +10,27 @@ export async function addMenu(params) {
   return request("/api/menus", {
     method: "POST",
     body: {
-      ...params,
-      method: "post"
-    }
-  });
-}
-
-export async function deleteMenu(params) {
-  console.log(params);
-  return request("/api/menus", {
-    method: "POST",
-    body: {
-      ...params,
-      method: "delete"
+      ...params
     }
   });
 }
 
 export async function updateMenu(params) {
-  console.log(params);
-  return request("/api/menus", {
-    method: "POST",
+  //console.log(params);
+  return request(`/api/menus?id=${params.id}`, {
+    method: "PUT",
     body: {
-      ...params,
-      method: "update"
+      ...params
+    }
+  });
+}
+
+export async function deleteMenu(params) {
+  //console.log(params);
+  return request("/api/menus", {
+    method: "DELETE",
+    body: {
+      ...params
     }
   });
 }

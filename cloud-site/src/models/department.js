@@ -32,8 +32,9 @@ export default {
       const response = yield call(addDept, payload);
       //console.log(response);
       const list = yield select(state => state.department.data.list);
-      // console.log(list);
+
       list.push(payload);
+      console.log(list);
       yield put({
         type: "save",
         payload: {

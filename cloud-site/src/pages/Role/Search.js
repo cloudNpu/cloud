@@ -102,12 +102,12 @@ class UpdateForm extends PureComponent {
 
     this.state = {
       formVals: {
-        key: props.values.key,
+        id: props.values.id,
         name: props.values.name,
         value: props.values.value,
         description: props.values.description
       },
-      currentStep: 0
+      currentStep: 1
     };
 
     this.formLayout = {
@@ -214,11 +214,7 @@ class UpdateForm extends PureComponent {
 
   renderFooter = currentStep => {
     const { handleUpdateModalVisible } = this.props;
-    // if (currentStep === 1) {
     return [
-      //<Button key="back" style={{ float: "left" }} onClick={this.backward}>
-      //  上一步
-      //</Button>,
       <Button key="cancel" onClick={() => handleUpdateModalVisible()}>
         取消
       </Button>,
@@ -230,19 +226,6 @@ class UpdateForm extends PureComponent {
         完成
       </Button>
     ];
-    // }
-    //  return [
-    //      <Button key="cancel" onClick={() => handleUpdateModalVisible()}>
-    //          取消
-    //      </Button>,
-    //      <Button
-    //          key="forward"
-    //          type="primary"
-    //          onClick={() => this.handleNext(currentStep)}
-    //      >
-    //          下一步
-    //      </Button>
-    //  ];
   };
 
   render() {
@@ -277,7 +260,7 @@ class MenuForm extends PureComponent {
     this.state = {
       formVals: {
         roleMenu: props.values.roleMenu,
-        key: props.values.key
+        id: props.values.id
       },
       currentStep: 0
     };
@@ -490,7 +473,7 @@ class Search extends PureComponent {
         dispatch({
           type: "rolesearch/delete",
           payload: {
-            key: selectedRows.map(row => row.key)
+            id: selectedRows.map(row => row.id)
           },
           callback: () => {
             this.setState({
@@ -577,7 +560,7 @@ class Search extends PureComponent {
     dispatch({
       type: "rolesearch/update",
       payload: {
-        key: fields.key,
+        id: fields.id,
         name: fields.name,
         description: fields.description,
         value: fields.value
@@ -594,7 +577,7 @@ class Search extends PureComponent {
       type: "rolesearch/menu",
       payload: {
         roleMenu: fields.roleMenu,
-        key: fields.key
+        id: fields.id
       }
     });
 
