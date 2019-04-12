@@ -76,9 +76,9 @@ export default [
         name: "department",
         routes: [
           {
-            path: "/department/department-edit",
-            name: "departmentEdit",
-            component: "./Department/DepartmentEdit"
+            path: "/department/department",
+            name: "department",
+            component: "./Department/Department"
           }
         ]
       },
@@ -131,7 +131,7 @@ export default [
               }
             ]
           },
-            {
+          {
             path: "/my/service",
             name: "service",
             component: "./My/Service/Service",

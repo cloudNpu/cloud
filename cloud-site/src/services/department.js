@@ -1,14 +1,33 @@
 import request from "@/utils/request";
+import { stringify } from "qs";
+
+export async function queryDept(params) {
+  return request(`/api/depts`);
+}
 export async function addDept(params) {
-  //console.log(params);
-  // console.log(params.dept);
-  return request("/api/depts", {
+  return request(`/api/depts`, {
     method: "POST",
-    body: params.dept
+    body: {
+      ...params
+    }
   });
 }
+
+export async function updateDept(params) {
+  return request(`/api/depts/${params.id}`, {
+    method: "PUT",
+    body: {
+      ...params
+      // method: "update"
+    }
+  });
+}
+
 export async function deleteDept(params) {
-  return request("/api/depts/:id" + params.dept[0].key, {
-    method: "DELETE"
+  return request(`/api/depts`, {
+    method: "DELETE",
+    body: {
+      ...params
+    }
   });
 }

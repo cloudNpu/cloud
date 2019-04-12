@@ -1,41 +1,78 @@
-import { addDept, deleteDept } from "@/services/department";
+import {
+  addDept,
+  updateDept,
+  deleteDept,
+  queryDept
+} from "@/services/department";
 import { message } from "antd";
 
 export default {
   namespace: "department",
 
   state: {
-    step: {
-      payAccount: "ant-design@alipay.com",
-      receiverAccount: "test@example.com",
-      receiverName: "Alex",
-      amount: "500"
+    data: {
+      list: [],
+      pagination: {}
     }
   },
 
   effects: {
-    *save({ payload }, { call, put }) {
-      // yield call(addDept, payload)
-      const response = yield call(addDept, payload);
-
-      console.log(response);
-      //console.log( response);
-
-      if (response.status === 200) {
-        message.success("提交成功");
-      } else message.success("提交失败");
+    *fetch({ payload }, { call, put }) {
+      const response = yield (yield call(queryDept, payload)).json();
+      // console.log(response);
+      yield put({
+        type: "save",
+        payload: {
+          list: response
+          // pagination: {}
+        }
+      });
     },
-
-    *delete({ payload }, { call }) {
-      //yield call(deleteDept, payload);
-      const response = yield call(deleteDept, payload);
+    *add({ payload, callback }, { call, put, select }) {
+      const response = yield call(addDept, payload);
       //console.log(response);
-      //localStorage.clear();
-      const { msg } = JSON.parse(response);
-      /*  console.log(msg);*/
-      if (response.status === 204) {
-        message.success("删除成功");
-      } else message.success(msg);
+      const list = yield select(state => state.department.data.list);
+      // console.log(list);
+      list.push(payload);
+      yield put({
+        type: "save",
+        payload: {
+          list: list
+          //   pagination: {}
+        }
+      });
+      if (callback) callback();
+    },
+    *update({ payload, callback }, { call, put }) {
+      const response = yield (yield call(updateDept, payload)).json();
+      // console.log(response);
+      yield put({
+        type: "save",
+        payload: {
+          list: response
+          // pagination: {}
+        }
+      });
+      if (callback) callback();
+    },
+    *delete({ payload, callback }, { call, put }) {
+      const response = yield call(deleteDept, payload);
+      // console.log(response);
+      yield put({
+        type: "save",
+        payload: {
+          list: response
+        }
+      });
+      if (callback) callback();
+    }
+  },
+  reducers: {
+    save(state, action) {
+      return {
+        ...state,
+        data: action.payload
+      };
     }
   }
 };
