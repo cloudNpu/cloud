@@ -4,6 +4,7 @@ import com.kenji.cloud.entity.InstanceInfo;
 import com.kenji.cloud.entity.User;
 import com.kenji.cloud.repository.InstanceInfoRepository;
 import com.kenji.cloud.service.ApplicationService;
+import com.kenji.cloud.vo.InstanceInfoReturnVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
@@ -142,7 +143,16 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-    public List<InstanceInfo> queryAllInstances(){
-        return instanceInfoRepository.findAll();
+    public List<InstanceInfoReturnVo> queryAllInstances(){
+        List<InstanceInfo> infos = instanceInfoRepository.findAll();
+        List<InstanceInfoReturnVo> infoVos = new ArrayList<>();
+        for(InstanceInfo info : infos){
+            InstanceInfoReturnVo infoVo = new InstanceInfoReturnVo(info);
+            infoVos.add(infoVo);
+        }
+
+
+
+        return infoVos;
     }
 }

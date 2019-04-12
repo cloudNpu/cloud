@@ -1,6 +1,7 @@
 package com.kenji.cloud.service;
 
 import com.kenji.cloud.entity.InstanceInfo;
+import com.kenji.cloud.vo.InstanceInfoReturnVo;
 //import com.kenji.cloud.entity.User;
 
 import java.io.Serializable;
@@ -17,7 +18,7 @@ public interface ApplicationService extends Serializable {
     List<InstanceInfo> queryByVisible(boolean visible);
     List<InstanceInfo> queryByPort(Integer port);
     List<InstanceInfo> queryByIpAddr(String ipAddr);
-    List<InstanceInfo> queryAllInstances();
+    List<InstanceInfoReturnVo> queryAllInstances();
     String getIpAddrByHostAndPort(String host,Integer port);
 
     String getAppStatus(InstanceInfo info);

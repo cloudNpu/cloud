@@ -98,7 +98,7 @@ public class ApplicationController {
     @GetMapping(value = "/apps")
     public ResponseEntity queryAllInstances() {
         try {
-            List<InstanceInfo> infos = applicationService.queryAllInstances();
+            /*List<InstanceInfo> infos = applicationService.queryAllInstances();
             List<com.netflix.appinfo.InstanceInfo> infos1 = new ArrayList<>();
             //com.netflix.appinfo.InstanceInfo infoTemp = new com.netflix.appinfo.InstanceInfo();
             for(InstanceInfo info:infos){
@@ -109,7 +109,8 @@ public class ApplicationController {
 
             //BeanUtils.copyProperties(info, infoTemp);
 
-            return ResponseEntity.ok(infos1);
+            return ResponseEntity.ok(infos1);*/
+            return ResponseEntity.ok(applicationService.queryAllInstances());
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
         }
