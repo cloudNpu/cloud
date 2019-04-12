@@ -32,10 +32,22 @@ public class DeptController {
     }
 
     @DeleteMapping()
-    public ResponseEntity<String> deleteDeptById(@RequestBody Map<String, Long[]> params) {
-        Long[] ids = params.get("ids");
+    public ResponseEntity<List<Dept>> deleteDeptById(@RequestBody Map<String, Long[]> params) {
+
+        try {
+            Long[] ids = params.get("ids");
+            deptService.deleteDept(ids);
+        } catch (Exception e) {
+            List<Dept> depts = deptService.getDepts();
+            return ResponseEntity.status(200).body(depts);
+        }
+        List<Dept> depts = deptService.getDepts();
+        return ResponseEntity.status(200).body(depts);
+
+        /*Long[] ids = params.get("ids");
         deptService.deleteDept(ids);
-        return ResponseEntity.status(204).body("删除成功!!!!");
+        List<Dept> depts = deptService.getDepts();
+        return ResponseEntity.status(200).body(depts);*/
     }
 
     @PutMapping("/{id}")
