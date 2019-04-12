@@ -22,10 +22,11 @@ public class RoleController {
     private RoleServiceImpl roleService;
 
     @RequestMapping(value = "/roles", method = RequestMethod.POST)
-    public ResponseEntity<String> addRole(@RequestBody Role role) {
+    public ResponseEntity addRole(@RequestBody Role role) {
         try {
             roleService.addRole(role);
-            return ResponseEntity.ok("添加成功");
+            ResponseEntity<List<RoleVO>> roles = getRoles();
+            return roles;
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("添加失败！\r\n失败原因："+e.getMessage());
         }
@@ -53,10 +54,11 @@ public class RoleController {
     }
 
     @RequestMapping(value = "/roles", method = RequestMethod.DELETE)
-    public ResponseEntity<String> deleteRole(@RequestParam("id") Long id) {
+    public ResponseEntity deleteRole(@RequestParam("id") Long id) {
         try {
             roleService.deleteRole(id);
-            return ResponseEntity.ok("删除角色成功");
+            ResponseEntity<List<RoleVO>> roles = getRoles();
+            return roles;
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("删除角色失败!\r\n失败原因："+e.getMessage());
         }

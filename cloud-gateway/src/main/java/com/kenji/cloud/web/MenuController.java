@@ -28,7 +28,8 @@ public class MenuController {
     public ResponseEntity<String> addMenu(@RequestBody Menu menu) {
         try {
             menuService.addMenu(menu);
-            return ResponseEntity.ok("添加成功");
+            ResponseEntity all = getAll();
+            return all;
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
         }
@@ -62,7 +63,8 @@ public class MenuController {
         try {
 
             menuService.deleteMenus(id);
-            return ResponseEntity.ok("删除成功");
+            ResponseEntity all = getAll();
+            return all;
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
         }
