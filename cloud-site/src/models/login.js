@@ -5,6 +5,7 @@ import { setAuthority } from "@/utils/authority";
 import { getPageQuery } from "@/utils/utils";
 import { reloadAuthorized } from "@/utils/Authorized";
 import token from "../utils/token";
+import user from "./user";
 
 export default {
   namespace: "login",
@@ -26,6 +27,7 @@ export default {
       if (response.status === 200) {
         yield token.save(res.token);
         sessionStorage.setItem("user", stringify(res.user));
+        console.log(user);
         reloadAuthorized();
         const urlParams = new URL(window.location.href);
         const params = getPageQuery();

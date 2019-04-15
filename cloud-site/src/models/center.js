@@ -1,13 +1,17 @@
 import { query as queryUsers, queryCurrent } from "@/services/center";
 import { updateCenter } from "../services/center";
+import user from "./user";
 
 export default {
   namespace: "center",
 
   state: {
     list: [],
+    //JSON.parse(sessionStorage.getItem(user))
     currentUser: {
-      key: "001",
+      id: sessionStorage.getItem(user.id),
+      username: sessionStorage.getItem(user.username)
+      /*key: "001",
       username: "张三",
       dept: "技术部",
       mobile: 13366668888,
@@ -15,7 +19,7 @@ export default {
         "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png",
       officeTel: "6666-4796521",
       new_passward: "",
-      new_passward_again: ""
+      new_passward_again: ""*/
     }
   },
 

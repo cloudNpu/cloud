@@ -6,29 +6,24 @@ import styles from "./Service.less";
 
 const Columns = [
   {
-    title: "App",
-    dataIndex: "app",
-    key: "app"
+    title: "ID",
+    dataIndex: "id",
+    key: "id"
   },
   {
-    title: "InstanceID",
-    dataIndex: "instanceId",
-    key: "instanceId"
+    title: "AppName",
+    dataIndex: "appname",
+    key: "appname"
   },
   {
-    title: "  IpAddr",
-    dataIndex: "ipAddr",
-    key: "ipAddr"
+    title: "userId",
+    dataIndex: "userId",
+    key: "userId"
   },
   {
-    title: "Port",
-    dataIndex: "port",
-    key: "port"
-  },
-  {
-    title: "AppGroupName",
-    dataIndex: "appGroupName",
-    key: "appGroupName"
+    title: "operatorId",
+    dataIndex: "operatorId",
+    key: "operatorId"
   }
 ];
 
@@ -41,6 +36,7 @@ class Service extends Component {
     const { dispatch } = this.props;
     dispatch({
       type: "service/fetch"
+      //   payload:localStorageStorage.getItem("antd-pro-authority")
     });
   }
   render() {

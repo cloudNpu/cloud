@@ -36,31 +36,33 @@ const getValue = obj =>
   Object.keys(obj)
     .map(key => obj[key])
     .join(",");
-//状态下拉
-const statusMap = ["default", "success"];
-const status = ["DOWN", "UP"];
-
-const visibleMap = ["default", "success"];
-const visible = ["0", "1"];
 //新建弹出页面
 const CreateForm = Form.create()(props => {
-  const { modalVisible, form, handleAdd, handleModalVisible } = props;
+  const {
+    modalVisible,
+    form,
+    handleAdd,
+    handleSubmit,
+    handleModalVisible
+  } = props;
   const okHandle = () => {
     form.validateFields((err, fieldsValue) => {
       if (err) return;
       form.resetFields();
       if (fieldsValue.app) {
+        console.log(fieldsValue);
         handleAdd(fieldsValue);
       } else {
         var instanceInfo = JSON.parse(fieldsValue.txt);
-       // console.log(instanceInfo);
-        handleAdd(instanceInfo);
+        console.log(instanceInfo);
+        console.log(instanceInfo.instance.app);
+        handleSubmit(instanceInfo);
       }
     });
   };
   const TabPane = Tabs.TabPane;
   function callback(key) {
-    console.log(key);
+    // console.log(key);
   }
   return (
     <Modal
@@ -111,15 +113,6 @@ const CreateForm = Form.create()(props => {
           <FormItem
             labelCol={{ span: 5 }}
             wrapperCol={{ span: 15 }}
-            label="User"
-          >
-            {form.getFieldDecorator("userid", {
-              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
-            })(<Input placeholder="请输入" />)}
-          </FormItem>
-          <FormItem
-            labelCol={{ span: 5 }}
-            wrapperCol={{ span: 15 }}
             label="Status"
           >
             {form.getFieldDecorator("status", {
@@ -132,12 +125,129 @@ const CreateForm = Form.create()(props => {
             )}
           </FormItem>
           <FormItem
-            labelCol={{ span: 6 }}
-            wrapperCol={{ span: 14 }}
-            label="AppGroupName"
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="overriddenstatus"
           >
-            {form.getFieldDecorator("appGroupName", {
-              //  rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            {form.getFieldDecorator("overriddenstatus", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="homePageUrl"
+          >
+            {form.getFieldDecorator("homePageUrl", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="hostName"
+          >
+            {form.getFieldDecorator("hostName", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="securePort"
+          >
+            {form.getFieldDecorator("securePort", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="countryId"
+          >
+            {form.getFieldDecorator("countryId", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="dataCenterInfo"
+          >
+            {form.getFieldDecorator("dataCenterInfo", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="metadata"
+          >
+            {form.getFieldDecorator("metadata", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="statusPageUrl"
+          >
+            {form.getFieldDecorator("statusPageUrl", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="healthCheckUrl"
+          >
+            {form.getFieldDecorator("healthCheckUrl", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="vipAddress"
+          >
+            {form.getFieldDecorator("vipAddress", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="secureVipAddress"
+          >
+            {form.getFieldDecorator("secureVipAddress", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="lastDirtyTimestamp"
+          >
+            {form.getFieldDecorator("lastDirtyTimestamp", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="inputParams"
+          >
+            {form.getFieldDecorator("inputParams", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="outputParams"
+          >
+            {form.getFieldDecorator("outputParams", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
         </TabPane>
@@ -160,24 +270,6 @@ const CreateForm = Form.create()(props => {
       </Tabs>
     </Modal>
   );
-
-  /* const okSubmit = (e) => {
-        form.validateFields((err, fieldsValue) => {
-          var instanceInfo = JSON.parse(fieldsValue.txt);
-          console.log(instanceInfo);
-          handleAdd(instanceInfo);
-        });*/
-  // var instanceInfo = JSON.parse('{"app":"fdssf","port":"123423"}');
-  //   var instanceInfo = JSON.parse(JSON.stringify(fieldsValue));
-  // form.validateFields((err, fieldsValue) => {
-  //   if (err) return;
-  //   form.resetFields();
-  //   handleSubmit(fieldsValue);
-  // });
-  // console.log("add1");
-  //var instanceInfo = JSON.parse();
-  // console.log(instanceInfo.app);
-  // console.log(instanceInfo.port);
 });
 
 //配置
@@ -187,14 +279,14 @@ class UpdateForm extends PureComponent {
     super(props);
     this.state = {
       formVals: {
-        key: props.values.key,
-        app: props.values.app,
-        instanceId: props.values.instanceId,
-        ipAddr: props.values.ipAddr,
-        port: props.values.port,
-        userid: props.values.userid,
-        status: props.values.status,
-        appGroupName: props.values.appGroupName
+        instance: {
+          key: props.values.key,
+          app: props.values.app,
+          instanceId: props.values.instanceId,
+          ipAddr: props.values.ipAddr,
+          status: props.values.status
+          // visible: props.values.visible,
+        }
       },
       currentStep: 0
     };
@@ -218,8 +310,8 @@ class UpdateForm extends PureComponent {
         () => {
           if (currentStep === 0) {
             var service = JSON.parse(formVals.sdl);
-            handleUpdate(service);
             console.log(service);
+            handleUpdate(service);
           }
         }
       );
@@ -282,7 +374,7 @@ class ChangeForm extends PureComponent {
     super(props);
     this.state = {
       formVals: {
-        key: props.values.key,
+        appName: props.values.appName,
         visible: props.values.visible
       },
       currentStep: 0
@@ -307,7 +399,7 @@ class ChangeForm extends PureComponent {
         () => {
           if (currentStep === 0) {
             handleChange(formVals); //点击确定，调用handleChange
-            console.log("successful call");
+            // console.log("successful call");
           }
         }
       );
@@ -317,13 +409,25 @@ class ChangeForm extends PureComponent {
   renderContent = (currentStep, formVals) => {
     const { form } = this.props;
     return [
+      <FormItem key="appName" {...this.formLayout} label="app">
+        {form.getFieldDecorator("appName", {
+          initialValue: formVals.appName,
+          rules: [
+            {
+              required: true,
+              message: "用于确定是否为该服务发布信息，不能更改",
+              min: 0
+            }
+          ]
+        })(<Input placeholder="请输入" />)}
+      </FormItem>,
       <FormItem key="visible" {...this.formLayout} label="visible">
         {form.getFieldDecorator("visible", {
           initialValue: formVals.visible
         })(
           <Select style={{ width: "100%" }} /* mode={'multiple'}*/>
-            <Option value={1}>发布</Option>
-            <Option value={0}>撤回</Option>
+            <Option value={true}>true</Option>
+            <Option value={false}>false</Option>
           </Select>
         )}
       </FormItem>
@@ -389,8 +493,14 @@ class AppList extends PureComponent {
   };
   columns = [
     {
+      title: "ID",
+      dataIndex: "id",
+      fixed: "left",
+      width: 70
+    },
+    {
       title: "App",
-      dataIndex: "app",
+      dataIndex: "appName",
       fixed: "left",
       width: 70
     },
@@ -398,37 +508,19 @@ class AppList extends PureComponent {
       title: "InstanceID",
       dataIndex: "instanceId",
       fixed: "left",
-      width: 80
+      width: 70
     },
     {
-      title: "  IpAddr",
+      title: "IpAddr",
       dataIndex: "ipAddr"
     },
     {
-      title: "Port",
+      title: "port",
       dataIndex: "port"
     },
     {
-      title: "UserId",
-      dataIndex: "userid"
-    },
-    {
       title: "status",
-      dataIndex: "status",
-      width: 150,
-      filters: [
-        {
-          text: status[0],
-          value: 0
-        },
-        {
-          text: status[1],
-          value: 1
-        }
-      ],
-      render(val) {
-        return <Badge status={statusMap[val]} text={status[val]} />;
-      }
+      dataIndex: "status"
     },
     {
       title: "AppGroupName",
@@ -436,7 +528,7 @@ class AppList extends PureComponent {
     },
     {
       title: "InvokeCount",
-      dataIndex: "count",
+      dataIndex: "invokeCount",
       sorter: true,
       align: "right",
       render: val => `${val} 万`,
@@ -445,29 +537,19 @@ class AppList extends PureComponent {
     },
     {
       title: "Visible",
-      dataIndex: "visible",
-      width: 150,
-      filters: [
-        {
-          text: visible[0],
-          value: 0
-        },
-        {
-          text: visible[1],
-          value: 1
-        }
-      ],
-      render(val) {
-        return <Badge status={visibleMap[val]} text={visible[val]} />;
-      }
+      dataIndex: "visible"
     },
     {
-      title: "SecurePort",
-      dataIndex: "secureport"
+      title: "securePortEnabled",
+      dataIndex: "securePortEnabled"
     },
     {
-      title: "Overridenstatus",
-      dataIndex: "overridenstatus"
+      title: "unsecurePortEnabled",
+      dataIndex: "unsecurePortEnabled"
+    },
+    {
+      title: "Overriddenstatus",
+      dataIndex: "overriddenStatus"
     },
     {
       title: "Inputparm",
@@ -479,72 +561,64 @@ class AppList extends PureComponent {
     },
     {
       title: "complexTypes",
-      dataIndex: "complextypes"
+      dataIndex: "complexType"
     },
     {
       title: "countryID",
-      dataIndex: "countryid"
+      dataIndex: "countryId"
     },
     {
       title: "homePageUrl",
-      dataIndex: "homepageurl"
+      dataIndex: "homePageUrl"
     },
     {
       title: "statusPageUrl",
-      dataIndex: "statuspageurl"
+      dataIndex: "statusPageUrl"
     },
     {
       title: "healthCheckUrl",
-      dataIndex: "healthcheckurl"
-    },
-    {
-      title: "Version",
-      dataIndex: "version"
+      dataIndex: "healthCheckUrl"
     },
     {
       title: "AsgName",
-      dataIndex: "asgname"
+      dataIndex: "asgName"
     },
     {
       title: "ActionType",
-      dataIndex: "actiontype"
+      dataIndex: "actionType"
     },
     {
       title: "LastDirtyTimeStamp",
-      dataIndex: "Lastdirtytimestamp",
-      sorter: true,
-      render: val => <span>{moment(val).format("YYYY-MM-DD HH:mm:ss")}</span>
+      dataIndex: "lastDirtyTimestamp"
     },
     {
       title: "LastUpdateTimeStamp",
-      dataIndex: "Lastupdatetimestamp",
-      sorter: true,
-      render: val => <span>{moment(val).format("YYYY-MM-DD HH:mm:ss")}</span>
+      dataIndex: "lastUpdateTimestamp"
     },
 
     {
       title: "MetaData",
       dataIndex: "metadata"
     },
-    {
+    /*{
       title: "LeaseInfoid",
       dataIndex: "leaseinfoid"
-    },
+    },行数太多*/
     {
       title: "Sid",
       dataIndex: "sid"
     },
-    {
+    /* {
       title: "StatusUrl",
       dataIndex: "statusurl"
-    },
+    },*/
     {
       title: "VipAddress",
-      dataIndex: "vipaddress"
+      dataIndex: "vipAddress"
     },
     {
       title: "SecureVipAddress",
-      dataIndex: "securevipaddress"
+      dataIndex: "secureVipAddress"
     },
     {
       title: "StatusPageRelativeUrl",
@@ -552,51 +626,71 @@ class AppList extends PureComponent {
     },
     {
       title: "StatusPageExplicitUrl",
-      dataIndex: "Statuspageexpliciturl"
-    },
-    {
-      title: "HealthCheck",
-      dataIndex: "healthcheck"
+      dataIndex: "StatusPageExplicitUrl"
     },
     {
       title: "HealthCheckSecureExplicitUrl",
-      dataIndex: "healthchecksecureexpliciturl"
+      dataIndex: "healthCheckSecureExplicitUrl"
     },
     {
-      title: "VipAddressUnreSolved",
-      dataIndex: "vipaddressunresolved"
+      title: "lastUpdatedTimestamp",
+      dataIndex: "lastUpdatedTimestamp"
     },
     {
-      title: "SecureVipAddressUnreSolved",
-      dataIndex: "securevipaddressunresolved"
+      title: "vipAddressUnresolved",
+      dataIndex: "vipAddressUnresolved"
+    },
+    {
+      title: "secureVipAddressUnresolved",
+      dataIndex: "secureVipAddressUnresolved"
+    },
+    {
+      title: "secureHealthCheckUrl",
+      dataIndex: "secureHealthCheckUrl"
+    },
+    {
+      title: "inputParams",
+      dataIndex: "inputParams"
+    },
+    {
+      title: "outputParams",
+      dataIndex: "outputParams"
+    },
+    {
+      title: "method",
+      dataIndex: "method"
+    },
+    {
+      title: "healthCheckRelativeUrl",
+      dataIndex: "healthCheckRelativeUrl"
     },
     {
       title: "HealthCheckExplicitUrl",
-      dataIndex: "healthcheckexpliciturl"
+      dataIndex: "healthCheckExplicitUrl"
     },
-    {
+    /* {
       title: "IsSecurePortEnabled",
       dataIndex: "issecureportenabled"
-    },
-    {
+    },*/
+    /* {
       title: "IsUnsecurePortEnable",
       dataIndex: "isunsecureportenable"
-    },
+    },*/
     {
       title: "DataCenterInfo",
-      dataIndex: "datacenterinfo"
+      dataIndex: "dataCenterInfo"
     },
     {
       title: "HostName",
-      dataIndex: "hostname"
+      dataIndex: "hostName"
     },
     {
-      title: "IsInstanceInfoDirty",
-      dataIndex: "isinstanceinfodirty"
+      title: "instanceInfoDirty",
+      dataIndex: "instanceInfoDirty"
     },
     {
       title: "IsCoordinatingDiscoveryServer",
-      dataIndex: "iscoordinatingdiscoveryserver"
+      dataIndex: "isCoordinatingDiscoveryServer"
     },
     {
       title: "Action",
@@ -652,6 +746,8 @@ class AppList extends PureComponent {
     this.setState({
       formValues: {}
     });
+    // const str="hello";
+    // if(str.equals("a")) {
     dispatch({
       type: "applist/fetch",
       payload: {}
@@ -668,15 +764,14 @@ class AppList extends PureComponent {
   handleMenuClick = e => {
     const { dispatch } = this.props;
     const { selectedRows } = this.state;
-
+    var selectRow = selectedRows.map(row => row.id);
+    //const str=selectRow.map((item)=>item).join(',');
     if (!selectedRows) return;
     switch (e.key) {
       case "remove":
         dispatch({
           type: "applist/remove",
-          payload: {
-            key: selectedRows.map(row => row.key)
-          },
+          payload: selectRow,
           callback: () => {
             this.setState({
               selectedRows: []
@@ -707,15 +802,41 @@ class AppList extends PureComponent {
         ...fieldsValue,
         updatedAt: fieldsValue.updatedAt && fieldsValue.updatedAt.valueOf()
       };
-
+      console.log(values);
+      console.log(values.id);
       this.setState({
         formValues: values
       });
-
-      dispatch({
-        type: "applist/fetch",
-        payload: values
-      });
+      if (values.appName) {
+        dispatch({
+          type: "applist/app",
+          payload: values
+        });
+      }
+      if (values.id) {
+        dispatch({
+          type: "applist/id",
+          payload: values
+        });
+      }
+      if (values.visible) {
+        dispatch({
+          type: "applist/visible",
+          payload: values
+        });
+      }
+      if (values.port) {
+        dispatch({
+          type: "applist/port",
+          payload: values
+        });
+      }
+      if (values.ipAddr) {
+        dispatch({
+          type: "applist/ipAddr",
+          payload: values
+        });
+      }
     });
   };
 
@@ -743,55 +864,44 @@ class AppList extends PureComponent {
     dispatch({
       type: "applist/add",
       payload: {
-                  app: fields.app,
-                  instanceId: fields.instanceId,
-                  ipAddr: fields.ipAddr,
-                  port: fields.port,
-                  userid: fields.userid,
-                  status: fields.status,
-                  appGroupName: fields.appGroupName
-              }
+        instance: {
+          instanceId: fields.instanceId,
+          app: fields.app,
+          ipAddr: fields.ipAddr,
+          status: fields.status,
+          // visible: fields.visible,
+          hostName: fields.hostName,
+          overriddenstatus: fields.overriddenstatus,
+          countryId: fields.countryId,
+          homePageUrl: fields.homePageUrl,
+          statusPageUrl: fields.statusPageUrl,
+          healthCheckUrl: fields.healthCheckUrl,
+          vipAddress: fields.vipAddress,
+          secureVipAddress: fields.secureVipAddress,
+          lastDirtyTimestamp: fields.lastDirtyTimestamp,
+          inputParams: fields.inputParams,
+          outputParams: fields.outputParams
+        }
+      }
     });
-
+    message.success("添加成功");
+    this.handleModalVisible();
+  };
+  handleSubmit = instanceInfo => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: "applist/add",
+      payload: instanceInfo
+    });
     message.success("添加成功");
     this.handleModalVisible();
   };
   //
-  /*  handleSubmit = instanceInfo => {
-  const { dispatch } = this.props;
-  dispatch({
-    type: "applist/add",
-    payload: {
-      app: instanceInfo.app,
-      instanceId: instanceInfo.instanceId,
-      ipAddr: instanceInfo.ipAddr,
-      port: instanceInfo.port,
-      userid: instanceInfo.userid,
-      status: instanceInfo.status,
-      visible: instanceInfo.visible,
-      appGroupName: instanceInfo.appGroupName
-    }
-  });
-
-  message.success("添加成功");
-  this.handleModalVisible();
-};*/
-  //
-  handleUpdate = fields => {
-    /*   JSON.parse(fields.sdl);*/
+  handleUpdate = service => {
     const { dispatch } = this.props;
     dispatch({
       type: "applist/update",
-      payload: {
-        key: fields.key,
-        app: fields.app,
-        instanceId: fields.instanceId,
-        ipAddr: fields.ipAddr,
-        port: fields.port,
-        userid: fields.userid,
-        status: fields.status,
-        appGroupName: fields.appGroupName
-      }
+      payload: service
     });
     message.success("配置成功");
     this.handleUpdateModalVisible();
@@ -802,7 +912,7 @@ class AppList extends PureComponent {
     dispatch({
       type: "applist/change",
       payload: {
-        key: fields.key,
+        appName: fields.appName,
         visible: fields.visible
       }
     });
@@ -820,11 +930,11 @@ class AppList extends PureComponent {
         <Row gutter={{ md: 8, lg: 24, xl: 48 }}>
           <Col md={8} sm={24}>
             <FormItem label="App">
-              {getFieldDecorator("app")(<Input placeholder="请输入" />)}
+              {getFieldDecorator("appName")(<Input placeholder="请输入" />)}
             </FormItem>
           </Col>
           <Col md={8} sm={24}>
-            <FormItem label="InstanceID">
+            <FormItem label="ID">
               {getFieldDecorator("id")(<Input placeholder="请输入" />)}
             </FormItem>
           </Col>
@@ -855,17 +965,17 @@ class AppList extends PureComponent {
         <Row gutter={{ md: 8, lg: 24, xl: 48 }}>
           <Col md={8} sm={24}>
             <FormItem label="App">
-              {getFieldDecorator("app")(<Input placeholder="请输入" />)}
+              {getFieldDecorator("appName")(<Input placeholder="请输入" />)}
             </FormItem>
           </Col>
           <Col md={8} sm={24}>
-            <FormItem label="InstanceID">
+            <FormItem label="ID">
               {getFieldDecorator("id")(<Input placeholder="请输入" />)}
             </FormItem>
           </Col>
           <Col md={8} sm={24}>
             <FormItem label="IpAddr">
-              {getFieldDecorator("ip")(<Input placeholder="请输入" />)}
+              {getFieldDecorator("ipAddr")(<Input placeholder="请输入" />)}
             </FormItem>
           </Col>
         </Row>
@@ -930,6 +1040,7 @@ class AppList extends PureComponent {
 
     const parentMethods = {
       handleAdd: this.handleAdd,
+      handleSubmit: this.handleSubmit,
       handleModalVisible: this.handleModalVisible
     };
     const updateMethods = {
@@ -969,7 +1080,7 @@ class AppList extends PureComponent {
                 </span>
               )}
             </div>
-            <Table
+            <StandardTable
               selectedRows={selectedRows}
               loading={loading}
               data={data}

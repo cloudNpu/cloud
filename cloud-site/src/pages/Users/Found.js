@@ -63,8 +63,8 @@ const CreateForm = Form.create()(props => {
       <FormItem labelCol={{ span: 5 }} wrapperCol={{ span: 15 }} label="性别">
         {form.getFieldDecorator("sex", {})(
           <Select style={{ width: "100%" }} /* mode={'multiple'}*/>
-            <Option value={0}>男</Option>
-            <Option value={1}>女</Option>
+            <Option value={"男"}>男</Option>
+            <Option value={"女"}>女</Option>
           </Select>
         )}
       </FormItem>
@@ -89,14 +89,7 @@ const CreateForm = Form.create()(props => {
       >
         {form.getFieldDecorator("birthday", {
           //  rules: [{ required: true, message: '请选择时间' }],
-        })(
-          <Input placeholder="请输入" /> /*<DatePicker
-                        style={{ width: '100%' }}
-                        showTime
-                        format="YYYY-MM-DD HH:mm:ss"
-                        placeholder="选择出生年月日"
-                    />*/
-        )}
+        })(<Input placeholder="请输入" />)}
       </FormItem>
       <FormItem
         labelCol={{ span: 5 }}
@@ -188,7 +181,6 @@ class UpdateForm extends PureComponent {
     return [
       <FormItem key="username" {...this.formLayout} label="用户名">
         {form.getFieldDecorator("username", {
-          //rules: [{ required: true, message: '请输入规则名称！' }],
           initialValue: formVals.username
         })(<Input placeholder="请输入" />)}
       </FormItem>,
@@ -212,8 +204,8 @@ class UpdateForm extends PureComponent {
           initialValue: formVals.sex
         })(
           <Select style={{ width: "100%" }} /* mode={'multiple'}*/>
-            <Option value={0}>男</Option>
-            <Option value={1}>女</Option>
+            <Option value={"男"}>男</Option>
+            <Option value={"女"}>女</Option>
           </Select>
         )}
       </FormItem>,
@@ -240,10 +232,10 @@ class UpdateForm extends PureComponent {
           initialValue: formVals.role
         })(
           <Select style={{ width: "100%" }} mode={"multiple"}>
-            <Option value={"用户管理员"}>用户管理员</Option>
-            <Option value={"角色管理员"}>角色管理员</Option>
-            <Option value={"服务管理员"}>服务管理员</Option>
-            <Option value={"管理员"}>管理员</Option>
+            <Option value={"0"}>用户管理员</Option>
+            <Option value={"2"}>角色管理员</Option>
+            <Option value={"3"}>服务管理员</Option>
+            <Option value={"1"}>管理员</Option>
           </Select>
         )}
       </FormItem>
@@ -386,6 +378,12 @@ const AuthorizeForm = Form.create()(props => {
   );
 });
 //角色批量授权
+/*@connect(({rolesearch,loading})=> (
+    {
+        rolesearch,
+
+    })
+)*/
 const RoleForm = Form.create()(props => {
   const {
     rolemodalVisible,
@@ -473,31 +471,34 @@ class Found extends PureComponent {
 
   columns = [
     {
+      title: "ID",
+      dataIndex: "id"
+    },
+    {
       title: "用户名",
       dataIndex: "username"
       // width:100,
     },
     {
       title: "部门",
-      dataIndex: "dept"
+      dataIndex: "deptName"
     },
     {
       title: "性别",
-      dataIndex: "sex",
-      //width:100,
-      filters: [
+      dataIndex: "sex"
+      /*filters: [
         {
           text: sex[0],
-          value: 0
+          value:"男"
         },
         {
           text: sex[1],
-          value: 1
+          value: "女"
         }
       ],
       render(val) {
         return <Badge status={sexMap[val]} text={sex[val]} />;
-      }
+      }*/
     },
     {
       title: "出生日期",
@@ -515,7 +516,7 @@ class Found extends PureComponent {
     },
     {
       title: "角色",
-      dataIndex: "role"
+      dataIndex: "roles"
     },
     {
       title: "操作",
@@ -533,7 +534,7 @@ class Found extends PureComponent {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch({
-      type: "found/fetch",
+      type: "found/fetch"
     });
   }
 
@@ -603,10 +604,11 @@ class Found extends PureComponent {
     if (!selectedRows) return;
     switch (e.key) {
       case "remove":
+        let a = selectedRows.map(row => row.id);
         dispatch({
           type: "found/remove",
           payload: {
-            key: selectedRows.map(row => row.key)
+            ids: a
           },
           callback: () => {
             this.setState({
@@ -695,17 +697,17 @@ class Found extends PureComponent {
     dispatch({
       type: "found/add",
       payload: {
-        "user":{
-        username: fields.username,
-        password:88888,
-        sex: fields.sex,
-        dept: {"id": fields.dept},
-        birthday: fields.birthday,
-        mobile: fields.mobile,
-        officeTel: fields.officeTel,
-      },
-      operatorId: 1,
-      roleIds: fields.role
+        user: {
+          username: fields.username,
+          password: "888888",
+          sex: fields.sex,
+          birthday: fields.birthday,
+          mobile: fields.mobile,
+          officeTel: fields.officeTel,
+          dept: { id: fields.dept }
+        },
+        operatorId: 1,
+        roleIds: [1]
       }
     });
     message.success("添加成功");
@@ -717,7 +719,7 @@ class Found extends PureComponent {
     const { selectedRows, selectedApps } = this.state;
     let selectedUsers = [];
     selectedRows.map(item => {
-      selectedUsers.push(item.key);
+      selectedUsers.push(item.id);
     });
     dispatch({
       type: "found/add_user_app",
@@ -734,13 +736,14 @@ class Found extends PureComponent {
     const { selectedRows, selectedRoles } = this.state;
     let selectedUsers = [];
     selectedRows.map(item => {
-      selectedUsers.push(item.key);
+      selectedUsers.push(item.id);
     });
     dispatch({
       type: "found/add_user_role",
       payload: {
-        users: selectedUsers,
-        roles: selectedRoles
+        userIds: selectedUsers,
+        roleIds: selectedRoles,
+        operatorId: [1]
       }
     });
     message.success("授权成功");
@@ -755,15 +758,15 @@ class Found extends PureComponent {
       payload: {
         id: fields.id,
         username: fields.username,
+        password: "888888",
         sex: fields.sex,
-        dept: fields.dept,
-        birthday: fields.birthday,
+        birthday: "2019-10-01",
         mobile: fields.mobile,
         officeTel: fields.officeTel,
-        role: fields.role
+        dept: { id: fields.dept },
+        createdate: "20190101"
       }
     });
-
     message.success("配置成功");
     this.handleUpdateModalVisible();
   };

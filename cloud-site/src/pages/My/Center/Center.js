@@ -4,6 +4,7 @@ import { Form, Input, Upload, Select, Button, message } from "antd";
 import { connect } from "dva";
 import styles from "./Center.less";
 import PhoneView from "./PhoneView";
+import user from "../../../models/user";
 // import { getTimeDistance } from '@/utils/utils';
 
 const FormItem = Form.Item;
@@ -55,15 +56,12 @@ class Center extends Component {
   }
   setBaseInfo = () => {
     const { currentUser, form } = this.props;
-    console.log(currentUser);
-    //console.log(this.props);
     Object.keys(form.getFieldsValue()).forEach(key => {
       const obj = {};
       obj[key] = currentUser[key] || null;
       form.setFieldsValue(obj); //将表中数据根据key值放入表中
     });
   };
-
   getAvatarURL() {
     const { currentUser } = this.props;
     if (currentUser.avatar) {
@@ -73,7 +71,6 @@ class Center extends Component {
       "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png";
     return url;
   }
-
   getViewDom = ref => {
     this.view = ref;
   };
@@ -84,7 +81,7 @@ class Center extends Component {
     dispatch({
       type: "center/update",
       payload: {
-        key: currentUser.key,
+        id: currentUser.id,
         username: currentUser.username,
         dept: currentUser.dept,
         mobile: currentUser.mobile,
@@ -96,11 +93,13 @@ class Center extends Component {
     });
     message.success("更新成功");
   };
-  //
+
   render() {
     const {
       form: { getFieldDecorator }
     } = this.props;
+    // console.log(sessionStorage.getItem(user.id))
+    // console.log(sessionStorage.getItem(user.dept)
     return (
       <div className={styles.baseView} ref={this.getViewDom}>
         <div className={styles.left}>
@@ -113,7 +112,6 @@ class Center extends Component {
               label={formatMessage({ id: "app.settings.basic.nickname" })}
             >
               {getFieldDecorator("username", {
-                //  initialValue:currentUser.username,
                 rules: [
                   {
                     required: true,

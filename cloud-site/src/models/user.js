@@ -10,7 +10,7 @@ export default {
 
   effects: {
     *fetch(_, { call, put }) {
-      const response =yield(yield call(queryUsers)).json();
+      const response = yield (yield call(queryUsers)).json();
       yield put({
         type: "save",
         payload: response
@@ -18,8 +18,8 @@ export default {
     },
     *fetchCurrent(_, { call, put }) {
       //const response = yield(yield call(queryCurrent)).json();
-     const response = sessionStorage.getItem("user");
-     if (response == null || response == undefined) {
+      const response = sessionStorage.getItem("user");
+      if (response == null || response == undefined) {
         yield (window.location.href = "/user/login");
       }
       yield put({

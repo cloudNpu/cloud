@@ -1,6 +1,9 @@
 import { stringify } from "qs";
 import request from "@/utils/request";
 export async function queryService() {
-  return request("/api/service");
-  console.log("111");
+  var a = localStorage.getItem("antd-pro-authority");
+  for (var i = 1; i < a.length; i++) {
+    a = a.replace('"', "");
+  }
+  return request(`/api/userApps/user/${a}`);
 }

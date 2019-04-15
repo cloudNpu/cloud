@@ -121,7 +121,7 @@ class StandardTable extends PureComponent {
           dataSource={list}
           columns={columns}
           pagination={
-            paginationProps.current === undefined ? false : paginationProps
+            paginationProps.pageSize === undefined ? false : paginationProps
           }
           onChange={this.handleTableChange}
         />

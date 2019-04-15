@@ -1,17 +1,21 @@
-import { queryService } from "@/services/api";
+import { queryService } from "@/services/service";
 
 export default {
   namespace: "service",
 
-  state: {},
+  state: {
+    ServiceData: []
+  },
 
   effects: {
     *fetch(_, { call, put }) {
-      console.log(call);
+      console.log(localStorage.getItem("antd-pro-authority"));
       const response = yield (yield call(queryService)).json();
       yield put({
         type: "show",
-        payload: response
+        payload: {
+          ServiceData: response
+        }
       });
       console.log(response);
     }
