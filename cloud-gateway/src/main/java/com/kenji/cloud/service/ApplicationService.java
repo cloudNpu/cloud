@@ -12,6 +12,7 @@ public interface ApplicationService extends Serializable {
     String deleteApp(InstanceInfo info);
     boolean publishApp(String appName);
     boolean hideApp(String appName);
+    InstanceInfoReturnVo queryInstanceById(Long instanceInfoId);
     InstanceInfo queryInstance(Long instanceInfoId);
     InstanceInfo queryPageInstance(Long instanceInfoId);
     List<InstanceInfo> queryByAppName(String appName);
@@ -22,6 +23,5 @@ public interface ApplicationService extends Serializable {
     String getIpAddrByHostAndPort(String host,Integer port);
 
     String getAppStatus(InstanceInfo info);
-
    // List<InstanceInfo> getUserApp(User user);
 }

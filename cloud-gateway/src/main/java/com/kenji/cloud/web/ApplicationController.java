@@ -4,6 +4,7 @@ import com.kenji.cloud.entity.InstanceInfo;
 import com.kenji.cloud.entity.LeaseInfo;
 import com.kenji.cloud.service.ApplicationService;
 import com.kenji.cloud.service.LeaseInfoService;
+import com.kenji.cloud.vo.InstanceInfoReturnVo;
 import com.netflix.eureka.EurekaServerContext;
 import com.netflix.eureka.cluster.PeerEurekaNode;
 import org.springframework.beans.BeanUtils;
@@ -86,10 +87,10 @@ public class ApplicationController {
     @GetMapping(value = "/apps/instanceInfoId")
     public ResponseEntity queryInstance(@RequestParam Long instanceInfoId) {
         try {
-            InstanceInfo info = applicationService.queryInstance(instanceInfoId);
-            com.netflix.appinfo.InstanceInfo info1 = new com.netflix.appinfo.InstanceInfo();
-            BeanUtils.copyProperties(info, info1);
-            return ResponseEntity.ok(info1);
+            InstanceInfoReturnVo info = applicationService.queryInstanceById(instanceInfoId);
+            /*com.netflix.appinfo.InstanceInfo info1 = new com.netflix.appinfo.InstanceInfo();
+            BeanUtils.copyProperties(info, info1);*/
+            return ResponseEntity.ok(info);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
         }

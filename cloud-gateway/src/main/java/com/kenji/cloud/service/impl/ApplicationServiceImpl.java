@@ -71,10 +71,17 @@ public class ApplicationServiceImpl implements ApplicationService {
 
 
     @Override
-    public InstanceInfo queryInstance(Long instanceInfoId) {
-        Optional<InstanceInfo> info = instanceInfoRepository.findById(instanceInfoId);
-        return info.get();
+    public InstanceInfoReturnVo queryInstanceById(Long instanceInfoId) {
+        Optional<InstanceInfo> infos = instanceInfoRepository.findById(instanceInfoId);
+        return new InstanceInfoReturnVo(infos.get());
     }
+
+    @Override
+    public InstanceInfo queryInstance(Long instanceInfoId) {
+        Optional<InstanceInfo> infos = instanceInfoRepository.findById(instanceInfoId);
+        return infos.get();
+    }
+
     @Transactional
     @Override
     public List<InstanceInfo> queryByAppName(String appName) {
@@ -155,4 +162,9 @@ public class ApplicationServiceImpl implements ApplicationService {
 
         return infoVos;
     }
+
+   /* @Override
+    public boolean updateApp(InstanceInfo info){
+        instanceInfoRepository.
+    }*/
 }
