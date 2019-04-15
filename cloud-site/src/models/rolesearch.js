@@ -67,11 +67,16 @@ export default {
     },
 
     *menu({ payload, callback }, { call, put }) {
-      const response = yield call(menuList);
+      const response = yield call(menuList, payload);
 
       yield put({
-        type: "menuList",
-        payload: Array.isArray(response) ? response : []
+        // type: "menuList",
+        type: "save",
+        // payload: Array.isArray(response) ? response : []
+        payload: {
+          list: response
+          //   pagination: {}
+        }
       });
     }
   },

@@ -27,7 +27,7 @@ export async function updateMenu(params) {
 
 export async function deleteMenu(params) {
   //console.log(params);
-  return request("/api/menus", {
+  return request(`/api/menus?id=${params.id}`, {
     method: "DELETE",
     body: {
       ...params

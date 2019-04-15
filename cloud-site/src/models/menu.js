@@ -1,25 +1,41 @@
-import { addMenu } from "@/services/menu";
-import { message } from "antd";
-
+import { queryMenus } from "@/services/menu";
 export default {
-    namespace: 'AddMenu',
+  namespace: "menu",
 
-    state: {
-        step: {
-            payAccount: 'ant-design@alipay.com',
-            receiverAccount: 'test@example.com',
-            receiverName: 'Alex',
-            amount: '500',
-        },
-    },
-
-    effects: {
-        *save({ payload }, { call, put }) {
-           // yield call(addMenu, payload)
-            const response = yield call(addMenu, payload);
-            if (response.status===200) {
-                message.success("提交成功");
-            } else message.success("提交失败");
-        }
+  state: {
+    menus: [],
+    isLoading: false
+  },
+  effects: {
+    *fetchMenus(_, { call, put }) {
+      yield put({
+        type: "changeLoading",
+        payload: true
+      });
+      const response = yield (yield call(queryMenus)).json();
+      //   console.log(response);
+      yield put({
+        type: "setMenus",
+        payload: response
+      });
+      yield put({
+        type: "changeLoading",
+        payload: false
+      });
     }
+  },
+  reducers: {
+    setMenus(state, action) {
+      return {
+        ...state,
+        menus: action.payload
+      };
+    },
+    changeLoading(state, action) {
+      return {
+        ...state,
+        isLoading: action.payload
+      };
+    }
+  }
 };

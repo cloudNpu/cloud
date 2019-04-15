@@ -36,7 +36,13 @@ export async function deleteRole(params) {
 
 export async function menuList(params) {
   return request(
-    `/api/menus?${stringify(params)}`
+    `/api/roleMenus`,
+    {
+      method: "POST",
+      body: {
+        ...params
+      }
+    }
     /*  , {
         method: "GET",
         body: params
