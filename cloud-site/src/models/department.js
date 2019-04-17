@@ -56,7 +56,7 @@ export default {
       if (callback) callback();
     },
     *delete({ payload, callback }, { call, put }) {
-      const response = yield call(deleteDept, payload);
+      const response = yield (yield call(deleteDept, payload)).json();
       // console.log(response);
       yield put({
         type: "save",

@@ -266,11 +266,6 @@ class MenuForm extends PureComponent {
       //       {form.getFieldDecorator("roleMenu", {
       //           initialValue: formVals.roleMenu
       //       })(
-      // <select name="menuVOs" id="menuVOs">
-      //     <c:forEach items="${menuVOs}" var="type">
-      //         <option value="${roleMenu_Id}">${roleMenu_Name}</option>
-      //     </c:forEach>
-      // </select>
       //           <Select mode={"multiple"} style={{ width: "100%" }}>
       //               <Option value="1">用户管理</Option>
       //                <Option value="2">角色管理</Option>
@@ -515,9 +510,12 @@ class Search extends PureComponent {
           value: fields.value
         },
         menu: {
-          id: fields.id,
-          menufid: fields.menufid,
-          name: fields.name
+          // id:item.key,
+          // menufid:item.menufid,
+          // name:item.name
+          // id: fields.id,
+          // menufid: fields.menufid,
+          // name: fields.name
         }
       }
     });

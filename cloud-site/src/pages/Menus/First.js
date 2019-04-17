@@ -16,6 +16,7 @@ import {
 import StandardTable from "@/components/StandardTable";
 import PageHeaderWrapper from "@/components/PageHeaderWrapper";
 import styles from "./style.less";
+import MenuFView from "./MenuFView";
 
 const FormItem = Form.Item;
 const { Step } = Steps;
@@ -50,14 +51,15 @@ const CreateForm = Form.create()(props => {
           rules: [{ required: true, message: "菜单名称不能为空！" }]
         })(<Input placeholder="请输入" />)}
       </FormItem>
+
       <FormItem
         labelCol={{ span: 5 }}
         wrapperCol={{ span: 15 }}
         label="父级菜单"
       >
         {form.getFieldDecorator("menuFidName", {
-          //  rules: [{ required: true, message: "父级菜单不能为空！" }]
-        })(<Input placeholder="请输入" />)}
+          rules: [{ required: true, message: "父级菜单不能为空！" }]
+        })(<MenuFView />)}
       </FormItem>
       <FormItem labelCol={{ span: 5 }} wrapperCol={{ span: 15 }} label="ICON">
         {form.getFieldDecorator("icon", {})(<Input placeholder="请输入" />)}
@@ -420,7 +422,7 @@ class First extends PureComponent {
       type: "first/add",
       payload: {
         name: fields.name,
-        menu: { id: fields.id },
+        menu: { id: fields.menuFidName.map(item => item.key) },
         icon: fields.icon,
         path: fields.path,
         component: fields.component,
