@@ -387,6 +387,7 @@ public class InstanceResource {
         return Response.ok().build();
     }
 
+    //暂时没有peer节点复制的功能
     @PUT
     @Path("/update")    //暂时用这个路径
     @Consumes({"application/json", "application/xml"})
@@ -405,8 +406,8 @@ public class InstanceResource {
         if(null == registry.getInstanceByAppAndId(app.getName(), id))
             return ResponseEntity.notFound().build();
         //若map里已有与目标instance标识相同的instance，则拒绝修改
-        if(null != registry.getInstanceByAppAndId(info.getAppName(), info.getInstanceId()))
-            return ResponseEntity.badRequest().body("目标instance的instanceID已存在");
+        //if(null != registry.getInstanceByAppAndId(info.getAppName(), info.getInstanceId()))
+        //    return ResponseEntity.badRequest().body("目标instance的instanceID已存在");
         //若数据库里没有该instance则返回update失败
         boolean DBFlag = true;
         List<com.kenji.cloud.entity.InstanceInfo> instanceInfosDataBaseAlreadyHaven = applicationService.queryByAppName(app.getName());
@@ -457,6 +458,12 @@ public class InstanceResource {
                 }
             }
         }
+
+        if(!app.getName().equals(info.getAppName()))
+            info.setAppName(app.getName());
+        if (!id.equals(info.getInstanceId()))
+            info.setInstanceId(id);
+
         registry.cancel(app.getName(), id, "true".equals(isReplication));//删除旧的instanse，添加新的instance
         registry.register(info, "true".equals(isReplication));   //真正的服务注册在这，前面都是對註冊信息校验
 
