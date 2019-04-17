@@ -31,6 +31,7 @@ public class RoleServiceImpl implements RoleService {
     private UserRoleRepository userRoleRepository;
     @Autowired
     private RoleMenuRepository roleMenuRepository;
+
     @Override
     public void addRole(Role role) {
         roleRepository.save(role);
@@ -57,7 +58,7 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public void addMenusForRoles(List<RoleMenu> roleMenus) {
         roleMenus.stream().forEach(roleMenu ->
-            roleMenuRepository.save(roleMenu)
+                roleMenuRepository.save(roleMenu)
         );
     }
 
@@ -67,7 +68,7 @@ public class RoleServiceImpl implements RoleService {
         List<RoleVO> roleVOs = new ArrayList<>();
         roles.stream().forEach(role -> {
             RoleVO roleVO = new RoleVO();
-            BeanUtils.copyProperties(role,roleVO);
+            BeanUtils.copyProperties(role, roleVO);
             roleVOs.add(roleVO);
         });
         return roleVOs;

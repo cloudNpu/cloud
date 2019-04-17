@@ -70,8 +70,10 @@ public class MenuServiceImpl implements MenuService {
             String menuFName;
             if (menuF != null) {
                 menuFName = menuF.getName();
+                Long menuFId = menuF.getId();
                 BeanUtils.copyProperties(menu,menuVO);
                 menuVO.setMenuFidName(menuFName);
+                menuVO.setMenuFid(menuFId);
 
             }else {
                 menuFName = menu.getName();

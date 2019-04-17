@@ -230,12 +230,12 @@ public class ApplicationResource {
             info1.setVisible(true);
 
             User user=new User();
-            UserReturnVo user1=userService.findById(2l);
+            UserReturnVo user1=userService.findById(1L);
             BeanUtils.copyProperties(user1, user);
-            user.setId(1l);
+            user.setId(1L);
             info1.setUser(user);
 
-            info1.setInvokeCount(0l);
+            info1.setInvokeCount(0L);
             applicationService.addApp(info1);
         }
         return Response.status(204).build();  // 204 to be backwards compatible

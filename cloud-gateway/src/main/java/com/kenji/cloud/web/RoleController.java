@@ -28,7 +28,7 @@ public class RoleController {
             ResponseEntity<List<RoleVO>> roles = getRoles();
             return roles;
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("添加失败！\r\n失败原因："+e.getMessage());
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("添加失败！\r\n失败原因：" + e.getMessage());
         }
     }
 
@@ -39,7 +39,7 @@ public class RoleController {
             ResponseEntity<List<RoleVO>> roles = getRoles();
             return roles;
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("更新角色信息失败!\r\n失败原因："+e.getMessage());
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("更新角色信息失败!\r\n失败原因：" + e.getMessage());
         }
     }
 
@@ -60,19 +60,21 @@ public class RoleController {
             ResponseEntity<List<RoleVO>> roles = getRoles();
             return roles;
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("删除角色失败!\r\n失败原因："+e.getMessage());
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("删除角色失败!\r\n失败原因：" + e.getMessage());
         }
     }
+
     @RequestMapping(value = "/roleMenus", method = RequestMethod.POST)
     public ResponseEntity addMenusForRoles(@RequestBody List<RoleMenu> roleMenus) {
         try {
             roleService.addMenusForRoles(roleMenus);
-           return ResponseEntity.ok("授权成功");
+            return ResponseEntity.ok("授权成功");
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("授权失败！\r\n失败原因："+e.getMessage());
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("授权失败！\r\n失败原因：" + e.getMessage());
         }
     }
-    @RequestMapping(value = "/roles",method = RequestMethod.GET)
+
+    @RequestMapping(value = "/roles", method = RequestMethod.GET)
     public ResponseEntity<List<RoleVO>> getRoles() {
         try {
             List<RoleVO> roleVOs = roleService.getRoles();
