@@ -16,10 +16,11 @@ import java.util.Map;
  */
 @Service
 public class MenuRoleServiceImpl implements MenuRoleService {
+
     @Autowired
     private MenuRoleRepository menuRepository;
 
-    @Bean
+
     public MenuRoleRepository getMenuRepository() {
         return menuRepository;
     }
