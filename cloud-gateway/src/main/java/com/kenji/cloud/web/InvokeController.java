@@ -41,8 +41,7 @@ public class InvokeController {
 
 
 //    @Autowired
-//    private BaseLoadBalancer baseLoadBalancer;
-
+//    private BaseLoadBalancer baseLoadBalancer;e
     @RequestMapping(value = "/invoke", method = RequestMethod.GET)
     public String invoke(@RequestParam String serviceName, @RequestParam String param) {
 

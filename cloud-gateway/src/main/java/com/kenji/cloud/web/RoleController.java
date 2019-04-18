@@ -4,6 +4,7 @@ import com.kenji.cloud.entity.Menu;
 import com.kenji.cloud.entity.Role;
 import com.kenji.cloud.entity.RoleMenu;
 import com.kenji.cloud.service.impl.RoleServiceImpl;
+import com.kenji.cloud.vo.RoleMenuVo;
 import com.kenji.cloud.vo.RoleVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -67,8 +68,8 @@ public class RoleController {
     @RequestMapping(value = "/roleMenus", method = RequestMethod.POST)
     public ResponseEntity addMenusForRoles(@RequestBody List<RoleMenu> roleMenus) {
         try {
-            roleService.addMenusForRoles(roleMenus);
-            return ResponseEntity.ok("授权成功");
+            List<RoleMenuVo> roleMenuVos = roleService.addMenusForRoles(roleMenus);
+            return ResponseEntity.ok(roleMenuVos);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("授权失败！\r\n失败原因：" + e.getMessage());
         }

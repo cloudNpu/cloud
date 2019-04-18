@@ -4,6 +4,7 @@ import com.kenji.cloud.entity.Menu;
 import com.kenji.cloud.entity.Role;
 import com.kenji.cloud.entity.RoleMenu;
 import com.kenji.cloud.entity.UserRole;
+import com.kenji.cloud.vo.RoleMenuVo;
 import com.kenji.cloud.vo.RoleVO;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -44,8 +45,9 @@ public interface RoleService {
     /**
      * 为角色授予权限
      * @param roleMenus
+     * @return roleMenu的包装
      */
-    void addMenusForRoles(List<RoleMenu> roleMenus);
+    List<RoleMenuVo> addMenusForRoles(List<RoleMenu> roleMenus);
 
     /**
      * 获取所有角色信息
