@@ -53,6 +53,7 @@ public class MenuServiceImpl implements MenuService {
      * 通过用户ID查找用户可用的菜单
      * @param userId
      * @return Set<MenuVO>
+     * @author ubeyang
      */
 
     @Override
@@ -69,9 +70,9 @@ public class MenuServiceImpl implements MenuService {
                 MenuVO menuVO = new MenuVO();
                 String menuName;
                 if (menu != null) {
-                    menuName = menu.getName();
-                    System.out.println(menuName);
-                    Long menuFId = menu.getId();
+                    menuName = menu.getMenu().getName();
+                    //System.out.println(menuName);
+                    Long menuFId = menu.getMenu().getId();
                     BeanUtils.copyProperties(menu, menuVO);
                     menuVO.setMenuFidName(menuName);
                     menuVO.setMenuFid(menuFId);
