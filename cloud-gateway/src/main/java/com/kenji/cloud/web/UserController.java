@@ -38,15 +38,29 @@ public class UserController {
      * @Date 2019/1/7 9:41
      * @Param [saveUserVo]
      * @return org.springframework.http.ResponseEntity<java.lang.String>
+     *
+     * @editBy ubeyang
+     * @Date 2019/4/18
+     * @return 带更新后
      **/
     @PostMapping()
-    public ResponseEntity<String> addUser(@RequestBody SaveUserVo saveUserVo) {
+    public ResponseEntity addUser(@RequestBody SaveUserVo saveUserVo) {
+        List<UserReturnVo>  userReturnVos = null;
         try {
             userService.saveUser(saveUserVo);
+            UserSearchVo userSearchVo = new UserSearchVo(saveUserVo.getUser().getUsername(),
+                                                         saveUserVo.getUser().getDept().getId(),
+                                                         saveUserVo.getUser().getMobile(),
+                                                         saveUserVo.getUser().getOfficeTel(),
+                                                         saveUserVo.getUser().getSex(),
+                                                         //saveUserVo.getUser().getBirthday(),
+                                                         null,
+                                                         saveUserVo.getRoleIds());
+            userReturnVos = userService.findSearch(userSearchVo);//暂时试下能不能用这个
         } catch (Exception e) {
             return ResponseEntity.status(400).body("创建失败");
         }
-        return ResponseEntity.status(201).body("创建成功");
+        return ResponseEntity.ok(userReturnVos);
     }
 
     /**
