@@ -50,7 +50,7 @@ public class UserRoleServiceImpl implements UserRoleService {
         }
         for (Long old : oldList) {
             if (!currList.contains(old)) {
-                userRoleRepository.deleteById(old);
+                userRoleRepository.deleteById(old); //这里可能会出错
             }
         }
         return userRoleRepository.saveAll(addList);
@@ -64,7 +64,8 @@ public class UserRoleServiceImpl implements UserRoleService {
     public List<UserRole> updateUserRoles(Long[] userIds, Long[] roleIds, Long operatorId) {
         List<UserRole> list = new ArrayList<>();
         for (Long userId : userIds) {
-            list.addAll(saveAll(userId, operatorId, roleIds));
+            saveAll(userId, operatorId, roleIds);
+            //list.addAll(saveAll(userId, operatorId, roleIds));
         }
         return list;
     }

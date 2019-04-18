@@ -165,16 +165,19 @@ public class UserController {
      * @return org.springframework.http.ResponseEntity<java.lang.String>
      **/
     @PostMapping("/roles")
-    public ResponseEntity<String> addUserRoles(@RequestBody Map<String, Long[]> params) {
+    public ResponseEntity addUserRoles(@RequestBody Map<String, Long[]> params) {
+        List<UserReturnVo> userReturnVos = null;
         try {
             Long[] userIds= params.get("userIds");
             Long[] roleIds= params.get("roleIds");
             Long operatorId = params.get("operatorId")[0];
             userRoleService.updateUserRoles(userIds, roleIds, operatorId);
+
         } catch (Exception e) {
             return ResponseEntity.status(400).body("编辑失败" + e);
         }
-        return ResponseEntity.status(201).body("编辑用户角色关系成功");
+        userReturnVos = userService.findAll();
+        return ResponseEntity.status(201).body(userReturnVos);
     }
 
     /**
