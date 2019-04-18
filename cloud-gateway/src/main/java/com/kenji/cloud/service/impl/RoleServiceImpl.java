@@ -3,7 +3,6 @@ package com.kenji.cloud.service.impl;
 import com.kenji.cloud.entity.Menu;
 import com.kenji.cloud.entity.Role;
 import com.kenji.cloud.entity.RoleMenu;
-import com.kenji.cloud.entity.UserRole;
 import com.kenji.cloud.repository.RoleMenuRepository;
 import com.kenji.cloud.repository.RoleRepository;
 import com.kenji.cloud.repository.UserRoleRepository;
@@ -17,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @Author: Cjmmy
@@ -64,10 +62,10 @@ public class RoleServiceImpl implements RoleService {
             RoleMenuVo roleMenuVo = new RoleMenuVo();
             Role role = roleMenu.getRole();
             Menu menu = roleMenu.getMenu();
-            roleMenuVo.setMenuName(menu.getName());
-            roleMenuVo.setRoleDescription(role.getDescription());
-            roleMenuVo.setRoleName(role.getName());
-            roleMenuVo.setRoleValue(role.getValue());
+            roleMenuVo.setRoleMenu(menu.getName());
+            roleMenuVo.setDescription(role.getDescription());
+            roleMenuVo.setName(role.getName());
+            roleMenuVo.setValue(role.getValue());
             roleMenuVos.add(roleMenuVo);
         });
         return roleMenuVos;

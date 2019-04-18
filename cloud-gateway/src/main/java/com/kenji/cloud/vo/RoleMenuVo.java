@@ -8,8 +8,8 @@ import lombok.Data;
  */
 @Data
 public class RoleMenuVo {
-    String roleName;
-    String roleValue;
-    String menuName;
-    String roleDescription;
+    String name;
+    String value;
+    String roleMenu;
+    String description;
 }
