@@ -1,11 +1,13 @@
 package com.kenji.cloud.entity;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.kenji.cloud.CloudGateway;
 import com.kenji.cloud.repository.UserRepository;
 import com.kenji.cloud.repository.UserRoleRepository;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,7 +28,12 @@ public class User implements UserDetails {
     private String username;
     private String password;
     private String sex;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Column(name = "BIRTHDAY")
     private Date birthday;
+
     private String iconurl;
     //移动电话
     private String mobile;
@@ -62,9 +69,13 @@ public class User implements UserDetails {
     private List<User> users = new ArrayList<>();
 
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "LASTPASSWORDRESETDATE")
     private Date lastPasswordResetDate;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "CREATEDATE")
     private Date createDate;
 

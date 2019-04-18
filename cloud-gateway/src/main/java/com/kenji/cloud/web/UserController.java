@@ -56,7 +56,7 @@ public class UserController {
                                                          //saveUserVo.getUser().getBirthday(),
                                                          null,
                                                          saveUserVo.getRoleIds());
-            userReturnVos = userService.findSearch(userSearchVo);//暂时试下能不能用这个
+            userReturnVos = userService.findSearch(userSearchVo);
         } catch (Exception e) {
             return ResponseEntity.status(400).body("创建失败");
         }
@@ -89,13 +89,23 @@ public class UserController {
      * @return org.springframework.http.ResponseEntity<java.lang.String>
      **/
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateUser(@RequestBody User user) {
+    public ResponseEntity updateUser(@RequestBody User user) {
+        List<UserReturnVo>  userReturnVos = null;
         try {
             userService.updateUser(user);
+            UserSearchVo userSearchVo = new UserSearchVo(user.getUsername(),
+                    user.getDept().getId(),
+                    user.getMobile(),
+                    user.getOfficeTel(),
+                    user.getSex(),
+                    //saveUserVo.getUser().getBirthday(),
+                    null,
+                    null);
+            userReturnVos = userService.findSearch(userSearchVo);
         } catch (Exception e) {
             return ResponseEntity.status(400).body("更新用户失败"+e);
         }
-        return ResponseEntity.status(201).body("修改成功");
+        return ResponseEntity.status(201).body(userReturnVos);
     }
 
     /**
