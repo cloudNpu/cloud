@@ -79,7 +79,6 @@ public class RoleController {
     public ResponseEntity<List<RoleVO>> getRoles() {
         try {
             List<RoleVO> roleVOs = roleService.getRoles();
-
             return ResponseEntity.ok(roleVOs);
         } catch (Exception e) {
             return null;

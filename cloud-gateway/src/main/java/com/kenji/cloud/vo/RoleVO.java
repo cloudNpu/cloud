@@ -2,6 +2,8 @@ package com.kenji.cloud.vo;
 
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * @Author: Cjmmy
  * @Date: 2019/1/10 9:51 AM
@@ -12,4 +14,5 @@ public class RoleVO {
     private String name;
     private String value;
     private String description;
+    private List<String> roleMenuName;
 }

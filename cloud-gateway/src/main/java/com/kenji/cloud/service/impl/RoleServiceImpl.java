@@ -76,8 +76,15 @@ public class RoleServiceImpl implements RoleService {
         List<Role> roles = roleRepository.findAll();
         List<RoleVO> roleVOs = new ArrayList<>();
         roles.stream().forEach(role -> {
+            List<String> menuNames = new ArrayList<>();
             RoleVO roleVO = new RoleVO();
+            List<RoleMenu> roleMenus = role.getRoleMenus();
+            for (RoleMenu roleMenu : roleMenus) {
+                Menu menu = roleMenu.getMenu();
+                menuNames.add(menu.getName());
+            }
             BeanUtils.copyProperties(role, roleVO);
+            roleVO.setRoleMenuName(menuNames);
             roleVOs.add(roleVO);
         });
         return roleVOs;
