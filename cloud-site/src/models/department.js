@@ -30,11 +30,10 @@ export default {
     },
     *add({ payload, callback }, { call, put, select }) {
       const response = yield call(addDept, payload);
-      //console.log(response);
+      // console.log(response);
       const list = yield select(state => state.department.data.list);
-
       list.push(payload);
-      console.log(list);
+      // console.log(list);
       yield put({
         type: "save",
         payload: {
@@ -57,7 +56,7 @@ export default {
       if (callback) callback();
     },
     *delete({ payload, callback }, { call, put }) {
-      const response = yield call(deleteDept, payload);
+      const response = yield (yield call(deleteDept, payload)).json();
       // console.log(response);
       yield put({
         type: "save",

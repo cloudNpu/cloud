@@ -48,12 +48,12 @@ export default {
   },
 
   *delete({ payload, callback }, { call, put }) {
-    const response = yield call(deleteMenu, payload);
+    console.log("nnnnnn");
+    const response = yield (yield call(deleteMenu, payload)).json();
     yield put({
       type: "save",
       payload: {
         list: response
-        //   pagination: {}
       }
     });
     if (callback) callback();

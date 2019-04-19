@@ -19,6 +19,7 @@ import {
 import StandardTable from "@/components/StandardTable";
 import PageHeaderWrapper from "@/components/PageHeaderWrapper";
 import styles from "./Search.less";
+import MenuView from "./MenuView";
 const FormItem = Form.Item;
 const { Step } = Steps;
 const { TextArea } = Input;
@@ -27,6 +28,14 @@ const getValue = obj =>
   Object.keys(obj)
     .map(key => obj[key])
     .join(",");
+
+const validatorMenu = (rule, value, callback) => {
+  const { menus } = value;
+  if (!menus.key) {
+    callback("Please input menus!");
+  }
+  callback();
+};
 
 const CreateForm = Form.create()(props => {
   const { modalVisible, form, handleAdd, handleModalVisible } = props;
@@ -72,25 +81,6 @@ const CreateForm = Form.create()(props => {
           ]
         })(<Input placeholder="请输入" />)}
       </FormItem>
-      {/*<FormItem*/}
-      {/*labelCol={{ span: 5 }}*/}
-      {/*wrapperCol={{ span: 15 }}*/}
-      {/*label="角色授权"*/}
-      {/*>*/}
-      {/*{form.getFieldDecorator("roleAuth", {*/}
-      {/*})(*/}
-      {/*<Select*/}
-      {/*style={{ width: "100%" }}*/}
-      {/*mode={"multiple"}*/}
-      {/*placeholder={"请选择"}*/}
-      {/*>*/}
-      {/*<Option value="1">用户管理</Option>*/}
-      {/*<Option value="2">角色管理</Option>*/}
-      {/*<Option value="3">菜单管理</Option>*/}
-      {/*<Option value="4">部门管理</Option>*/}
-      {/*</Select>*/}
-      {/*)}*/}
-      {/*</FormItem>*/}
     </Modal>
   );
 });
@@ -105,6 +95,7 @@ class UpdateForm extends PureComponent {
         id: props.values.id,
         name: props.values.name,
         value: props.values.value,
+        roleMenu: props.values.roleMenu,
         description: props.values.description
       },
       currentStep: 1
@@ -118,7 +109,6 @@ class UpdateForm extends PureComponent {
 
   handleNext = currentStep => {
     const { form, handleUpdate } = this.props;
-    //const { form1, handleMenu } = this.props;
     const { formVals: oldValue } = this.state;
     form.validateFields((err, fieldsValue) => {
       if (err) return;
@@ -136,22 +126,6 @@ class UpdateForm extends PureComponent {
         }
       );
     });
-    // form1.validateFields((err, fieldsValue) => {
-    //     if (err) return;
-    //     const formVals = { ...oldValue, ...fieldsValue };
-    //     this.setState(
-    //         {
-    //             formVals
-    //         },
-    //         () => {
-    //             if (currentStep < 1) {
-    //                 this.forward();
-    //             } else {
-    //                 handleMenu(formVals);
-    //             }
-    //         }
-    //     );
-    // });
   };
 
   backward = () => {
@@ -170,22 +144,6 @@ class UpdateForm extends PureComponent {
 
   renderContent = (currentStep, formVals) => {
     const { form } = this.props;
-    // if (currentStep === 1) {
-    //     return [
-    //         <FormItem key="roleAuth" {...this.formLayout} label="角色授权">
-    //             {form.getFieldDecorator("roleAuth", {
-    //                 initialValue: formVals.roleAuth
-    //             })(
-    //                 <Select mode={"multiple"} style={{ width: "100%" }}>
-    //                     <Option value="1">用户管理</Option>
-    //                     <Option value="2">角色管理</Option>
-    //                     <Option value="3">菜单管理</Option>
-    //                     <Option value="4">部门管理</Option>
-    //                 </Select>
-    //             )}
-    //         </FormItem>
-    //     ];
-    // }
     return [
       <FormItem key="name" {...this.formLayout} label="角色名称">
         {form.getFieldDecorator("name", {
@@ -244,7 +202,6 @@ class UpdateForm extends PureComponent {
       >
         <Steps style={{ marginBottom: 28 }} size="small" current={currentStep}>
           <Step title="基本信息" />
-          {/*<Step title="编辑角色属性" />*/}
         </Steps>
         {this.renderContent(currentStep, formVals)}
       </Modal>
@@ -259,10 +216,13 @@ class MenuForm extends PureComponent {
 
     this.state = {
       formVals: {
+        id: props.values.id,
+        name: props.values.name,
+        value: props.values.value,
         roleMenu: props.values.roleMenu,
-        id: props.values.id
+        description: props.values.description
       },
-      currentStep: 0
+      currentStep: 1
     };
 
     this.formLayout = {
@@ -285,7 +245,7 @@ class MenuForm extends PureComponent {
           if (currentStep < 1) {
             this.forward();
           } else {
-            handlemenu(formVals);
+            handleMenu(formVals);
           }
         }
       );
@@ -304,20 +264,12 @@ class MenuForm extends PureComponent {
     return [
       <FormItem key="roleMenu" {...this.formLayout} label="角色授权">
         {form.getFieldDecorator("roleMenu", {
-          initialValue: formVals.roleMenu
-        })(
-          // <select name="menuVOs" id="menuVOs">
-          //     <c:forEach items="${menuVOs}" var="type">
-          //         <option value="${roleMenu_Id}">${roleMenu_Name}</option>
-          //     </c:forEach>
-          // </select>
-          <Select mode={"multiple"} style={{ width: "100%" }}>
-            <Option value="1">用户管理</Option>
-            <Option value="2">角色管理</Option>
-            <Option value="3">菜单管理</Option>
-            <Option value="4">部门管理</Option>
-          </Select>
-        )}
+          initialValue: formVals.roleMenu,
+          rules: [
+            { required: true, message: "角色权限不能为空" }
+            //   { validator: validatorMenu }
+          ]
+        })(<MenuView />)}
       </FormItem>
     ];
   };
@@ -420,7 +372,7 @@ class Search extends PureComponent {
   handleStandardTableChange = (pagination, filtersArg, sorter) => {
     const { dispatch } = this.props;
     const { formValues } = this.state;
-    console.log();
+    //console.log();
     const filters = Object.keys(filtersArg).reduce((obj, key) => {
       const newObj = { ...obj };
       newObj[key] = getValue(filtersArg[key]);
@@ -441,19 +393,6 @@ class Search extends PureComponent {
     dispatch({
       type: "rolesearch/fetch",
       payload: params
-    });
-  };
-
-  //重置
-  handleFormReset = () => {
-    const { form, dispatch } = this.props;
-    form.resetFields();
-    this.setState({
-      formValues: {}
-    });
-    dispatch({
-      type: "rolesearch/fetch",
-      payload: {}
     });
   };
 
@@ -490,31 +429,6 @@ class Search extends PureComponent {
   handleSelectRows = rows => {
     this.setState({
       selectedRows: rows
-    });
-  };
-
-  //查询
-  handleSearch = e => {
-    e.preventDefault();
-
-    const { dispatch, form } = this.props;
-
-    form.validateFields((err, fieldsValue) => {
-      if (err) return;
-
-      const values = {
-        ...fieldsValue,
-        updatedAt: fieldsValue.updatedAt && fieldsValue.updatedAt.valueOf()
-      };
-
-      this.setState({
-        formValues: values
-      });
-
-      dispatch({
-        type: "rolesearch/fetch",
-        payload: values
-      });
     });
   };
 
@@ -573,12 +487,38 @@ class Search extends PureComponent {
   //授权
   handleMenu = fields => {
     const { dispatch } = this.props;
+    let i = 0;
+    let a = [];
+    a.push({
+      id: i,
+      role: {
+        id: fields.id,
+        name: fields.name,
+        value: fields.value
+      },
+      menu: {
+        id: fields.roleMenu.menus.key,
+        name: fields.roleMenu.menus.label
+      }
+    });
+    console.log(a);
     dispatch({
       type: "rolesearch/menu",
-      payload: {
-        roleMenu: fields.roleMenu,
-        id: fields.id
-      }
+      payload: a
+      //{
+      //
+      //          id: i,
+      //          role: {
+      //             id: fields.id,
+      //              name: fields.name,
+      //             value: fields.value
+      //            },
+      //         menu: {
+      //               id: fields.roleMenu.menus.key,
+      //               name: fields.roleMenu.menus.label
+      //               }
+      //
+      // }
     });
 
     message.success("授权成功");
@@ -589,27 +529,6 @@ class Search extends PureComponent {
     const {
       form: { getFieldDecorator }
     } = this.props;
-    return (
-      <Form onSubmit={this.handleSearch} layout="inline">
-        <Row gutter={{ md: 8, lg: 24, xl: 48 }}>
-          <Col md={8} sm={24}>
-            <FormItem label="角色名称">
-              {getFieldDecorator("name")(<Input placeholder="请输入" />)}
-            </FormItem>
-          </Col>
-          <Col md={8} sm={24}>
-            <span className={styles.submitButtons}>
-              <Button type="primary" htmlType="submit">
-                查询
-              </Button>
-              <Button style={{ marginLeft: 8 }} onClick={this.handleFormReset}>
-                重置
-              </Button>
-            </span>
-          </Col>
-        </Row>
-      </Form>
-    );
   }
 
   renderForm() {
@@ -627,6 +546,7 @@ class Search extends PureComponent {
       selectedRows,
       modalVisible,
       updateModalVisible,
+      menuModalVisible,
       stepFormValues
     } = this.state;
     const menu = (
@@ -642,6 +562,10 @@ class Search extends PureComponent {
     const updateMethods = {
       handleUpdateModalVisible: this.handleUpdateModalVisible,
       handleUpdate: this.handleUpdate
+    };
+    const menuMethods = {
+      handleMenuModalVisible: this.handleMenuModalVisible,
+      handleMenu: this.handleMenu
     };
     return (
       <PageHeaderWrapper title="检索角色">
@@ -682,6 +606,13 @@ class Search extends PureComponent {
           <UpdateForm
             {...updateMethods}
             updateModalVisible={updateModalVisible}
+            values={stepFormValues}
+          />
+        ) : null}
+        {stepFormValues && Object.keys(stepFormValues).length ? (
+          <MenuForm
+            {...menuMethods}
+            menuModalVisible={menuModalVisible}
             values={stepFormValues}
           />
         ) : null}

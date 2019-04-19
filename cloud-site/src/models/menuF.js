@@ -1,21 +1,21 @@
-import { queryMenus } from "@/services/menu";
+import { queryMenuFs } from "@/services/menuF";
 export default {
-  namespace: "menu",
+  namespace: "menuF",
 
   state: {
-    menus: [],
+    menuFs: [],
     isLoading: false
   },
   effects: {
-    *fetchMenus(_, { call, put }) {
+    *fetchMenuFs(_, { call, put }) {
       yield put({
         type: "changeLoading",
         payload: true
       });
-      const response = yield (yield call(queryMenus)).json();
-      //   console.log(response);
+      const response = yield (yield call(queryMenuFs)).json();
+      // console.log(response);
       yield put({
-        type: "setMenus",
+        type: "setMenuFs",
         payload: response
       });
       yield put({
@@ -25,10 +25,10 @@ export default {
     }
   },
   reducers: {
-    setMenus(state, action) {
+    setMenuFs(state, action) {
       return {
         ...state,
-        menus: action.payload
+        menuFs: action.payload
       };
     },
     changeLoading(state, action) {
