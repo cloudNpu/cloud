@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { connect } from "dva";
 import { Select, Spin } from "antd";
-import styles from "./Search.less";
+import styles from "./style.less";
 
 const { Option } = Select;
 
@@ -10,18 +10,18 @@ const nullSlectItem = {
   key: ""
 };
 
-@connect(({ menu }) => {
-  const { menus, isLoading } = menu;
+@connect(({ menuF }) => {
+  const { menuFs, isLoading } = menuF;
   return {
-    menus,
+    menuFs,
     isLoading
   };
 })
-class MenuView extends PureComponent {
+class MenuFView extends PureComponent {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch({
-      type: "menu/fetchMenus"
+      type: "menuF/fetchMenuFs"
     });
   }
 
@@ -30,14 +30,17 @@ class MenuView extends PureComponent {
   //
   //     if (!props.value && !!value && !!value.menus) {
   //         dispatch({
-  //             type:'menu/fetchMenus',
-  //             payload: value.menus.key,
+  //             type:'menuF/fetchMenuFs',
+  //             payload: value.menuFs.key,
   //         });
   //     }
   // }
-  getMenusOption() {
-    const { menus } = this.props;
-    return this.getOption(menus);
+  //
+  getMenuFsOption() {
+    const { menuFs } = this.props;
+    //  console.log(menuFs.map(item=>item.id));
+    //  return this.getOption(menuFs);
+    return this.getOption(menuFs); //下拉列表项
   }
 
   getOption = list => {
@@ -49,25 +52,24 @@ class MenuView extends PureComponent {
         </Option>
       );
     }
-    // console.log(list);
+    // console.log(list); //下拉列表项
     return list.map(item => (
       <Option key={item.id} value={item.id}>
         {/*<Option value={item.id}>*/}
         {item.name}
       </Option>
     ));
-    //   console.log(item.id);
   };
 
-  selectMenusItem = item => {
+  selectMenuFsItem = item => {
     const { dispatch, onChange } = this.props;
     dispatch({
-      type: "menu/fetchMenus",
+      type: "menuF/fetchMenuFs",
       payload: item.key
     });
-    //  console.log(this.props.menus);
+    //   console.log(item.key);   //打印结果是所选的菜单的id
     onChange({
-      menus: item
+      menuFs: item
     });
   };
 
@@ -75,31 +77,31 @@ class MenuView extends PureComponent {
     const { value } = this.props;
     if (!value) {
       return {
-        menus: nullSlectItem
+        menuFs: nullSlectItem
       };
     }
-    const { menus } = value;
+    const { menuFs } = value;
     return {
-      menus: menus || nullSlectItem
+      menuFs: menuFs || nullSlectItem
     };
   }
   render() {
-    const { menus } = this.conversionObject();
+    const { menuFs } = this.conversionObject();
     const { isLoading } = this.props;
     return (
       <Spin spinning={isLoading} wrapperClassName={styles.row}>
         <Select
           // mode={"multiple"}
           className={styles.item}
-          value={menus}
+          value={menuFs} //将选中的显示在表格中
           labelInValue
           showSearch
-          onSelect={this.selectMenusItem}
+          onSelect={this.selectMenuFsItem}
         >
-          {this.getMenusOption()}
+          {this.getMenuFsOption()}
         </Select>
       </Spin>
     );
   }
 }
-export default MenuView;
+export default MenuFView;

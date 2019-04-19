@@ -25,27 +25,19 @@ export async function updateRole(params) {
 }
 
 export async function deleteRole(params) {
-  return request("/api/roles/id", {
-    method: "POST",
+  return request(`/api/roles?id=${params.id}`, {
+    method: "DELETE",
     body: {
       ...params
-      //  method: "delete"
     }
   });
 }
 
 export async function menuList(params) {
-  return request(
-    `/api/roleMenus`,
-    {
-      method: "POST",
-      body: {
-        ...params
-      }
+  return request(`/api/roleMenus`, {
+    method: "POST",
+    body: {
+      ...params
     }
-    /*  , {
-        method: "GET",
-        body: params
-      }*/
-  );
+  });
 }
