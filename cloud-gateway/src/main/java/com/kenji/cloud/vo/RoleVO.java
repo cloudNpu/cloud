@@ -14,5 +14,5 @@ public class RoleVO {
     private String name;
     private String value;
     private String description;
-    private List<String> roleMenuName;
+    private List<String> roleMenu;
 }

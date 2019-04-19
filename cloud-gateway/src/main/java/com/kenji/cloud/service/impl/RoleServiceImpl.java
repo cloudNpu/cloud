@@ -84,7 +84,7 @@ public class RoleServiceImpl implements RoleService {
                 menuNames.add(menu.getName());
             }
             BeanUtils.copyProperties(role, roleVO);
-            roleVO.setRoleMenuName(menuNames);
+            roleVO.setRoleMenu(menuNames);
             roleVOs.add(roleVO);
         });
         return roleVOs;
