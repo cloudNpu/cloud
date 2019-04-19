@@ -262,24 +262,12 @@ class MenuForm extends PureComponent {
   renderContent = (currentStep, formVals) => {
     const { form } = this.props;
     return [
-      //   <FormItem key="roleMenu" {...this.formLayout} label="角色授权">
-      //       {form.getFieldDecorator("roleMenu", {
-      //           initialValue: formVals.roleMenu
-      //       })(
-      //           <Select mode={"multiple"} style={{ width: "100%" }}>
-      //               <Option value="1">用户管理</Option>
-      //                <Option value="2">角色管理</Option>
-      //                <Option value="3">菜单管理</Option>
-      //                <Option value="4">部门管理</Option>
-      //            </Select>
-      //        )}
-      //    </FormItem>
       <FormItem key="roleMenu" {...this.formLayout} label="角色授权">
         {form.getFieldDecorator("roleMenu", {
           initialValue: formVals.roleMenu,
           rules: [
-            { required: true, message: "角色权限不能为空" },
-            { validator: validatorMenu }
+            { required: true, message: "角色权限不能为空" }
+            //   { validator: validatorMenu }
           ]
         })(<MenuView />)}
       </FormItem>
@@ -500,24 +488,37 @@ class Search extends PureComponent {
   handleMenu = fields => {
     const { dispatch } = this.props;
     let i = 0;
+    let a = [];
+    a.push({
+      id: i,
+      role: {
+        id: fields.id,
+        name: fields.name,
+        value: fields.value
+      },
+      menu: {
+        id: fields.roleMenu.menus.key,
+        name: fields.roleMenu.menus.label
+      }
+    });
+    console.log(a);
     dispatch({
       type: "rolesearch/menu",
-      payload: {
-        id: i,
-        role: {
-          id: fields.id,
-          name: fields.name,
-          value: fields.value
-        },
-        menu: {
-          // id:item.key,
-          // menufid:item.menufid,
-          // name:item.name
-          // id: fields.id,
-          // menufid: fields.menufid,
-          // name: fields.name
-        }
-      }
+      payload: a
+      //{
+      //
+      //          id: i,
+      //          role: {
+      //             id: fields.id,
+      //              name: fields.name,
+      //             value: fields.value
+      //            },
+      //         menu: {
+      //               id: fields.roleMenu.menus.key,
+      //               name: fields.roleMenu.menus.label
+      //               }
+      //
+      // }
     });
 
     message.success("授权成功");

@@ -25,6 +25,17 @@ class MenuFView extends PureComponent {
     });
   }
 
+  // componentDidUpdate(props){
+  //     const {dispatch, value} = this.props;
+  //
+  //     if (!props.value && !!value && !!value.menus) {
+  //         dispatch({
+  //             type:'menuF/fetchMenuFs',
+  //             payload: value.menuFs.key,
+  //         });
+  //     }
+  // }
+  //
   getMenuFsOption() {
     const { menuFs } = this.props;
     //  console.log(menuFs.map(item=>item.id));
@@ -35,14 +46,18 @@ class MenuFView extends PureComponent {
   getOption = list => {
     if (!list || list.length < 1) {
       return (
-        //   <Option key={0} value ={0}>
-        <Option value={0}>没找到选项</Option>
+        <Option key={0} value={0}>
+          {/*<Option value={0}>*/}
+          没找到选项
+        </Option>
       );
     }
     // console.log(list); //下拉列表项
     return list.map(item => (
-      // <Option key={item.id} value={item.id}>
-      <Option value={item.id}>{item.name}</Option>
+      <Option key={item.id} value={item.id}>
+        {/*<Option value={item.id}>*/}
+        {item.name}
+      </Option>
     ));
   };
 
@@ -52,7 +67,7 @@ class MenuFView extends PureComponent {
       type: "menuF/fetchMenuFs",
       payload: item.key
     });
-    //  console.log(item.key);   //打印结果是所选的菜单的id
+    //   console.log(item.key);   //打印结果是所选的菜单的id
     onChange({
       menuFs: item
     });
@@ -78,7 +93,7 @@ class MenuFView extends PureComponent {
         <Select
           // mode={"multiple"}
           className={styles.item}
-          value={menuFs}
+          value={menuFs} //将选中的显示在表格中
           labelInValue
           showSearch
           onSelect={this.selectMenuFsItem}

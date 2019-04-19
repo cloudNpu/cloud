@@ -43,14 +43,18 @@ class MenuView extends PureComponent {
   getOption = list => {
     if (!list || list.length < 1) {
       return (
-        //   <Option key={0} value ={0}>
-        <Option value={0}>没找到选项</Option>
+        <Option key={0} value={0}>
+          {/*<Option value={0}>*/}
+          没找到选项
+        </Option>
       );
     }
     // console.log(list);
     return list.map(item => (
-      // <Option key={item.id} value={item.id}>
-      <Option value={item.id}>{item.name}</Option>
+      <Option key={item.id} value={item.id}>
+        {/*<Option value={item.id}>*/}
+        {item.name}
+      </Option>
     ));
     //   console.log(item.id);
   };
@@ -85,7 +89,7 @@ class MenuView extends PureComponent {
     return (
       <Spin spinning={isLoading} wrapperClassName={styles.row}>
         <Select
-          mode={"multiple"}
+          // mode={"multiple"}
           className={styles.item}
           value={menus}
           labelInValue

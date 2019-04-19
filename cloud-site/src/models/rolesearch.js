@@ -58,7 +58,9 @@ export default {
     },
 
     *delete({ payload, callback }, { call, put }) {
+      console.log(payload);
       const response = yield (yield call(deleteRole, payload)).json();
+      //  console.log(response);
       yield put({
         type: "save",
         payload: {
@@ -69,8 +71,9 @@ export default {
     },
 
     *menu({ payload, callback }, { call, put }) {
+      console.log(payload);
       const response = yield call(menuList, payload);
-
+      //   console.log(response);
       yield put({
         // type: "menuList",
         type: "save",

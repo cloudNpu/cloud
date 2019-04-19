@@ -29,23 +29,15 @@ export async function deleteRole(params) {
     method: "DELETE",
     body: {
       ...params
-      //  method: "delete"
     }
   });
 }
 
 export async function menuList(params) {
-  return request(
-    `/api/roleMenus`,
-    {
-      method: "POST",
-      body: {
-        ...params
-      }
+  return request(`/api/roleMenus`, {
+    method: "POST",
+    body: {
+      ...params
     }
-    /*  , {
-        method: "GET",
-        body: params
-      }*/
-  );
+  });
 }

@@ -159,13 +159,6 @@ class UpdateForm extends PureComponent {
     });
   };
 
-  // forward = () => {
-  //     const { currentStep } = this.state;
-  //     this.setState({
-  //         currentStep: currentStep + 1
-  //     });
-  // };
-
   renderFooter = currentStep => {
     const { handleUpdateModalVisible } = this.props;
     return [
@@ -181,6 +174,7 @@ class UpdateForm extends PureComponent {
       </Button>
     ];
   };
+
   render() {
     const { updateModalVisible, handleUpdateModalVisible } = this.props;
     const { currentStep, formVals } = this.state;
@@ -192,8 +186,7 @@ class UpdateForm extends PureComponent {
         title="编辑菜单"
         visible={updateModalVisible}
         footer={this.renderFooter(currentStep)}
-        onCancel={() => handleUpdateModalVisible(false, values)}
-        // afterClose={() => handleUpdateModalVisible()}
+        onCancel={() => handleUpdateModalVisible()}
       >
         <Steps style={{ marginBottom: 28 }} size="small" current={currentStep}>
           <Step title="基本信息" />
@@ -216,7 +209,7 @@ class UpdateForm extends PureComponent {
         {form.getFieldDecorator("menuFidName", {
           // rules: [{ required: true, message: "请输入父级菜单！" }],
           initialValue: formVals.menuFidName
-        })(<Input placeholder="请输入父级菜单" />)}
+        })(<MenuFView />)}
       </FormItem>,
       <FormItem key="icon" {...this.formLayout} label="ICON">
         {form.getFieldDecorator("icon", {
@@ -329,7 +322,8 @@ class First extends PureComponent {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch({
-      type: "first/fetch"
+      type: "first/fetch",
+      payload: {}
     });
   }
 
@@ -367,19 +361,13 @@ class First extends PureComponent {
   };
 
   handleMenuClick = e => {
-    const { dispatch, modalVisible } = this.props;
+    const { dispatch } = this.props;
     const { selectedRows } = this.state;
-    // const okHandle = () => {
-    //     form.validateFields((err, fieldsValue) => {
-    //         if (err) return;
-    //         form.resetFields();
-    //         handleAdd(fieldsValue);
-    //     });
-    // };
 
     if (!selectedRows) return;
     switch (e.key) {
       case "delete":
+        // console.log('bhjvjvjvjvj');
         dispatch({
           type: "first/delete",
           payload: {
@@ -395,6 +383,8 @@ class First extends PureComponent {
       default:
         break;
     }
+    //  console.log(e.key);
+    //  console.log(selectedRows.map(row => row.id));
   };
 
   handleSelectRows = rows => {
@@ -422,7 +412,8 @@ class First extends PureComponent {
       type: "first/add",
       payload: {
         name: fields.name,
-        menu: { id: fields.menuFidName.map(item => item.key) },
+        menu: { id: fields.menuFidName.menuFs.key },
+        //   menu: { id: fields.menuFs.key },
         icon: fields.icon,
         path: fields.path,
         component: fields.component,
@@ -444,7 +435,7 @@ class First extends PureComponent {
       type: "first/update",
       payload: {
         name: fields.name,
-        menu: { id: fields.menuFidName },
+        menu: { id: fields.menuFidName.menuFs.key },
         icon: fields.icon,
         path: fields.path,
         component: fields.component,
@@ -464,6 +455,7 @@ class First extends PureComponent {
       form: { getFieldDecorator }
     } = this.props;
   }
+
   renderForm() {
     const { expandForm } = this.state;
     return expandForm ? this.renderAdvancedForm() : this.renderSimpleForm();
