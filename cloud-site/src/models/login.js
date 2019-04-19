@@ -27,7 +27,10 @@ export default {
       if (response.status === 200) {
         yield token.save(res.token);
         sessionStorage.setItem("user", stringify(res.user));
-        console.log(user);
+        localStorage.setItem("currentUser", JSON.stringify(res.user));
+        var currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        // var currentUser=JSON.parse(localStorage.getItem('user'));
+        console.log(currentUser);
         reloadAuthorized();
         const urlParams = new URL(window.location.href);
         const params = getPageQuery();

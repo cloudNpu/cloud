@@ -26,6 +26,7 @@ export async function appSearch(params) {
   return request(`/api/apps/appName?appName=${params.appName}`);
 }
 export async function idSearch(params) {
+  console.log(params);
   return request(`/api/apps/instanceInfoId?instanceInfoId=${params.id}`);
 }
 export async function visibleSearch(params) {
@@ -39,12 +40,17 @@ export async function ipAddrSearch(params) {
 }
 //////////////////////////////
 export async function updateAppList(params) {
-  return request(`/api/cloud/apps/${params.instance.app}`, {
-    method: "POST",
-    body: {
-      ...params
+  return request(
+    `/api/cloud/apps/${params.instance.app}/${
+      params.instance.instanceId
+    }/update`,
+    {
+      method: "PUT",
+      body: {
+        ...params
+      }
     }
-  });
+  );
 }
 
 export async function changeAppList(params) {

@@ -31,7 +31,7 @@ export default {
     *add({ payload, callback }, { call, put, select }) {
       const response = yield call(addFound, payload);
       let list = yield select(state => state.found.data.list);
-      list.push(payload.user);
+      list.push(response);
       yield put({
         type: "save",
         payload: {
@@ -41,30 +41,42 @@ export default {
       });
       if (callback) callback();
     },
-    *remove({ payload, callback }, { call, put }) {
+    *remove({ payload, callback }, { call, put, select }) {
       const response = yield call(removeFound, payload);
+      let list = yield select(state => state.found.data.list);
+      for (let i = 0, flag = true; i < list.length; flag ? i++ : i) {
+        for (let j = 0; j < payload.ids.length; j++) {
+          if (list[i].id === payload.ids[j]) {
+            list.splice(i, 1);
+            flag = false;
+            break;
+          } else {
+            flag = true;
+          }
+        }
+      } //好了，可以删掉31，33了
       yield put({
         type: "save",
         payload: {
-          list: response,
+          list: list,
           pagination: { pageSize: 8 }
         }
       });
-      // console.log(response);
       if (callback) callback();
     },
     *update({ payload, callback }, { call, put, select }) {
-      const response = yield call(updateFound, payload);
-      //let list = yield select(state => state.found.data.list);
-      //console.log(list);
-      // list.splice(payload.id-1,1,payload);
-      // let user=payload.user;
-      // console.log(user);
-      //let index=payload.id-1;
-      //console.log(index);
-      // list.set(index,user);
-      //  console.log(list);
+      const response = yield (yield call(updateFound, payload)).json();
       let list = yield select(state => state.found.data.list);
+      yield list.forEach((value, index, array) => {
+        let user = array[index];
+        let res_user = response[0];
+        if (user.id === res_user.id) {
+          array[index] = res_user;
+        }
+        /*if(user.id == payload .id) {
+            array[index] = payload;
+          }*/
+      });
       yield put({
         type: "save",
         payload: {
@@ -75,8 +87,7 @@ export default {
       if (callback) callback();
     },
     *add_user_role({ payload, callback }, { call, put }) {
-      console.log(payload);
-      const response = yield call(Add_user_role, payload);
+      const response = yield (yield call(Add_user_role, payload)).json();
       yield put({
         type: "save",
         payload: {
@@ -84,7 +95,6 @@ export default {
           pagination: { pageSize: 8 }
         }
       });
-      console.log(response);
       if (callback) callback();
     },
     *add_user_app({ payload, callback }, { call, put }) {

@@ -55,6 +55,8 @@ class Center extends Component {
     this.setBaseInfo();
   }
   setBaseInfo = () => {
+    // var currentUser=localStorage.getItem('currentUser');
+    //  console.log(currentUser);
     const { currentUser, form } = this.props;
     Object.keys(form.getFieldsValue()).forEach(key => {
       const obj = {};

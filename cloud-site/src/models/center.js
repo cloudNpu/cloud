@@ -7,22 +7,19 @@ export default {
 
   state: {
     list: [],
-    //JSON.parse(sessionStorage.getItem(user))
-    currentUser: {
-      id: sessionStorage.getItem(user.id),
-      username: sessionStorage.getItem(user.username)
-      /*key: "001",
-      username: "张三",
-      dept: "技术部",
-      mobile: 13366668888,
-      avatar:
-        "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png",
-      officeTel: "6666-4796521",
-      new_passward: "",
-      new_passward_again: ""*/
-    }
+    currentUser: { currentUser: localStorage.getItem("currentUser") }
   },
-
+  /*id: sessionStorage.getItem(user.id),
+         username: sessionStorage.getItem(user.username)*/
+  /*key: "001",
+    username: "张三",
+    dept: "技术部",
+    mobile: 13366668888,
+    avatar:
+      "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png",
+    officeTel: "6666-4796521",
+    new_passward: "",
+    new_passward_again: ""*/
   effects: {
     *fetch(_, { call, put }) {
       const response = yield call(queryUsers);
@@ -41,7 +38,8 @@ export default {
       if (callback) callback();
     },
     *fetchCurrent(_, { call, put }) {
-      const response = yield call(queryCurrent);
+      console.log("aaaaaa");
+      const response = yield (yield call(queryCurrent)).json();
       yield put({
         type: "saveCurrentUser",
         payload: response
@@ -67,7 +65,8 @@ export default {
         ...state,
         currentUser: {
           ...state.currentUser,
-          notifyCount: action.payload
+          notifyCount: action.payload,
+          unreadCount: action.payload.unreadCount
         }
       };
     }

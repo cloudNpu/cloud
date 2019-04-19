@@ -55,7 +55,6 @@ const CreateForm = Form.create()(props => {
       } else {
         var instanceInfo = JSON.parse(fieldsValue.txt);
         console.log(instanceInfo);
-        console.log(instanceInfo.instance.app);
         handleSubmit(instanceInfo);
       }
     });
@@ -280,17 +279,26 @@ class UpdateForm extends PureComponent {
     this.state = {
       formVals: {
         instance: {
-          key: props.values.key,
-          app: props.values.app,
+          //  id: props.values.id,
+          app: props.values.appName,
           instanceId: props.values.instanceId,
           ipAddr: props.values.ipAddr,
-          status: props.values.status
-          // visible: props.values.visible,
+          status: props.values.status,
+          //visible: props.values.visible,
+          hostName: props.values.hostName,
+          overriddenStatus: props.values.overriddenstatus,
+          // countryId: props.values.countryId,
+          homePageUrl: props.values.homePageUrl,
+          statusPageUrl: props.values.statusPageUrl,
+          healthCheckUrl: props.values.healthCheckUrl,
+          vipAddress: props.values.vipAddress,
+          lastDirtyTimestamp: props.values.lastDirtyTimestamp,
+          inputParams: props.values.inputParams,
+          outputParams: props.values.outputParams
         }
       },
       currentStep: 0
     };
-
     this.formLayout = {
       labelCol: { span: 7 },
       wrapperCol: { span: 13 }
@@ -298,6 +306,9 @@ class UpdateForm extends PureComponent {
   }
 
   handleNext = currentStep => {
+    // var old=[];
+    // old.push(this.state.formVals.instance.app);
+    // old.push(this.state.formVals.instance.instanceId);
     const { form, handleUpdate } = this.props;
     const { formVals: oldValue } = this.state;
     form.validateFields((err, fieldsValue) => {
@@ -310,7 +321,7 @@ class UpdateForm extends PureComponent {
         () => {
           if (currentStep === 0) {
             var service = JSON.parse(formVals.sdl);
-            console.log(service);
+            //console.log(service);
             handleUpdate(service);
           }
         }
@@ -321,7 +332,8 @@ class UpdateForm extends PureComponent {
   renderContent = (currentStep, formVals) => {
     const { form } = this.props;
     return [
-      <FormItem key="sdl">
+      <span className={styles.label}>*注意app和instanceId不可更改</span>,
+      <FormItem key="sdl" label="请编辑服务">
         {form.getFieldDecorator("sdl", {
           initialValue: JSON.stringify(formVals)
         })(<TextArea rows={10} />)}
@@ -409,7 +421,12 @@ class ChangeForm extends PureComponent {
   renderContent = (currentStep, formVals) => {
     const { form } = this.props;
     return [
-      <FormItem key="appName" {...this.formLayout} label="app">
+      <FormItem
+        key="appName"
+        {...this.formLayout}
+        label="app"
+        help={"*app不可更改，用于参考使用"}
+      >
         {form.getFieldDecorator("appName", {
           initialValue: formVals.appName,
           rules: [
@@ -426,8 +443,8 @@ class ChangeForm extends PureComponent {
           initialValue: formVals.visible
         })(
           <Select style={{ width: "100%" }} /* mode={'multiple'}*/>
-            <Option value={true}>true</Option>
-            <Option value={false}>false</Option>
+            <Option value={true}>可见</Option>
+            <Option value={false}>不可见</Option>
           </Select>
         )}
       </FormItem>
@@ -537,7 +554,8 @@ class AppList extends PureComponent {
     },
     {
       title: "Visible",
-      dataIndex: "visible"
+      dataIndex: "visible",
+      render: visible => <div>{visible ? "可见" : "不可见"}</div>
     },
     {
       title: "securePortEnabled",
@@ -789,7 +807,6 @@ class AppList extends PureComponent {
       selectedRows: rows
     });
   };
-
   handleSearch = e => {
     e.preventDefault(); // 阻止提交
 
@@ -802,8 +819,6 @@ class AppList extends PureComponent {
         ...fieldsValue,
         updatedAt: fieldsValue.updatedAt && fieldsValue.updatedAt.valueOf()
       };
-      console.log(values);
-      console.log(values.id);
       this.setState({
         formValues: values
       });
@@ -902,6 +917,28 @@ class AppList extends PureComponent {
     dispatch({
       type: "applist/update",
       payload: service
+
+      //app:this.state.formVals.app,
+      //instanceId:this.state.formVals.instanceId,
+      /*   "instance": {
+                id: service.id,
+                app: service.appName,
+                instanceId: service.instanceId,
+                ipAddr: service.ipAddr,
+                status: service.status,
+                visible: service.visible,
+                hostName: service.hostName,
+                overriddenStatus: service.overriddenstatus,
+                countryId: service.countryId,
+                homePageUrl: service.homePageUrl,
+                statusPageUrl: service.statusPageUrl,
+                healthCheckUrl: service.healthCheckUrl,
+                vipAddress:service.vipAddress,
+                lastDirtyTimestamp: service.lastDirtyTimestamp,
+                inputParams: service.inputParams,
+                outputParams: service.outputParams
+
+        }*/
     });
     message.success("配置成功");
     this.handleUpdateModalVisible();
@@ -984,8 +1021,8 @@ class AppList extends PureComponent {
             <FormItem label="Visible">
               {getFieldDecorator("visible")(
                 <Select placeholder="请选择" style={{ width: "100%" }}>
-                  <Option value="1">0</Option>
-                  <Option value="0">1</Option>
+                  <Option value="1">可见</Option>
+                  <Option value="0">不可见</Option>
                 </Select>
               )}
             </FormItem>

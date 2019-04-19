@@ -73,12 +73,8 @@ const CreateForm = Form.create()(props => {
           //  rules: [{ required: true, message: '请选择一个！', min: 3 }],
         })(
           <Select style={{ width: "100%" }}>
-            <Option value={5}>5</Option>
-            <Option value={4}>4</Option>
-            <Option value={3}>3</Option>
-            <Option value={2}>2</Option>
-            <Option value={1}>1</Option>
-            <Option value={0}>0</Option>
+            <Option value={1}>劳动部</Option>
+            <Option value={59}>问问</Option>
           </Select>
         )}
       </FormItem>
@@ -190,12 +186,8 @@ class UpdateForm extends PureComponent {
           initialValue: formVals.dept
         })(
           <Select style={{ width: "100%" }}>
-            <Option value={5}>5</Option>
-            <Option value={4}>4</Option>
-            <Option value={3}>3</Option>
-            <Option value={2}>2</Option>
-            <Option value={1}>1</Option>
-            <Option value={0}>0</Option>
+            <Option value={1}>劳动部</Option>
+            <Option value={59}>问问</Option>
           </Select>
         )}
       </FormItem>,
@@ -232,10 +224,8 @@ class UpdateForm extends PureComponent {
           initialValue: formVals.role
         })(
           <Select style={{ width: "100%" }} mode={"multiple"}>
-            <Option value={"0"}>用户管理员</Option>
-            <Option value={"2"}>角色管理员</Option>
-            <Option value={"3"}>服务管理员</Option>
-            <Option value={"1"}>管理员</Option>
+            <Option value={"4"}>发顺丰2</Option>
+            <Option value={"1"}>漳卅</Option>
           </Select>
         )}
       </FormItem>
@@ -378,12 +368,76 @@ const AuthorizeForm = Form.create()(props => {
   );
 });
 //角色批量授权
-/*@connect(({rolesearch,loading})=> (
-    {
-        rolesearch,
+/*const okRHandle = () => {
+    form.validateFields((err, fieldsValue) => {
+        if (err) return;
+        form.resetFields();
+        handleRole(fieldsValue);
+    });
+};
+@connect(({ rolesearch, loading }) => ({
+    rolesearch,
+    loading: loading.models.rolesearch.state.date.list
+}))
+class RoleForm extends PureComponent {
+    static defaultProps = {
+        handleRole: () => {},
+        handleRoleModalVisible: () => {},
+    };
 
-    })
-)*/
+    columns = [
+        {
+            title: "角色名称",
+            dataIndex: "name"
+        },
+       /!* {
+            title: "VALUE",
+            dataIndex: "value"
+        },
+        {
+            title: "角色权限",
+            dataIndex: "roleMenu"
+        },*!/
+        {
+            title: "描述",
+            dataIndex: "description"
+        }
+    ];
+    componentDidMount() {
+        const { dispatch } = this.props;
+        dispatch({
+            type: "rolesearch/fetch",
+            payload: {}
+        });
+    }
+    var rowSelection = {
+        onSelect: function(record, selected, selectedRows) {
+            selectedRoles.push(record.key);
+            //console.log(record, selected, selectedRows);
+        },
+        onSelectAll: function(selected, selectedRows) {
+            //console.log(selected, selectedRows);
+        }
+    };
+    render() {
+        return (
+            <Modal
+                destroyOnClose
+                title="角色授权"
+                visible={rolemodalVisible}
+                onOk={okRHandle}
+                onCancel={() => handleRoleModalVisible()}
+            >
+                <Table
+                    columns={columns}
+                    rowSelection={rowSelection}
+                    rowKey={record => record.key} //特别注意，需要设置表格主键唯一id的名称，以优化react显示
+                    dataSource={data}
+                />
+            </Modal>
+        );
+    }
+}*/
 const RoleForm = Form.create()(props => {
   const {
     rolemodalVisible,
@@ -450,7 +504,6 @@ const RoleForm = Form.create()(props => {
   );
 });
 //
-
 /* eslint react/no-multi-comp:0 */
 @connect(({ found, loading }) => ({
   found,
@@ -622,7 +675,6 @@ class Found extends PureComponent {
       case "roleAuthorize":
         {
           this.handleRoleModalVisible(true);
-          //console.log("the test is so difficult");
         }
         break;
       case "appAuthorize":
@@ -760,11 +812,11 @@ class Found extends PureComponent {
         username: fields.username,
         password: "888888",
         sex: fields.sex,
-        birthday: "2019-10-01",
+        birthday: fields.birthday,
         mobile: fields.mobile,
         officeTel: fields.officeTel,
-        dept: { id: fields.dept },
-        createdate: "20190101"
+        dept: { id: fields.dept }
+        // createdate: "20190101"
       }
     });
     message.success("配置成功");
@@ -787,12 +839,8 @@ class Found extends PureComponent {
             <FormItem label="部门">
               {getFieldDecorator("dept")(
                 <Select placeholder="请选择" style={{ width: "100%" }}>
-                  <Option value={5}>5</Option>
-                  <Option value={4}>4</Option>
-                  <Option value={3}>3</Option>
-                  <Option value={2}>2</Option>
-                  <Option value={1}>1</Option>
-                  <Option value={0}>0</Option>
+                  <Option value={59}>问问</Option>
+                  <Option value={1}>劳动部</Option>
                 </Select>
               )}
             </FormItem>
@@ -831,12 +879,8 @@ class Found extends PureComponent {
             <FormItem label="部门">
               {getFieldDecorator("dept")(
                 <Select placeholder="请选择" style={{ width: "100%" }}>
-                  <Option value={5}>5</Option>
-                  <Option value={4}>4</Option>
-                  <Option value={3}>3</Option>
-                  <Option value={2}>2</Option>
-                  <Option value={1}>1</Option>
-                  <Option value={0}>0</Option>
+                  <Option value={59}>问问</Option>
+                  <Option value={1}>劳动部</Option>
                 </Select>
               )}
             </FormItem>
