@@ -47,8 +47,7 @@ public class RoleServiceImplTest {
         Role role = new Role();
         role.setName("超级管理员");
         role.setValue("ROLE_ADMIN");
-        Role updateRole = roleService.updateRole(3L, role);
-        System.out.println(updateRole);
+        roleService.updateRole(3L, role);
     }
 
     @Test

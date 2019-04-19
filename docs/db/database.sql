@@ -24,7 +24,7 @@ create table `USER` (
 	`DEPTID` bigint(20) not null comment '部门ID',
 	`OPERATORID` bigint(20) comment '操作人',
 	`CREATEDATE` timestamp not null default current_timestamp comment '创建时间',
-	`LASTPASSWORDRESETDATE` timestamp comment '上次密码重置时间',
+	`LASTPASSWORDRESETDATE` timestamp not null default current_timestamp comment '上次密码重置时间',
 	primary key (`ID`),
 	constraint `USER_DEPTID` foreign key (`DEPTID`) references `DEPT` (`ID`),
 	constraint `USER_OPERATORID` foreign key (`OPERATORID`) references `USER` (`ID`)
@@ -56,7 +56,7 @@ create table `USER_ROLE` (
 DROP TABLE IF EXISTS `MENU`;
 create table `MENU` (
 	`ID` bigint(20) not null auto_increment,
-	`MENUFID` bigint(20) not null comment '上级菜单ID',
+	`MENUFID` bigint(20) comment '上级菜单ID',
 	`NAME` varchar(200) not null comment '菜单名称',
 	`ICON` varchar(200),
 	`PATH` varchar(200) comment '路径',

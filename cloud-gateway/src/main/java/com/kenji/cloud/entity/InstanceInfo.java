@@ -6,6 +6,7 @@ import com.kenji.cloud.repository.UserRepository;
 import com.kenji.cloud.service.UserService;
 import com.netflix.appinfo.DataCenterInfo;
 import com.netflix.appinfo.providers.DataCenterInfoImpl;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
@@ -15,11 +16,13 @@ import java.util.Map;
 
 @Entity
 @Table(name = "INSTANCEINFO")
+@Data
 public class InstanceInfo{
 
-    public InstanceInfo(String instanceId, String appName, String appGroupName, String ipAddr, String sid, com.netflix.appinfo.InstanceInfo.PortWrapper port, com.netflix.appinfo.InstanceInfo.PortWrapper securePort, String homePageUrl, String statusPageUrl, String healthCheckUrl, String secureHealthCheckUrl, String vipAddress, String secureVipAddress, int countryId, DataCenterInfo dataCenterInfo, String hostName, com.netflix.appinfo.InstanceInfo.InstanceStatus status, com.netflix.appinfo.InstanceInfo.InstanceStatus overriddenStatus, com.netflix.appinfo.InstanceInfo.InstanceStatus overriddenStatusAlt, com.netflix.appinfo.LeaseInfo leaseInfo, Boolean isCoordinatingDiscoveryServer, HashMap<String, String> metadata, Long lastUpdatedTimestamp, Long lastDirtyTimestamp, com.netflix.appinfo.InstanceInfo.ActionType actionType, String asgName, boolean visible, String inputParams, String outputParams, String complexType, String method, String invokeCount) {
 
-    }
+   /* public InstanceInfo(String instanceId, String appName, String appGroupName, String ipAddr, String sid, com.netflix.appinfo.InstanceInfo.PortWrapper port, com.netflix.appinfo.InstanceInfo.PortWrapper securePort, String homePageUrl, String statusPageUrl, String healthCheckUrl, String secureHealthCheckUrl, String vipAddress, String secureVipAddress, int countryId, DataCenterInfo dataCenterInfo, String hostName, com.netflix.appinfo.InstanceInfo.InstanceStatus status, com.netflix.appinfo.InstanceInfo.InstanceStatus overriddenStatus, com.netflix.appinfo.InstanceInfo.InstanceStatus overriddenStatusAlt, com.netflix.appinfo.LeaseInfo leaseInfo, Boolean isCoordinatingDiscoveryServer, HashMap<String, String> metadata, Long lastUpdatedTimestamp, Long lastDirtyTimestamp, com.netflix.appinfo.InstanceInfo.ActionType actionType, String asgName, boolean visible, String inputParams, String outputParams, String complexType, String method, String invokeCount) {
+
+    }*/
 
     public InstanceInfo(){
     }

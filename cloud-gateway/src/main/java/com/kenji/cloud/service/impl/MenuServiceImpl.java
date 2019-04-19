@@ -1,17 +1,19 @@
 package com.kenji.cloud.service.impl;
 
-import com.kenji.cloud.entity.Menu;
+import com.kenji.cloud.entity.*;
 import com.kenji.cloud.repository.MenuRepository;
+import com.kenji.cloud.repository.RoleMenuRepository;
+import com.kenji.cloud.repository.RoleRepository;
+import com.kenji.cloud.repository.UserRepository;
 import com.kenji.cloud.service.MenuService;
+import com.kenji.cloud.service.RoleService;
 import com.kenji.cloud.vo.MenuVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * @Author: Cjmmy
@@ -22,6 +24,16 @@ import java.util.List;
 public class MenuServiceImpl implements MenuService {
     @Autowired
     private MenuRepository repository;
+
+    @Autowired
+    private RoleRepository roleRepository;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private  RoleMenuRepository roleMenuRepository;
+
     @Override
     public void addMenu(Menu menu) {
         Long menuFId = menu.getMenu().getId();
@@ -35,6 +47,41 @@ public class MenuServiceImpl implements MenuService {
     public Menu findById(Long id) {
         Menu menu = repository.findById(id).get();
         return menu;
+    }
+
+    /**
+     * 通过用户ID查找用户可用的菜单
+     * @param userId
+     * @return Set<MenuVO>
+     * @author ubeyang
+     */
+
+    @Override
+    public Set<MenuVO> findByUserId(Long userId){
+        User user = userRepository.findByUserId(userId);
+        List<UserRole> userRoles = user.getUserRoles();
+        Set<MenuVO> menuVOs = new HashSet<>();
+        for(UserRole userRole : userRoles){
+            Role role = userRole.getRole();
+            List<RoleMenu> roleMenus = roleMenuRepository.findAllByRoleId(role.getId());
+
+            for (RoleMenu roleMenu:roleMenus ){
+                Menu menu = roleMenu.getMenu();
+                MenuVO menuVO = new MenuVO();
+                String menuName;
+                if (menu != null) {
+                    menuName = menu.getMenu().getName();
+                    //System.out.println(menuName);
+                    Long menuFId = menu.getMenu().getId();
+                    BeanUtils.copyProperties(menu, menuVO);
+                    menuVO.setMenuFidName(menuName);
+                    menuVO.setMenuFid(menuFId);
+
+                }
+                menuVOs.add(menuVO);
+            }
+        }
+        return menuVOs;
     }
 
     @Override
@@ -70,8 +117,10 @@ public class MenuServiceImpl implements MenuService {
             String menuFName;
             if (menuF != null) {
                 menuFName = menuF.getName();
+                Long menuFId = menuF.getId();
                 BeanUtils.copyProperties(menu,menuVO);
                 menuVO.setMenuFidName(menuFName);
+                menuVO.setMenuFid(menuFId);
 
             }else {
                 menuFName = menu.getName();

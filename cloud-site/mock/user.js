@@ -75,8 +75,8 @@ export default {
   ],
 
   /*  'POST /api/role/add': (req, res) => {
-      const { roleName } = req.body;
-      console.log(roleName);
+      const { name } = req.body;
+      console.log(name);
     },
    */
 

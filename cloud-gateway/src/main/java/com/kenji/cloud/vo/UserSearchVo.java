@@ -14,6 +14,19 @@ public class UserSearchVo {
     private Date birthday;
     private Long[] roleIds;
 
+    public UserSearchVo(){};
+
+    public UserSearchVo(String username, Long deptId, String mobile, String officeTel, String sex, Date birthday, Long[] roleIds){
+        this.username = username;
+        this.deptId = deptId;
+        this.mobile = mobile;
+        this.officeTel = officeTel;
+        this.sex = sex;
+        this.birthday = birthday;
+        this.roleIds = roleIds;
+    }
+
+
     public String getUsername() {
         return username;
     }

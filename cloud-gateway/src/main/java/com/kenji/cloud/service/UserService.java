@@ -16,6 +16,8 @@ public interface UserService {
 
     List<UserReturnVo> findSearch(UserSearchVo userSearchVo);
 
+    List<UserReturnVo> findAll();
+
     User getUser(Long id);//张书玮自用
     void deleteUsers(Long[] ids);
 }

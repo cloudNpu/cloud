@@ -3,6 +3,7 @@ package com.kenji.cloud.service.impl;
 import com.kenji.cloud.entity.Dept;
 import com.kenji.cloud.entity.Role;
 import com.kenji.cloud.entity.User;
+import com.kenji.cloud.entity.UserRole;
 import com.kenji.cloud.repository.*;
 import com.kenji.cloud.service.UserRoleService;
 import com.kenji.cloud.service.UserService;
@@ -10,6 +11,7 @@ import com.kenji.cloud.vo.RoleReturnVo;
 import com.kenji.cloud.vo.SaveUserVo;
 import com.kenji.cloud.vo.UserReturnVo;
 import com.kenji.cloud.vo.UserSearchVo;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -139,5 +141,39 @@ public class UserServiceImpl implements UserService {
     @Override//张书玮自用
     public User getUser(Long id) {
       return userRepository.findById(id).get();
+    }
+
+    @Override
+    public List<UserReturnVo> findAll(){
+        List<UserReturnVo> userReturnVos = new ArrayList<>();
+        List<User> users = userRepository.findAll();
+        for(User user:users){
+            UserReturnVo userReturnVo = new UserReturnVo();
+            List<RoleReturnVo> roleList = new ArrayList<>();
+            String roles = "";
+
+            userReturnVo.setId(user.getId().toString());
+            userReturnVo.setUsername(user.getUsername());
+            userReturnVo.setPassword(user.getPassword());
+            userReturnVo.setIconUrl(user.getIconurl());
+            userReturnVo.setDeptName(user.getDept().getDeptName());
+            userReturnVo.setMobile(user.getMobile());
+            userReturnVo.setOfficeTel(user.getOfficeTel());
+            userReturnVo.setSex(user.getSex());
+            userReturnVo.setBirthday(user.getBirthday().toString());
+
+            List<UserRole> userRoles = user.getUserRoles();
+            for(UserRole userRole:userRoles){
+                RoleReturnVo roleReturnVo = new RoleReturnVo();
+                BeanUtils.copyProperties(userRole.getRole(), roleReturnVo);
+                roleList.add(roleReturnVo);
+                roles = roles + "," + userRole.getRole().getName();
+            }
+            userReturnVo.setRoles(roles);
+            userReturnVo.setRoleList(roleList);
+
+            userReturnVos.add(userReturnVo);
+        }
+        return userReturnVos;
     }
 }

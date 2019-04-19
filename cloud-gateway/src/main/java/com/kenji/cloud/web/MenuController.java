@@ -8,7 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.ws.rs.PathParam;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @Author: Cjmmy
@@ -83,5 +85,17 @@ public class MenuController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
         }
+    }
+
+    @RequestMapping(value = "/menus/{userId}", method = RequestMethod.GET)
+    public ResponseEntity getMenusByUserId(@PathVariable Long userId){
+        try {
+            Set<MenuVO> menus = menuService.findByUserId(userId);
+            return ResponseEntity.ok(menus);
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
+        }
+
+
     }
 }

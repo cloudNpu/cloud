@@ -3,11 +3,11 @@ package com.kenji.cloud.service.impl;
 import com.kenji.cloud.entity.Menu;
 import com.kenji.cloud.entity.Role;
 import com.kenji.cloud.entity.RoleMenu;
-import com.kenji.cloud.entity.UserRole;
 import com.kenji.cloud.repository.RoleMenuRepository;
 import com.kenji.cloud.repository.RoleRepository;
 import com.kenji.cloud.repository.UserRoleRepository;
 import com.kenji.cloud.service.RoleService;
+import com.kenji.cloud.vo.RoleMenuVo;
 import com.kenji.cloud.vo.RoleVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @Author: Cjmmy
@@ -31,6 +30,7 @@ public class RoleServiceImpl implements RoleService {
     private UserRoleRepository userRoleRepository;
     @Autowired
     private RoleMenuRepository roleMenuRepository;
+
     @Override
     public void addRole(Role role) {
         roleRepository.save(role);
@@ -55,10 +55,20 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public void addMenusForRoles(List<RoleMenu> roleMenus) {
-        roleMenus.stream().forEach(roleMenu ->
-            roleMenuRepository.save(roleMenu)
-        );
+    public List<RoleMenuVo> addMenusForRoles(List<RoleMenu> roleMenus) {
+        ArrayList<RoleMenuVo> roleMenuVos = new ArrayList<>();
+        roleMenus.stream().forEach(roleMenu -> {
+            roleMenuRepository.save(roleMenu);
+            RoleMenuVo roleMenuVo = new RoleMenuVo();
+            Role role = roleMenu.getRole();
+            Menu menu = roleMenu.getMenu();
+            roleMenuVo.setRoleMenu(menu.getName());
+            roleMenuVo.setDescription(role.getDescription());
+            roleMenuVo.setName(role.getName());
+            roleMenuVo.setValue(role.getValue());
+            roleMenuVos.add(roleMenuVo);
+        });
+        return roleMenuVos;
     }
 
     @Override
@@ -66,8 +76,15 @@ public class RoleServiceImpl implements RoleService {
         List<Role> roles = roleRepository.findAll();
         List<RoleVO> roleVOs = new ArrayList<>();
         roles.stream().forEach(role -> {
+            List<String> menuNames = new ArrayList<>();
             RoleVO roleVO = new RoleVO();
-            BeanUtils.copyProperties(role,roleVO);
+            List<RoleMenu> roleMenus = role.getRoleMenus();
+            for (RoleMenu roleMenu : roleMenus) {
+                Menu menu = roleMenu.getMenu();
+                menuNames.add(menu.getName());
+            }
+            BeanUtils.copyProperties(role, roleVO);
+            roleVO.setRoleMenuName(menuNames);
             roleVOs.add(roleVO);
         });
         return roleVOs;

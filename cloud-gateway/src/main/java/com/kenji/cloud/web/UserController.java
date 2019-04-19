@@ -38,15 +38,29 @@ public class UserController {
      * @Date 2019/1/7 9:41
      * @Param [saveUserVo]
      * @return org.springframework.http.ResponseEntity<java.lang.String>
+     *
+     * @editBy ubeyang
+     * @Date 2019/4/18
+     * @return 带更新后
      **/
     @PostMapping()
-    public ResponseEntity<String> addUser(@RequestBody SaveUserVo saveUserVo) {
+    public ResponseEntity addUser(@RequestBody SaveUserVo saveUserVo) {
+        List<UserReturnVo>  userReturnVos = null;
         try {
             userService.saveUser(saveUserVo);
+            UserSearchVo userSearchVo = new UserSearchVo(saveUserVo.getUser().getUsername(),
+                                                         saveUserVo.getUser().getDept().getId(),
+                                                         saveUserVo.getUser().getMobile(),
+                                                         saveUserVo.getUser().getOfficeTel(),
+                                                         saveUserVo.getUser().getSex(),
+                                                         //saveUserVo.getUser().getBirthday(),
+                                                         null,
+                                                         saveUserVo.getRoleIds());
+            userReturnVos = userService.findSearch(userSearchVo);
         } catch (Exception e) {
             return ResponseEntity.status(400).body("创建失败");
         }
-        return ResponseEntity.status(201).body("创建成功");
+        return ResponseEntity.ok(userReturnVos);
     }
 
     /**
@@ -75,13 +89,23 @@ public class UserController {
      * @return org.springframework.http.ResponseEntity<java.lang.String>
      **/
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateUser(@RequestBody User user) {
+    public ResponseEntity updateUser(@RequestBody User user) {
+        List<UserReturnVo>  userReturnVos = null;
         try {
             userService.updateUser(user);
+            UserSearchVo userSearchVo = new UserSearchVo(user.getUsername(),
+                    user.getDept().getId(),
+                    user.getMobile(),
+                    user.getOfficeTel(),
+                    user.getSex(),
+                    //saveUserVo.getUser().getBirthday(),
+                    null,
+                    null);
+            userReturnVos = userService.findSearch(userSearchVo);
         } catch (Exception e) {
             return ResponseEntity.status(400).body("更新用户失败"+e);
         }
-        return ResponseEntity.status(201).body("修改成功");
+        return ResponseEntity.status(201).body(userReturnVos);
     }
 
     /**
@@ -141,16 +165,19 @@ public class UserController {
      * @return org.springframework.http.ResponseEntity<java.lang.String>
      **/
     @PostMapping("/roles")
-    public ResponseEntity<String> addUserRoles(@RequestBody Map<String, Long[]> params) {
+    public ResponseEntity addUserRoles(@RequestBody Map<String, Long[]> params) {
+        List<UserReturnVo> userReturnVos = null;
         try {
             Long[] userIds= params.get("userIds");
             Long[] roleIds= params.get("roleIds");
             Long operatorId = params.get("operatorId")[0];
             userRoleService.updateUserRoles(userIds, roleIds, operatorId);
+
         } catch (Exception e) {
             return ResponseEntity.status(400).body("编辑失败" + e);
         }
-        return ResponseEntity.status(201).body("编辑用户角色关系成功");
+        userReturnVos = userService.findAll();
+        return ResponseEntity.status(201).body(userReturnVos);
     }
 
     /**

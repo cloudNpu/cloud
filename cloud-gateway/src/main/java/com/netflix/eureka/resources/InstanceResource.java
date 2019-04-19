@@ -17,8 +17,12 @@
 package com.netflix.eureka.resources;
 
 import com.kenji.cloud.CloudGateway;
+import com.kenji.cloud.entity.User;
 import com.kenji.cloud.service.ApplicationService;
-import com.netflix.appinfo.InstanceInfo;
+import com.kenji.cloud.service.LeaseInfoService;
+import com.kenji.cloud.service.UserService;
+import com.kenji.cloud.vo.InstanceInfoReturnVo;
+import com.netflix.appinfo.*;
 import com.netflix.appinfo.InstanceInfo.InstanceStatus;
 import com.netflix.discovery.shared.Application;
 import com.netflix.eureka.EurekaServerConfig;
@@ -49,6 +53,8 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 
+
+
 /**
  * A <em>jersey</em> resource that handles operations for a particular instance.
  *
@@ -61,6 +67,7 @@ public class InstanceResource {
             .getLogger(InstanceResource.class);
 
     private ApplicationService applicationService;
+    private LeaseInfoService leaseInfoService;
     private final PeerAwareInstanceRegistry registry;
     private final EurekaServerConfig serverConfig;
     private final String id;
@@ -378,5 +385,100 @@ public class InstanceResource {
 
         }
         return Response.ok().build();
+    }
+
+    //暂时没有peer节点复制的功能
+    @PUT
+    @Path("/update")    //暂时用这个路径
+    @Consumes({"application/json", "application/xml"})
+    public ResponseEntity updateInstanceInfo(InstanceInfo info, //eureka自带的instanceinfo本身没有id和user
+                                             @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication){
+        if (this.applicationService == null) {
+            this.applicationService = (ApplicationService) CloudGateway.getBean("applicationService");
+        }
+        if (this.leaseInfoService == null) {
+            this.leaseInfoService = (LeaseInfoService) CloudGateway.getBean("leaseInfoService");
+        }
+        //若要更改的字段不是userID
+        logger.debug("Registering instance {} (replication={})", info.getId(), isReplication);
+
+        //若map里没有源instance，若没有则返回update失败
+        if(null == registry.getInstanceByAppAndId(app.getName(), id))
+            return ResponseEntity.notFound().build();
+        //若map里已有与目标instance标识相同的instance，则拒绝修改
+        //if(null != registry.getInstanceByAppAndId(info.getAppName(), info.getInstanceId()))
+        //    return ResponseEntity.badRequest().body("目标instance的instanceID已存在");
+        //若数据库里没有该instance则返回update失败
+        boolean DBFlag = true;
+        List<com.kenji.cloud.entity.InstanceInfo> instanceInfosDataBaseAlreadyHaven = applicationService.queryByAppName(app.getName());
+        com.kenji.cloud.entity.InstanceInfo infoTobeUpdate = null;
+        for(com.kenji.cloud.entity.InstanceInfo infoInDB:instanceInfosDataBaseAlreadyHaven)
+            if(infoInDB.getInstanceId().equals(id))
+            {
+                DBFlag = false;
+                infoTobeUpdate = infoInDB;
+            }
+        if(null == instanceInfosDataBaseAlreadyHaven || DBFlag)
+            return ResponseEntity.badRequest().body("数据库中找不到该instance");
+
+        // validate that the instanceinfo contains all the necessary required fields
+        if (isBlank(info.getId())) {
+            return ResponseEntity.status(400).body("Missing instanceId");
+        } else if (isBlank(info.getHostName())) {
+            return ResponseEntity.status(400).body("Missing hostname");
+        } else if (isBlank(info.getIPAddr())) {
+            return ResponseEntity.status(400).body("Missing ip address");
+        } else if (isBlank(info.getAppName())) {
+            return ResponseEntity.status(400).body("Missing appName");
+        } else if (isBlank(info.getAppName())) {            //新appname可以不一样，但不能为空
+            return ResponseEntity.status(400).body("Mismatched appName, expecting " + app.getName() + " but was " + info.getAppName());
+        } else if (info.getDataCenterInfo() == null) {
+            return ResponseEntity.status(400).body("Missing dataCenterInfo");
+        } else if (info.getDataCenterInfo().getName() == null) {
+            return ResponseEntity.status(400).body("Missing dataCenterInfo Name");
+        }
+
+        // handle cases where clients may be registering with bad DataCenterInfo with missing data
+        DataCenterInfo dataCenterInfo = info.getDataCenterInfo();
+        if (dataCenterInfo instanceof UniqueIdentifier) {
+            String dataCenterInfoId = ((UniqueIdentifier) dataCenterInfo).getId();
+            if (isBlank(dataCenterInfoId)) {
+                boolean experimental = "true".equalsIgnoreCase(serverConfig.getExperimental("registration.validation.dataCenterInfoId"));
+                if (experimental) {
+                    String entity = "DataCenterInfo of type " + dataCenterInfo.getClass() + " must contain a valid id";
+                    return ResponseEntity.status(400).body(entity);
+                } else if (dataCenterInfo instanceof AmazonInfo) {
+                    AmazonInfo amazonInfo = (AmazonInfo) dataCenterInfo;
+                    String effectiveId = amazonInfo.get(AmazonInfo.MetaDataKey.instanceId);
+                    if (effectiveId == null) {
+                        amazonInfo.getMetadata().put(AmazonInfo.MetaDataKey.instanceId.getName(), info.getId());
+                    }
+                } else {
+                    logger.warn("updating DataCenterInfo of type {} without an appropriate id", dataCenterInfo.getClass());
+                }
+            }
+        }
+
+        if(!app.getName().equals(info.getAppName()))
+            info.setAppName(app.getName());
+        if (!id.equals(info.getInstanceId()))
+            info.setInstanceId(id);
+
+        registry.cancel(app.getName(), id, "true".equals(isReplication));//删除旧的instanse，添加新的instance
+        registry.register(info, "true".equals(isReplication));   //真正的服务注册在这，前面都是對註冊信息校验
+
+        //更新数据库里的instanceInfo
+        com.kenji.cloud.entity.LeaseInfo leaseInfoTmp = infoTobeUpdate.getLeaseInfo();
+        BeanUtils.copyProperties(info, infoTobeUpdate);
+        infoTobeUpdate.setLeaseInfo(leaseInfoTmp);
+        applicationService.addApp(infoTobeUpdate);
+        com.kenji.cloud.vo.InstanceInfoReturnVo instanceInfoReturnVo = new com.kenji.cloud.vo.InstanceInfoReturnVo(infoTobeUpdate);
+
+
+        return ResponseEntity.ok(instanceInfoReturnVo);
+    }
+
+    private boolean isBlank(String str) {
+        return str == null || str.isEmpty();
     }
 }

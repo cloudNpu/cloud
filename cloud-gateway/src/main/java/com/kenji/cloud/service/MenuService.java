@@ -4,6 +4,7 @@ import com.kenji.cloud.entity.Menu;
 import com.kenji.cloud.vo.MenuVO;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @Author: Cjmmy
@@ -39,4 +40,6 @@ public interface MenuService {
      * @return
      */
     List<MenuVO> getAll();
+
+    public Set<MenuVO> findByUserId(Long id);
 }
