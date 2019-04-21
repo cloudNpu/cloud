@@ -4,7 +4,6 @@ import { Form, Input, Upload, Select, Button, message } from "antd";
 import { connect } from "dva";
 import styles from "./Center.less";
 import PhoneView from "./PhoneView";
-import user from "../../../models/user";
 // import { getTimeDistance } from '@/utils/utils';
 
 const FormItem = Form.Item;
@@ -46,8 +45,8 @@ const validatorPhone = (rule, value, callback) => {
   callback();
 };
 
-@connect(({ center }) => ({
-  currentUser: center.currentUser
+@connect(({ user }) => ({
+  currentUser: user.currentUser
 }))
 @Form.create()
 class Center extends Component {
@@ -55,8 +54,6 @@ class Center extends Component {
     this.setBaseInfo();
   }
   setBaseInfo = () => {
-    // var currentUser=localStorage.getItem('currentUser');
-    //  console.log(currentUser);
     const { currentUser, form } = this.props;
     Object.keys(form.getFieldsValue()).forEach(key => {
       const obj = {};

@@ -7,10 +7,13 @@ export default {
 
   state: {
     list: [],
-    currentUser: { currentUser: localStorage.getItem("currentUser") }
+    currentUser: {
+      /* key: "001",
+      username:sessionStorage.getItem('user'.id),*/
+    }
   },
   /*id: sessionStorage.getItem(user.id),
-         username: sessionStorage.getItem(user.username)*/
+    username: sessionStorage.getItem(user.username)*/
   /*key: "001",
     username: "张三",
     dept: "技术部",

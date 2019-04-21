@@ -26,11 +26,11 @@ export default {
       // Login successfully
       if (response.status === 200) {
         yield token.save(res.token);
-        sessionStorage.setItem("user", stringify(res.user));
-        localStorage.setItem("currentUser", JSON.stringify(res.user));
-        var currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        sessionStorage.setItem("user", JSON.stringify(res.user));
+        //localStorage.setItem("currentUser", JSON.stringify(res.user));
+        // var currentUser = JSON.parse(localStorage.getItem("user"));
         // var currentUser=JSON.parse(localStorage.getItem('user'));
-        console.log(currentUser);
+        //console.log(currentUser);
         reloadAuthorized();
         const urlParams = new URL(window.location.href);
         const params = getPageQuery();

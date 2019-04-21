@@ -40,7 +40,6 @@ export async function Add_user_app(params) {
   });
 }
 export async function Add_user_role(params) {
-  console.log(params);
   return request("/api/users/roles", {
     method: "POST",
     body: {

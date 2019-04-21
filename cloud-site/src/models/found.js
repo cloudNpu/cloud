@@ -6,7 +6,6 @@ import {
   Add_user_role,
   Add_user_app
 } from "../services/found";
-
 export default {
   namespace: "found",
 
@@ -18,7 +17,7 @@ export default {
   },
 
   effects: {
-    *fetch({ payload }, { call, put, select }) {
+    *fetch({ payload }, { call, put }) {
       const response = yield (yield call(queryFound, payload)).json();
       yield put({
         type: "save",
@@ -29,9 +28,9 @@ export default {
       });
     },
     *add({ payload, callback }, { call, put, select }) {
-      const response = yield call(addFound, payload);
+      const response = yield (yield call(addFound, payload)).json();
       let list = yield select(state => state.found.data.list);
-      list.push(response);
+      list.push(response[0]);
       yield put({
         type: "save",
         payload: {

@@ -24,7 +24,7 @@ import {
 } from "antd";
 import StandardTable from "@/components/StandardTable";
 import PageHeaderWrapper from "@/components/PageHeaderWrapper";
-
+import RoleModal from "./RoleModal";
 import styles from "./Found.less";
 
 const FormItem = Form.Item;
@@ -368,76 +368,6 @@ const AuthorizeForm = Form.create()(props => {
   );
 });
 //角色批量授权
-/*const okRHandle = () => {
-    form.validateFields((err, fieldsValue) => {
-        if (err) return;
-        form.resetFields();
-        handleRole(fieldsValue);
-    });
-};
-@connect(({ rolesearch, loading }) => ({
-    rolesearch,
-    loading: loading.models.rolesearch.state.date.list
-}))
-class RoleForm extends PureComponent {
-    static defaultProps = {
-        handleRole: () => {},
-        handleRoleModalVisible: () => {},
-    };
-
-    columns = [
-        {
-            title: "角色名称",
-            dataIndex: "name"
-        },
-       /!* {
-            title: "VALUE",
-            dataIndex: "value"
-        },
-        {
-            title: "角色权限",
-            dataIndex: "roleMenu"
-        },*!/
-        {
-            title: "描述",
-            dataIndex: "description"
-        }
-    ];
-    componentDidMount() {
-        const { dispatch } = this.props;
-        dispatch({
-            type: "rolesearch/fetch",
-            payload: {}
-        });
-    }
-    var rowSelection = {
-        onSelect: function(record, selected, selectedRows) {
-            selectedRoles.push(record.key);
-            //console.log(record, selected, selectedRows);
-        },
-        onSelectAll: function(selected, selectedRows) {
-            //console.log(selected, selectedRows);
-        }
-    };
-    render() {
-        return (
-            <Modal
-                destroyOnClose
-                title="角色授权"
-                visible={rolemodalVisible}
-                onOk={okRHandle}
-                onCancel={() => handleRoleModalVisible()}
-            >
-                <Table
-                    columns={columns}
-                    rowSelection={rowSelection}
-                    rowKey={record => record.key} //特别注意，需要设置表格主键唯一id的名称，以优化react显示
-                    dataSource={data}
-                />
-            </Modal>
-        );
-    }
-}*/
 const RoleForm = Form.create()(props => {
   const {
     rolemodalVisible,
@@ -453,39 +383,6 @@ const RoleForm = Form.create()(props => {
       handleRole(fieldsValue);
     });
   };
-  var columns = [
-    {
-      title: "角色",
-      dataIndex: "role"
-    }
-  ];
-  var data = [
-    {
-      key: "1",
-      role: "角色一"
-    },
-    {
-      key: "2",
-      role: "角色二"
-    },
-    {
-      key: "3",
-      role: "角色三"
-    },
-    {
-      key: "4",
-      role: "角色四"
-    }
-  ];
-  var rowSelection = {
-    onSelect: function(record, selected, selectedRows) {
-      selectedRoles.push(record.key);
-      //console.log(record, selected, selectedRows);
-    },
-    onSelectAll: function(selected, selectedRows) {
-      //console.log(selected, selectedRows);
-    }
-  };
   return (
     <Modal
       destroyOnClose
@@ -494,16 +391,20 @@ const RoleForm = Form.create()(props => {
       onOk={okRHandle}
       onCancel={() => handleRoleModalVisible()}
     >
-      <Table
+      <FormItem key="role1">
+        {form.getFieldDecorator("role1", {})(<RoleModal />)}
+      </FormItem>
+      {/*<Table
         columns={columns}
         rowSelection={rowSelection}
         rowKey={record => record.key} //特别注意，需要设置表格主键唯一id的名称，以优化react显示
         dataSource={data}
-      />
+      />*/}
     </Modal>
   );
 });
 //
+
 /* eslint react/no-multi-comp:0 */
 @connect(({ found, loading }) => ({
   found,
@@ -583,14 +484,12 @@ class Found extends PureComponent {
       )
     }
   ];
-
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch({
       type: "found/fetch"
     });
   }
-
   handleStandardTableChange = (pagination, filtersArg, sorter) => {
     const { dispatch } = this.props;
     const { formValues } = this.state;
@@ -786,7 +685,14 @@ class Found extends PureComponent {
   handleRole = fields => {
     const { dispatch } = this.props;
     const { selectedRows, selectedRoles } = this.state;
+    let e = JSON.parse(sessionStorage.getItem("selectedRoleRows"));
+    console.log(e);
+    for (let i = 0; i < e.length; i++) {
+      console.log(e[i].id);
+      selectedRoles.push(e[i].id);
+    }
     let selectedUsers = [];
+    let f = JSON.parse(sessionStorage.getItem("user")).id;
     selectedRows.map(item => {
       selectedUsers.push(item.id);
     });
@@ -795,7 +701,7 @@ class Found extends PureComponent {
       payload: {
         userIds: selectedUsers,
         roleIds: selectedRoles,
-        operatorId: [1]
+        operatorId: f
       }
     });
     message.success("授权成功");

@@ -156,17 +156,7 @@ export default [
             path: "/menus/first",
             name: "first",
             component: "./Menus/First"
-          },
-          {
-            path: "/menus/add-menu",
-            name: "addMenu",
-            component: "./Menus/AddMenu"
-          },
-          {
-            path: "/menus/add-menuItem",
-            name: "addMenuItem",
-            component: "./Menus/AddMenuItem"
-          }
+          } //
         ]
       },
       // forms
