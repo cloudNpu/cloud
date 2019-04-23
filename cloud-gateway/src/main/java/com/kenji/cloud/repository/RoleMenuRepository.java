@@ -14,24 +14,27 @@ import java.util.List;
  * @Author: Cjmmy
  * @Date: 2019/1/8 2:49 PM
  */
-public interface RoleMenuRepository extends JpaRepository<RoleMenu,Long> {
+public interface RoleMenuRepository extends JpaRepository<RoleMenu, Long> {
     @Modifying
     @Transactional
-    @Query(value = "delete from role_menu where roleid=?",nativeQuery = true)
+    @Query(value = "delete from role_menu where roleid=?", nativeQuery = true)
     void deleteByRoleId(Long id);
 
     /**
      * 通过
+     *
      * @param roleId
      * @return
      */
     List<RoleMenu> findAllByRoleId(Long roleId);
 
     /**
-     * 通过role和menu查询roleMenu实体
-     * @param role
-     * @param menu
+     * 通过roleId和menuId查询roleMenu实体
+     *
+     * @param roleId
+     * @param menuId
      * @return
      */
-    List<RoleMenu> findAllByMenuAndAndRole(Role role, Menu menu);
+    @Query(value = "select * from role_menu where roleid=? and menuid=?", nativeQuery = true)
+    List<RoleMenu> findAllByMenuAndAndRole(Long roleId, Long menuId);
 }

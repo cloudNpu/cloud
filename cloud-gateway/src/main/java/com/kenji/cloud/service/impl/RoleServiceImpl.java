@@ -76,13 +76,14 @@ public class RoleServiceImpl implements RoleService {
 
     /**
      * 检查数据库中是否已经存储了roleMenu实体
+     *
      * @param roleMenu
      * @return 已经存在返回true，否则返回false
      */
     private boolean check(RoleMenu roleMenu) {
-        Role role = roleMenu.getRole();
-        Menu menu = roleMenu.getMenu();
-        List<RoleMenu> roleMenus = roleMenuRepository.findAllByMenuAndAndRole(role, menu);
+        Long roleId = roleMenu.getRole().getId();
+        Long menuId = roleMenu.getMenu().getId();
+        List<RoleMenu> roleMenus = roleMenuRepository.findAllByMenuAndAndRole(roleId, menuId);
         if (roleMenus.size() != 0) {
             return true;
         }
