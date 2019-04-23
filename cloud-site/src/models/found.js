@@ -73,8 +73,8 @@ export default {
           array[index] = res_user;
         }
         /*if(user.id == payload .id) {
-            array[index] = payload;
-          }*/
+                array[index] = payload;
+              }*/
       });
       yield put({
         type: "save",
@@ -85,22 +85,42 @@ export default {
       });
       if (callback) callback();
     },
-    *add_user_role({ payload, callback }, { call, put }) {
-      const response = yield (yield call(Add_user_role, payload)).json();
+    *add_user_role({ payload, callback }, { call, put, select }) {
+      let list = yield select(state => state.found.data.list);
+      let x = JSON.parse(sessionStorage.getItem("selectedRoleRows"));
+      console.log(x);
+      console.log(x.length);
+      console.log(payload.userIds.length);
+
+      for (let k = 0; k < x.length; k++) {
+        for (let j = 0; j < payload.userIds.length; j++) {
+          for (let i = 0; i < list.length; i++) {
+            if (JSON.parse(list[i].id) === payload.userIds[j]) {
+              var y = list[i].roles + "," + x[k].name;
+              list[i].roles = y;
+            }
+          }
+        }
+      }
+      const response = yield call(Add_user_role, payload);
       yield put({
         type: "save",
         payload: {
-          list: response,
+          list: list,
           pagination: { pageSize: 8 }
         }
       });
       if (callback) callback();
     },
-    *add_user_app({ payload, callback }, { call, put }) {
+    *add_user_app({ payload, callback }, { call, put, select }) {
+      let list = yield select(state => state.found.data.list);
       const response = yield call(Add_user_app, payload);
       yield put({
         type: "save",
-        payload: response
+        payload: {
+          list: list,
+          pagination: { pageSize: 8 }
+        }
       });
       if (callback) callback();
     }

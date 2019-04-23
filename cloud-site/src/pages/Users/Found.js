@@ -25,6 +25,7 @@ import {
 import StandardTable from "@/components/StandardTable";
 import PageHeaderWrapper from "@/components/PageHeaderWrapper";
 import RoleModal from "./RoleModal";
+import AppModal from "./AppModal";
 import styles from "./Found.less";
 
 const FormItem = Form.Item;
@@ -285,85 +286,25 @@ const AuthorizeForm = Form.create()(props => {
       handleAuthorize(fieldsValue);
     });
   };
-  var columns = [
-    {
-      title: "App",
-      dataIndex: "app"
-    },
-    {
-      title: "InstanceID",
-      dataIndex: "instanceId"
-    },
-    {
-      title: "  IpAddr",
-      dataIndex: "ipAddr"
-    },
-    {
-      title: "Port",
-      dataIndex: "port"
-    },
-    {
-      title: "UserId",
-      dataIndex: "userid"
-    }
-  ];
-  var data = [
-    {
-      key: "1",
-      app: "App1",
-      instanceId: "S1",
-      ipAddr: "10.0.0.0",
-      port: "8080",
-      userid: "张三"
-    },
-    {
-      key: "2",
-      app: "App2",
-      instanceId: "S2",
-      ipAddr: "10.0.0.0",
-      port: "8080",
-      userid: "李四"
-    },
-    {
-      key: "3",
-      app: "App3",
-      instanceId: "S3",
-      ipAddr: "10.0.0.0",
-      port: "8080",
-      userid: "王五"
-    },
-    {
-      key: "4",
-      app: "App4",
-      instanceId: "S4",
-      ipAddr: "10.0.0.0",
-      port: "8080",
-      userid: "赵六"
-    }
-  ];
-  var rowSelection = {
-    onSelect: function(record, selected, selectedRows) {
-      selectedApps.push(record.key);
-      //console.log(record, selected, selectedRows);
-    },
-    onSelectAll: function(selected, selectedRows) {
-      //console.log(selected, selectedRows);
-    }
-  };
   return (
     <Modal
       destroyOnClose
+      width={700}
       title="服务授权"
       visible={authorizemodalVisible}
       onOk={okAHandle}
       onCancel={() => handleAuthorizeModalVisible()}
     >
-      <Table
+      <FormItem key="app1">
+        {form.getFieldDecorator("app1", {})(<AppModal />)}
+      </FormItem>
+
+      {/*<Table
         columns={columns}
         rowSelection={rowSelection}
         rowKey={record => record.key} //特别注意，需要设置表格主键唯一id的名称，以优化react显示
         dataSource={data}
-      />
+      />*/}
     </Modal>
   );
 });
@@ -664,10 +605,13 @@ class Found extends PureComponent {
     message.success("添加成功");
     this.handleModalVisible();
   };
-  //
+  //服务授权
   handleAuthorize = fields => {
     const { dispatch } = this.props;
     const { selectedRows, selectedApps } = this.state;
+    let g = JSON.parse(sessionStorage.getItem("selectedAppRows"));
+    console.log(g[0].appName);
+    let h = JSON.parse(sessionStorage.getItem("user")).id;
     let selectedUsers = [];
     selectedRows.map(item => {
       selectedUsers.push(item.id);
@@ -675,26 +619,31 @@ class Found extends PureComponent {
     dispatch({
       type: "found/add_user_app",
       payload: {
-        users: selectedUsers,
-        apps: selectedApps
+        appName: g[0].appName,
+        user: {
+          id: selectedUsers[0]
+        },
+        operator: {
+          id: h
+        }
       }
     });
     message.success("授权成功");
     this.handleAuthorizeModalVisible();
   };
+  // 角色授权
   handleRole = fields => {
     const { dispatch } = this.props;
     const { selectedRows, selectedRoles } = this.state;
     let e = JSON.parse(sessionStorage.getItem("selectedRoleRows"));
-    console.log(e);
     for (let i = 0; i < e.length; i++) {
-      console.log(e[i].id);
       selectedRoles.push(e[i].id);
     }
+    let f = [];
+    f.push(JSON.parse(sessionStorage.getItem("user")).id);
     let selectedUsers = [];
-    let f = JSON.parse(sessionStorage.getItem("user")).id;
     selectedRows.map(item => {
-      selectedUsers.push(item.id);
+      selectedUsers.push(JSON.parse(item.id));
     });
     dispatch({
       type: "found/add_user_role",

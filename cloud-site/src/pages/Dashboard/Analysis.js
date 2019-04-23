@@ -1,691 +1,1149 @@
-import React, { Component } from 'react';
-import { connect } from 'dva';
-import { formatMessage, FormattedMessage } from 'umi/locale';
+import React, { PureComponent, Fragment } from "react";
+import { connect } from "dva";
+import moment from "moment";
 import {
   Row,
   Col,
-  Icon,
   Card,
-  Tabs,
+  Form,
   Table,
-  Radio,
-  DatePicker,
-  Tooltip,
-  Menu,
+  Input,
+  Select,
+  Icon,
+  Button,
   Dropdown,
-} from 'antd';
-import {
-  ChartCard,
-  MiniArea,
-  MiniBar,
-  MiniProgress,
-  Field,
-  Bar,
-  Pie,
-  TimelineChart,
-} from '@/components/Charts';
-import Trend from '@/components/Trend';
-import NumberInfo from '@/components/NumberInfo';
-import numeral from 'numeral';
-import GridContent from '@/components/PageHeaderWrapper/GridContent';
-import Yuan from '@/utils/Yuan';
-import { getTimeDistance } from '@/utils/utils';
+  Menu,
+  // InputNumber,
+  DatePicker,
+  Modal,
+  message,
+  Badge,
+  Divider,
+  Steps,
+  Radio,
+  Tabs
+} from "antd";
+import StandardTable from "@/components/StandardTable1";
+import PageHeaderWrapper from "@/components/PageHeaderWrapper";
 
-import styles from './Analysis.less';
+import styles from "./Analysis.less";
+const FormItem = Form.Item;
+const { Step } = Steps;
+const { TextArea } = Input;
+const { Option } = Select;
+const RadioGroup = Radio.Group;
+const getValue = obj =>
+  Object.keys(obj)
+    .map(key => obj[key])
+    .join(",");
+//新建弹出页面
+const CreateForm = Form.create()(props => {
+  const {
+    modalVisible,
+    form,
+    handleAdd,
+    handleSubmit,
+    handleModalVisible
+  } = props;
+  const okHandle = () => {
+    form.validateFields((err, fieldsValue) => {
+      if (err) return;
+      form.resetFields();
+      if (fieldsValue.app) {
+        console.log(fieldsValue);
+        handleAdd(fieldsValue);
+      } else {
+        var instanceInfo = JSON.parse(fieldsValue.txt);
+        console.log(instanceInfo);
+        handleSubmit(instanceInfo);
+      }
+    });
+  };
+  const TabPane = Tabs.TabPane;
+  function callback(key) {
+    // console.log(key);
+  }
+  return (
+    <Modal
+      destroyOnClose
+      title="新建服务"
+      visible={modalVisible}
+      onOk={okHandle}
+      onCancel={() => handleModalVisible()}
+    >
+      <Tabs defaultActiveKey="1" onChange={callback}>
+        <TabPane tab="Tab 1" key="1">
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="App"
+          >
+            {form.getFieldDecorator("app", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="InstanceId"
+          >
+            {form.getFieldDecorator("instanceId", {
+              // rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="IpAddr"
+          >
+            {form.getFieldDecorator("ipAddr", {
+              // rules: [{required: true, message: '请输入至少三个字符的规则描述！', min: 3}],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="Port"
+          >
+            {form.getFieldDecorator("port", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="Status"
+          >
+            {form.getFieldDecorator("status", {
+              //  rules: [{ required: true, message: '请选择一个！', min: 3 }],
+            })(
+              <Select style={{ width: "100%" }} /* mode={'multiple'}*/>
+                <Option value={1}>UP</Option>
+                <Option value={0}>DOWN</Option>
+              </Select>
+            )}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="overriddenstatus"
+          >
+            {form.getFieldDecorator("overriddenstatus", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="homePageUrl"
+          >
+            {form.getFieldDecorator("homePageUrl", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="hostName"
+          >
+            {form.getFieldDecorator("hostName", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="securePort"
+          >
+            {form.getFieldDecorator("securePort", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="countryId"
+          >
+            {form.getFieldDecorator("countryId", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="dataCenterInfo"
+          >
+            {form.getFieldDecorator("dataCenterInfo", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="metadata"
+          >
+            {form.getFieldDecorator("metadata", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="statusPageUrl"
+          >
+            {form.getFieldDecorator("statusPageUrl", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="healthCheckUrl"
+          >
+            {form.getFieldDecorator("healthCheckUrl", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="vipAddress"
+          >
+            {form.getFieldDecorator("vipAddress", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="secureVipAddress"
+          >
+            {form.getFieldDecorator("secureVipAddress", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="lastDirtyTimestamp"
+          >
+            {form.getFieldDecorator("lastDirtyTimestamp", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="inputParams"
+          >
+            {form.getFieldDecorator("inputParams", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="outputParams"
+          >
+            {form.getFieldDecorator("outputParams", {
+              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+        </TabPane>
 
-const { TabPane } = Tabs;
-const { RangePicker } = DatePicker;
+        <TabPane tab="Tab 2" key="2">
+          <FormItem
+            labelCol={{ span: 6 }}
+            wrapperCol={{ span: 18 }}
+            label="请输入Json格式"
+          >
+            {form.getFieldDecorator("txt", {})(
+              <TextArea
+                style={{ minHeight: 32 }}
+                //placeholder={"请输入"}
+                rows={10}
+              />
+            )}
+          </FormItem>
+        </TabPane>
+      </Tabs>
+    </Modal>
+  );
+});
 
-const rankingListData = [];
-for (let i = 0; i < 7; i += 1) {
-  rankingListData.push({
-    title: `工专路 ${i} 号店`,
-    total: 323234,
-  });
-}
-
-@connect(({ chart, loading }) => ({
-  chart,
-  loading: loading.effects['chart/fetch'],
-}))
-class Analysis extends Component {
+//配置
+@Form.create()
+class UpdateForm extends PureComponent {
   constructor(props) {
     super(props);
-    this.rankingListData = [];
-    for (let i = 0; i < 7; i += 1) {
-      this.rankingListData.push({
-        title: formatMessage({ id: 'app.analysis.test' }, { no: i }),
-        total: 323234,
-      });
-    }
+    this.state = {
+      formVals: {
+        instance: {
+          //  id: props.values.id,
+          app: props.values.appName,
+          instanceId: props.values.instanceId,
+          ipAddr: props.values.ipAddr,
+          status: props.values.status,
+          //visible: props.values.visible,
+          hostName: props.values.hostName,
+          overriddenStatus: props.values.overriddenstatus,
+          // countryId: props.values.countryId,
+          homePageUrl: props.values.homePageUrl,
+          statusPageUrl: props.values.statusPageUrl,
+          healthCheckUrl: props.values.healthCheckUrl,
+          vipAddress: props.values.vipAddress,
+          lastDirtyTimestamp: props.values.lastDirtyTimestamp,
+          inputParams: props.values.inputParams,
+          outputParams: props.values.outputParams
+        }
+      },
+      currentStep: 0
+    };
+    this.formLayout = {
+      labelCol: { span: 7 },
+      wrapperCol: { span: 13 }
+    };
   }
 
-  state = {
-    salesType: 'all',
-    currentTabKey: '',
-    rangePickerValue: getTimeDistance('year'),
-    loading: true,
+  handleNext = currentStep => {
+    // var old=[];
+    // old.push(this.state.formVals.instance.app);
+    // old.push(this.state.formVals.instance.instanceId);
+    const { form, handleUpdate } = this.props;
+    const { formVals: oldValue } = this.state;
+    form.validateFields((err, fieldsValue) => {
+      if (err) return;
+      const formVals = { ...oldValue, ...fieldsValue };
+      this.setState(
+        {
+          formVals
+        },
+        () => {
+          if (currentStep === 0) {
+            var service = JSON.parse(formVals.sdl);
+            //console.log(service);
+            handleUpdate(service);
+          }
+        }
+      );
+    });
   };
+
+  renderContent = (currentStep, formVals) => {
+    const { form } = this.props;
+    return [
+      <span className={styles.label}>*注意app和instanceId不可更改</span>,
+      <FormItem key="sdl" label="请编辑服务">
+        {form.getFieldDecorator("sdl", {
+          initialValue: JSON.stringify(formVals)
+        })(<TextArea rows={10} />)}
+      </FormItem>
+    ];
+  };
+  renderFooter = currentStep => {
+    const { handleUpdateModalVisible, values } = this.props;
+    return [
+      <Button
+        key="cancel"
+        onClick={() => handleUpdateModalVisible(false, values)}
+      >
+        取消
+      </Button>,
+      <Button
+        key="submit"
+        type="primary"
+        onClick={() => this.handleNext(currentStep)}
+      >
+        完成
+      </Button>
+    ];
+  };
+
+  render() {
+    const { updateModalVisible, handleUpdateModalVisible } = this.props;
+    const { currentStep, formVals } = this.state;
+
+    return (
+      <Modal
+        width={640}
+        bodyStyle={{ padding: "32px 40px 48px" }}
+        destroyOnClose
+        title="编辑服务"
+        visible={updateModalVisible}
+        footer={this.renderFooter(currentStep)}
+        onCancel={() => handleUpdateModalVisible()}
+        afterClose={() => handleUpdateModalVisible()}
+      >
+        {this.renderContent(currentStep, formVals)}
+      </Modal>
+    );
+  }
+}
+//
+@Form.create()
+class ChangeForm extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      formVals: {
+        appName: props.values.appName,
+        visible: props.values.visible
+      },
+      currentStep: 0
+    };
+
+    this.formLayout = {
+      labelCol: { span: 7 },
+      wrapperCol: { span: 13 }
+    };
+  }
+
+  handleNext = currentStep => {
+    const { form, handleChange } = this.props;
+    const { formVals: oldValue } = this.state;
+    form.validateFields((err, fieldsValue) => {
+      if (err) return;
+      const formVals = { ...oldValue, ...fieldsValue };
+      this.setState(
+        {
+          formVals
+        },
+        () => {
+          if (currentStep === 0) {
+            handleChange(formVals); //点击确定，调用handleChange
+            // console.log("successful call");
+          }
+        }
+      );
+    });
+  };
+
+  renderContent = (currentStep, formVals) => {
+    const { form } = this.props;
+    return [
+      <FormItem
+        key="appName"
+        {...this.formLayout}
+        label="app"
+        help={"*app不可更改，用于参考使用"}
+      >
+        {form.getFieldDecorator("appName", {
+          initialValue: formVals.appName,
+          rules: [
+            {
+              required: true,
+              message: "用于确定是否为该服务发布信息，不能更改",
+              min: 0
+            }
+          ]
+        })(<Input placeholder="请输入" />)}
+      </FormItem>,
+      <FormItem key="visible" {...this.formLayout} label="visible">
+        {form.getFieldDecorator("visible", {
+          initialValue: formVals.visible
+        })(
+          <Select style={{ width: "100%" }} /* mode={'multiple'}*/>
+            <Option value={true}>可见</Option>
+            <Option value={false}>不可见</Option>
+          </Select>
+        )}
+      </FormItem>
+    ];
+  };
+  renderFooter = currentStep => {
+    const { handleChangeModalVisible, values } = this.props;
+    return [
+      <Button
+        key="cancel"
+        onClick={() => handleChangeModalVisible(false, values)}
+      >
+        取消
+      </Button>,
+      <Button
+        key="submit"
+        type="primary"
+        onClick={() => this.handleNext(currentStep)}
+      >
+        完成
+      </Button>
+    ];
+  };
+
+  render() {
+    const { changeModalVisible, handleChangeModalVisible } = this.props;
+    const { currentStep, formVals } = this.state;
+
+    return (
+      <Modal
+        width={640}
+        bodyStyle={{ padding: "32px 40px 48px" }}
+        destroyOnClose
+        title="发布/撤回服务"
+        visible={changeModalVisible}
+        footer={this.renderFooter(currentStep)}
+        onCancel={() => handleChangeModalVisible()}
+        afterClose={() => handleChangeModalVisible()}
+      >
+        {this.renderContent(currentStep, formVals)}
+      </Modal>
+    );
+  }
+}
+//
+
+/* eslint react/no-multi-comp:0 */
+@connect(({ applist, loading }) => ({
+  applist,
+  loading: loading.models.applist
+}))
+@Form.create()
+class AppList extends PureComponent {
+  state = {
+    modalVisible: false,
+    updateModalVisible: false,
+    changeModalVisible: false,
+    expandForm: false,
+    selectedRows: [],
+    formValues: {},
+    stepFormValues: {},
+    stepFormValues1: {}
+  };
+  columns = [
+    {
+      title: "ID",
+      dataIndex: "id",
+      fixed: "left",
+      width: 70
+    },
+    {
+      title: "App",
+      dataIndex: "appName",
+      fixed: "left",
+      width: 70
+    },
+    {
+      title: "InstanceID",
+      dataIndex: "instanceId",
+      fixed: "left",
+      width: 40
+    },
+    {
+      title: "IpAddr",
+      dataIndex: "ipAddr"
+    },
+    {
+      title: "port",
+      dataIndex: "port"
+    },
+    {
+      title: "status",
+      dataIndex: "status"
+    },
+    {
+      title: "AppGroupName",
+      dataIndex: "appGroupName"
+    },
+    {
+      title: "InvokeCount",
+      dataIndex: "invokeCount",
+      sorter: true,
+      align: "right",
+      render: val => `${val} 万`,
+      // mark to display a total number
+      needTotal: true
+    },
+    {
+      title: "Visible",
+      dataIndex: "visible",
+      render: visible => <div>{visible ? "可见" : "不可见"}</div>
+    },
+    {
+      title: "securePortEnabled",
+      dataIndex: "securePortEnabled"
+    },
+    {
+      title: "unsecurePortEnabled",
+      dataIndex: "unsecurePortEnabled"
+    },
+    {
+      title: "Overriddenstatus",
+      dataIndex: "overriddenStatus"
+    },
+    {
+      title: "Inputparm",
+      dataIndex: "inputparm"
+    },
+    {
+      title: "Outputparm",
+      dataIndex: "outputparm"
+    },
+    {
+      title: "complexTypes",
+      dataIndex: "complexType"
+    },
+    {
+      title: "countryID",
+      dataIndex: "countryId"
+    },
+    {
+      title: "homePageUrl",
+      dataIndex: "homePageUrl"
+    },
+    {
+      title: "statusPageUrl",
+      dataIndex: "statusPageUrl"
+    },
+    {
+      title: "healthCheckUrl",
+      dataIndex: "healthCheckUrl"
+    },
+    {
+      title: "AsgName",
+      dataIndex: "asgName"
+    },
+    {
+      title: "ActionType",
+      dataIndex: "actionType"
+    },
+    {
+      title: "LastDirtyTimeStamp",
+      dataIndex: "lastDirtyTimestamp"
+    },
+    {
+      title: "LastUpdateTimeStamp",
+      dataIndex: "lastUpdateTimestamp"
+    },
+
+    {
+      title: "MetaData",
+      dataIndex: "metadata"
+    },
+    /*{
+          title: "LeaseInfoid",
+          dataIndex: "leaseinfoid"
+        },行数太多*/
+    {
+      title: "Sid",
+      dataIndex: "sid"
+    },
+    /* {
+          title: "StatusUrl",
+          dataIndex: "statusurl"
+        },*/
+    {
+      title: "VipAddress",
+      dataIndex: "vipAddress"
+    },
+    {
+      title: "SecureVipAddress",
+      dataIndex: "secureVipAddress"
+    },
+    {
+      title: "StatusPageRelativeUrl",
+      dataIndex: "StatusPageRelativeUrl"
+    },
+    {
+      title: "StatusPageExplicitUrl",
+      dataIndex: "StatusPageExplicitUrl"
+    },
+    {
+      title: "HealthCheckSecureExplicitUrl",
+      dataIndex: "healthCheckSecureExplicitUrl"
+    },
+    {
+      title: "lastUpdatedTimestamp",
+      dataIndex: "lastUpdatedTimestamp"
+    },
+    {
+      title: "vipAddressUnresolved",
+      dataIndex: "vipAddressUnresolved"
+    },
+    {
+      title: "secureVipAddressUnresolved",
+      dataIndex: "secureVipAddressUnresolved"
+    },
+    {
+      title: "secureHealthCheckUrl",
+      dataIndex: "secureHealthCheckUrl"
+    },
+    {
+      title: "inputParams",
+      dataIndex: "inputParams"
+    },
+    {
+      title: "outputParams",
+      dataIndex: "outputParams"
+    },
+    {
+      title: "method",
+      dataIndex: "method"
+    },
+    {
+      title: "healthCheckRelativeUrl",
+      dataIndex: "healthCheckRelativeUrl"
+    },
+    {
+      title: "HealthCheckExplicitUrl",
+      dataIndex: "healthCheckExplicitUrl"
+    },
+    /* {
+          title: "IsSecurePortEnabled",
+          dataIndex: "issecureportenabled"
+        },*/
+    /* {
+          title: "IsUnsecurePortEnable",
+          dataIndex: "isunsecureportenable"
+        },*/
+    {
+      title: "DataCenterInfo",
+      dataIndex: "dataCenterInfo"
+    },
+    {
+      title: "HostName",
+      dataIndex: "hostName"
+    },
+    {
+      title: "instanceInfoDirty",
+      dataIndex: "instanceInfoDirty"
+    },
+    {
+      title: "IsCoordinatingDiscoveryServer",
+      dataIndex: "isCoordinatingDiscoveryServer"
+    },
+    {
+      title: "Action",
+      fixed: "right",
+      render: (text, record) => (
+        <Fragment>
+          <a onClick={() => this.handleUpdateModalVisible(true, record)}>
+            编辑
+          </a>
+          <Divider type="vertical" />
+          <a onClick={() => this.handleChangeModalVisible(true, record)}>
+            切换状态
+          </a>
+        </Fragment>
+      )
+    }
+  ];
 
   componentDidMount() {
     const { dispatch } = this.props;
-    this.reqRef = requestAnimationFrame(() => {
-      dispatch({
-        type: 'chart/fetch',
-      });
-      this.timeoutId = setTimeout(() => {
-        this.setState({
-          loading: false,
+    dispatch({
+      type: "applist/fetch"
+    });
+  }
+  handleStandardTableChange = (pagination, filtersArg, sorter) => {
+    const { dispatch } = this.props;
+    const { formValues } = this.state;
+
+    const filters = Object.keys(filtersArg).reduce((obj, key) => {
+      const newObj = { ...obj };
+      newObj[key] = getValue(filtersArg[key]);
+      return newObj;
+    }, {});
+    const params = {
+      currentPage: pagination.current,
+      pageSize: pagination.pageSize,
+      ...formValues,
+      ...filters
+    };
+    if (sorter.field) {
+      params.sorter = `${sorter.field}_${sorter.order}`;
+    }
+
+    dispatch({
+      type: "applist/fetch",
+      payload: params
+    });
+  };
+
+  handleFormReset = () => {
+    const { form, dispatch } = this.props;
+    form.resetFields();
+    this.setState({
+      formValues: {}
+    });
+    // const str="hello";
+    // if(str.equals("a")) {
+    dispatch({
+      type: "applist/fetch",
+      payload: {}
+    });
+  };
+
+  toggleForm = () => {
+    const { expandForm } = this.state;
+    this.setState({
+      expandForm: !expandForm
+    });
+  };
+
+  handleMenuClick = e => {
+    const { dispatch } = this.props;
+    const { selectedRows } = this.state;
+    var selectRow = selectedRows.map(row => row.id);
+    //const str=selectRow.map((item)=>item).join(',');
+    if (!selectedRows) return;
+    switch (e.key) {
+      case "remove":
+        dispatch({
+          type: "applist/remove",
+          payload: selectRow,
+          callback: () => {
+            this.setState({
+              selectedRows: []
+            });
+          }
         });
-      }, 600);
+        break;
+      default:
+        break;
+    }
+  };
+
+  handleSelectRows = rows => {
+    this.setState({
+      selectedRows: rows
     });
+  };
+  handleSearch = e => {
+    e.preventDefault(); // 阻止提交
+
+    const { dispatch, form } = this.props;
+
+    form.validateFields((err, fieldsValue) => {
+      if (err) return;
+
+      const values = {
+        ...fieldsValue,
+        updatedAt: fieldsValue.updatedAt && fieldsValue.updatedAt.valueOf()
+      };
+      this.setState({
+        formValues: values
+      });
+      if (values.appName) {
+        dispatch({
+          type: "applist/app",
+          payload: values
+        });
+      }
+      if (values.id) {
+        dispatch({
+          type: "applist/id",
+          payload: values
+        });
+      }
+      if (values.visible) {
+        dispatch({
+          type: "applist/visible",
+          payload: values
+        });
+      }
+      if (values.port) {
+        dispatch({
+          type: "applist/port",
+          payload: values
+        });
+      }
+      if (values.ipAddr) {
+        dispatch({
+          type: "applist/ipAddr",
+          payload: values
+        });
+      }
+    });
+  };
+
+  handleModalVisible = flag => {
+    this.setState({
+      modalVisible: !!flag
+    });
+  };
+
+  handleUpdateModalVisible = (flag, record) => {
+    this.setState({
+      updateModalVisible: !!flag,
+      stepFormValues: record || {}
+    });
+  };
+  handleChangeModalVisible = (flag, record) => {
+    this.setState({
+      changeModalVisible: !!flag,
+      stepFormValues1: record || {}
+    });
+  };
+
+  handleAdd = fields => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: "applist/add",
+      payload: {
+        instance: {
+          instanceId: fields.instanceId,
+          app: fields.app,
+          ipAddr: fields.ipAddr,
+          status: fields.status,
+          // visible: fields.visible,
+          hostName: fields.hostName,
+          overriddenstatus: fields.overriddenstatus,
+          countryId: fields.countryId,
+          homePageUrl: fields.homePageUrl,
+          statusPageUrl: fields.statusPageUrl,
+          healthCheckUrl: fields.healthCheckUrl,
+          vipAddress: fields.vipAddress,
+          secureVipAddress: fields.secureVipAddress,
+          lastDirtyTimestamp: fields.lastDirtyTimestamp,
+          inputParams: fields.inputParams,
+          outputParams: fields.outputParams
+        }
+      }
+    });
+    message.success("添加成功");
+    this.handleModalVisible();
+  };
+  handleSubmit = instanceInfo => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: "applist/add",
+      payload: instanceInfo
+    });
+    message.success("添加成功");
+    this.handleModalVisible();
+  };
+  //
+  handleUpdate = service => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: "applist/update",
+      payload: service
+
+      //app:this.state.formVals.app,
+      //instanceId:this.state.formVals.instanceId,
+      /*   "instance": {
+                      id: service.id,
+                      app: service.appName,
+                      instanceId: service.instanceId,
+                      ipAddr: service.ipAddr,
+                      status: service.status,
+                      visible: service.visible,
+                      hostName: service.hostName,
+                      overriddenStatus: service.overriddenstatus,
+                      countryId: service.countryId,
+                      homePageUrl: service.homePageUrl,
+                      statusPageUrl: service.statusPageUrl,
+                      healthCheckUrl: service.healthCheckUrl,
+                      vipAddress:service.vipAddress,
+                      lastDirtyTimestamp: service.lastDirtyTimestamp,
+                      inputParams: service.inputParams,
+                      outputParams: service.outputParams
+
+              }*/
+    });
+    message.success("配置成功");
+    this.handleUpdateModalVisible();
+  };
+  //
+  handleChange = fields => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: "applist/change",
+      payload: {
+        appName: fields.appName,
+        visible: fields.visible
+      }
+    });
+    message.success("切换成功");
+    this.handleChangeModalVisible();
+  };
+  //
+
+  renderSimpleForm() {
+    const {
+      form: { getFieldDecorator }
+    } = this.props;
+    return (
+      <Form onSubmit={this.handleSearch} layout="inline">
+        <Row gutter={{ md: 8, lg: 24, xl: 48 }}>
+          <Col md={8} sm={24}>
+            <FormItem label="App">
+              {getFieldDecorator("appName")(<Input placeholder="请输入" />)}
+            </FormItem>
+          </Col>
+          <Col md={8} sm={24}>
+            <FormItem label="ID">
+              {getFieldDecorator("id")(<Input placeholder="请输入" />)}
+            </FormItem>
+          </Col>
+          <Col md={8} sm={24}>
+            <span className={styles.submitButtons}>
+              <Button type="primary" htmlType="submit">
+                查询
+              </Button>
+              <Button style={{ marginLeft: 8 }} onClick={this.handleFormReset}>
+                重置
+              </Button>
+              <a style={{ marginLeft: 8 }} onClick={this.toggleForm}>
+                添加筛选 <Icon type="down" />
+              </a>
+            </span>
+          </Col>
+        </Row>
+      </Form>
+    );
   }
 
-  componentWillUnmount() {
-    const { dispatch } = this.props;
-    dispatch({
-      type: 'chart/clear',
-    });
-    cancelAnimationFrame(this.reqRef);
-    clearTimeout(this.timeoutId);
+  renderAdvancedForm() {
+    const {
+      form: { getFieldDecorator }
+    } = this.props;
+    return (
+      <Form onSubmit={this.handleSearch} layout="inline">
+        <Row gutter={{ md: 8, lg: 24, xl: 48 }}>
+          <Col md={8} sm={24}>
+            <FormItem label="App">
+              {getFieldDecorator("appName")(<Input placeholder="请输入" />)}
+            </FormItem>
+          </Col>
+          <Col md={8} sm={24}>
+            <FormItem label="ID">
+              {getFieldDecorator("id")(<Input placeholder="请输入" />)}
+            </FormItem>
+          </Col>
+          <Col md={8} sm={24}>
+            <FormItem label="IpAddr">
+              {getFieldDecorator("ipAddr")(<Input placeholder="请输入" />)}
+            </FormItem>
+          </Col>
+        </Row>
+        <Row gutter={{ md: 8, lg: 24, xl: 48 }}>
+          <Col md={8} sm={24}>
+            <FormItem label="Visible">
+              {getFieldDecorator("visible")(
+                <Select placeholder="请选择" style={{ width: "100%" }}>
+                  <Option value="1">可见</Option>
+                  <Option value="0">不可见</Option>
+                </Select>
+              )}
+            </FormItem>
+          </Col>
+          <Col md={8} sm={24}>
+            <FormItem label="Port">
+              {getFieldDecorator("port")(<Input placeholder="请输入" />)}
+            </FormItem>
+          </Col>
+        </Row>
+        <div style={{ overflow: "hidden" }}>
+          <div style={{ float: "right", marginBottom: 24 }}>
+            <Button type="primary" htmlType="submit">
+              查询
+            </Button>
+            <Button style={{ marginLeft: 8 }} onClick={this.handleFormReset}>
+              重置
+            </Button>
+            <a style={{ marginLeft: 8 }} onClick={this.toggleForm}>
+              收起 <Icon type="up" />
+            </a>
+          </div>
+        </div>
+      </Form>
+    );
   }
 
-  handleChangeSalesType = e => {
-    this.setState({
-      salesType: e.target.value,
-    });
-  };
-
-  handleTabChange = key => {
-    this.setState({
-      currentTabKey: key,
-    });
-  };
-
-  handleRangePickerChange = rangePickerValue => {
-    const { dispatch } = this.props;
-    this.setState({
-      rangePickerValue,
-    });
-
-    dispatch({
-      type: 'chart/fetchSalesData',
-    });
-  };
-
-  selectDate = type => {
-    const { dispatch } = this.props;
-    this.setState({
-      rangePickerValue: getTimeDistance(type),
-    });
-
-    dispatch({
-      type: 'chart/fetchSalesData',
-    });
-  };
-
-  isActive(type) {
-    const { rangePickerValue } = this.state;
-    const value = getTimeDistance(type);
-    if (!rangePickerValue[0] || !rangePickerValue[1]) {
-      return '';
-    }
-    if (
-      rangePickerValue[0].isSame(value[0], 'day') &&
-      rangePickerValue[1].isSame(value[1], 'day')
-    ) {
-      return styles.currentDate;
-    }
-    return '';
+  renderForm() {
+    const { expandForm } = this.state;
+    return expandForm ? this.renderAdvancedForm() : this.renderSimpleForm();
   }
 
   render() {
-    const { rangePickerValue, salesType, loading: propsLoding, currentTabKey } = this.state;
-    const { chart, loading: stateLoading } = this.props;
     const {
-      visitData,
-      visitData2,
-      salesData,
-      searchData,
-      offlineData,
-      offlineChartData,
-      salesTypeData,
-      salesTypeDataOnline,
-      salesTypeDataOffline,
-    } = chart;
-    const loading = propsLoding || stateLoading;
-    let salesPieData;
-    if (salesType === 'all') {
-      salesPieData = salesTypeData;
-    } else {
-      salesPieData = salesType === 'online' ? salesTypeDataOnline : salesTypeDataOffline;
-    }
+      applist: { data },
+      loading
+    } = this.props;
+    const {
+      selectedRows,
+      modalVisible,
+      updateModalVisible,
+      changeModalVisible,
+      stepFormValues,
+      stepFormValues1
+    } = this.state;
     const menu = (
-      <Menu>
-        <Menu.Item>操作一</Menu.Item>
-        <Menu.Item>操作二</Menu.Item>
+      <Menu onClick={this.handleMenuClick} selectedKeys={[]}>
+        <Menu.Item key="remove">删除</Menu.Item>
+        {/*  <Menu.Item key="approval">批量审批</Menu.Item>*/}
       </Menu>
     );
 
-    const iconGroup = (
-      <span className={styles.iconGroup}>
-        <Dropdown overlay={menu} placement="bottomRight">
-          <Icon type="ellipsis" />
-        </Dropdown>
-      </span>
-    );
-
-    const salesExtra = (
-      <div className={styles.salesExtraWrap}>
-        <div className={styles.salesExtra}>
-          <a className={this.isActive('today')} onClick={() => this.selectDate('today')}>
-            <FormattedMessage id="app.analysis.all-day" defaultMessage="All Day" />
-          </a>
-          <a className={this.isActive('week')} onClick={() => this.selectDate('week')}>
-            <FormattedMessage id="app.analysis.all-week" defaultMessage="All Week" />
-          </a>
-          <a className={this.isActive('month')} onClick={() => this.selectDate('month')}>
-            <FormattedMessage id="app.analysis.all-month" defaultMessage="All Month" />
-          </a>
-          <a className={this.isActive('year')} onClick={() => this.selectDate('year')}>
-            <FormattedMessage id="app.analysis.all-year" defaultMessage="All Year" />
-          </a>
-        </div>
-        <RangePicker
-          value={rangePickerValue}
-          onChange={this.handleRangePickerChange}
-          style={{ width: 256 }}
-        />
-      </div>
-    );
-
-    const columns = [
-      {
-        title: <FormattedMessage id="app.analysis.table.rank" defaultMessage="Rank" />,
-        dataIndex: 'index',
-        key: 'index',
-      },
-      {
-        title: (
-          <FormattedMessage
-            id="app.analysis.table.search-keyword"
-            defaultMessage="Search keyword"
-          />
-        ),
-        dataIndex: 'keyword',
-        key: 'keyword',
-        render: text => <a href="/">{text}</a>,
-      },
-      {
-        title: <FormattedMessage id="app.analysis.table.users" defaultMessage="Users" />,
-        dataIndex: 'count',
-        key: 'count',
-        sorter: (a, b) => a.count - b.count,
-        className: styles.alignRight,
-      },
-      {
-        title: (
-          <FormattedMessage id="app.analysis.table.weekly-range" defaultMessage="Weekly Range" />
-        ),
-        dataIndex: 'range',
-        key: 'range',
-        sorter: (a, b) => a.range - b.range,
-        render: (text, record) => (
-          <Trend flag={record.status === 1 ? 'down' : 'up'}>
-            <span style={{ marginRight: 4 }}>{text}%</span>
-          </Trend>
-        ),
-        align: 'right',
-      },
-    ];
-
-    const activeKey = currentTabKey || (offlineData[0] && offlineData[0].name);
-
-    const CustomTab = ({ data, currentTabKey: currentKey }) => (
-      <Row gutter={8} style={{ width: 138, margin: '8px 0' }}>
-        <Col span={12}>
-          <NumberInfo
-            title={data.name}
-            subTitle={
-              <FormattedMessage
-                id="app.analysis.conversion-rate"
-                defaultMessage="Conversion Rate"
-              />
-            }
-            gap={2}
-            total={`${data.cvr * 100}%`}
-            theme={currentKey !== data.name && 'light'}
-          />
-        </Col>
-        <Col span={12} style={{ paddingTop: 36 }}>
-          <Pie
-            animate={false}
-            color={currentKey !== data.name && '#BDE4FF'}
-            inner={0.55}
-            tooltip={false}
-            margin={[0, 0, 0, 0]}
-            percent={data.cvr * 100}
-            height={64}
-          />
-        </Col>
-      </Row>
-    );
-
-    const topColResponsiveProps = {
-      xs: 24,
-      sm: 12,
-      md: 12,
-      lg: 12,
-      xl: 6,
-      style: { marginBottom: 24 },
+    const parentMethods = {
+      handleAdd: this.handleAdd,
+      handleSubmit: this.handleSubmit,
+      handleModalVisible: this.handleModalVisible
     };
-
+    const updateMethods = {
+      handleUpdateModalVisible: this.handleUpdateModalVisible,
+      handleUpdate: this.handleUpdate
+    };
+    //
+    const changeMethods = {
+      handleChangeModalVisible: this.handleChangeModalVisible,
+      handleChange: this.handleChange
+      //
+    };
     return (
-      <GridContent>
-        <Row gutter={24}>
-          <Col {...topColResponsiveProps}>
-            <ChartCard
-              bordered={false}
-              title={
-                <FormattedMessage id="app.analysis.total-sales" defaultMessage="Total Sales" />
-              }
-              action={
-                <Tooltip
-                  title={
-                    <FormattedMessage id="app.analysis.introduce" defaultMessage="introduce" />
-                  }
-                >
-                  <Icon type="info-circle-o" />
-                </Tooltip>
-              }
-              loading={loading}
-              total={() => <Yuan>126560</Yuan>}
-              footer={
-                <Field
-                  label={
-                    <FormattedMessage id="app.analysis.day-sales" defaultMessage="Day Sales" />
-                  }
-                  value={`￥${numeral(12423).format('0,0')}`}
-                />
-              }
-              contentHeight={46}
-            >
-              <Trend flag="up" style={{ marginRight: 16 }}>
-                <FormattedMessage id="app.analysis.week" defaultMessage="Weekly Changes" />
-                <span className={styles.trendText}>12%</span>
-              </Trend>
-              <Trend flag="down">
-                <FormattedMessage id="app.analysis.day" defaultMessage="Daily Changes" />
-                <span className={styles.trendText}>11%</span>
-              </Trend>
-            </ChartCard>
-          </Col>
-          <Col {...topColResponsiveProps}>
-            <ChartCard
-              bordered={false}
-              loading={loading}
-              title={<FormattedMessage id="app.analysis.visits" defaultMessage="visits" />}
-              action={
-                <Tooltip
-                  title={
-                    <FormattedMessage id="app.analysis.introduce" defaultMessage="introduce" />
-                  }
-                >
-                  <Icon type="info-circle-o" />
-                </Tooltip>
-              }
-              total={numeral(8846).format('0,0')}
-              footer={
-                <Field
-                  label={
-                    <FormattedMessage id="app.analysis.day-visits" defaultMessage="Day Visits" />
-                  }
-                  value={numeral(1234).format('0,0')}
-                />
-              }
-              contentHeight={46}
-            >
-              <MiniArea color="#975FE4" data={visitData} />
-            </ChartCard>
-          </Col>
-          <Col {...topColResponsiveProps}>
-            <ChartCard
-              bordered={false}
-              loading={loading}
-              title={<FormattedMessage id="app.analysis.payments" defaultMessage="Payments" />}
-              action={
-                <Tooltip
-                  title={
-                    <FormattedMessage id="app.analysis.introduce" defaultMessage="Introduce" />
-                  }
-                >
-                  <Icon type="info-circle-o" />
-                </Tooltip>
-              }
-              total={numeral(6560).format('0,0')}
-              footer={
-                <Field
-                  label={
-                    <FormattedMessage
-                      id="app.analysis.conversion-rate"
-                      defaultMessage="Conversion Rate"
-                    />
-                  }
-                  value="60%"
-                />
-              }
-              contentHeight={46}
-            >
-              <MiniBar data={visitData} />
-            </ChartCard>
-          </Col>
-          <Col {...topColResponsiveProps}>
-            <ChartCard
-              loading={loading}
-              bordered={false}
-              title={
-                <FormattedMessage
-                  id="app.analysis.operational-effect"
-                  defaultMessage="Operational Effect"
-                />
-              }
-              action={
-                <Tooltip
-                  title={
-                    <FormattedMessage id="app.analysis.introduce" defaultMessage="introduce" />
-                  }
-                >
-                  <Icon type="info-circle-o" />
-                </Tooltip>
-              }
-              total="78%"
-              footer={
-                <div style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
-                  <Trend flag="up" style={{ marginRight: 16 }}>
-                    <FormattedMessage id="app.analysis.week" defaultMessage="Weekly changes" />
-                    <span className={styles.trendText}>12%</span>
-                  </Trend>
-                  <Trend flag="down">
-                    <FormattedMessage id="app.analysis.day" defaultMessage="Weekly changes" />
-                    <span className={styles.trendText}>11%</span>
-                  </Trend>
-                </div>
-              }
-              contentHeight={46}
-            >
-              <MiniProgress percent={78} strokeWidth={8} target={80} color="#13C2C2" />
-            </ChartCard>
-          </Col>
-        </Row>
-
-        <Card loading={loading} bordered={false} bodyStyle={{ padding: 0 }}>
-          <div className={styles.salesCard}>
-            <Tabs tabBarExtraContent={salesExtra} size="large" tabBarStyle={{ marginBottom: 24 }}>
-              <TabPane
-                tab={<FormattedMessage id="app.analysis.sales" defaultMessage="Sales" />}
-                key="sales"
+      <PageHeaderWrapper title="查询表格">
+        <Card bordered={false}>
+          <div className={styles.tableList}>
+            <div className={styles.tableListForm}>{this.renderForm()}</div>
+            {/*
+                        <div className={styles.scrolls}>{this.renderForm()}</div>
+*/}
+            <div className={styles.tableListOperator}>
+              <Button
+                icon="plus"
+                type="primary"
+                onClick={() => this.handleModalVisible(true)}
               >
-                <Row>
-                  <Col xl={16} lg={12} md={12} sm={24} xs={24}>
-                    <div className={styles.salesBar}>
-                      <Bar
-                        height={295}
-                        title={
-                          <FormattedMessage
-                            id="app.analysis.sales-trend"
-                            defaultMessage="Sales Trend"
-                          />
-                        }
-                        data={salesData}
-                      />
-                    </div>
-                  </Col>
-                  <Col xl={8} lg={12} md={12} sm={24} xs={24}>
-                    <div className={styles.salesRank}>
-                      <h4 className={styles.rankingTitle}>
-                        <FormattedMessage
-                          id="app.analysis.sales-ranking"
-                          defaultMessage="Sales Ranking"
-                        />
-                      </h4>
-                      <ul className={styles.rankingList}>
-                        {this.rankingListData.map((item, i) => (
-                          <li key={item.title}>
-                            <span
-                              className={`${styles.rankingItemNumber} ${
-                                i < 3 ? styles.active : ''
-                              }`}
-                            >
-                              {i + 1}
-                            </span>
-                            <span className={styles.rankingItemTitle} title={item.title}>
-                              {item.title}
-                            </span>
-                            <span className={styles.rankingItemValue}>
-                              {numeral(item.total).format('0,0')}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </Col>
-                </Row>
-              </TabPane>
-              <TabPane
-                tab={<FormattedMessage id="app.analysis.visits" defaultMessage="Visits" />}
-                key="views"
-              >
-                <Row>
-                  <Col xl={16} lg={12} md={12} sm={24} xs={24}>
-                    <div className={styles.salesBar}>
-                      <Bar
-                        height={292}
-                        title={
-                          <FormattedMessage
-                            id="app.analysis.visits-trend"
-                            defaultMessage="Visits Trend"
-                          />
-                        }
-                        data={salesData}
-                      />
-                    </div>
-                  </Col>
-                  <Col xl={8} lg={12} md={12} sm={24} xs={24}>
-                    <div className={styles.salesRank}>
-                      <h4 className={styles.rankingTitle}>
-                        <FormattedMessage
-                          id="app.analysis.visits-ranking"
-                          defaultMessage="Visits Ranking"
-                        />
-                      </h4>
-                      <ul className={styles.rankingList}>
-                        {this.rankingListData.map((item, i) => (
-                          <li key={item.title}>
-                            <span
-                              className={`${styles.rankingItemNumber} ${
-                                i < 3 ? styles.active : ''
-                              }`}
-                            >
-                              {i + 1}
-                            </span>
-                            <span className={styles.rankingItemTitle} title={item.title}>
-                              {item.title}
-                            </span>
-                            <span>{numeral(item.total).format('0,0')}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </Col>
-                </Row>
-              </TabPane>
-            </Tabs>
+                新建
+              </Button>
+              {selectedRows.length > 0 && (
+                <span>
+                  <Button>批量操作</Button>
+                  <Dropdown overlay={menu}>
+                    <Button>
+                      更多操作 <Icon type="down" />
+                    </Button>
+                  </Dropdown>
+                </span>
+              )}
+            </div>
+            <StandardTable
+              selectedRows={selectedRows}
+              loading={loading}
+              data={data}
+              columns={this.columns}
+              onSelectRow={this.handleSelectRows}
+              onChange={this.handleStandardTableChange}
+            />
           </div>
         </Card>
-
-        <Row gutter={24}>
-          <Col xl={12} lg={24} md={24} sm={24} xs={24}>
-            <Card
-              loading={loading}
-              bordered={false}
-              title={
-                <FormattedMessage
-                  id="app.analysis.online-top-search"
-                  defaultMessage="Online Top Search"
-                />
-              }
-              extra={iconGroup}
-              style={{ marginTop: 24 }}
-            >
-              <Row gutter={68}>
-                <Col sm={12} xs={24} style={{ marginBottom: 24 }}>
-                  <NumberInfo
-                    subTitle={
-                      <span>
-                        <FormattedMessage
-                          id="app.analysis.search-users"
-                          defaultMessage="search users"
-                        />
-                        <Tooltip
-                          title={
-                            <FormattedMessage
-                              id="app.analysis.introduce"
-                              defaultMessage="introduce"
-                            />
-                          }
-                        >
-                          <Icon style={{ marginLeft: 8 }} type="info-circle-o" />
-                        </Tooltip>
-                      </span>
-                    }
-                    gap={8}
-                    total={numeral(12321).format('0,0')}
-                    status="up"
-                    subTotal={17.1}
-                  />
-                  <MiniArea line height={45} data={visitData2} />
-                </Col>
-                <Col sm={12} xs={24} style={{ marginBottom: 24 }}>
-                  <NumberInfo
-                    subTitle={
-                      <span>
-                        <FormattedMessage
-                          id="app.analysis.per-capita-search"
-                          defaultMessage="Per Capita Search"
-                        />
-                        <Tooltip
-                          title={
-                            <FormattedMessage
-                              id="app.analysis.introduce"
-                              defaultMessage="introduce"
-                            />
-                          }
-                        >
-                          <Icon style={{ marginLeft: 8 }} type="info-circle-o" />
-                        </Tooltip>
-                      </span>
-                    }
-                    total={2.7}
-                    status="down"
-                    subTotal={26.2}
-                    gap={8}
-                  />
-                  <MiniArea line height={45} data={visitData2} />
-                </Col>
-              </Row>
-              <Table
-                rowKey={record => record.index}
-                size="small"
-                columns={columns}
-                dataSource={searchData}
-                pagination={{
-                  style: { marginBottom: 0 },
-                  pageSize: 5,
-                }}
-              />
-            </Card>
-          </Col>
-          <Col xl={12} lg={24} md={24} sm={24} xs={24}>
-            <Card
-              loading={loading}
-              className={styles.salesCard}
-              bordered={false}
-              title={
-                <FormattedMessage
-                  id="app.analysis.the-proportion-of-sales"
-                  defaultMessage="The Proportion of Sales"
-                />
-              }
-              bodyStyle={{ padding: 24 }}
-              extra={
-                <div className={styles.salesCardExtra}>
-                  {iconGroup}
-                  <div className={styles.salesTypeRadio}>
-                    <Radio.Group value={salesType} onChange={this.handleChangeSalesType}>
-                      <Radio.Button value="all">
-                        <FormattedMessage id="app.analysis.channel.all" defaultMessage="ALL" />
-                      </Radio.Button>
-                      <Radio.Button value="online">
-                        <FormattedMessage
-                          id="app.analysis.channel.online"
-                          defaultMessage="Online"
-                        />
-                      </Radio.Button>
-                      <Radio.Button value="stores">
-                        <FormattedMessage
-                          id="app.analysis.channel.stores"
-                          defaultMessage="Stores"
-                        />
-                      </Radio.Button>
-                    </Radio.Group>
-                  </div>
-                </div>
-              }
-              style={{ marginTop: 24, minHeight: 509 }}
-            >
-              <h4 style={{ marginTop: 8, marginBottom: 32 }}>
-                <FormattedMessage id="app.analysis.sales" defaultMessage="Sales" />
-              </h4>
-              <Pie
-                hasLegend
-                subTitle={<FormattedMessage id="app.analysis.sales" defaultMessage="Sales" />}
-                total={() => <Yuan>{salesPieData.reduce((pre, now) => now.y + pre, 0)}</Yuan>}
-                data={salesPieData}
-                valueFormat={value => <Yuan>{value}</Yuan>}
-                height={248}
-                lineWidth={4}
-              />
-            </Card>
-          </Col>
-        </Row>
-
-        <Card
-          loading={loading}
-          className={styles.offlineCard}
-          bordered={false}
-          bodyStyle={{ padding: '0 0 32px 0' }}
-          style={{ marginTop: 32 }}
-        >
-          <Tabs activeKey={activeKey} onChange={this.handleTabChange}>
-            {offlineData.map(shop => (
-              <TabPane tab={<CustomTab data={shop} currentTabKey={activeKey} />} key={shop.name}>
-                <div style={{ padding: '0 24px' }}>
-                  <TimelineChart
-                    height={400}
-                    data={offlineChartData}
-                    titleMap={{
-                      y1: formatMessage({ id: 'app.analysis.traffic' }),
-                      y2: formatMessage({ id: 'app.analysis.payments' }),
-                    }}
-                  />
-                </div>
-              </TabPane>
-            ))}
-          </Tabs>
-        </Card>
-      </GridContent>
+        <CreateForm {...parentMethods} modalVisible={modalVisible} />
+        {stepFormValues && Object.keys(stepFormValues).length ? (
+          <UpdateForm
+            {...updateMethods}
+            updateModalVisible={updateModalVisible}
+            values={stepFormValues}
+          />
+        ) : null}
+        {stepFormValues1 && Object.keys(stepFormValues1).length ? (
+          <ChangeForm
+            {...changeMethods}
+            changeModalVisible={changeModalVisible}
+            values={stepFormValues1}
+          />
+        ) : null}
+      </PageHeaderWrapper>
     );
   }
 }
-
-export default Analysis;
+export default AppList;

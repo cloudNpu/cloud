@@ -31,11 +31,10 @@ export async function updateFound(params) {
 }
 //
 export async function Add_user_app(params) {
-  return request("/api/found", {
+  return request("/api/userApps", {
     method: "POST",
     body: {
-      ...params,
-      method: "add_user_app"
+      ...params
     }
   });
 }

@@ -1,0 +1,56 @@
+{
+  "generalStats":
+  {
+    "environment":"test",
+    "num-of-cpus":"4",
+    "total-avail-memory":"706mb",
+    "current-memory-usage":"282mb (39%)",
+    "server-uptime":"2 days 04:32",
+  }
+},
+  "applicationStats":
+  {
+       "registered-replicas":"",
+        "available-replicas":"",
+        "unavailable-replicas":""
+  },
+  "instanceInfo":
+ {
+        "instanceId":"DESKTOP-J802EUD:8080",
+        "hostName":"localhost",
+        "app":"UNKNOWN",
+         "ipAddr":"192.168.75.1",
+         "status":"UP",
+         "overriddenStatus":"UNKNOWN",
+         "port":{"$":8080,"@enabled":"true"},
+         "securePort":{"$":443,"@enabled":"false"},
+         "countryId":1,
+         "dataCenterInfo":
+             {
+              "@class":"com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo",
+              "name":"MyOwn"
+             },
+         "leaseInfo":
+            {
+               "renewalIntervalInSecs":30,
+               "durationInSecs":90,
+               "registrationTimestamp":0,
+               "lastRenewalTimestamp":0,
+               "evictionTimestamp":0,
+               "serviceUpTimestamp":0
+            },
+         "metadata":
+           {
+               "management.port":"8080",
+               "jmx.port":"26788"
+            },
+         "homePageUrl":"http://localhost:8080/",
+         "statusPageUrl":"http://localhost:8080/actuator/info",
+         "healthCheckUrl":"http://localhost:8080/actuator/health",
+         "vipAddress":"unknown",
+         "secureVipAddress":"unknown",
+         "isCoordinatingDiscoveryServer":"false",
+         "lastUpdatedTimestamp":"1555665593524",
+         "lastDirtyTimestamp":"1555665597812",
+         "visible":"false"
+}

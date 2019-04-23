@@ -13,7 +13,7 @@ import {
 //import {changeAppList} from "../services/api";
 
 export default {
-  namespace: "applist",
+  namespace: "analysis",
 
   state: {
     data: {
@@ -35,48 +35,48 @@ export default {
     *add({ payload, callback }, { call, put, select }) {
       const response = yield call(addAppList, payload);
       /*const response={
-            "instance": {
-                "id": "18",
-                "instanceId": "10.208.204.119:7011",
-                "hostName": "10.208.204.119",
-                "appName": "HELLO9",
-                "ipAddr": "10.208.204.119",
-                "status": "UP",
-                "overriddenstatus": "UNKNOWN",
-                "port": {
-                "@enabled": "true",
-                    "$": "7003"
-            },
-            /!*"securePort": {
-                "@enabled": "false",
-                    "$": "443"
-            },*!/
-              "countryId": "1",
+                  "instance": {
+                      "id": "18",
+                      "instanceId": "10.208.204.119:7011",
+                      "hostName": "10.208.204.119",
+                      "appName": "HELLO9",
+                      "ipAddr": "10.208.204.119",
+                      "status": "UP",
+                      "overriddenstatus": "UNKNOWN",
+                      "port": {
+                      "@enabled": "true",
+                          "$": "7003"
+                  },
+                  /!*"securePort": {
+                      "@enabled": "false",
+                          "$": "443"
+                  },*!/
+                    "countryId": "1",
 
-                /!*"dataCenterInfo": {
-                "@class": "com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo",
-                    "name": "MyOwn"
-            },*!/
+                      /!*"dataCenterInfo": {
+                      "@class": "com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo",
+                          "name": "MyOwn"
+                  },*!/
 
-            /!*"leaseInfo": {
-                "renewalIntervalInSecs": "30",
-                    "durationInSecs": "90",
-                    "registrationTimestamp": "1539771833637",
-                    "lastRenewalTimestamp": "1539771833637",
-                    "evictionTimestamp": "0",
-                    "serviceUpTimestamp": "1539771833637"
-            },*!/
-            /!*"metadata": { "management.port": "17003" },*!/
-                "homePageUrl": "http://10.208.204.119:7003/",
-                "statusPageUrl": "http://10.208.204.119:17003/info",
-                "healthCheckUrl": "http://10.208.204.119:17003/health",
-                "vipAddress": "eureka-c",
-                "secureVipAddress": "eureka-c",
-                "lastDirtyTimestamp": "1528277019770",
-                "inputParams":"int",
-                "outputParams":"String"
-        }
-        };*/
+                  /!*"leaseInfo": {
+                      "renewalIntervalInSecs": "30",
+                          "durationInSecs": "90",
+                          "registrationTimestamp": "1539771833637",
+                          "lastRenewalTimestamp": "1539771833637",
+                          "evictionTimestamp": "0",
+                          "serviceUpTimestamp": "1539771833637"
+                  },*!/
+                  /!*"metadata": { "management.port": "17003" },*!/
+                      "homePageUrl": "http://10.208.204.119:7003/",
+                      "statusPageUrl": "http://10.208.204.119:17003/info",
+                      "healthCheckUrl": "http://10.208.204.119:17003/health",
+                      "vipAddress": "eureka-c",
+                      "secureVipAddress": "eureka-c",
+                      "lastDirtyTimestamp": "1528277019770",
+                      "inputParams":"int",
+                      "outputParams":"String"
+              }
+              };*/
       let list = yield select(state => state.applist.data.list);
       //list.push(response.instance);
       yield put({
@@ -125,8 +125,8 @@ export default {
           array[index] = res_app;
         }
         /*if(user.id == payload .id) {
-              array[index] = payload;
-            }*/
+                      array[index] = payload;
+                    }*/
       });
       yield put({
         type: "save",
@@ -148,8 +148,8 @@ export default {
           array[index].visible = payload.visible;
         }
         /*if(user.id == payload .id) {
-              array[index] = payload;
-            }*/
+                      array[index] = payload;
+                    }*/
       });
       yield put({
         type: "save",

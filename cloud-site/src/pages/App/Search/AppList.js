@@ -525,7 +525,7 @@ class AppList extends PureComponent {
       title: "InstanceID",
       dataIndex: "instanceId",
       fixed: "left",
-      width: 70
+      width: 40
     },
     {
       title: "IpAddr",
