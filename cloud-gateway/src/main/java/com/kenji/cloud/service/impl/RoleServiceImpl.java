@@ -11,6 +11,7 @@ import com.kenji.cloud.vo.RoleMenuVo;
 import com.kenji.cloud.vo.RoleVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -58,17 +59,35 @@ public class RoleServiceImpl implements RoleService {
     public List<RoleMenuVo> addMenusForRoles(List<RoleMenu> roleMenus) {
         ArrayList<RoleMenuVo> roleMenuVos = new ArrayList<>();
         roleMenus.stream().forEach(roleMenu -> {
-            roleMenuRepository.save(roleMenu);
-            RoleMenuVo roleMenuVo = new RoleMenuVo();
-            Role role = roleMenu.getRole();
-            Menu menu = roleMenu.getMenu();
-            roleMenuVo.setRoleMenu(menu.getName());
-            roleMenuVo.setDescription(role.getDescription());
-            roleMenuVo.setName(role.getName());
-            roleMenuVo.setValue(role.getValue());
-            roleMenuVos.add(roleMenuVo);
+            if (!check(roleMenu)) {
+                roleMenuRepository.save(roleMenu);
+                RoleMenuVo roleMenuVo = new RoleMenuVo();
+                Role role = roleMenu.getRole();
+                Menu menu = roleMenu.getMenu();
+                roleMenuVo.setRoleMenu(menu.getName());
+                roleMenuVo.setDescription(role.getDescription());
+                roleMenuVo.setName(role.getName());
+                roleMenuVo.setValue(role.getValue());
+                roleMenuVos.add(roleMenuVo);
+            }
         });
         return roleMenuVos;
+    }
+
+    /**
+     * 检查数据库中是否已经存储了roleMenu实体
+     * @param roleMenu
+     * @return 已经存在返回true，否则返回false
+     */
+    private boolean check(RoleMenu roleMenu) {
+        Role role = roleMenu.getRole();
+        Menu menu = roleMenu.getMenu();
+        List<RoleMenu> roleMenus = roleMenuRepository.findAllByMenuAndAndRole(role, menu);
+        if (roleMenus.size() != 0) {
+            return true;
+        }
+        return false;
+
     }
 
     @Override
