@@ -5,6 +5,6 @@ export async function query() {
 }
 
 export async function queryCurrent() {
-  // return request("/auth/currentUser");
+  //return request("/auth/currentUser");
   return request("/api/currentUser");
 }

@@ -15,12 +15,18 @@ export default {
       pagination: {}
     }
     /*,
-          menu: []*/
+              menu: []*/
   },
 
   effects: {
     *fetch({ payload }, { call, put }) {
       const response = yield (yield call(queryRole, payload)).json();
+
+      // for(let i=0;i<response.length;i++){
+      //     for(let j=0;j<response.roleMenu.length;j++)
+      //         response[i].roleMenu[j].push(",");
+      // }
+      //   console.log(response);
       yield put({
         type: "save",
         payload: {
@@ -45,12 +51,20 @@ export default {
       if (callback) callback();
     },
 
-    *update({ payload, callback }, { call, put }) {
+    *update({ payload, callback }, { call, put, select }) {
       const response = yield (yield call(updateRole, payload)).json();
+      let list = yield select(state => state.rolesearch.data.list);
+      //  console.log(list);
+      yield list.forEach((value, index, array) => {
+        let role = array[index];
+        if (role.id === payload.id) {
+          array[index] = payload;
+        }
+      });
       yield put({
         type: "save",
         payload: {
-          list: response
+          list: list
           //   pagination: {}
         }
       });
@@ -58,7 +72,7 @@ export default {
     },
 
     *delete({ payload, callback }, { call, put }) {
-      console.log(payload);
+      // console.log(payload);
       const response = yield (yield call(deleteRole, payload)).json();
       //  console.log(response);
       yield put({
@@ -70,16 +84,25 @@ export default {
       if (callback) callback();
     },
 
-    *menu({ payload, callback }, { call, put }) {
-      console.log(payload);
-      const response = yield call(menuList, payload);
+    *menu({ payload, callback }, { call, put, select }) {
+      const response = yield (yield call(menuList, payload)).json();
+      let list = yield select(state => state.rolesearch.data.list);
+      // console.log(list);
+      yield list.forEach((value, index, array) => {
+        let role = array[index];
+        // console.log(role);
+        // console.log(array[index].roleMenu);
+        if (role.name === response[0].name) {
+          //  console.log(array[index].roleMenu);
+          // let a=response[0].roleMenu;
+          array[index].roleMenu.push(response[0].roleMenu);
+        }
+      });
       //   console.log(response);
       yield put({
-        // type: "menuList",
         type: "save",
-        // payload: Array.isArray(response) ? response : []
         payload: {
-          list: response
+          list: list
           //   pagination: {}
         }
       });

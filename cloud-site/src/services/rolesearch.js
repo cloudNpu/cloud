@@ -36,8 +36,6 @@ export async function deleteRole(params) {
 export async function menuList(params) {
   return request(`/api/roleMenus`, {
     method: "POST",
-    body: {
-      ...params
-    }
+    body: params
   });
 }

@@ -88,9 +88,9 @@ export default {
     *add_user_role({ payload, callback }, { call, put, select }) {
       let list = yield select(state => state.found.data.list);
       let x = JSON.parse(sessionStorage.getItem("selectedRoleRows"));
-      console.log(x);
-      console.log(x.length);
-      console.log(payload.userIds.length);
+      // console.log(x);
+      // console.log(x.length);
+      // console.log(payload.userIds.length);
 
       for (let k = 0; k < x.length; k++) {
         for (let j = 0; j < payload.userIds.length; j++) {

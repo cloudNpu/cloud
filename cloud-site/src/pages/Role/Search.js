@@ -157,6 +157,12 @@ class UpdateForm extends PureComponent {
           initialValue: formVals.value
         })(<Input placeholder="请输入" />)}
       </FormItem>,
+      //   <FormItem key="roleMenu" {...this.formLayout} label="roleMenu">
+      //       {form.getFieldDecorator("roleMenu", {
+      //           rules: [{ required: true, message: "请输入value值！" }],
+      //           initialValue: formVals.roleMenu
+      //       })(<MenuView />)}
+      //   </FormItem>,
       <FormItem key="description" {...this.formLayout} label="角色描述">
         {form.getFieldDecorator("description", {
           rules: [
@@ -476,6 +482,7 @@ class Search extends PureComponent {
       payload: {
         id: fields.id,
         name: fields.name,
+        roleMenu: fields.roleMenu,
         description: fields.description,
         value: fields.value
       }
@@ -487,9 +494,9 @@ class Search extends PureComponent {
   //授权
   handleMenu = fields => {
     const { dispatch } = this.props;
-    let i = 0;
-    let a = [];
-    a.push({
+    let i = 1;
+    let menuA = [];
+    menuA.push({
       id: i,
       role: {
         id: fields.id,
@@ -501,10 +508,10 @@ class Search extends PureComponent {
         name: fields.roleMenu.menus.label
       }
     });
-    console.log(a);
+    // console.log(JSON.stringify(a));
     dispatch({
       type: "rolesearch/menu",
-      payload: a
+      payload: menuA
       //{
       //
       //          id: i,

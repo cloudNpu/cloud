@@ -104,9 +104,9 @@ export async function updateFakeList(params) {
 }
 
 export async function fakeAccountLogin(params) {
- return request("/api/auth/login", {
-   // return request("/api/login/account", {
-        method: "POST",
+  return request("/api/auth/login", {
+    //   return request("/api/login/account", {
+    method: "POST",
     body: params
   });
 }
@@ -149,7 +149,7 @@ export async function addAppList(params) {
     method: "POST",
     body: {
       ...params,
-    /* "instance":{
+      /* "instance":{
             "instanceId": "i-00000000",
             "app": "APPLICATION0",
             "appGroupName": "APPLICATION0GROUP",
@@ -266,4 +266,3 @@ export async function updateCenter(params) {
 export async function queryService() {
   return request("/api/service");
 }
-
