@@ -2,6 +2,7 @@ package com.kenji.cloud.web;
 
 import com.kenji.cloud.entity.Menu;
 import com.kenji.cloud.service.impl.MenuServiceImpl;
+import com.kenji.cloud.vo.MenuReturnVO;
 import com.kenji.cloud.vo.MenuVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -90,7 +91,7 @@ public class MenuController {
     @RequestMapping(value = "/menus/{userId}", method = RequestMethod.GET)
     public ResponseEntity getMenusByUserId(@PathVariable Long userId){
         try {
-            Set<MenuVO> menus = menuService.findByUserId(userId);
+            Set<MenuReturnVO> menus = menuService.findByUserId(userId);
             return ResponseEntity.ok(menus);
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());

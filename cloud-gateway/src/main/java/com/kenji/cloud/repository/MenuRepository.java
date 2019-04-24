@@ -18,4 +18,6 @@ public interface MenuRepository extends JpaRepository<Menu,Long> {
     @Override
     @Query(value = "from Menu menu")
     List<Menu> findAll();
+    @Query(value = "from Menu m join fetch m.menu mm where mm.id = ?1")
+    List<Menu> findByMenuFId(Long fid);
 }

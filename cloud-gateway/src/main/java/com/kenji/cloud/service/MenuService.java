@@ -1,6 +1,7 @@
 package com.kenji.cloud.service;
 
 import com.kenji.cloud.entity.Menu;
+import com.kenji.cloud.vo.MenuReturnVO;
 import com.kenji.cloud.vo.MenuVO;
 
 import java.util.List;
@@ -41,5 +42,5 @@ public interface MenuService {
      */
     List<MenuVO> getAll();
 
-    public Set<MenuVO> findByUserId(Long id);
+    public Set<MenuReturnVO> findByUserId(Long id);
 }

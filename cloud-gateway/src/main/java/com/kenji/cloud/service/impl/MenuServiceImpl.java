@@ -7,6 +7,7 @@ import com.kenji.cloud.repository.RoleRepository;
 import com.kenji.cloud.repository.UserRepository;
 import com.kenji.cloud.service.MenuService;
 import com.kenji.cloud.service.RoleService;
+import com.kenji.cloud.vo.MenuReturnVO;
 import com.kenji.cloud.vo.MenuVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +58,7 @@ public class MenuServiceImpl implements MenuService {
      */
 
     @Override
-    public Set<MenuVO> findByUserId(Long userId){
+    public Set<MenuReturnVO> findByUserId(Long userId){
         User user = userRepository.findByUserId(userId);
         List<UserRole> userRoles = user.getUserRoles();
         Set<MenuVO> menuVOs = new HashSet<>();
@@ -68,11 +69,13 @@ public class MenuServiceImpl implements MenuService {
             for (RoleMenu roleMenu:roleMenus ){
                 Menu menu = roleMenu.getMenu();
                 MenuVO menuVO = new MenuVO();
-                String menuName;
+                String menuName = null;
+                Long menuFId =  null;
                 if (menu != null) {
-                    menuName = menu.getMenu().getName();
-                    //System.out.println(menuName);
-                    Long menuFId = menu.getMenu().getId();
+                    if (menu.getMenu() != null){
+                        menuName = menu.getMenu().getName();
+                        menuFId = menu.getMenu().getId();
+                    }
                     BeanUtils.copyProperties(menu, menuVO);
                     menuVO.setMenuFidName(menuName);
                     menuVO.setMenuFid(menuFId);
@@ -81,7 +84,21 @@ public class MenuServiceImpl implements MenuService {
                 menuVOs.add(menuVO);
             }
         }
-        return menuVOs;
+        Set<MenuReturnVO> menuReturnVOs = new HashSet<>();
+        for (MenuVO rMenu: menuVOs){
+            List<Menu> cMenus = repository.findByMenuFId(rMenu.getId());
+            MenuReturnVO menuReturnVO = new MenuReturnVO();
+            BeanUtils.copyProperties(rMenu, menuReturnVO);
+            Set<SimpleMenuRouteVO> route = new HashSet<>();
+            menuReturnVO.setRoutes(route);
+            for(Menu cMenu : cMenus){
+                SimpleMenuRouteVO simpleMenuVO = new SimpleMenuRouteVO();
+                BeanUtils.copyProperties(cMenu, simpleMenuVO);
+                route.add(simpleMenuVO);
+            }
+            menuReturnVOs.add(menuReturnVO);
+        }
+        return menuReturnVOs;
     }
 
     @Override
