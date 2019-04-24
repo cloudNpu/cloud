@@ -72,9 +72,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserReturnVo findById(Long id) {
-        User user = userRepository.findByUserId(id);
-        List<RoleReturnVo> roles = userRoleService.getRolesByUserId(id);
         UserReturnVo userReturnVo = new UserReturnVo();
+        User user = userRepository.findByUserId(id);
+        if (user != null){
+            userReturnVo = new UserReturnVo();
+        List<RoleReturnVo> roles = userRoleService.getRolesByUserId(id);
         userReturnVo.setId(user.getId().toString());
         userReturnVo.setUsername(user.getUsername());
         userReturnVo.setPassword(user.getPassword());
@@ -84,6 +86,9 @@ public class UserServiceImpl implements UserService {
         userReturnVo.setOfficeTel(user.getOfficeTel());
         userReturnVo.setMobile(user.getMobile());
         userReturnVo.setRoleList(roles);
+        }
+        else
+            return null;
         return userReturnVo;
     }
 

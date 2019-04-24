@@ -57,6 +57,10 @@ dependencies {
     // https://mvnrepository.com/artifact/com.owlike/genson
     compile group: 'com.owlike', name: 'genson', version: '1.5'
 
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    //compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.8'
+    
+    compile "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
 
 
 

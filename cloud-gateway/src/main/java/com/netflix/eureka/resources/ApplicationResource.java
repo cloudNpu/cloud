@@ -24,6 +24,7 @@ import com.kenji.cloud.repository.UserRepository;
 import com.kenji.cloud.service.ApplicationService;
 import com.kenji.cloud.service.LeaseInfoService;
 import com.kenji.cloud.service.UserService;
+import com.kenji.cloud.vo.InstanceInfoReturnVo;
 import com.kenji.cloud.vo.UserReturnVo;
 import com.netflix.appinfo.*;
 import com.netflix.discovery.shared.Application;
@@ -42,9 +43,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.parameters.P;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -73,7 +72,7 @@ public class ApplicationResource {
     LeaseInfoRepository leaseInfoRepository;
     UserRepository userRepository;
 
-    ApplicationResource(String appName,
+    public ApplicationResource(String appName,
                         EurekaServerConfig serverConfig,
                         PeerAwareInstanceRegistry registry) {
         this.appName = appName.toUpperCase();
@@ -150,6 +149,8 @@ public class ApplicationResource {
      * @param isReplication a header parameter containing information whether this is
      *                      replicated from other nodes.
      */
+
+    //需要包装一下才能添加request变量，目前还不能传入用户
     @POST
     @Consumes({"application/json", "application/xml"})
     public Response addInstance(InstanceInfo info,
@@ -164,9 +165,9 @@ public class ApplicationResource {
             return Response.status(400).entity("Missing ip address").build();
         } else if (isBlank(info.getAppName())) {
             return Response.status(400).entity("Missing appName").build();
-        } else if (!appName.equals(info.getAppName())) {
+        }/* else if (!appName.equals(info.getAppName())) {
             return Response.status(400).entity("Mismatched appName, expecting " + appName + " but was " + info.getAppName()).build();
-        } else if (info.getDataCenterInfo() == null) {
+        }*/ else if (info.getDataCenterInfo() == null) {
             return Response.status(400).entity("Missing dataCenterInfo").build();
         } else if (info.getDataCenterInfo().getName() == null) {
             return Response.status(400).entity("Missing dataCenterInfo Name").build();
@@ -194,7 +195,8 @@ public class ApplicationResource {
         }
 
         registry.register(info, "true".equals(isReplication));   //真正的服务注册在这，前面都是對註冊信息校验
-        if (this.applicationService == null) {
+
+      /*  if (this.applicationService == null) {
             this.applicationService = (ApplicationService) CloudGateway.getBean("applicationService");
         }
         if (this.leaseInfoService == null) {
@@ -203,18 +205,21 @@ public class ApplicationResource {
         //userService
         if (this.userService == null) {
             this.userService = (UserService) CloudGateway.getBean("userService");
-        }
+        }*/
 
 
 
-        List<com.kenji.cloud.entity.InstanceInfo> infos = applicationService.queryByAppName(info.getAppName());
-        /**
+        /*List<com.kenji.cloud.entity.InstanceInfo> infos = applicationService.queryByAppName(info.getAppName());
+        *//**
          * @author SHI Jing
          * @date 2019/1/7 20:46
-         */
+         *//*
 
         com.kenji.cloud.entity.InstanceInfo info1 = new com.kenji.cloud.entity.InstanceInfo();
+        BeanUtils.copyProperties(info, info1);
         boolean flag = false;
+
+        //数据库添加语句，需要更改，存在数据库添加失败，还回复成功的问题
         for (com.kenji.cloud.entity.InstanceInfo inf: infos){
             if (inf.getAppName().equals(info.getAppName()) && inf.getIpAddr().equals(info.getIPAddr()) && inf.getPort()==info.getPort()){
                 flag = true;
@@ -222,7 +227,7 @@ public class ApplicationResource {
         }
         if (flag == false){
 
-            BeanUtils.copyProperties(info, info1);
+
             com.kenji.cloud.entity.LeaseInfo leaseInfo = new com.kenji.cloud.entity.LeaseInfo();
             BeanUtils.copyProperties(info.getLeaseInfo(), leaseInfo);
             leaseInfoService.addLeaseInfo(leaseInfo);
@@ -230,15 +235,22 @@ public class ApplicationResource {
             info1.setVisible(true);
 
             User user=new User();
-            UserReturnVo user1=userService.findById(1L);
-            BeanUtils.copyProperties(user1, user);
-            user.setId(1L);
-            info1.setUser(user);
+            UserReturnVo user1=userService.findById(2l);
 
-            info1.setInvokeCount(0L);
+            if (null == user1)
+                return Response.status(Status.NOT_FOUND).entity("找不到该操作用户").build();
+
+            BeanUtils.copyProperties(user1, user);
+            user.setId(1l);
+
+            info1.setUser(user);
+            info1.setInvokeCount(0l);
             applicationService.addApp(info1);
+
         }
-        return Response.status(204).build();  // 204 to be backwards compatible
+        InstanceInfoReturnVo instanceInfoReturnVo = new InstanceInfoReturnVo(info1);*/
+        //return Response.status(204).build();  // 204 to be backwards compatible
+        return Response.status(204).build();
     }
 
     /**
@@ -259,7 +271,7 @@ public class ApplicationResource {
 
 
 
-    @PUT
+ /*   @PUT
     @Consumes({"application/json", "application/xml"})
     public Response updateInstance(InstanceInfo info,
                                 @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication) {
@@ -323,5 +335,5 @@ public class ApplicationResource {
         info1.setLeaseInfo(leaseInfo);
         applicationService.addApp(info1);
         return Response.status(204).build();  // 204 to be backwards compatible
-    }
+    }*/
 }

@@ -2,6 +2,8 @@ package com.kenji.cloud.entity;
 
 
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.kenji.cloud.repository.UserRepository;
 import com.kenji.cloud.service.UserService;
 import com.netflix.appinfo.DataCenterInfo;
@@ -28,9 +30,12 @@ public class InstanceInfo{
     }
 
 
-
-
-
+    @Transient
+    private DataCenterInfo dataCenterInfos;
+    @Transient
+    private Map<String, String> metadatas;
+    @Transient
+    private Long userId;
 
 
 
@@ -519,6 +524,15 @@ public class InstanceInfo{
         @Column(name = "DATACENTERINFO")
     public volatile String dataCenterInfo;
 
+    @Transient
+    public Map<String, String> getMetadatas(){
+        return metadatas;
+    }
+
+    @Transient
+    public DataCenterInfo getDataCenterInfos(){
+        return dataCenterInfos;
+    }
 
 
     public String getDataCenterInfo() {
@@ -529,4 +543,117 @@ public class InstanceInfo{
     public void setDataCenterInfo(DataCenterInfo dataCenterInfo) {
         this.dataCenterInfo = dataCenterInfo.getName().toString();
     }
+
+
+    @JsonCreator
+    public InstanceInfo(@JsonProperty(value = "appName", required = true) String appName,
+                        @JsonProperty(value = "userId", required = true) Long userID,
+                        @JsonProperty(value = "leaseInfo", required = true) LeaseInfo leaseInfo,
+                        @JsonProperty(value = "instanceId", required = true) String instanceId,
+                        @JsonProperty(value = "appGroupName") String appGroupName,
+                        @JsonProperty(value = "ipAddr", required = true) String ipAddr,
+                        @JsonProperty(value = "sid") String sid,
+                        @JsonProperty(value = "port")int port,
+                        @JsonProperty(value = "securePort")int securePort,
+                        @JsonProperty(value = "homePageUrl") String homePageUrl,
+                        @JsonProperty(value = "statusPageUrl") String statusPageUrl,
+                        @JsonProperty(value = "healthCheckUrl") String healthCheckUrl,
+                        @JsonProperty(value = "secureHealthCheckUrl") String securehealthCheckUrl,
+                        @JsonProperty(value = "vipAddress") String vipAddress,
+                        @JsonProperty(value = "secureVipAddress") String secureVipAddress,
+                        @JsonProperty(value = "statusPageRelativeUrl") String statusPageRelativeUrl,
+                        @JsonProperty(value = "statusPageExplicitUrl") String statusPageExplicitUrl,
+                        @JsonProperty(value = "healthCheck") String healthCheck,
+                        @JsonProperty(value = "healthCheckSecureExplicitUrl") String healthCheckSecureExplicitUrl,
+                        @JsonProperty(value = "vipAddressUnresolved") String vipAddressUnresolved,
+                        @JsonProperty(value = "secureVipAddressUnresolved") String secureVipAddressUnresolved,
+                        @JsonProperty(value = "String healthCheckExplicitUrl") String healthCheckExplicitUrl,
+                        @JsonProperty(value = "countryId") int countryId,
+                        @JsonProperty(value = "isSecurePortEnabled") boolean isSecurePortEnabled,
+                        @JsonProperty(value = "isUnsecurePortEnabled") boolean isUnsecurePortEnabled,
+                        @JsonProperty(value = "dataCenterInfo") DataCenterInfo dataCenterInfo,
+                        @JsonProperty(value = "hostName") String hostName,
+                        @JsonProperty(value = "status") com.netflix.appinfo.InstanceInfo.InstanceStatus status,
+                        @JsonProperty(value = "overriddenStatus") String overriddenStatus,
+                        @JsonProperty(value = "isInstanceInfoDirty") boolean isInstanceInfoDirty,
+                        @JsonProperty(value = "isCoordinatingDiscoveryServer") boolean isCoordinatingDiscoveryServer,
+                        @JsonProperty(value = "metadata") Map<String, String> metadata,
+                        @JsonProperty(value = "actionType") com.netflix.appinfo.InstanceInfo.ActionType actionType,
+                        @JsonProperty(value = "asgName") String asgName,
+                        @JsonProperty(value = "version") String version,
+                        @JsonProperty(value = "visible") boolean visible,
+                        @JsonProperty(value = "inputParams") String inputParams,
+                        @JsonProperty(value = "outputParams") String outputParams,
+                        @JsonProperty(value = "complexType") String complexType,
+                        @JsonProperty(value = "invokeCount") Long invokeCount,
+                        @JsonProperty(value = "healthCheckRelativeUrl") String healthCheckRelativeUrl,
+                        @JsonProperty(value = "method") String method
+                        ) {
+        //user = new User();
+        //this.user.setId(userID);
+        this.userId = userID;
+        this.instanceId = instanceId;
+        this.leaseInfo = leaseInfo;
+        this.appGroupName = appGroupName;
+        this.ipAddr = ipAddr;
+        this.appName = appName;
+        this.port = port;
+        this.securePort = securePort;
+        this.homePageUrl = homePageUrl;
+        this.statusPageUrl = statusPageUrl;
+        this.healthCheckUrl = healthCheckUrl;
+        this.secureHealthCheckUrl = securehealthCheckUrl;
+        this.vipAddress = vipAddress;
+        this.secureVipAddress = secureVipAddress;
+        this.statusPageRelativeUrl = statusPageRelativeUrl;
+        this.statusPageExplicitUrl = statusPageExplicitUrl;
+        this.healthCheckSecureExplicitUrl = healthCheckSecureExplicitUrl;
+        this.vipAddressUnresolved = vipAddressUnresolved;
+        this.secureVipAddressUnresolved = secureVipAddressUnresolved;
+        this.healthCheckExplicitUrl = healthCheckExplicitUrl;
+        this.countryId = countryId;
+        this.isSecurePortEnabled = isSecurePortEnabled;
+        this.isUnsecurePortEnabled = isUnsecurePortEnabled;
+        this.dataCenterInfos = dataCenterInfo;
+        this.hostName = hostName;
+        this.status = status;
+        this.isInstanceInfoDirty = isInstanceInfoDirty;
+        this.isCoordinatingDiscoveryServer = isCoordinatingDiscoveryServer;
+        this.metadatas = metadata;       //以后最好改成map
+        this.actionType = actionType;
+        this.asgName = asgName;
+        this.version = version;
+        this.visible = visible;
+        this.inputParams = inputParams;
+        this.outputParams = outputParams;
+        this.complexType = complexType;
+        this.invokeCount = invokeCount;
+        this.healthCheckRelativeUrl = healthCheckRelativeUrl;
+        this.method = method;
+
+        if(overriddenStatus != null) {
+            if (overriddenStatus.toLowerCase().equals("down"))
+                this.overriddenStatus = com.netflix.appinfo.InstanceInfo.InstanceStatus.DOWN;
+            else if (overriddenStatus.toLowerCase().equals("out_of-service"))
+                this.overriddenStatus = com.netflix.appinfo.InstanceInfo.InstanceStatus.OUT_OF_SERVICE;
+            else if (overriddenStatus.toLowerCase().equals("starting"))
+                this.overriddenStatus = com.netflix.appinfo.InstanceInfo.InstanceStatus.STARTING;
+            else if (overriddenStatus.toLowerCase().equals("up"))
+                this.overriddenStatus = com.netflix.appinfo.InstanceInfo.InstanceStatus.UP;
+            else
+                this.overriddenStatus = com.netflix.appinfo.InstanceInfo.InstanceStatus.UNKNOWN;
+        }
+        else
+            this.overriddenStatus = com.netflix.appinfo.InstanceInfo.InstanceStatus.UNKNOWN;
+
+        if (sid != null)
+            this.sid = sid;
+        else
+            this.sid = "na";
+        if (version != null)
+            this.version = version;
+        else
+            this.version = "unknown";
+    }
+
 }

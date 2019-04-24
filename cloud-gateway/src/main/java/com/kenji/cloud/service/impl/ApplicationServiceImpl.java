@@ -23,9 +23,11 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     @Override
     public String addApp(InstanceInfo info) {
-        instanceInfoRepository.save(info);
+        InstanceInfo infoReturn = instanceInfoRepository.save(info);
         //判断是否成功，返回true或false
-        return null;
+        if(null == infoReturn)
+            return "false";
+        return "true";
     }
 
     @Override

@@ -18,7 +18,9 @@ public class LeaseInfoServiceImpl implements LeaseInfoService {
 
     @Override
     public String addLeaseInfo(LeaseInfo leaseInfo) {
-        leaseInfoRepository.save(leaseInfo);
+        LeaseInfo rt = leaseInfoRepository.save(leaseInfo);
+        if (rt != null)
+            return rt.getId().toString();
         return null;
     }
 
