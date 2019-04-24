@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.kenji.cloud.repository.UserRepository;
 import com.kenji.cloud.service.UserService;
 import com.netflix.appinfo.DataCenterInfo;
+import com.netflix.appinfo.MyDataCenterInfo;
 import com.netflix.appinfo.providers.DataCenterInfoImpl;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -548,12 +549,12 @@ public class InstanceInfo{
     @JsonCreator
     public InstanceInfo(@JsonProperty(value = "appName", required = true) String appName,
                         @JsonProperty(value = "userId", required = true) Long userID,
-                        @JsonProperty(value = "leaseInfo", required = true) LeaseInfo leaseInfo,
+                        @JsonProperty(value = "leaseInfo") LeaseInfo leaseInfo,
                         @JsonProperty(value = "instanceId", required = true) String instanceId,
                         @JsonProperty(value = "appGroupName") String appGroupName,
                         @JsonProperty(value = "ipAddr", required = true) String ipAddr,
                         @JsonProperty(value = "sid") String sid,
-                        @JsonProperty(value = "port")int port,
+                        @JsonProperty(value = "port", required = true)int port,
                         @JsonProperty(value = "securePort")int securePort,
                         @JsonProperty(value = "homePageUrl") String homePageUrl,
                         @JsonProperty(value = "statusPageUrl") String statusPageUrl,
@@ -573,7 +574,7 @@ public class InstanceInfo{
                         @JsonProperty(value = "isUnsecurePortEnabled") boolean isUnsecurePortEnabled,
                         @JsonProperty(value = "dataCenterInfo") DataCenterInfo dataCenterInfo,
                         @JsonProperty(value = "hostName") String hostName,
-                        @JsonProperty(value = "status") com.netflix.appinfo.InstanceInfo.InstanceStatus status,
+                        @JsonProperty(value = "status", required = true) com.netflix.appinfo.InstanceInfo.InstanceStatus status,
                         @JsonProperty(value = "overriddenStatus") String overriddenStatus,
                         @JsonProperty(value = "isInstanceInfoDirty") boolean isInstanceInfoDirty,
                         @JsonProperty(value = "isCoordinatingDiscoveryServer") boolean isCoordinatingDiscoveryServer,
@@ -593,12 +594,10 @@ public class InstanceInfo{
         //this.user.setId(userID);
         this.userId = userID;
         this.instanceId = instanceId;
-        this.leaseInfo = leaseInfo;
         this.appGroupName = appGroupName;
         this.ipAddr = ipAddr;
         this.appName = appName;
         this.port = port;
-        this.securePort = securePort;
         this.homePageUrl = homePageUrl;
         this.statusPageUrl = statusPageUrl;
         this.healthCheckUrl = healthCheckUrl;
@@ -614,7 +613,6 @@ public class InstanceInfo{
         this.countryId = countryId;
         this.isSecurePortEnabled = isSecurePortEnabled;
         this.isUnsecurePortEnabled = isUnsecurePortEnabled;
-        this.dataCenterInfos = dataCenterInfo;
         this.hostName = hostName;
         this.status = status;
         this.isInstanceInfoDirty = isInstanceInfoDirty;
@@ -630,6 +628,18 @@ public class InstanceInfo{
         this.invokeCount = invokeCount;
         this.healthCheckRelativeUrl = healthCheckRelativeUrl;
         this.method = method;
+
+        if (leaseInfo == null) {
+            this.leaseInfo = new LeaseInfo();
+        }
+        else
+            this.leaseInfo = leaseInfo;
+
+        if (dataCenterInfo == null){
+            this.dataCenterInfos = new MyDataCenterInfo(DataCenterInfo.Name.MyOwn);
+        }
+        else
+            this.dataCenterInfos = dataCenterInfo;
 
         if(overriddenStatus != null) {
             if (overriddenStatus.toLowerCase().equals("down"))
@@ -654,6 +664,15 @@ public class InstanceInfo{
             this.version = version;
         else
             this.version = "unknown";
+        if (securePort <= 0)
+            this.securePort = com.netflix.appinfo.InstanceInfo.DEFAULT_SECURE_PORT;
+        else
+            this.securePort = securePort;
+       if (countryId <= 0)
+           this.countryId = com.netflix.appinfo.InstanceInfo.DEFAULT_COUNTRY_ID;
+       else
+           this.countryId = countryId;
+
     }
 
 }

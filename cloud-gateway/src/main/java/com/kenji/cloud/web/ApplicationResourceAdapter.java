@@ -137,6 +137,8 @@ public class ApplicationResourceAdapter extends ApplicationResource{
                 }
 
             }
+            else
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("添加失败");
             InstanceInfoReturnVo instanceInfoReturnVo = new InstanceInfoReturnVo(infoWithUser);
         return ResponseEntity.status(200).body(instanceInfoReturnVo);
     }
