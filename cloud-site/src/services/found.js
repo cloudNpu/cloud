@@ -5,6 +5,8 @@ export async function queryFound(params) {
   return request(`/api/users?${stringify(params)}`);
 }
 export async function removeFound(params) {
+    console.log(params);
+
   return request("/api/users", {
     method: "DELETE",
     body: {
