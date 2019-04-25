@@ -58,8 +58,6 @@ export default {
   //
   "menu.menus": "菜单管理",
   "menu.menus.first": "菜单管理首页",
-  "menu.menus.addMenu": "添加菜单",
-  "menu.menus.addMenuItem": "添加菜单项",
 
   "validation.name.required": "菜单名称不能为空",
   "validation.nameItem.required": "菜单项名称不能为空",
