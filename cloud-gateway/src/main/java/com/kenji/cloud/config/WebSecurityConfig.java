@@ -92,7 +92,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/**/*.css",
                 "/**/*.js").permitAll()
                 .antMatchers("/auth/**").permitAll()
-                .antMatchers("/eureka/apps/**").permitAll();
+                .antMatchers("/cloud/apps/**").permitAll();
 //                .withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>(){
 //
 //                    @Override

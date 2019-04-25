@@ -48,17 +48,6 @@ dependencies {
     compile('org.springframework.cloud:spring-cloud-netflix-eureka-client:2.0.2.RELEASE')
 //    compile('com.netflix.ribbon:ribbon:2.3.0')
     compile('com.netflix.ribbon:ribbon-httpclient:2.3.0')
-
-    // https://mvnrepository.com/artifact/com.sun.jersey/jersey-json
-    //compile group: 'com.sun.jersey', name: 'jersey-json', version: '1.19.4'
-
-    // https://mvnrepository.com/artifact/com.sun.jersey/jersey-json
-    //compile group: 'com.sun.jersey', name: 'jersey-json', version: '1.18.1'
-    // https://mvnrepository.com/artifact/com.owlike/genson
-    compile group: 'com.owlike', name: 'genson', version: '1.5'
-
-    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
-    //compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.8'
     
     compile "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
 

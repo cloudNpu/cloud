@@ -472,7 +472,7 @@ public class InstanceResource {
         BeanUtils.copyProperties(info, infoTobeUpdate);
         infoTobeUpdate.setLeaseInfo(leaseInfoTmp);
         applicationService.addApp(infoTobeUpdate);
-        com.kenji.cloud.vo.InstanceInfoReturnVo instanceInfoReturnVo = new com.kenji.cloud.vo.InstanceInfoReturnVo(infoTobeUpdate);
+        InstanceInfoReturnVo instanceInfoReturnVo = new InstanceInfoReturnVo(infoTobeUpdate);
 
 
         return ResponseEntity.ok(instanceInfoReturnVo);
