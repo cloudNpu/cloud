@@ -617,7 +617,7 @@ public class InstanceInfo{
         this.status = status;
         this.isInstanceInfoDirty = isInstanceInfoDirty;
         this.isCoordinatingDiscoveryServer = isCoordinatingDiscoveryServer;
-        this.metadatas = metadata;       //以后最好改成map
+        this.metadatas = metadata;
         this.actionType = actionType;
         this.asgName = asgName;
         this.version = version;

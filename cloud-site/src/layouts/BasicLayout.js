@@ -21,7 +21,7 @@ import Exception403 from "../pages/Exception/403";
 const { Content } = Layout;
 
 // Conversion router to menu.
-function formatter(data, parentAuthority, parentName) {
+function formatter(data, parentPath = "", parentAuthority, parentName) {
   return data
     .map(item => {
       let locale = "menu";
@@ -39,7 +39,12 @@ function formatter(data, parentAuthority, parentName) {
           authority: item.authority || parentAuthority
         };
         if (item.routes) {
-          const children = formatter(item.routes, item.authority, locale);
+          const children = formatter(
+            item.routes,
+            `${parentPath}${item.path}/`,
+            item.authority,
+            locale
+          );
           // Reduce memory usage
           result.children = children;
         }
@@ -101,6 +106,10 @@ class BasicLayout extends React.PureComponent {
     });
     dispatch({
       type: "setting/getSetting"
+    });
+    // 请求动态显示
+    dispatch({
+      type: "dynamicmenu/getDynamicmenu"
     });
     this.renderRef = requestAnimationFrame(() => {
       this.setState({
@@ -178,13 +187,13 @@ class BasicLayout extends React.PureComponent {
     const currRouterData = this.matchParamsPath(pathname);
 
     if (!currRouterData) {
-      return "Ant Design Pro";
+      return "服务运行管理中心";
     }
     const message = formatMessage({
       id: currRouterData.locale || currRouterData.name,
       defaultMessage: currRouterData.name
     });
-    return `${message} - Ant Design Pro`;
+    return `${message} - 服务运行管理中心`;
   };
 
   getLayoutStyle = () => {
@@ -229,12 +238,16 @@ class BasicLayout extends React.PureComponent {
 
   render() {
     const {
+      dynamicmenu,
       navTheme,
       layout: PropsLayout,
       children,
       location: { pathname }
     } = this.props;
-    const { isMobile, menuData } = this.state;
+    const { menuData } = dynamicmenu;
+    // 新增这里， 作为我们返回动态菜单之后的类型转换
+    const menuTree = memoizeOneFormatter(menuData);
+    const { isMobile } = this.state;
     const isTop = PropsLayout === "topmenu";
     const routerConfig = this.matchParamsPath(pathname);
     const layout = (
@@ -245,7 +258,7 @@ class BasicLayout extends React.PureComponent {
             Authorized={Authorized}
             theme={navTheme}
             onCollapse={this.handleMenuCollapse}
-            menuData={menuData}
+            menuData={menuTree}
             isMobile={isMobile}
             {...this.props}
           />
@@ -257,7 +270,7 @@ class BasicLayout extends React.PureComponent {
           }}
         >
           <Header
-            menuData={menuData}
+            menuData={menuTree}
             handleMenuCollapse={this.handleMenuCollapse}
             logo={logo}
             isMobile={isMobile}
@@ -265,7 +278,7 @@ class BasicLayout extends React.PureComponent {
           />
           <Content style={this.getContentStyle()}>
             <Authorized
-              authority={routerConfig && routerConfig.authority}
+              authority={routerConfig.authority}
               noMatch={<Exception403 />}
             >
               {children}
@@ -291,8 +304,10 @@ class BasicLayout extends React.PureComponent {
     );
   }
 }
-
-export default connect(({ global, setting }) => ({
+// 这里新增了dynamicmenu、loading
+export default connect(({ dynamicmenu, loading, global, setting }) => ({
+  dynamicmenu,
+  loading: loading.effects["dynamicmenu/getDynamicmenu"],
   collapsed: global.collapsed,
   layout: setting.layout,
   ...setting
