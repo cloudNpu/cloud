@@ -304,6 +304,7 @@ class BasicLayout extends React.PureComponent {
     );
   }
 }
+
 // 这里新增了dynamicmenu、loading
 export default connect(({ dynamicmenu, loading, global, setting }) => ({
   dynamicmenu,
