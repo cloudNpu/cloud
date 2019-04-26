@@ -55,9 +55,9 @@ public class RoleController {
     }
 
     @RequestMapping(value = "/roles", method = RequestMethod.DELETE)
-    public ResponseEntity deleteRole(@RequestParam("id") Long id) {
+    public ResponseEntity deleteRole(@RequestParam("id") Long[] id) {
         try {
-            roleService.deleteRole(id);
+            roleService.deleteRoles(id);
             ResponseEntity<List<RoleVO>> roles = getRoles();
             return roles;
         } catch (Exception e) {

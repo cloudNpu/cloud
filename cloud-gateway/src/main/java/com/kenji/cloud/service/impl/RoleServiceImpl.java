@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -111,4 +112,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
 
+    public void deleteRoles(Long[] ids) {
+        Arrays.stream(ids).forEach(id -> this.deleteRole(id));
+    }
 }
