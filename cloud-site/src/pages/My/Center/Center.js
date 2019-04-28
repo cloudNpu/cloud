@@ -97,6 +97,7 @@ class Center extends Component {
     const {
       form: { getFieldDecorator }
     } = this.props;
+    console.log(this.props);
     return (
       <div className={styles.baseView} ref={this.getViewDom}>
         <div className={styles.left}>
