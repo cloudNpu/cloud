@@ -18,11 +18,10 @@ export async function updateUser(params) {
   });
 }
 export async function updateCenter(params) {
-  return request("/api/found", {
-    method: "POST",
+  return request(`/api/users/${params.id}`, {
+    method: "PUT",
     body: {
-      ...params,
-      method: "update"
+      ...params
     }
   });
 }

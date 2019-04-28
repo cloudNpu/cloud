@@ -61,6 +61,7 @@ class Center extends Component {
       form.setFieldsValue(obj); //将表中数据根据key值放入表中
     });
   };
+
   getAvatarURL() {
     const { currentUser } = this.props;
     if (currentUser.avatar) {
@@ -73,21 +74,20 @@ class Center extends Component {
   getViewDom = ref => {
     this.view = ref;
   };
-  //currentUser不是对象，未找到对象！
-  handleUpdateForm = currentUser => {
+
+  handleUpdateForm = fields => {
     const { dispatch } = this.props;
-    console.log("111111111111");
     dispatch({
       type: "center/update",
       payload: {
-        id: currentUser.id,
-        username: currentUser.username,
-        dept: currentUser.dept,
-        mobile: currentUser.mobile,
-        officeTel: currentUser.officeTel,
-        avatar: currentUser.avatar,
-        new_passward: currentUser.new_passward,
-        new_passward_again: currentUser.new_passward_again
+        id: fields.id,
+        username: fields.username,
+        password: fields.new_passward,
+        sex: fields.sex,
+        birthday: fields.birthday,
+        mobile: fields.mobile,
+        officeTel: fields.officeTel,
+        dept: { id: fields.dept }
       }
     });
     message.success("更新成功");
@@ -97,8 +97,6 @@ class Center extends Component {
     const {
       form: { getFieldDecorator }
     } = this.props;
-    // console.log(sessionStorage.getItem(user.id))
-    // console.log(sessionStorage.getItem(user.dept)
     return (
       <div className={styles.baseView} ref={this.getViewDom}>
         <div className={styles.left}>
@@ -107,6 +105,16 @@ class Center extends Component {
             onSubmit={this.handleUpdateForm}
             hideRequiredMark
           >
+            <FormItem label={formatMessage({ id: "app.settings.basic.id" })}>
+              {getFieldDecorator("id", {
+                rules: [
+                  {
+                    required: true,
+                    message: formatMessage({ id: "app.settings.basic.id" }, {})
+                  }
+                ]
+              })(<Input />)}
+            </FormItem>
             <FormItem
               label={formatMessage({ id: "app.settings.basic.nickname" })}
             >
@@ -166,10 +174,10 @@ class Center extends Component {
                             })(<Input />)}
                         </FormItem>*/}
             <FormItem label={formatMessage({ id: "app.settings.basic.new" })}>
-              {getFieldDecorator("new_passward", {})(<Input />)}
+              {getFieldDecorator("new_password", {})(<Input />)}
             </FormItem>
             <FormItem label={formatMessage({ id: "app.settings.basic.again" })}>
-              {getFieldDecorator("new_passward_again", {})(<Input />)}
+              {getFieldDecorator("new_password_again", {})(<Input />)}
             </FormItem>
           </Form>
           <Button type="primary" onClick={this.handleUpdateForm}>

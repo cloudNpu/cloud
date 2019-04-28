@@ -33,52 +33,10 @@ export default {
       });
     },
     *add({ payload, callback }, { call, put, select }) {
-      const response = yield call(addAppList, payload);
-      /*const response={
-            "instance": {
-                "id": "18",
-                "instanceId": "10.208.204.119:7011",
-                "hostName": "10.208.204.119",
-                "appName": "HELLO9",
-                "ipAddr": "10.208.204.119",
-                "status": "UP",
-                "overriddenstatus": "UNKNOWN",
-                "port": {
-                "@enabled": "true",
-                    "$": "7003"
-            },
-            /!*"securePort": {
-                "@enabled": "false",
-                    "$": "443"
-            },*!/
-              "countryId": "1",
-
-                /!*"dataCenterInfo": {
-                "@class": "com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo",
-                    "name": "MyOwn"
-            },*!/
-
-            /!*"leaseInfo": {
-                "renewalIntervalInSecs": "30",
-                    "durationInSecs": "90",
-                    "registrationTimestamp": "1539771833637",
-                    "lastRenewalTimestamp": "1539771833637",
-                    "evictionTimestamp": "0",
-                    "serviceUpTimestamp": "1539771833637"
-            },*!/
-            /!*"metadata": { "management.port": "17003" },*!/
-                "homePageUrl": "http://10.208.204.119:7003/",
-                "statusPageUrl": "http://10.208.204.119:17003/info",
-                "healthCheckUrl": "http://10.208.204.119:17003/health",
-                "vipAddress": "eureka-c",
-                "secureVipAddress": "eureka-c",
-                "lastDirtyTimestamp": "1528277019770",
-                "inputParams":"int",
-                "outputParams":"String"
-        }
-        };*/
+      const response = yield (yield call(addAppList, payload)).json();
+      console.log(response);
       let list = yield select(state => state.applist.data.list);
-      //list.push(response.instance);
+      list.push(response);
       yield put({
         type: "save",
         payload: {
@@ -90,6 +48,7 @@ export default {
     },
 
     *remove({ payload, callback }, { call, put, select }) {
+      console.log(payload);
       const response = yield call(removeAppList, payload);
       let list = yield select(state => state.applist.data.list);
       for (let i = 0, flag = true; i < list.length; flag ? i++ : i) {
@@ -113,20 +72,25 @@ export default {
       if (callback) callback();
     },
     *update({ payload, callback }, { call, put, select }) {
-      const response = yield (yield call(updateAppList, payload)).json();
+      const response = yield yield call(updateAppList, payload);
+      console.log(payload);
       let list = yield select(state => state.applist.data.list);
       yield list.forEach((value, index, array) => {
-        let s = array[index];
+        /*let s = array[index];
         let res_app = response.body;
         if (
           s.appName === res_app.appName &&
           s.instanceId === res_app.instanceId
         ) {
           array[index] = res_app;
+        }*/
+        let user = array[index];
+        if (
+          user.appName === payload.appName &&
+          user.instanceId === payload.instanceId
+        ) {
+          array[index] = payload;
         }
-        /*if(user.id == payload .id) {
-              array[index] = payload;
-            }*/
       });
       yield put({
         type: "save",

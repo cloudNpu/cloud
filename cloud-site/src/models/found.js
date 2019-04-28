@@ -28,6 +28,7 @@ export default {
       });
     },
     *add({ payload, callback }, { call, put, select }) {
+      console.log(payload);
       const response = yield (yield call(addFound, payload)).json();
       let list = yield select(state => state.found.data.list);
       list.push(response[0]);
@@ -42,7 +43,7 @@ export default {
     },
     *remove({ payload, callback }, { call, put, select }) {
       const response = yield call(removeFound, payload);
-        console.log(payload);
+      console.log(payload);
       let list = yield select(state => state.found.data.list);
       for (let i = 0, flag = true; i < list.length; flag ? i++ : i) {
         for (let j = 0; j < payload.ids.length; j++) {
@@ -98,7 +99,7 @@ export default {
           for (let i = 0; i < list.length; i++) {
             if (JSON.parse(list[i].id) === payload.userIds[j]) {
               var y = list[i].roles + "," + x[k].name;
-                console.log(y);
+              console.log(y);
               list[i].roles = y;
             }
           }

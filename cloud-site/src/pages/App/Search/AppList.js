@@ -54,7 +54,7 @@ const CreateForm = Form.create()(props => {
         handleAdd(fieldsValue);
       } else {
         var instanceInfo = JSON.parse(fieldsValue.txt);
-        console.log(instanceInfo);
+        // console.log(instanceInfo);
         handleSubmit(instanceInfo);
       }
     });
@@ -72,50 +72,59 @@ const CreateForm = Form.create()(props => {
       onCancel={() => handleModalVisible()}
     >
       <Tabs defaultActiveKey="1" onChange={callback}>
-        <TabPane tab="Tab 1" key="1">
+        <TabPane tab="表项添加" key="1">
           <FormItem
             labelCol={{ span: 5 }}
             wrapperCol={{ span: 15 }}
-            label="App"
+            label="* App"
           >
             {form.getFieldDecorator("app", {
-              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+              // rules: [{ required: true, message: '值不能为空！', min: 1 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
             labelCol={{ span: 5 }}
             wrapperCol={{ span: 15 }}
-            label="InstanceId"
+            label="* InstanceId"
           >
             {form.getFieldDecorator("instanceId", {
-              // rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+              // rules: [{ required: true, message: '值不能为空！', min: 1 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
             labelCol={{ span: 5 }}
             wrapperCol={{ span: 15 }}
-            label="IpAddr"
+            label="* IpAddr"
           >
             {form.getFieldDecorator("ipAddr", {
-              // rules: [{required: true, message: '请输入至少三个字符的规则描述！', min: 3}],
+              // rules: [{ required: true, message: '值不能为空！', min: 1 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
             labelCol={{ span: 5 }}
             wrapperCol={{ span: 15 }}
-            label="Port"
+            label="* Port"
           >
             {form.getFieldDecorator("port", {
-              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+              // rules: [{ required: true, message: '值不能为空！', min: 1 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
             labelCol={{ span: 5 }}
             wrapperCol={{ span: 15 }}
-            label="Status"
+            label="* userId"
+          >
+            {form.getFieldDecorator("userId", {
+              //  rules: [{ required: true, message: '值不能为空！', min: 1 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="* Status"
           >
             {form.getFieldDecorator("status", {
-              //  rules: [{ required: true, message: '请选择一个！', min: 3 }],
+              // rules: [{ required: true, message: '值不能为空！', min: 1 }],
             })(
               <Select style={{ width: "100%" }} /* mode={'multiple'}*/>
                 <Option value={1}>UP</Option>
@@ -126,9 +135,18 @@ const CreateForm = Form.create()(props => {
           <FormItem
             labelCol={{ span: 5 }}
             wrapperCol={{ span: 15 }}
-            label="overriddenstatus"
+            label="* hostName"
           >
-            {form.getFieldDecorator("overriddenstatus", {
+            {form.getFieldDecorator("hostName", {
+              // rules: [{ required: true, message: '值不能为空！', min: 1 }],
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="overriddenStatus"
+          >
+            {form.getFieldDecorator("overriddenStatus", {
               //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
@@ -138,15 +156,6 @@ const CreateForm = Form.create()(props => {
             label="homePageUrl"
           >
             {form.getFieldDecorator("homePageUrl", {
-              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
-            })(<Input placeholder="请输入" />)}
-          </FormItem>
-          <FormItem
-            labelCol={{ span: 5 }}
-            wrapperCol={{ span: 15 }}
-            label="hostName"
-          >
-            {form.getFieldDecorator("hostName", {
               //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
@@ -251,7 +260,7 @@ const CreateForm = Form.create()(props => {
           </FormItem>
         </TabPane>
 
-        <TabPane tab="Tab 2" key="2">
+        <TabPane tab="json格式添加" key="2">
           <FormItem
             labelCol={{ span: 6 }}
             wrapperCol={{ span: 18 }}
@@ -286,7 +295,7 @@ class UpdateForm extends PureComponent {
           status: props.values.status,
           //visible: props.values.visible,
           hostName: props.values.hostName,
-          overriddenStatus: props.values.overriddenstatus,
+          overriddenstatus: props.values.overriddenstatus,
           // countryId: props.values.countryId,
           homePageUrl: props.values.homePageUrl,
           statusPageUrl: props.values.statusPageUrl,
@@ -546,9 +555,9 @@ class AppList extends PureComponent {
     {
       title: "InvokeCount",
       dataIndex: "invokeCount",
-      sorter: true,
+      //sorter: true,
       align: "right",
-      render: val => `${val} 万`,
+      //render: invokeCount => `${invokeCount} 万`,
       // mark to display a total number
       needTotal: true
     },
@@ -783,6 +792,7 @@ class AppList extends PureComponent {
     const { dispatch } = this.props;
     const { selectedRows } = this.state;
     var selectRow = selectedRows.map(row => row.id);
+    console.log(selectRow);
     //const str=selectRow.map((item)=>item).join(',');
     if (!selectedRows) return;
     switch (e.key) {
@@ -879,24 +889,23 @@ class AppList extends PureComponent {
     dispatch({
       type: "applist/add",
       payload: {
-        instance: {
-          instanceId: fields.instanceId,
-          app: fields.app,
-          ipAddr: fields.ipAddr,
-          status: fields.status,
-          // visible: fields.visible,
-          hostName: fields.hostName,
-          overriddenstatus: fields.overriddenstatus,
-          countryId: fields.countryId,
-          homePageUrl: fields.homePageUrl,
-          statusPageUrl: fields.statusPageUrl,
-          healthCheckUrl: fields.healthCheckUrl,
-          vipAddress: fields.vipAddress,
-          secureVipAddress: fields.secureVipAddress,
-          lastDirtyTimestamp: fields.lastDirtyTimestamp,
-          inputParams: fields.inputParams,
-          outputParams: fields.outputParams
-        }
+        instanceId: fields.instanceId,
+        appName: fields.app,
+        ipAddr: fields.ipAddr,
+        status: fields.status,
+        port: fields.port,
+        hostName: fields.hostName,
+        userId: fields.userId,
+        overriddenStatus: fields.overriddenStatus,
+        countryId: fields.countryId,
+        homePageUrl: fields.homePageUrl,
+        statusPageUrl: fields.statusPageUrl,
+        healthCheckUrl: fields.healthCheckUrl,
+        vipAddress: fields.vipAddress,
+        secureVipAddress: fields.secureVipAddress,
+        lastDirtyTimestamp: fields.lastDirtyTimestamp,
+        inputParams: fields.inputParams,
+        outputParams: fields.outputParams
       }
     });
     message.success("添加成功");
@@ -1091,7 +1100,7 @@ class AppList extends PureComponent {
       //
     };
     return (
-      <PageHeaderWrapper title="查询表格">
+      <PageHeaderWrapper title="服务管理">
         <Card bordered={false}>
           <div className={styles.tableList}>
             <div className={styles.tableListForm}>{this.renderForm()}</div>

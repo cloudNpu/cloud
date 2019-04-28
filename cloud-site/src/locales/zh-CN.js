@@ -135,6 +135,7 @@ export default {
   "app.settings.basic.email": "邮箱",
   "app.settings.basic.email-message": "请输入您的邮箱!",
   //
+  "app.settings.basic.id": "用户ID",
   "app.settings.basic.nickname": "用户名", //昵称
   "app.settings.basic.nickname-message": "请输入您的用户名!",
   "app.settings.basic.dept": "所在部门",

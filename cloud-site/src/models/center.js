@@ -7,22 +7,8 @@ export default {
 
   state: {
     list: [],
-    currentUser: {
-      /* key: "001",
-      username:sessionStorage.getItem('user'.id),*/
-    }
+    currentUser: {}
   },
-  /*id: sessionStorage.getItem(user.id),
-    username: sessionStorage.getItem(user.username)*/
-  /*key: "001",
-    username: "张三",
-    dept: "技术部",
-    mobile: 13366668888,
-    avatar:
-      "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png",
-    officeTel: "6666-4796521",
-    new_passward: "",
-    new_passward_again: ""*/
   effects: {
     *fetch(_, { call, put }) {
       const response = yield call(queryUsers);
@@ -33,7 +19,7 @@ export default {
     },
     *update({ payload, callback }, { call, put }) {
       console.log(payload);
-      const response = yield (yield call(updateCenter, payload)).json();
+      // const response = yield (yield call(updateCenter, payload)).json();
       yield put({
         type: "save",
         payload: response
@@ -41,7 +27,6 @@ export default {
       if (callback) callback();
     },
     *fetchCurrent(_, { call, put }) {
-      console.log("aaaaaa");
       const response = yield (yield call(queryCurrent)).json();
       yield put({
         type: "saveCurrentUser",

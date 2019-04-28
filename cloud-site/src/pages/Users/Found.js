@@ -25,6 +25,8 @@ import {
 import StandardTable from "@/components/StandardTable";
 import PageHeaderWrapper from "@/components/PageHeaderWrapper";
 import RoleModal from "./RoleModal";
+import Dept from "./Dept";
+import Role from "./Role";
 import AppModal from "./AppModal";
 import styles from "./Found.less";
 
@@ -69,16 +71,6 @@ const CreateForm = Form.create()(props => {
           </Select>
         )}
       </FormItem>
-      <FormItem labelCol={{ span: 5 }} wrapperCol={{ span: 15 }} label="部门">
-        {form.getFieldDecorator("dept", {
-          //  rules: [{ required: true, message: '请选择一个！', min: 3 }],
-        })(
-          <Select style={{ width: "100%" }}>
-            <Option value={1}>劳动部</Option>
-            <Option value={59}>问问</Option>
-          </Select>
-        )}
-      </FormItem>
       <FormItem
         labelCol={{ span: 5 }}
         wrapperCol={{ span: 15 }}
@@ -106,18 +98,14 @@ const CreateForm = Form.create()(props => {
           //     rules: [{ required: true, message: '电话不能为空', min: 0 }],
         })(<Input placeholder="请输入" />)}
       </FormItem>
-      {
-        <FormItem labelCol={{ span: 5 }} wrapperCol={{ span: 15 }} label="角色">
-          {form.getFieldDecorator("role", {})(
-            <Select style={{ width: "100%" }} mode={"multiple"}>
-              <Option value={"0"}>用户管理员</Option>
-              <Option value={"2"}>角色管理员</Option>
-              <Option value={"3"}>服务管理员</Option>
-              <Option value={"1"}>管理员</Option>
-            </Select>
-          )}
-        </FormItem>
-      }
+      <FormItem labelCol={{ span: 5 }} wrapperCol={{ span: 15 }} label="部门">
+        {form.getFieldDecorator("dept", {
+          //  rules: [{ required: true, message: '请选择一个！', min: 3 }],
+        })(<Dept />)}
+      </FormItem>
+      <FormItem labelCol={{ span: 5 }} wrapperCol={{ span: 15 }} label="角色">
+        {form.getFieldDecorator("role", {})(<Role />)}
+      </FormItem>
     </Modal>
   );
 });
@@ -131,17 +119,16 @@ class UpdateForm extends PureComponent {
   };
   constructor(props) {
     super(props);
-
     this.state = {
       formVals: {
         id: props.values.id,
         username: props.values.username,
         sex: props.values.sex,
-        dept: props.values.dept,
+        dept: props.values.deptName,
         birthday: props.values.birthday,
         mobile: props.values.mobile,
         officeTel: props.values.officeTel,
-        role: props.values.role
+        role: props.values.roles
       },
       currentStep: 0
     };
@@ -171,8 +158,6 @@ class UpdateForm extends PureComponent {
     });
   };
 
-  //  const { currentStep } = this.state;
-
   renderContent = (currentStep, formVals) => {
     const { form } = this.props;
     return [
@@ -180,17 +165,6 @@ class UpdateForm extends PureComponent {
         {form.getFieldDecorator("username", {
           initialValue: formVals.username
         })(<Input placeholder="请输入" />)}
-      </FormItem>,
-      <FormItem key="dept" {...this.formLayout} label="部门">
-        {form.getFieldDecorator("dept", {
-          // rules: [{ required: true, message: '请输入至少五个字符的规则描述！', min: 5 }],
-          initialValue: formVals.dept
-        })(
-          <Select style={{ width: "100%" }}>
-            <Option value={1}>劳动部</Option>
-            <Option value={59}>问问</Option>
-          </Select>
-        )}
       </FormItem>,
       <FormItem key="sex" {...this.formLayout} label="性别">
         {form.getFieldDecorator("sex", {
@@ -220,15 +194,11 @@ class UpdateForm extends PureComponent {
           //     rules: [{ required: true, message: '电话不能为空', min: 0 }],
         })(<Input placeholder="请输入" />)}
       </FormItem>,
-      <FormItem key="role" {...this.formLayout} label="角色">
-        {form.getFieldDecorator("role", {
-          initialValue: formVals.role
-        })(
-          <Select style={{ width: "100%" }} mode={"multiple"}>
-            <Option value={"4"}>发顺丰2</Option>
-            <Option value={"1"}>漳卅</Option>
-          </Select>
-        )}
+      <FormItem key="dept" {...this.formLayout} label="部门">
+        {form.getFieldDecorator("dept", {
+          // rules: [{ required: true, message: '请输入至少五个字符的规则描述！', min: 5 }],
+          initialValue: formVals.dept
+        })(<Dept />)}
       </FormItem>
     ];
   };
@@ -298,13 +268,6 @@ const AuthorizeForm = Form.create()(props => {
       <FormItem key="app1">
         {form.getFieldDecorator("app1", {})(<AppModal />)}
       </FormItem>
-
-      {/*<Table
-        columns={columns}
-        rowSelection={rowSelection}
-        rowKey={record => record.key} //特别注意，需要设置表格主键唯一id的名称，以优化react显示
-        dataSource={data}
-      />*/}
     </Modal>
   );
 });
@@ -586,6 +549,7 @@ class Found extends PureComponent {
 
   handleAdd = fields => {
     const { dispatch } = this.props;
+    let h = JSON.parse(sessionStorage.getItem("user")).id;
     dispatch({
       type: "found/add",
       payload: {
@@ -596,10 +560,10 @@ class Found extends PureComponent {
           birthday: fields.birthday,
           mobile: fields.mobile,
           officeTel: fields.officeTel,
-          dept: { id: fields.dept }
+          dept: { id: fields.dept.depts.key }
         },
-        operatorId: 1,
-        roleIds: [1]
+        operatorId: h,
+        roleIds: [fields.role.roles.key]
       }
     });
     message.success("添加成功");
@@ -670,7 +634,7 @@ class Found extends PureComponent {
         birthday: fields.birthday,
         mobile: fields.mobile,
         officeTel: fields.officeTel,
-        dept: { id: fields.dept }
+        dept: { id: fields.dept.depts.key }
         // createdate: "20190101"
       }
     });
@@ -756,23 +720,10 @@ class Found extends PureComponent {
             <FormItem label="性别">
               {getFieldDecorator("sex")(
                 <Select placeholder="请选择" style={{ width: "100%" }}>
-                  <Option value={0}>男</Option>
-                  <Option value={1}>女</Option>
+                  <Option value={"男"}>男</Option>
+                  <Option value={"女"}>女</Option>
                 </Select>
               )}
-            </FormItem>
-          </Col>
-          <Col md={8} sm={24}>
-            <FormItem label="出生日期">
-              {getFieldDecorator("birthday")(
-                <Input placeholder="请输入" />
-                /*<DatePicker style={{ width: '100%' }} placeholder="请输入更新日期" />*/
-              )}
-            </FormItem>
-          </Col>
-          <Col md={8} sm={24}>
-            <FormItem label="角色">
-              {getFieldDecorator("role")(<Input placeholder="请输入" />)}
             </FormItem>
           </Col>
         </Row>
@@ -838,7 +789,7 @@ class Found extends PureComponent {
       handleUpdate: this.handleUpdate
     };
     return (
-      <PageHeaderWrapper title="查询表格">
+      <PageHeaderWrapper title="用户管理">
         <Card bordered={false}>
           <div className={styles.tableList}>
             <div className={styles.tableListForm}>{this.renderForm()}</div>

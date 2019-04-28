@@ -5,7 +5,7 @@ export async function queryFound(params) {
   return request(`/api/users?${stringify(params)}`);
 }
 export async function removeFound(params) {
-    console.log(params);
+  console.log(params);
 
   return request("/api/users", {
     method: "DELETE",
@@ -15,7 +15,6 @@ export async function removeFound(params) {
   });
 }
 export async function addFound(params) {
-  console.log(params);
   return request("/api/users", {
     method: "POST",
     body: {
