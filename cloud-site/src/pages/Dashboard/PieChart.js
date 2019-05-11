@@ -22,7 +22,7 @@ class pieChart extends Component {
       <Card bordered={false}>
         <Pie
           percent={perData}
-          subTitle="current-memory-usage"
+          subTitle="当前使用内存"
           total={`${perData}`}
           height={280}
         />

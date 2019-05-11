@@ -27,11 +27,11 @@ const topColResponsiveProps = {
 const IntroduceRow = memo(({ loading, visitData }) => (
   <Row gutter={30}>
     <Col {...topColResponsiveProps}>
-      <h4>current-memory-usage</h4>
+      <h4>当前使用内存</h4>
       <PieChart />
     </Col>
     <Col {...topColResponsiveProps}>
-      <h4>InvokeCount (high->low)</h4>
+      <h4>调用次数(高->低)</h4>
       <Invoke />
     </Col>
   </Row>

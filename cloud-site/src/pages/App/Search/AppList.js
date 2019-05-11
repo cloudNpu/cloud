@@ -73,22 +73,22 @@ const CreateForm = Form.create()(props => {
     >
       <Tabs defaultActiveKey="1" onChange={callback}>
         <TabPane tab="表项添加" key="1">
-          <FormItem
-            labelCol={{ span: 5 }}
-            wrapperCol={{ span: 15 }}
-            label="* App"
-          >
-            {form.getFieldDecorator("app", {
-              // rules: [{ required: true, message: '值不能为空！', min: 1 }],
-            })(<Input placeholder="请输入" />)}
-          </FormItem>
+                <FormItem
+                    labelCol={{ span: 5 }}
+                    wrapperCol={{ span: 15 }}
+                    label="* App"
+                >
+                    {form.getFieldDecorator("app", {
+                        rules: [{ required: false, message: '服务名过长！', min: 1,max:20 }],
+                    })(<Input placeholder="请输入" />)}
+                </FormItem>
           <FormItem
             labelCol={{ span: 5 }}
             wrapperCol={{ span: 15 }}
             label="* InstanceId"
           >
             {form.getFieldDecorator("instanceId", {
-              // rules: [{ required: true, message: '值不能为空！', min: 1 }],
+                rules: [{ required: false, message: '实例名过长！', min: 1,max:20 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -97,7 +97,7 @@ const CreateForm = Form.create()(props => {
             label="* IpAddr"
           >
             {form.getFieldDecorator("ipAddr", {
-              // rules: [{ required: true, message: '值不能为空！', min: 1 }],
+                rules: [{ required: false, message: '请输入正确ip地址', min: 1,max:17 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -106,7 +106,7 @@ const CreateForm = Form.create()(props => {
             label="* Port"
           >
             {form.getFieldDecorator("port", {
-              // rules: [{ required: true, message: '值不能为空！', min: 1 }],
+                rules: [{ required: false, message: '请输入正确端口号！', min: 1,max:5}],
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -115,7 +115,7 @@ const CreateForm = Form.create()(props => {
             label="* userId"
           >
             {form.getFieldDecorator("userId", {
-              //  rules: [{ required: true, message: '值不能为空！', min: 1 }],
+                rules: [{ required: false, message: '请输入正确的用户ID！', min: 1,max:20 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -124,7 +124,7 @@ const CreateForm = Form.create()(props => {
             label="* Status"
           >
             {form.getFieldDecorator("status", {
-              // rules: [{ required: true, message: '值不能为空！', min: 1 }],
+                rules: [{ required: false, message: '请选择status！'}],
             })(
               <Select style={{ width: "100%" }} /* mode={'multiple'}*/>
                 <Option value={1}>UP</Option>
@@ -138,7 +138,7 @@ const CreateForm = Form.create()(props => {
             label="* hostName"
           >
             {form.getFieldDecorator("hostName", {
-              // rules: [{ required: true, message: '值不能为空！', min: 1 }],
+                rules: [{ required: false, message: '主机名名过长！', min: 1,max:20 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -147,7 +147,7 @@ const CreateForm = Form.create()(props => {
             label="overriddenStatus"
           >
             {form.getFieldDecorator("overriddenStatus", {
-              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -156,7 +156,7 @@ const CreateForm = Form.create()(props => {
             label="homePageUrl"
           >
             {form.getFieldDecorator("homePageUrl", {
-              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -165,7 +165,7 @@ const CreateForm = Form.create()(props => {
             label="securePort"
           >
             {form.getFieldDecorator("securePort", {
-              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -174,7 +174,7 @@ const CreateForm = Form.create()(props => {
             label="countryId"
           >
             {form.getFieldDecorator("countryId", {
-              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -183,7 +183,7 @@ const CreateForm = Form.create()(props => {
             label="dataCenterInfo"
           >
             {form.getFieldDecorator("dataCenterInfo", {
-              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -192,7 +192,7 @@ const CreateForm = Form.create()(props => {
             label="metadata"
           >
             {form.getFieldDecorator("metadata", {
-              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -201,7 +201,7 @@ const CreateForm = Form.create()(props => {
             label="statusPageUrl"
           >
             {form.getFieldDecorator("statusPageUrl", {
-              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -210,7 +210,7 @@ const CreateForm = Form.create()(props => {
             label="healthCheckUrl"
           >
             {form.getFieldDecorator("healthCheckUrl", {
-              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -219,7 +219,7 @@ const CreateForm = Form.create()(props => {
             label="vipAddress"
           >
             {form.getFieldDecorator("vipAddress", {
-              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -228,7 +228,7 @@ const CreateForm = Form.create()(props => {
             label="secureVipAddress"
           >
             {form.getFieldDecorator("secureVipAddress", {
-              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -237,7 +237,7 @@ const CreateForm = Form.create()(props => {
             label="lastDirtyTimestamp"
           >
             {form.getFieldDecorator("lastDirtyTimestamp", {
-              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -246,7 +246,7 @@ const CreateForm = Form.create()(props => {
             label="inputParams"
           >
             {form.getFieldDecorator("inputParams", {
-              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -255,7 +255,7 @@ const CreateForm = Form.create()(props => {
             label="outputParams"
           >
             {form.getFieldDecorator("outputParams", {
-              //rules: [{ required: true, message: '请输入至少三个字符的规则描述！', min: 3 }],
+                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
             })(<Input placeholder="请输入" />)}
           </FormItem>
         </TabPane>
@@ -452,8 +452,8 @@ class ChangeForm extends PureComponent {
           initialValue: formVals.visible
         })(
           <Select style={{ width: "100%" }} /* mode={'multiple'}*/>
-            <Option value={true}>可见</Option>
-            <Option value={false}>不可见</Option>
+            <Option value={true}>发布</Option>
+            <Option value={false}>撤回</Option>
           </Select>
         )}
       </FormItem>
@@ -564,7 +564,7 @@ class AppList extends PureComponent {
     {
       title: "Visible",
       dataIndex: "visible",
-      render: visible => <div>{visible ? "可见" : "不可见"}</div>
+      render: visible => <div>{visible ? "已发布" : "已撤回"}</div>
     },
     {
       title: "securePortEnabled",
@@ -729,7 +729,7 @@ class AppList extends PureComponent {
           </a>
           <Divider type="vertical" />
           <a onClick={() => this.handleChangeModalVisible(true, record)}>
-            切换状态
+            发布/撤回
           </a>
         </Fragment>
       )
@@ -1030,8 +1030,8 @@ class AppList extends PureComponent {
             <FormItem label="Visible">
               {getFieldDecorator("visible")(
                 <Select placeholder="请选择" style={{ width: "100%" }}>
-                  <Option value="1">可见</Option>
-                  <Option value="0">不可见</Option>
+                  <Option value="1">已发布</Option>
+                  <Option value="0">已撤回</Option>
                 </Select>
               )}
             </FormItem>
@@ -1079,8 +1079,7 @@ class AppList extends PureComponent {
     } = this.state;
     const menu = (
       <Menu onClick={this.handleMenuClick} selectedKeys={[]}>
-        <Menu.Item key="remove">删除</Menu.Item>
-        {/*  <Menu.Item key="approval">批量审批</Menu.Item>*/}
+        <Menu.Item key="remove">注销</Menu.Item>
       </Menu>
     );
 
@@ -1113,11 +1112,10 @@ class AppList extends PureComponent {
                 type="primary"
                 onClick={() => this.handleModalVisible(true)}
               >
-                新建
+                注册
               </Button>
               {selectedRows.length > 0 && (
                 <span>
-                  <Button>批量操作</Button>
                   <Dropdown overlay={menu}>
                     <Button>
                       更多操作 <Icon type="down" />

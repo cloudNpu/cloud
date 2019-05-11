@@ -5,23 +5,23 @@ import PageHeaderWrapper from "@/components/PageHeaderWrapper";
 
 const Columns = [
   {
-    title: "environment",
+    title: "环境",
     dataIndex: "environment"
   },
   {
-    title: "num-of-cpus",
+    title: "cpu个数",
     dataIndex: "num-of-cpus"
   },
   {
-    title: "total-avail-memory",
+    title: "总共可用内存",
     dataIndex: "total-avail-memory"
   },
   {
-    title: "current-memory-usage",
+    title: "已使用内存",
     dataIndex: "current-memory-usage"
   },
   {
-    title: "server-uptime",
+    title: "服务启动时间",
     dataIndex: "server-uptime"
   }
 ];

@@ -235,13 +235,18 @@ class App extends PureComponent {
   ];
 
   componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch({
-      type: "analysis/fetch"
-    });
-    dispatch({
-      type: "analysis/fetchStatus"
-    });
+     /* this.timer = setInterval(
+          function () {*/
+              const {dispatch} = this.props;
+              dispatch({
+                  type: "analysis/fetch"
+              });
+              dispatch({
+                  type: "analysis/fetchStatus"
+              });
+         /* }.bind(this),
+          5000
+      );*/
   }
   render() {
     const { analysis, loading } = this.props;

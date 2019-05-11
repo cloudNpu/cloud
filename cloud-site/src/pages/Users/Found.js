@@ -60,11 +60,13 @@ const CreateForm = Form.create()(props => {
     >
       <FormItem labelCol={{ span: 5 }} wrapperCol={{ span: 15 }} label="用户名">
         {form.getFieldDecorator("username", {
-          rules: [{ required: true, message: "用户名不能为空！", min: 0 }]
+          rules: [{ required: true, message: "用户名长度1-10！", min: 0,max:10 }]
         })(<Input placeholder="请输入" />)}
       </FormItem>
       <FormItem labelCol={{ span: 5 }} wrapperCol={{ span: 15 }} label="性别">
-        {form.getFieldDecorator("sex", {})(
+        {form.getFieldDecorator("sex", {
+            rules: [{ required: true, message: "请选择用户性别！" }]
+        })(
           <Select style={{ width: "100%" }} /* mode={'multiple'}*/>
             <Option value={"男"}>男</Option>
             <Option value={"女"}>女</Option>
@@ -77,7 +79,7 @@ const CreateForm = Form.create()(props => {
         label="出生日期"
       >
         {form.getFieldDecorator("birthday", {
-          //  rules: [{ required: true, message: '请选择时间' }],
+            rules: [{ required: true, message: "请输入正确格式", min: 19 ,max: 19}]
         })(<Input placeholder="请输入" />)}
       </FormItem>
       <FormItem
@@ -86,7 +88,7 @@ const CreateForm = Form.create()(props => {
         label="移动电话"
       >
         {form.getFieldDecorator("mobile", {
-          //  rules: [{ required: true, message: '电话不能为空', min: 0 }],
+            rules: [{required: true, message: "请输入正确格式"}]
         })(<Input placeholder="请输入" />)}
       </FormItem>
       <FormItem
@@ -95,16 +97,18 @@ const CreateForm = Form.create()(props => {
         label="办公电话"
       >
         {form.getFieldDecorator("officeTel", {
-          //     rules: [{ required: true, message: '电话不能为空', min: 0 }],
+            rules: [{ required: true, message: "请输入正确格式"}]
         })(<Input placeholder="请输入" />)}
       </FormItem>
       <FormItem labelCol={{ span: 5 }} wrapperCol={{ span: 15 }} label="部门">
         {form.getFieldDecorator("dept", {
-          //  rules: [{ required: true, message: '请选择一个！', min: 3 }],
+            rules: [{ required: true, message: "请选择部门"}]
         })(<Dept />)}
       </FormItem>
       <FormItem labelCol={{ span: 5 }} wrapperCol={{ span: 15 }} label="角色">
-        {form.getFieldDecorator("role", {})(<Role />)}
+        {form.getFieldDecorator("role", {
+            rules: [{ required: true, message: "请给用户授权"}]
+        })(<Role />)}
       </FormItem>
     </Modal>
   );
@@ -163,12 +167,14 @@ class UpdateForm extends PureComponent {
     return [
       <FormItem key="username" {...this.formLayout} label="用户名">
         {form.getFieldDecorator("username", {
-          initialValue: formVals.username
+          initialValue: formVals.username,
+            rules: [{ required: true, message: "用户名长度1-10！", min: 0,max:10 }]
         })(<Input placeholder="请输入" />)}
       </FormItem>,
       <FormItem key="sex" {...this.formLayout} label="性别">
         {form.getFieldDecorator("sex", {
-          initialValue: formVals.sex
+          initialValue: formVals.sex,
+            rules: [{ required: true, message: "请选择用户性别！" }]
         })(
           <Select style={{ width: "100%" }} /* mode={'multiple'}*/>
             <Option value={"男"}>男</Option>
@@ -178,25 +184,27 @@ class UpdateForm extends PureComponent {
       </FormItem>,
       <FormItem key="birthday" {...this.formLayout} label="出生日期">
         {form.getFieldDecorator("birthday", {
-          initialValue: formVals.birthday
+          initialValue: formVals.birthday,
+            rules: [{ required: true, message: "请输入正确格式", min: 19 ,max: 19}]
           //rules: [{ required: true, message: '请选择时间！' }],
         })(<Input placeholder="请输入" />)}
       </FormItem>,
       <FormItem key="mobile" {...this.formLayout} label="移动电话">
         {form.getFieldDecorator("mobile", {
           //  rules: [{ required: true, message: '电话不能为空', min: 0 }],
-          initialValue: formVals.mobile
+          initialValue: formVals.mobile,
+            rules: [{ required: true, message: "请输入正确格式"}]
         })(<Input placeholder="请输入" />)}
       </FormItem>,
       <FormItem key="officeTel" {...this.formLayout} label="办公电话">
         {form.getFieldDecorator("officeTel", {
-          initialValue: formVals.officeTel
-          //     rules: [{ required: true, message: '电话不能为空', min: 0 }],
+          initialValue: formVals.officeTel,
+            rules: [{ required: true, message: "请输入正确格式"}]
         })(<Input placeholder="请输入" />)}
       </FormItem>,
       <FormItem key="dept" {...this.formLayout} label="部门">
         {form.getFieldDecorator("dept", {
-          // rules: [{ required: true, message: '请输入至少五个字符的规则描述！', min: 5 }],
+            rules: [{ required: true, message: "请选择部门"}],
           initialValue: formVals.dept
         })(<Dept />)}
       </FormItem>
