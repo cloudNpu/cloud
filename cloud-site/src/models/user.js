@@ -20,7 +20,6 @@ export default {
       //const response = yield(yield call(queryCurrent)).json();
       // console.log(sessionStorage.getItem("user"));
       let d = JSON.parse(sessionStorage.getItem("user"));
-      // console.log(d);
       const response = d;
       if (response == null || response === undefined) {
         yield (window.location.href = "/user/login");

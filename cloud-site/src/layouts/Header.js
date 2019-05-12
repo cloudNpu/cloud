@@ -10,7 +10,8 @@ import styles from './Header.less';
 import Authorized from '@/utils/Authorized';
 
 const { Header } = Layout;
-
+console.log('header');
+// console.log(currentUser);
 class HeaderView extends PureComponent {
   state = {
     visible: true,
@@ -54,15 +55,15 @@ class HeaderView extends PureComponent {
   handleMenuClick = ({ key }) => {
     const { dispatch } = this.props;
     if (key === 'userCenter') {
-      router.push('/account/center');
+      router.push('/my/center');
       return;
     }
-    if (key === 'triggerError') {
+   /* if (key === 'triggerError') {
       router.push('/exception/trigger');
       return;
-    }
+    }*/
     if (key === 'userinfo') {
-      router.push('/account/settings/base');
+      router.push('/my/service');
       return;
     }
     if (key === 'logout') {
@@ -159,3 +160,5 @@ export default connect(({ user, global, setting, loading }) => ({
   notices: global.notices,
   setting,
 }))(HeaderView);
+//console.log(user.currentUser);
+
