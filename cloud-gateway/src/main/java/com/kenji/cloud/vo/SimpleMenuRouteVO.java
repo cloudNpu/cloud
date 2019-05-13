@@ -1,4 +1,4 @@
-package com.kenji.cloud.entity;
+package com.kenji.cloud.vo;
 
 import lombok.Data;
 
