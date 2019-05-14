@@ -14,6 +14,7 @@ import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
 import org.springframework.util.AntPathMatcher;
 
+
 import java.util.*;
 
 /**
@@ -56,13 +57,19 @@ public class CloudFilterInvocationSecurityMetadataSource implements FilterInvoca
         ArrayList<ConfigAttribute> roleValueCfgs = new ArrayList<>();
         FilterInvocation fi = (FilterInvocation) object;
         String url = fi.getRequestUrl();    //获取传入的uri
+        String method = fi.getRequest().getMethod();
+
         //若为登陆和心跳检测等则返回白名单
-        if(url.contains("/auth")){
+        if(url.contains("/auth") || (url.contains("/cloud/apps") && method.equals("PUT"))){
             return superMetadataSource.getAttributes(object);
         }
         List<Map<String, String>> menu_role = getMap();
         for (Map<String, String> map: menu_role){
-            if (antPathMatcher.match(map.get("path"),url)){
+            String pattern = map.get("path") + "/**";
+            if (!antPathMatcher.isPattern(pattern)){
+                pattern = map.get("path");
+            }
+            if (antPathMatcher.match(pattern,url)){
                 ConfigAttribute configAttribute = new SecurityConfig(map.get("value"));
                 roleValueCfgs.add(configAttribute);
             }
