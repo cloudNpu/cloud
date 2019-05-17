@@ -87,7 +87,8 @@ public class InstanceInfo {
 
     // The (fixed) instanceId for this instanceInfo. This should be unique within the scope of the appName.
     private volatile String instanceId;
-
+    private volatile Long userId;
+    //private String userId;
     private volatile String appName;
     @Auto
     private volatile String appGroupName;
@@ -207,6 +208,15 @@ public class InstanceInfo {
 
     public void setSid(String sid) {
         this.sid = sid;
+    }
+
+    public void setUserID(Long userId){
+        this.userId = userId;
+    }
+
+    @JsonProperty("userId")
+    public Long getUserId(){
+        return this.userId;
     }
 
     public void setPort(int port) {
@@ -468,6 +478,7 @@ public class InstanceInfo {
      * @param ii The object to copy
      */
     public InstanceInfo(InstanceInfo ii) {
+        this.userId = ii.userId;
         this.instanceId = ii.instanceId;
         this.appName = ii.appName;
         this.appGroupName = ii.appGroupName;
@@ -626,6 +637,11 @@ public class InstanceInfo {
 
         public Builder setInstanceId(String instanceId) {
             result.instanceId = instanceId;
+            return this;
+        }
+
+        public Builder setUserId(String userId){
+            result.userId = Long.parseLong(userId);
             return this;
         }
 

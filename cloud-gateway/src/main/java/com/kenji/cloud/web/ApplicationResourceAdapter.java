@@ -78,7 +78,6 @@ public class ApplicationResourceAdapter extends ApplicationResource{
         if (this.leaseInfoService == null) {
             this.leaseInfoService = (LeaseInfoService) CloudGateway.getBean("leaseInfoService");
         }
-        //userService
         if (this.userService == null) {
             this.userService = (UserService) CloudGateway.getBean("userService");
         }

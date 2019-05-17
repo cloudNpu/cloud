@@ -68,6 +68,7 @@ public class EurekaJacksonCodec {
     public static final String NODE_DATACENTER = "dataCenterInfo";
     public static final String NODE_APP = "application";
 
+    protected static  final String ELEM_USER_ID = "userId";     //自己添加的
     protected static final String ELEM_INSTANCE = "instance";
     protected static final String ELEM_OVERRIDDEN_STATUS = "overriddenStatus";
     // the casing of this field was accidentally changed in commit
@@ -409,6 +410,7 @@ public class EurekaJacksonCodec {
         private static char[] BUF_AT_CLASS = "@class".toCharArray();
 
         enum InstanceInfoField {
+            USER_ID(ELEM_USER_ID),  //自己添加的
             HOSTNAME(ELEM_HOST),
             INSTANCE_ID(ELEM_INSTANCE_ID),
             APP(ELEM_APP),                    
@@ -491,6 +493,9 @@ public class EurekaJacksonCodec {
                 jsonToken = jp.nextToken();
                 if (instanceInfoField != null && jsonToken != JsonToken.VALUE_NULL) {
                     switch(instanceInfoField) {
+                        case USER_ID:
+                            builder.setUserId(intern.apply(jp));
+                            break;  //自己添加的
                     case HOSTNAME:
                         builder.setHostName(intern.apply(jp));
                         break;
