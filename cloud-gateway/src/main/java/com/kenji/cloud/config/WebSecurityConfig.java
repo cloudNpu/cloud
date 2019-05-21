@@ -2,9 +2,9 @@
 package com.kenji.cloud.config;
 
 
+import com.kenji.cloud.security.CloudAccessDecisionManager;
 import com.kenji.cloud.security.CloudFilterInvocationSecurityMetadataSource;
 import com.kenji.cloud.security.CloudRoleBasedVoter;
-import com.kenji.cloud.service.MenuRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -42,13 +42,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Qualifier("UserDetailsService")
     private UserDetailsService userDetailsService;
 
-    @Autowired
-    private MenuRoleService menuRoleService;
 
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
+    }
+
+    @Bean
+    public AccessDecisionManager accessDecisionManager2(){
+        return new CloudAccessDecisionManager();
     }
 
     @Bean
@@ -92,16 +95,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/**/*.css",
                 "/**/*.js").permitAll()
                 .antMatchers("/auth/**").permitAll()
-                .antMatchers("/cloud/apps/**").permitAll();
-//                .withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>(){
-//
-//                    @Override
-//                    public <O extends FilterSecurityInterceptor> O postProcess(O fsi) {
-//                        fsi.setSecurityMetadataSource(mySecurityMetadataSource(fsi.getSecurityMetadataSource()));
-//                        return fsi;
-//                    }
-//
-//                }).anyRequest().authenticated().accessDecisionManager(accessDecisionManager());
+                .antMatchers("/cloud/apps/**").permitAll()
+                .withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>(){    //注释开始
+
+                    @Override
+                    public <O extends FilterSecurityInterceptor> O postProcess(O fsi) {
+                        fsi.setAccessDecisionManager(accessDecisionManager2());
+                        fsi.setSecurityMetadataSource(mySecurityMetadataSource(fsi.getSecurityMetadataSource()));
+                        return fsi;
+                    }
+
+                }).anyRequest().authenticated().accessDecisionManager(accessDecisionManager());   //注释结束
 
 
         httpSecurity.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);

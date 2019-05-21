@@ -50,6 +50,10 @@ dependencies {
     compile('com.netflix.ribbon:ribbon-httpclient:2.3.0')
     
     compile "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+    // https://mvnrepository.com/artifact/com.owlike/genson
+    compile group: 'com.owlike', name: 'genson', version: '1.5'
+
+
 
 
 

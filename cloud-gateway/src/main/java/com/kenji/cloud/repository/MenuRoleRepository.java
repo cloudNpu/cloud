@@ -19,4 +19,15 @@ public interface MenuRoleRepository extends JpaRepository<Menu, Long> {
     @Query(value =  "select new Map(role.value as rolevalue,coalesce(menu.path,menu.redirect) as path) from Menu menu, RoleMenu roleMenu, Role role where menu.id = roleMenu.menu.id and role.id=roleMenu.role.id")
     List<Map> findMap();
 
+    /*//获得<path，value>键值对
+    @Query(value = "select m.path, r.value from menu m, role r, role_menu rm where m.id=rm.menuid and r.id=rm.roleid", nativeQuery = true)
+    List<Map.Entry<String, String>> findRoleMenu();*/
+
+    /**
+     * @author ubeyang
+     * @return List<Map<String, String>>
+     */
+    @Query(value = "select m.path, r.value from menu m, role r, role_menu rm where m.id=rm.menuid and r.id=rm.roleid", nativeQuery = true)
+    List<Map<String, String>> findRoleMenu();
+
 }

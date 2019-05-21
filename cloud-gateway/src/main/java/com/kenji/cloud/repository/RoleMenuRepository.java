@@ -1,7 +1,5 @@
 package com.kenji.cloud.repository;
 
-import com.kenji.cloud.entity.Menu;
-import com.kenji.cloud.entity.Role;
 import com.kenji.cloud.entity.RoleMenu;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

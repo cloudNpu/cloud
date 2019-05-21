@@ -12,6 +12,7 @@ import com.netflix.appinfo.providers.DataCenterInfoImpl;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.sql.DataSourceDefinition;
 import javax.persistence.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -165,6 +166,8 @@ public class InstanceInfo{
     public void setUser(User user) {
         this.user = user;
     }
+
+    public Long getUserId(){ return this.userId;}
 
 
     public String getInstanceId() {

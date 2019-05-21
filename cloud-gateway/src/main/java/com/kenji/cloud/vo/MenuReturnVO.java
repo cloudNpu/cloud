@@ -1,10 +1,8 @@
 package com.kenji.cloud.vo;
 
-import com.kenji.cloud.entity.SimpleMenuRouteVO;
 import lombok.Data;
 
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
 
 @Data

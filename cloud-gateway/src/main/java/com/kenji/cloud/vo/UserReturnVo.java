@@ -19,4 +19,8 @@ public class UserReturnVo {
     private String birthday;
     private String roles;
     private List<RoleReturnVo> roleList;
+
+    public String getId(){
+        return this.id;
+    }
 }
