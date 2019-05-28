@@ -22,6 +22,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController()
@@ -44,8 +45,10 @@ public class InvokeController {
 //    private BaseLoadBalancer baseLoadBalancer;e
     @RequestMapping(value = "/invoke", method = RequestMethod.GET)
     public String invoke(@RequestParam String serviceName, @RequestParam String param) {
-
-        InstanceInfo info = applicationService.queryByAppName(serviceName).get(0);
+        List<InstanceInfo> infos = applicationService.queryByAppName(serviceName);
+        if (infos == null || infos.isEmpty())
+            return "找不到该服务";
+        InstanceInfo info = infos.get(0);
         if (info.getVisible()==false) return "服务未发布，无法调用";
         // info.invokeCount++;
         info.setMethod("GET");
@@ -66,7 +69,10 @@ public class InvokeController {
     @RequestMapping(value = "/invoke1", method = RequestMethod.GET)
     public String invoke1(@RequestParam String serviceName, @RequestParam String param,@RequestParam String strategy) {
         setStrategy(serviceName,strategy);
-        InstanceInfo info = applicationService.queryByAppName(serviceName).get(0);
+        List<InstanceInfo> infos = applicationService.queryByAppName(serviceName);
+        if (infos == null || infos.isEmpty())
+            return "找不到该服务";
+        InstanceInfo info = infos.get(0);
         if (info.getVisible()==false) return "服务未发布，无法调用";
         // info.invokeCount++;
         info.setMethod("GET");
@@ -99,7 +105,11 @@ public class InvokeController {
         headers.setContentType(type);
         HttpEntity<String> entity = new HttpEntity<String>(requestParams.get("params"), headers);
 
-        InstanceInfo info = applicationService.queryByAppName(serviceNames[0]).get(0);
+        //InstanceInfo info = applicationService.queryByAppName(serviceNames[0]).get(0);
+        List<InstanceInfo> infos = applicationService.queryByAppName(serviceNames[0]);
+        if (infos == null || infos.isEmpty())
+            return "找不到该服务";
+        InstanceInfo info = infos.get(0);
         info.setMethod("POST");
         if (info.getVisible()==false) return "服务未发布，无法调用";
         //info.setInvokeCount(info.getInvokeCount()+1);
