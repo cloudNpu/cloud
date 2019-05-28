@@ -15,13 +15,14 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.cloud.netflix.ribbon.RibbonLoadBalancerClient;
 import org.springframework.context.ApplicationContext;
-import org.springframework.http.*;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-import javax.ws.rs.core.Response;
 import java.util.Map;
-import java.util.Objects;
 
 @RestController()
 public class InvokeController {
@@ -39,52 +40,15 @@ public class InvokeController {
     private ApplicationService applicationService;
 
 
-//    @Autowired
+    //    @Autowired
 //    private BaseLoadBalancer baseLoadBalancer;e
-    //单参数无策略调用
     @RequestMapping(value = "/invoke", method = RequestMethod.GET)
-    public ResponseEntity invoke(@RequestParam("serviceName") String serviceName, @RequestParam(value = "param",required = false) String param) {
+    public String invoke(@RequestParam String serviceName, @RequestParam String param) {
 
         InstanceInfo info = applicationService.queryByAppName(serviceName).get(0);
-        if (info == null)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("找不到服务" + serviceName);
-        if (info.getVisible()==false) ResponseEntity.status(HttpStatus.NOT_FOUND).body("找不到服务" + serviceName);
-       // info.invokeCount++;
-        //info.setMethod("GET");
-        if (!info.getMethod().toUpperCase().equals("GET"))
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("不能使用GET调用服务");
-
-        /*if (info.getMethod().equals("POST")){
-            return restTemplate.postForObject("http://" + serviceName + "/" + param, serviceName,String.class); //可能得改成从数据库读服务地址
-        }
-        if (info.getMethod().equals("DELETE")){
-            restTemplate.delete("http://" + serviceName + "/" + param, String.class);
-            return null;
-        }
-        if (info.getMethod().equals("PUT")){
-           restTemplate.put("http://" + serviceName + "/" + param, serviceName);
-           return null;
-        }*/
-        if (param == null)
-            return restTemplate.getForEntity(info.getHomePageUrl() + serviceName, String.class);    //String.class可能不对，待修改
-        else
-            return restTemplate.getForEntity(info.getHomePageUrl() + serviceName, String.class, param);
-        //return restTemplate.getForObject("http://" + serviceName + "/" + param, String.class) ;
-    }
-
-    @RequestMapping(value = "/invokeWithStrategy", method = RequestMethod.GET)
-    public ResponseEntity invoke1(@RequestParam("serviceName") String serviceName,
-                                  @RequestParam(value = "param", required = false) String param,
-                                  @RequestParam("strategy") String strategy) {
-        setStrategy(serviceName,strategy);
-        InstanceInfo info = applicationService.queryByAppName(serviceName).get(0);
-        if (info == null)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("找不到服务" + serviceName);
-        if (info.getVisible()==false) ResponseEntity.status(HttpStatus.NOT_FOUND).body("找不到服务" + serviceName);
-        if (!info.getMethod().toUpperCase().equals("GET"))
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("不能使用GET调用服务");
+        if (info.getVisible()==false) return "服务未发布，无法调用";
         // info.invokeCount++;
-        /*info.setMethod("GET");  //不知道跟下面的if是什么意思
+        info.setMethod("GET");
         if (info.getMethod().equals("POST")){
             return restTemplate.postForObject("http://" + serviceName + "/" + param, serviceName,String.class);
         }
@@ -95,38 +59,51 @@ public class InvokeController {
         if (info.getMethod().equals("PUT")){
             restTemplate.put("http://" + serviceName + "/" + param, serviceName);
             return null;
-        }*/
-        //return restTemplate.getForObject("http://" + serviceName + "/" + param, String.class) ;
-        if (param == null)
-            return restTemplate.getForEntity(info.getHomePageUrl() + serviceName, String.class);    //String.class可能不对，待修改
-        else
-            return restTemplate.getForEntity(info.getHomePageUrl() + serviceName, String.class, param);
+        }
+        return restTemplate.getForObject("http://" + serviceName + "/" + param, String.class) ;
+    }
+
+    @RequestMapping(value = "/invoke1", method = RequestMethod.GET)
+    public String invoke1(@RequestParam String serviceName, @RequestParam String param,@RequestParam String strategy) {
+        setStrategy(serviceName,strategy);
+        InstanceInfo info = applicationService.queryByAppName(serviceName).get(0);
+        if (info.getVisible()==false) return "服务未发布，无法调用";
+        // info.invokeCount++;
+        info.setMethod("GET");
+        if (info.getMethod().equals("POST")){
+            return restTemplate.postForObject("http://" + serviceName + "/" + param, serviceName,String.class);
+        }
+        if (info.getMethod().equals("DELETE")){
+            restTemplate.delete("http://" + serviceName + "/" + param, String.class);
+            return null;
+        }
+        if (info.getMethod().equals("PUT")){
+            restTemplate.put("http://" + serviceName + "/" + param, serviceName);
+            return null;
+        }
+        return restTemplate.getForObject("http://" + serviceName + "/" + param, String.class) ;
     }
 
 
     //注意请求的数据为x-www-form （带）负载均衡策略的复杂类型调用
-    @RequestMapping(value = "/invoke", method = RequestMethod.POST) //POST得带Body
-    public ResponseEntity invoke(@RequestParam Map<String, String> requestParams, @RequestBody Object body) throws IllegalAccessException, InstantiationException {
+    @RequestMapping(value = "/invoke", method = RequestMethod.POST)
+    public String invoke(@RequestParam Map<String, String> requestParams) throws IllegalAccessException, InstantiationException {
 
         String strategy = requestParams.get("strategy");
         String[] serviceNames = requestParams.get("serviceName").split("/");
-        if (strategy != null && !strategy.isEmpty())
-            setStrategy(serviceNames[0],strategy);
 
-        HttpHeaders headers = new HttpHeaders(); //可能得用路径param
+        setStrategy(serviceNames[0],strategy);
+
+        HttpHeaders headers = new HttpHeaders();
         MediaType type = MediaType.parseMediaType("application/json; charset=UTF-8");
         headers.setContentType(type);
-        HttpEntity<String> entity = new HttpEntity<String>(requestParams.get("params"), headers);   //可能为空,params只能获取到一个参数
+        HttpEntity<String> entity = new HttpEntity<String>(requestParams.get("params"), headers);
 
         InstanceInfo info = applicationService.queryByAppName(serviceNames[0]).get(0);
-        if (info == null)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("找不到服务" + serviceNames[0]);
-        if (info.getVisible()==false) return ResponseEntity.status(HttpStatus.NOT_FOUND).body("找不到服务" + serviceNames[0]);
-        if (!info.getMethod().toUpperCase().equals("POST"))
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("不能使用POST调用服务");
-
+        info.setMethod("POST");
+        if (info.getVisible()==false) return "服务未发布，无法调用";
         //info.setInvokeCount(info.getInvokeCount()+1);
-        /*if (info.getMethod().equals("GET")){
+        if (info.getMethod().equals("GET")){
             return restTemplate.getForObject("http://" +requestParams.get("serviceName"),String.class);
         }
         if (info.getMethod().equals("DELETE")){
@@ -136,13 +113,9 @@ public class InvokeController {
         if (info.getMethod().equals("PUT")){
             restTemplate.put("http://" + requestParams.get("serviceName"), serviceNames[0]);
             return null;
-        }*/
-        //Object body;
-        if (requestParams != null)
-            return restTemplate.postForEntity(info.getHomePageUrl() + requestParams.get("serviceName"),body, String.class, requestParams);
-        else
-            return restTemplate.postForEntity(info.getHomePageUrl() + requestParams.get("serviceName"),body, String.class);
-        //return  restTemplate.postForObject("http://" + requestParams.get("serviceName"),entity, String.class);
+        }
+
+        return  restTemplate.postForObject("http://" + requestParams.get("serviceName"),entity, String.class);
     }
 
 //    //注意请求的数据为x-wwww-form
@@ -161,7 +134,6 @@ public class InvokeController {
         return "error";
     }
 
-    //这个用来干什么？
     @RequestMapping("/cancelServiceInstance")
     public String cancelServiceInstance(){
         return "";
