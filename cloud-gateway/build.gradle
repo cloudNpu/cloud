@@ -46,6 +46,7 @@ dependencies {
 
     compile('org.springframework.cloud:spring-cloud-starter-netflix-hystrix:2.0.3.RELEASE')
     compile('org.springframework.cloud:spring-cloud-netflix-eureka-client:2.0.3.RELEASE')
+//    compile('com.owlike:genson:1.5')
 //    compile('com.netflix.ribbon:ribbon:2.3.0')
     compile('com.netflix.ribbon:ribbon-httpclient:2.3.0')
     

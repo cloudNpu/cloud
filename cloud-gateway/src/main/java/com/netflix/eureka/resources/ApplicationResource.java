@@ -198,76 +198,76 @@ public class ApplicationResource {
             }
         }
 
-//        if (this.applicationService == null) {
-//            this.applicationService = (ApplicationService) CloudGateway.getBean("applicationService");
-//        }
-//        if (this.leaseInfoService == null) {
-//            this.leaseInfoService = (LeaseInfoService) CloudGateway.getBean("leaseInfoService");
-//        }
-//        if (this.userService == null) {
-//            this.userService = (UserService) CloudGateway.getBean("userService");
-//        }
-        //检查待注册的是否与数据库中已有的实例重复
-//        List<com.kenji.cloud.entity.InstanceInfo> infos = applicationService.queryByAppName(info.getAppName());
-//        boolean flag = false;
-//        for (com.kenji.cloud.entity.InstanceInfo inf: infos){
-//            //如果appname和instanceid相同，则不予添加，建议用户使用update
-//            if (inf.getInstanceId().equals(info.getInstanceId())){
-//                flag = true;
-//            }
-//        }
-//        if (flag)
-//            return Response.status(Status.NOT_ACCEPTABLE).entity("已存在相同AppName和InstanceId的实例").build();
-//        UserReturnVo user1=userService.findById(info.getUserId());
-//        if (null == user1){
-//            return Response.status(Status.BAD_REQUEST).entity("找不到对应的操作用户").build();
-//        }
-//
-//        registry.register(info, "true".equals(isReplication));   //真正的服务注册在这，前面都是對註冊信息校验
-//        if (null == registry.getInstanceByAppAndId(info.getAppName(), info.getId()))
-//            return Response.notModified("注册失败").build();
-//        //注册至数据库
-//        User user=new User();
-//        BeanUtils.copyProperties(user1, user);
-//        user.setId(Long.parseLong(user1.getId()));
-//        com.kenji.cloud.entity.InstanceInfo infoForDB = new com.kenji.cloud.entity.InstanceInfo();
-//        BeanUtils.copyProperties(info, infoForDB);  //检查是否复制正确
-//
-//        infoForDB.setUser(user);
-//        infoForDB.setInvokeCount(0l);//把初始调用次数置为0
-//        com.kenji.cloud.entity.LeaseInfo leaseInfo = new com.kenji.cloud.entity.LeaseInfo();
-//        BeanUtils.copyProperties(info.getLeaseInfo(), leaseInfo);
-//        try {
-//            String leaseInfoId = leaseInfoService.addLeaseInfo(leaseInfo);
-//            if (leaseInfoId == null)    //注册leaseInfo失败
-//            {
-//                //取消注册
-//                registry.cancel(info.getAppName(), info.getInstanceId(), "true".equals(isReplication));
-//                return Response.status(Status.NOT_MODIFIED).entity("数据库添加租约数据失败").build();
-//            }
-//            leaseInfo.setId(Integer.parseInt(leaseInfoId));
-//        }catch (Exception e){
-//            //取消注册
-//            registry.cancel(info.getAppName(), info.getInstanceId(), "true".equals(isReplication));
-//            System.out.print(e.getStackTrace());
-//            return Response.status(Status.NOT_MODIFIED).entity("数据库添加租约数据失败").build();
-//        }
-//        infoForDB.setLeaseInfo(leaseInfo);
-//        infoForDB.setVisible(true);
-//        try {
-//            applicationService.addApp(infoForDB);
-//        }
-//        catch (Exception e){
-//            registry.cancel(info.getAppName(), info.getInstanceId(), "true".equals(isReplication));
-//            //删除刚添加的leaseInfo
-//            leaseInfoService.deleteLeaseInfo(leaseInfo.getId());
-//            System.out.print(e.getStackTrace());
-//            return Response.status(Status.NOT_MODIFIED).entity("数据库添加服务实例失败").build();
-//        }
-//        InstanceInfoReturnVo instanceInfoReturnVo = new InstanceInfoReturnVo(infoForDB);
+        if (this.applicationService == null) {
+            this.applicationService = (ApplicationService) CloudGateway.getBean("applicationService");
+        }
+        if (this.leaseInfoService == null) {
+            this.leaseInfoService = (LeaseInfoService) CloudGateway.getBean("leaseInfoService");
+        }
+        if (this.userService == null) {
+            this.userService = (UserService) CloudGateway.getBean("userService");
+        }
+//        检查待注册的是否与数据库中已有的实例重复
+        List<com.kenji.cloud.entity.InstanceInfo> infos = applicationService.queryByAppName(info.getAppName());
+        boolean flag = false;
+        for (com.kenji.cloud.entity.InstanceInfo inf: infos){
+            //如果appname和instanceid相同，则不予添加，建议用户使用update
+            if (inf.getInstanceId().equals(info.getInstanceId())){
+                flag = true;
+            }
+        }
+        if (flag)
+            return Response.status(Status.NOT_ACCEPTABLE).entity("已存在相同AppName和InstanceId的实例").build();
+        UserReturnVo user1=userService.findById(info.getUserId());
+        if (null == user1){
+            return Response.status(Status.BAD_REQUEST).entity("找不到对应的操作用户").build();
+        }
 
+        registry.register(info, "true".equals(isReplication));   //真正的服务注册在这，前面都是對註冊信息校验
+        if (null == registry.getInstanceByAppAndId(info.getAppName(), info.getId()))
+            return Response.notModified("注册失败").build();
+        //注册至数据库
+        User user=new User();
+        BeanUtils.copyProperties(user1, user);
+        user.setId(Long.parseLong(user1.getId()));
+        com.kenji.cloud.entity.InstanceInfo infoForDB = new com.kenji.cloud.entity.InstanceInfo();
+        BeanUtils.copyProperties(info, infoForDB);  //检查是否复制正确
+
+        infoForDB.setUser(user);
+        infoForDB.setInvokeCount(0l);//把初始调用次数置为0
+        com.kenji.cloud.entity.LeaseInfo leaseInfo = new com.kenji.cloud.entity.LeaseInfo();
+        BeanUtils.copyProperties(info.getLeaseInfo(), leaseInfo);
+        try {
+            String leaseInfoId = leaseInfoService.addLeaseInfo(leaseInfo);
+            if (leaseInfoId == null)    //注册leaseInfo失败
+            {
+                //取消注册
+                registry.cancel(info.getAppName(), info.getInstanceId(), "true".equals(isReplication));
+                return Response.status(Status.NOT_MODIFIED).entity("数据库添加租约数据失败").build();
+            }
+            leaseInfo.setId(Integer.parseInt(leaseInfoId));
+        }catch (Exception e){
+            //取消注册
+            registry.cancel(info.getAppName(), info.getInstanceId(), "true".equals(isReplication));
+            System.out.print(e.getStackTrace());
+            return Response.status(Status.NOT_MODIFIED).entity("数据库添加租约数据失败").build();
+        }
+        infoForDB.setLeaseInfo(leaseInfo);
+        infoForDB.setVisible(true);
+        try {
+            applicationService.addApp(infoForDB);
+        }
+        catch (Exception e){
+            registry.cancel(info.getAppName(), info.getInstanceId(), "true".equals(isReplication));
+            //删除刚添加的leaseInfo
+            leaseInfoService.deleteLeaseInfo(leaseInfo.getId());
+            System.out.print(e.getStackTrace());
+            return Response.status(Status.NOT_MODIFIED).entity("数据库添加服务实例失败").build();
+        }
+        InstanceInfoReturnVo instanceInfoReturnVo = new InstanceInfoReturnVo(infoForDB);
+        return Response.ok(info).build();
 //        return Response.status(204).entity(instanceInfoReturnVo).build();
-        return Response.status(204).build();
+//        return Response.status(204).build();
     }
 
     /**

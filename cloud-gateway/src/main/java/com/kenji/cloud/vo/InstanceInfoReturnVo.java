@@ -2,9 +2,6 @@ package com.kenji.cloud.vo;
 
 import com.kenji.cloud.entity.InstanceInfo;
 import lombok.Data;
-import org.springframework.beans.BeanUtils;
-
-import java.util.HashMap;
 
 @Data
 public class InstanceInfoReturnVo {
