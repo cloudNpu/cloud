@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.5.RELEASE'
+        springBootVersion = '2.0.3.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -32,22 +32,22 @@ dependencies {
     compile project(':eureka-core')
     compile project(':eureka-server')
 
-    compile('org.springframework.boot:spring-boot-starter-web')
-    compile('org.springframework.boot:spring-boot-starter-actuator')
-    compile('org.springframework.boot:spring-boot-configuration-processor')
-    compile('org.springframework.boot:spring-boot-starter-freemarker')
-    compile('org.springframework.cloud:spring-cloud-starter:2.0.2.RELEASE')
-    compile('org.springframework.cloud:spring-cloud-commons:2.0.2.RELEASE')
-    compile('org.springframework.cloud:spring-cloud-context:2.0.2.RELEASE')
-    compile('org.springframework.cloud:spring-cloud-netflix-eureka-client:2.0.2.RELEASE')
-    compile('org.springframework.cloud:spring-cloud-commons:2.0.2.RELEASE')
-    compile('org.springframework.cloud:spring-cloud-config-server:2.0.2.RELEASE')
-    compile('org.springframework:spring-context-support:5.0.7.RELEASE')
-    compile('javax.xml.bind:jaxb-api:2.3.0')
+
+    compile('org.springframework.cloud:spring-cloud-config-server:2.0.3.RELEASE')
+//    compile('org.springframework:spring-context-support:5.0.7.RELEASE')
+//    compile('javax.xml.bind:jaxb-api:2.3.0')
 //    compile('com.sun.jersey:jersey-servlet')
 //    compile('com.sun.jersey:jersey-server')
-    compile('org.glassfish.jaxb:jaxb-runtime:2.3.0')
-    compile('javax.activation:activation:1.1.1')
-
+//    compile('org.glassfish.jaxb:jaxb-runtime:2.3.0')
+//    compile('javax.activation:activation:1.1.1')
+//    compile('org.springframework.boot:spring-boot-starter-web:2.0.3.RELEASE')
+//    compile('org.springframework.boot:spring-boot-starter-actuator:2.0.3.RELEASE')
+//    compile('org.springframework.boot:spring-boot-configuration-processor:2.0.3.RELEASE')
+//    compile('org.springframework.boot:spring-boot-starter-freemarker')
+//    compile('org.springframework.cloud:spring-cloud-starter:2.0.3.RELEASE')
+//    compile('org.springframework.cloud:spring-cloud-commons:2.0.3.RELEASE')
+//    compile('org.springframework.cloud:spring-cloud-context:2.0.3.RELEASE')
+//    compile('org.springframework.cloud:spring-cloud-netflix-eureka-client:2.0.3.RELEASE')
+//    compile('org.springframework.cloud:spring-cloud-commons:2.0.3.RELEASE')
 
 }

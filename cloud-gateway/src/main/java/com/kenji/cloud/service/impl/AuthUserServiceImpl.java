@@ -34,9 +34,6 @@ public class AuthUserServiceImpl implements UserDetailsService {
         if(user == null) {
             throw new UsernameNotFoundException("用户不存在");
         }
-        System.out.println("username" + username);
-        System.out.println("username" + user.getUsername() + "password" + user.getPassword());
-        System.out.println("role" + user.getUserRoles().get(0).getRole().getName());
         return user;
     }
 }

@@ -29,4 +29,3 @@ jwt:
       path: auth/login
       refresh: auth/refresh
       register: auth/register
-

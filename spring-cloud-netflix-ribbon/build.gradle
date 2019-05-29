@@ -12,80 +12,18 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.1.1.RELEASE'
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot
-   compile group: 'org.springframework.boot', name: 'spring-boot', version: '2.1.1.RELEASE'
-
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-autoconfigure
-   compile group: 'org.springframework.boot', name: 'spring-boot-autoconfigure', version: '2.1.1.RELEASE'
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-configuration-processor
-   compile group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: '2.1.0.RELEASE'
-    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-commons
-    compile group: 'org.springframework.cloud', name: 'spring-cloud-commons', version: '2.0.1.RELEASE'
-    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-context
-    compile group: 'org.springframework.cloud', name: 'spring-cloud-context', version: '2.0.1.RELEASE'
-    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-netflix-archaius
-    compile group: 'org.springframework.cloud', name: 'spring-cloud-netflix-archaius', version: '2.0.2.RELEASE'
-    // https://mvnrepository.com/artifact/com.netflix.ribbon/ribbon
-    compile group: 'com.netflix.ribbon', name: 'ribbon', version: '2.3.0'
-    // https://mvnrepository.com/artifact/com.netflix.ribbon/ribbon-core
-    compile group: 'com.netflix.ribbon', name: 'ribbon-core', version: '2.2.4'
-    // https://mvnrepository.com/artifact/com.netflix.ribbon/ribbon-httpclient
-    compile group: 'com.netflix.ribbon', name: 'ribbon-httpclient', version: '2.3.0'
-    // https://mvnrepository.com/artifact/com.netflix.ribbon/ribbon-loadbalancer
-    compile group: 'com.netflix.ribbon', name: 'ribbon-loadbalancer', version: '2.3.0'
-    // https://mvnrepository.com/artifact/com.sun.jersey.contribs/jersey-apache-client4
-//    compile group: 'com.sun.jersey.contribs', name: 'jersey-apache-client4', version: '1.19.4'
-    // https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
-    compile group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.11.0'
-    // https://mvnrepository.com/artifact/org.springframework.retry/spring-retry
-    compile group: 'org.springframework.retry', name: 'spring-retry', version: '1.2.2.RELEASE'
-    // https://mvnrepository.com/artifact/commons-configuration/commons-configuration
-    compile group: 'commons-configuration', name: 'commons-configuration', version: '1.10'
-    // https://mvnrepository.com/artifact/com.netflix.servo/servo-core
-    compile group: 'com.netflix.servo', name: 'servo-core', version: '0.12.25'
-    // https://mvnrepository.com/artifact/com.netflix.netflix-commons/netflix-commons-util
-    compile group: 'com.netflix.netflix-commons', name: 'netflix-commons-util', version: '0.1.1'
-    // https://mvnrepository.com/artifact/com.netflix.hystrix/hystrix-javanica
-    compile group: 'com.netflix.hystrix', name: 'hystrix-javanica', version: '1.5.12'
-    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-test-support
-    testCompile group: 'org.springframework.cloud', name: 'spring-cloud-test-support', version: '2.0.2.RELEASE'
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
-    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.1.1.RELEASE'
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.1.1.RELEASE'
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.1.1.RELEASE'
-
-    // https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
-    //provided group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
-    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
-    //compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.3-beta1'
-
-    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
-    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.6'
-// https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
-//    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.3.5'
-// https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
-   // compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.4-alpha1'
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    compile('org.springframework.boot:spring-boot-starter-web:2.0.3.RELEASE')
+    compile('org.springframework.cloud:spring-cloud-context:2.0.3.RELEASE')
+    compile('org.springframework.cloud:spring-cloud-commons:2.0.3.RELEASE')
+    compile('org.springframework.boot:spring-boot-autoconfigure:2.0.3.RELEASE')
+    compile('com.netflix.ribbon:ribbon:2.3.0')
+    compile('com.netflix.ribbon:ribbon-loadbalancer:2.3.0')
+    compile('com.netflix.ribbon:ribbon-httpclient:2.3.0')
+    compile('org.apache.httpcomponents:httpclient:4.5.3')
+    compile('org.springframework.retry:spring-retry:1.2.2.RELEASE')
+    compile('com.squareup.okhttp3:okhttp:3.11.0')
+    
 
 }

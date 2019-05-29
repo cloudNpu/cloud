@@ -21,7 +21,7 @@ package org.springframework.cloud.netflix.eureka;
  */
 public class EurekaConstants {
 
-	public static final String DEFAULT_PREFIX = "/cloud";
+	public static final String DEFAULT_PREFIX = "/eureka";
 
 	private EurekaConstants() {
 		throw new AssertionError("Must not instantiate constant utility class");
