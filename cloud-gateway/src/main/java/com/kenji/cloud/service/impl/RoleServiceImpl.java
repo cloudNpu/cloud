@@ -9,6 +9,7 @@ import com.kenji.cloud.repository.UserRoleRepository;
 import com.kenji.cloud.service.RoleService;
 import com.kenji.cloud.vo.RoleMenuVo;
 import com.kenji.cloud.vo.RoleVO;
+import com.netflix.appinfo.RefreshableAmazonInfoProvider;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -82,7 +83,7 @@ public class RoleServiceImpl implements RoleService {
         List<RoleMenu> currentMenus = roleMenuRepository.findAllByRole(roleId);
         //currentMenus.add(roleMenu);
         //return addMenusForRole(currentMenus);
-        currentMenus.stream().forEach(roleMenu1 -> {
+        for (RoleMenu roleMenu1 : currentMenus) {
             RoleMenuVo roleMenuVo = new RoleMenuVo();
             Role role = roleMenu1.getRole();
             Menu menu = roleMenu1.getMenu();
@@ -91,7 +92,7 @@ public class RoleServiceImpl implements RoleService {
             roleMenuVo.setName(role.getName());
             roleMenuVo.setValue(role.getValue());
             roleMenuVos.add(roleMenuVo);
-        });
+        }
         RoleMenuVo roleMenuVo = new RoleMenuVo();
         roleMenuRepository.save(roleMenu);
         Role role = roleMenu.getRole();
@@ -140,8 +141,28 @@ public class RoleServiceImpl implements RoleService {
         return roleVOs;
     }
 
+    @Override
+    public boolean isDone(RoleMenu roleMenu) {
+        // 获取当前的roleId
+        Long roleId = roleMenu.getRole().getId();
+        // 查询到所有关于该role的roleMenu信息
+        List<RoleMenu> currentMenus = roleMenuRepository.findAllByRole(roleId);
+        for (RoleMenu roleMenu1 : currentMenus) {
+            Role role = roleMenu1.getRole();
+            Menu menu = roleMenu1.getMenu();
+            // 对一个角色已经授权过某个权限
+            if (role.getId().longValue() == roleMenu.getRole().getId().longValue()
+                    && menu.getId().longValue() == roleMenu.getMenu().getId().longValue()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     public void deleteRoles(Long[] ids) {
         Arrays.stream(ids).forEach(id -> this.deleteRole(id));
+        Integer intd = 5;
+
     }
 }

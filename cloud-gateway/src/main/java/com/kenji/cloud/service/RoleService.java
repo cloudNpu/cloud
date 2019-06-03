@@ -61,5 +61,12 @@ public interface RoleService {
      * @return
      */
     List<RoleVO> getRoles();
+
+    /**
+     * 查看本次角色授权是否之前处理过
+     * @param roleMenu
+     * @return
+     */
+    boolean isDone(RoleMenu roleMenu);
 }
 
