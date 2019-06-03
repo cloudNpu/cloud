@@ -26,13 +26,22 @@ public interface RoleMenuRepository extends JpaRepository<RoleMenu, Long> {
      */
     List<RoleMenu> findAllByRoleId(Long roleId);
 
+
     /**
-     * 通过roleId和menuId查询roleMenu实体
-     *
+     * 通过roleId查询所有有关于该Role的roleMenu实体
      * @param roleId
-     * @param menuId
      * @return
      */
-    @Query(value = "select * from role_menu where roleid=? and menuid=?", nativeQuery = true)
-    List<RoleMenu> findAllByMenuAndAndRole(Long roleId, Long menuId);
+    @Query(value = "select * from role_menu where roleid=?", nativeQuery = true)
+    List<RoleMenu> findAllByRole(Long roleId);
+    ///**
+    // * 通过roleId和menuId查询roleMenu实体
+    // *
+    // * @param roleId
+    // * @param menuId
+    // * @return
+    // */
+    //@Query(value = "select * from role_menu where roleid=? and menuid=?", nativeQuery = true)
+    //List<RoleMenu> findAllByMenuAndAndRole(Long roleId, Long menuId);
+
 }

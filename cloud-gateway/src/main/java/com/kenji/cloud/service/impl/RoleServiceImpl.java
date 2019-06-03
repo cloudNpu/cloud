@@ -57,40 +57,69 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public List<RoleMenuVo> addMenusForRoles(List<RoleMenu> roleMenus) {
+    public List<RoleMenuVo> addMenusForRole(List<RoleMenu> roleMenus) {
         ArrayList<RoleMenuVo> roleMenuVos = new ArrayList<>();
         roleMenus.stream().forEach(roleMenu -> {
-            if (!check(roleMenu)) {
-                roleMenuRepository.save(roleMenu);
-                RoleMenuVo roleMenuVo = new RoleMenuVo();
-                Role role = roleMenu.getRole();
-                Menu menu = roleMenu.getMenu();
-                roleMenuVo.setRoleMenu(menu.getName());
-                roleMenuVo.setDescription(role.getDescription());
-                roleMenuVo.setName(role.getName());
-                roleMenuVo.setValue(role.getValue());
-                roleMenuVos.add(roleMenuVo);
-            }
+            roleMenuRepository.save(roleMenu);
+            RoleMenuVo roleMenuVo = new RoleMenuVo();
+            Role role = roleMenu.getRole();
+            Menu menu = roleMenu.getMenu();
+            roleMenuVo.setRoleMenu(menu.getName());
+            roleMenuVo.setDescription(role.getDescription());
+            roleMenuVo.setName(role.getName());
+            roleMenuVo.setValue(role.getValue());
+            roleMenuVos.add(roleMenuVo);
         });
         return roleMenuVos;
     }
 
-    /**
-     * 检查数据库中是否已经存储了roleMenu实体
-     *
-     * @param roleMenu
-     * @return 已经存在返回true，否则返回false
-     */
-    private boolean check(RoleMenu roleMenu) {
+    @Override
+    public List<RoleMenuVo> addMenuForRole(RoleMenu roleMenu) {
+        ArrayList<RoleMenuVo> roleMenuVos = new ArrayList<>();
+        // 获取当前的roleId
         Long roleId = roleMenu.getRole().getId();
-        Long menuId = roleMenu.getMenu().getId();
-        List<RoleMenu> roleMenus = roleMenuRepository.findAllByMenuAndAndRole(roleId, menuId);
-        if (roleMenus.size() != 0) {
-            return true;
-        }
-        return false;
-
+        // 查询到所有关于该role的roleMenu信息
+        List<RoleMenu> currentMenus = roleMenuRepository.findAllByRole(roleId);
+        //currentMenus.add(roleMenu);
+        //return addMenusForRole(currentMenus);
+        currentMenus.stream().forEach(roleMenu1 -> {
+            RoleMenuVo roleMenuVo = new RoleMenuVo();
+            Role role = roleMenu1.getRole();
+            Menu menu = roleMenu1.getMenu();
+            roleMenuVo.setRoleMenu(menu.getName());
+            roleMenuVo.setDescription(role.getDescription());
+            roleMenuVo.setName(role.getName());
+            roleMenuVo.setValue(role.getValue());
+            roleMenuVos.add(roleMenuVo);
+        });
+        RoleMenuVo roleMenuVo = new RoleMenuVo();
+        roleMenuRepository.save(roleMenu);
+        Role role = roleMenu.getRole();
+        Menu menu = roleMenu.getMenu();
+        roleMenuVo.setRoleMenu(menu.getName());
+        roleMenuVo.setDescription(role.getDescription());
+        roleMenuVo.setName(role.getName());
+        roleMenuVo.setValue(role.getValue());
+        roleMenuVos.add(roleMenuVo);
+        return roleMenuVos;
     }
+
+    ///**
+    // * 检查数据库中是否已经存储了roleMenu实体
+    // *
+    // * @param roleMenu
+    // * @return 已经存在返回true，否则返回false
+    // */
+    //private boolean check(RoleMenu roleMenu) {
+    //    Long roleId = roleMenu.getRole().getId();
+    //    Long menuId = roleMenu.getMenu().getId();
+    //    List<RoleMenu> roleMenus = roleMenuRepository.findAllByMenuAndAndRole(roleId, menuId);
+    //    if (roleMenus.size() != 0) {
+    //        return true;
+    //    }
+    //    return false;
+    //
+    //}
 
     @Override
     public List<RoleVO> getRoles() {

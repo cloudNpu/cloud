@@ -66,9 +66,9 @@ public class RoleController {
     }
 
     @RequestMapping(value = "/roleMenus", method = RequestMethod.POST)
-    public ResponseEntity addMenusForRoles(@RequestBody List<RoleMenu> roleMenus) {
+    public ResponseEntity addMenusForRoles(@RequestBody RoleMenu roleMenu) {
         try {
-            List<RoleMenuVo> roleMenuVos = roleService.addMenusForRoles(roleMenus);
+            List<RoleMenuVo> roleMenuVos = roleService.addMenuForRole(roleMenu);
             return ResponseEntity.ok(roleMenuVos);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("授权失败！\r\n失败原因：" + e.getMessage());

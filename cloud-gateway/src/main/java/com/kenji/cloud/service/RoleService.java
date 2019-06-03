@@ -44,10 +44,17 @@ public interface RoleService {
 
     /**
      * 为角色授予权限
-     * @param roleMenus
+     * @param roleMenu
      * @return roleMenu的包装
      */
-    List<RoleMenuVo> addMenusForRoles(List<RoleMenu> roleMenus);
+    List<RoleMenuVo> addMenuForRole(RoleMenu roleMenu);
+
+    /**
+     * 为角色授予权限
+     * @param roleMenus
+     * @return
+     */
+    List<RoleMenuVo> addMenusForRole(List<RoleMenu> roleMenus);
 
     /**
      * 获取所有角色信息
