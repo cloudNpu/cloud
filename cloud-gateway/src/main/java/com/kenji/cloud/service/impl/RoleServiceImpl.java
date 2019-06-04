@@ -3,6 +3,7 @@ package com.kenji.cloud.service.impl;
 import com.kenji.cloud.entity.Menu;
 import com.kenji.cloud.entity.Role;
 import com.kenji.cloud.entity.RoleMenu;
+import com.kenji.cloud.repository.MenuRepository;
 import com.kenji.cloud.repository.RoleMenuRepository;
 import com.kenji.cloud.repository.RoleRepository;
 import com.kenji.cloud.repository.UserRoleRepository;
