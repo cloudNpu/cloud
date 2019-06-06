@@ -25,6 +25,12 @@ public class RoleController {
     @RequestMapping(value = "/roles", method = RequestMethod.POST)
     public ResponseEntity addRole(@RequestBody Role role) {
         try {
+            List<RoleVO> roleVOS = roleService.getRoles();
+            for (RoleVO roleVO : roleVOS) {
+                if (roleVO.getName().equals(role.getName())) {
+                    return ResponseEntity.status(HttpStatus.FORBIDDEN).body("添加失败！\r\n失败原因：角色已存在!");
+                }
+            }
             roleService.addRole(role);
             ResponseEntity<List<RoleVO>> roles = getRoles();
             return roles;

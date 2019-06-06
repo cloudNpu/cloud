@@ -30,6 +30,12 @@ public class MenuController {
     @RequestMapping(value = "/menus", method = RequestMethod.POST)
     public ResponseEntity<String> addMenu(@RequestBody Menu menu) {
         try {
+            List<MenuVO> menuVOS = menuService.getAll();
+            for (MenuVO menuVO : menuVOS) {
+                if (menuVO.getName().equals(menu.getName())) {
+                   return ResponseEntity.status(HttpStatus.FORBIDDEN).body("添加失败！\r\n失败原因：菜单已存在!");
+                }
+            }
             menuService.addMenu(menu);
             ResponseEntity all = getAll();
             return all;
