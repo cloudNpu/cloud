@@ -54,6 +54,10 @@ public class UserServiceImpl implements UserService {
         Dept dept = deptRepository.findById(deptId).get();
         saveUser.setDept(dept);
         saveUser.setCreateDate(new Date());
+
+        //5月28日增加了下面这条语句
+        saveUser.setLastPasswordResetDate(new Date());
+
         User user = userRepository.save(saveUser);
         Long userId = user.getId();
         Long operatorId = saveUserVo.getOperatorId();

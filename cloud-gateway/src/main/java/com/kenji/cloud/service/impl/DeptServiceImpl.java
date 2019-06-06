@@ -28,8 +28,14 @@ public class DeptServiceImpl implements DeptService {
 
     @Transactional
     @Override
-    public Dept saveDept(Dept dept) {
-        return deptRepository.save(dept);
+    public boolean saveDept(Dept dept) {
+        List<Dept> depts = deptRepository.findAll();
+        for(Dept department:depts){
+            if(department.getDeptName().equals(dept.getDeptName()))
+                return false;
+        }
+        deptRepository.save(dept);
+        return true;
     }
 
     @Transactional
@@ -57,6 +63,4 @@ public class DeptServiceImpl implements DeptService {
         dept.setId(id);
         return deptRepository.save(dept);
     }
-
-
 }

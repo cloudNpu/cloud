@@ -23,9 +23,12 @@ public class DeptController {
 
     @PostMapping()
     public ResponseEntity<Long> saveDept(@RequestBody Dept dept) {
-        deptService.saveDept(dept);
+        boolean label =deptService.saveDept(dept);
         // return ResponseEntity.status(201).body("恭喜你创建成功！！！");
-        return ResponseEntity.ok(dept.getId());
+        if(label==true)
+            return ResponseEntity.ok(dept.getId());
+        else
+            return ResponseEntity.ok(0L);
         //return Response.ok(dept.getId()).build();
         // return Response.ok(info1.getInstanceInfoId()).build();
         //return Response.status(204).build();  // 204 to be backwards compatible
