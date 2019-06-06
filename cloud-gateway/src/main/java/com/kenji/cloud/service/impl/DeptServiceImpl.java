@@ -31,7 +31,7 @@ public class DeptServiceImpl implements DeptService {
     public boolean saveDept(Dept dept) {
         List<Dept> depts = deptRepository.findAll();
         for(Dept department:depts){
-            if(department.getDeptName().equals(dept.getDeptName()))
+            if((department.getDeptName().equals(dept.getDeptName()))&&(department.getDescription().equals(dept.getDescription())))
                 return false;
         }
         deptRepository.save(dept);
