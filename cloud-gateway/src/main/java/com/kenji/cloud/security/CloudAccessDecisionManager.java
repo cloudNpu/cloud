@@ -29,6 +29,8 @@ public class CloudAccessDecisionManager implements AccessDecisionManager {
         while (iterator.hasNext()) {
             ConfigAttribute configAttribute = iterator.next();
             String needCode = configAttribute.getAttribute();
+            if (needCode == null)
+                return ;
             Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
             for (GrantedAuthority authority : authorities) {
                 if (StringUtils.equals(authority.getAuthority(), needCode)) {

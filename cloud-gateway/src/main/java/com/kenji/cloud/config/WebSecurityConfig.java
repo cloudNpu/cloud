@@ -1,6 +1,7 @@
 package com.kenji.cloud.config;
 
 
+import com.kenji.cloud.security.CloudAccessDecisionManager;
 import com.kenji.cloud.security.CloudFilterInvocationSecurityMetadataSource;
 import com.kenji.cloud.security.CloudRoleBasedVoter;
 import com.kenji.cloud.service.MenuRoleService;
@@ -14,6 +15,7 @@ import org.springframework.security.access.AccessDecisionVoter;
 import org.springframework.security.access.vote.AuthenticatedVoter;
 import org.springframework.security.access.vote.UnanimousBased;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.ObjectPostProcessor;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -25,6 +27,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.web.access.expression.WebExpressionVoter;
 import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
+import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.util.Arrays;
@@ -89,20 +92,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.css",
                         "/**/*.js").permitAll()
                 .antMatchers("/auth/**").permitAll()
-                .antMatchers("/cloud/apps/**").permitAll();
-//                .withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>(){
-//
-//                    @Override
-//                    public <O extends FilterSecurityInterceptor> O postProcess(O fsi) {
-//                        fsi.setSecurityMetadataSource(mySecurityMetadataSource(fsi.getSecurityMetadataSource()));
-//                        return fsi;
-//                    }
-//
-//                }).anyRequest().authenticated().accessDecisionManager(accessDecisionManager());
+                .antMatchers("/cloud/apps/**").permitAll()
+                .withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>(){
+
+                    @Override
+                    public <O extends FilterSecurityInterceptor> O postProcess(O fsi) {
+                        fsi.setAccessDecisionManager(accessDecisionManager2());
+                        fsi.setSecurityMetadataSource(mySecurityMetadataSource(fsi.getSecurityMetadataSource()));
+                        return fsi;
+                    }
+
+                }).anyRequest().authenticated().accessDecisionManager(accessDecisionManager());
 
 
         httpSecurity.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
         httpSecurity.headers().cacheControl();
+    }
+
+    @Bean
+    public AccessDecisionManager accessDecisionManager2(){
+        return new CloudAccessDecisionManager();
     }
 
 

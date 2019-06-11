@@ -59,10 +59,16 @@ public class CloudFilterInvocationSecurityMetadataSource implements FilterInvoca
         String url = fi.getRequestUrl();    //获取传入的uri
         String method = fi.getRequest().getMethod();
 
+        if (url.contains("?")){
+            url = url.substring(0, url.indexOf('?'));
+        }
         //若为登陆和心跳检测等则返回白名单
-        if(url.contains("/auth") || (url.contains("/cloud/apps") && method.equals("PUT"))){
+        if(url.contains("/auth")){
             return superMetadataSource.getAttributes(object);
         }
+        String urlPattern = "/cloud/apps/*/*";
+        if (antPathMatcher.match(urlPattern, url) && method.equals("PUT"))
+            return superMetadataSource.getAttributes(object);
         List<Map<String, String>> menu_role = getMap();
         for (Map<String, String> map: menu_role){
             String pattern = map.get("path") + "/**";
