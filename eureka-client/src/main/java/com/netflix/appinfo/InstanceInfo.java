@@ -87,8 +87,10 @@ public class InstanceInfo {
 
     // The (fixed) instanceId for this instanceInfo. This should be unique within the scope of the appName.
     private volatile String instanceId;
+    @Auto
     private volatile Long userId;
-    //private String userId;
+    @Auto
+    private volatile Long instanceInfoId;
     private volatile String appName;
     @Auto
     private volatile String appGroupName;
@@ -210,14 +212,18 @@ public class InstanceInfo {
         this.sid = sid;
     }
 
-    public void setUserID(Long userId){
+    public void setUserId(Long userId){
         this.userId = userId;
     }
+
+    public void setInstanceInfoId(Long id){ this.instanceInfoId = id;}
 
     @JsonProperty("userId")
     public Long getUserId(){
         return this.userId;
     }
+    @JsonProperty("id")
+    public Long  getInstanceInfoId(){ return  this.instanceInfoId;}
 
     public void setPort(int port) {
         this.port = port;
