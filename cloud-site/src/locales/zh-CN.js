@@ -139,7 +139,11 @@ export default {
   "app.settings.basic.nickname": "用户名", //昵称
   "app.settings.basic.nickname-message": "请输入您的用户名!",
   "app.settings.basic.dept": "所在部门",
+  "app.settings.basic.sex": "性别",
+  "app.settings.basic.birthday": "出生年月日",
   "app.settings.basic.dept-message": "请输入所在部门!",
+  "app.settings.basic.sex-message": "性别!",
+  "app.settings.basic.birthday-message": "请输入出生年月日!",
   "app.settings.basic.change": "修改密码",
   "app.settings.basic.old": "旧密码",
   "app.settings.basic.old-message": "请输入旧密码",

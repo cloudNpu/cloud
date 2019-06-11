@@ -23,6 +23,9 @@ export default {
         type: "changeLoginStatus",
         payload: response
       });
+        if (response.status !==200){
+            yield put(routerRedux.push('/user/login'));
+        }
       // Login successfully
       if (response.status === 200) {
         yield token.save(res.token);

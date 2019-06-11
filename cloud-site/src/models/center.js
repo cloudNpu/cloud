@@ -19,8 +19,9 @@ export default {
     },
     *update({ payload, callback }, { call, put }) {
       console.log(payload);
-      // const response = yield (yield call(updateCenter, payload)).json();
-      yield put({
+      const response = yield (yield call(updateCenter, payload)).json();
+        console.log(response);
+        yield put({
         type: "save",
         payload: response
       });

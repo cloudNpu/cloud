@@ -38,6 +38,9 @@ class StandardTable extends PureComponent {
 
   handleRowSelectChange = (selectedRowKeys, selectedRows) => {
     let { needTotalList } = this.state;
+     console.log(this.state);
+    // console.log(needTotalList);
+    // console.log('111');
     needTotalList = needTotalList.map(item => ({
       ...item,
       total: selectedRows.reduce(

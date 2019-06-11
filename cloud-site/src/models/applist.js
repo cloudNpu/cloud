@@ -34,7 +34,6 @@ export default {
     },
     *add({ payload, callback }, { call, put, select }) {
       const response = yield (yield call(addAppList, payload)).json();
-      console.log(response);
       let list = yield select(state => state.applist.data.list);
       list.push(response);
       yield put({
@@ -73,7 +72,8 @@ export default {
     },
     *update({ payload, callback }, { call, put, select }) {
       const response = yield yield call(updateAppList, payload);
-      console.log(payload);
+        console.log(response);
+        //console.log(payload);
       let list = yield select(state => state.applist.data.list);
       yield list.forEach((value, index, array) => {
         /*let s = array[index];

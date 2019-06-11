@@ -12,20 +12,21 @@ export default {
   state: {
     data: {
       list: [],
-      pagination: { pageSize: 8 }
+      pagination: {}
     }
   },
 
   effects: {
-    *fetch({ payload }, { call, put }) {
+    *fetch({ payload }, { call, put,select }) {
       const response = yield (yield call(queryFound, payload)).json();
       yield put({
         type: "save",
         payload: {
           list: response,
-          pagination: { pageSize: 8 }
+          pagination: { pageSize: 6}
         }
       });
+        console.log(yield select(state => state.found.data));
     },
     *add({ payload, callback }, { call, put, select }) {
       console.log(payload);
@@ -36,7 +37,7 @@ export default {
         type: "save",
         payload: {
           list: list,
-          pagination: { pageSize: 8 }
+          pagination: { pageSize: 6}
         }
       });
       if (callback) callback();
@@ -60,7 +61,7 @@ export default {
         type: "save",
         payload: {
           list: list,
-          pagination: { pageSize: 8 }
+          pagination: { pageSize: 6}
         }
       });
       if (callback) callback();
@@ -82,7 +83,7 @@ export default {
         type: "save",
         payload: {
           list: list, //response:undefine
-          pagination: { pageSize: 8 }
+          pagination: { pageSize: 6 }
         }
       });
       if (callback) callback();
@@ -110,7 +111,7 @@ export default {
         type: "save",
         payload: {
           list: list,
-          pagination: { pageSize: 8 }
+          pagination: { pageSize: 6 }
         }
       });
       if (callback) callback();
@@ -122,7 +123,7 @@ export default {
         type: "save",
         payload: {
           list: list,
-          pagination: { pageSize: 8 }
+          pagination: { pageSize: 6 }
         }
       });
       if (callback) callback();

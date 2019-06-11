@@ -1126,6 +1126,7 @@ class AppList extends PureComponent {
             </div>
             <StandardTable
               selectedRows={selectedRows}
+              rowKey={record => record.id}
               loading={loading}
               data={data}
               columns={this.columns}

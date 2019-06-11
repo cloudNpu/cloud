@@ -205,8 +205,8 @@ class UpdateForm extends PureComponent {
       <FormItem key="dept" {...this.formLayout} label="部门">
         {form.getFieldDecorator("dept", {
             rules: [{ required: true, message: "请选择部门"}],
-          initialValue: formVals.dept
-        })(<Dept />)}
+          // initialValue: formVals.dept
+        })(<Dept placeholder="请输入"/>)}
       </FormItem>
     ];
   };
@@ -457,18 +457,14 @@ class Found extends PureComponent {
   handleMenuClick = e => {
     const { dispatch, modalVisible } = this.props;
     const { selectedRows } = this.state;
-    const okHandle = () => {
-      form.validateFields((err, fieldsValue) => {
-        if (err) return;
-        form.resetFields();
-        handleAdd(fieldsValue);
-      });
-    };
+    console.log(this.state);
+    console.log(selectedRows);
 
     if (!selectedRows) return;
     switch (e.key) {
       case "remove":
         let a = selectedRows.map(row => row.id);
+        console.log(a);
         dispatch({
           type: "found/remove",
           payload: {
@@ -824,6 +820,7 @@ class Found extends PureComponent {
               selectedRows={selectedRows}
               loading={loading}
               data={data}
+              rowKey={record => record.id}
               columns={this.columns}
               onSelectRow={this.handleSelectRows}
               onChange={this.handleStandardTableChange}
