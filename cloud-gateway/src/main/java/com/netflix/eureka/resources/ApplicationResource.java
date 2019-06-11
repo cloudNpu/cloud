@@ -61,7 +61,7 @@ import java.util.Optional;
  * @author Karthik Ranganathan, Greg Kim
  *
  */
-@Produces({"application/xml", "application/json"})
+@Produces({"application/json", "application/xml"})
 public class ApplicationResource {
     private static final Logger logger = LoggerFactory.getLogger(ApplicationResource.class);
     private ApplicationService applicationService;
@@ -265,6 +265,7 @@ public class ApplicationResource {
             return Response.status(Status.NOT_MODIFIED).entity("数据库添加服务实例失败").build();
         }
         InstanceInfoReturnVo instanceInfoReturnVo = new InstanceInfoReturnVo(infoForDB);
+        info.setInstanceInfoId(infoForDB.getInstanceInfoId());
         return Response.ok(info).build();
 //        return Response.status(204).entity(instanceInfoReturnVo).build();
 //        return Response.status(204).build();
