@@ -12,7 +12,7 @@ export async function removeAppList(params) {
 }
 
 export async function addAppList(params) {
-  return request(`/api/apps/${params.appName}`, {
+  return request(`/api/cloud/apps/${params.instance.app}`, {
     method: "POST",
     body: {
       ...params

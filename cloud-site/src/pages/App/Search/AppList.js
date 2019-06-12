@@ -50,7 +50,7 @@ const CreateForm = Form.create()(props => {
       if (err) return;
       form.resetFields();
       if (fieldsValue.app) {
-        console.log(fieldsValue);
+        // console.log(fieldsValue);
         handleAdd(fieldsValue);
       } else {
         var instanceInfo = JSON.parse(fieldsValue.txt);
@@ -73,22 +73,26 @@ const CreateForm = Form.create()(props => {
     >
       <Tabs defaultActiveKey="1" onChange={callback}>
         <TabPane tab="表项添加" key="1">
-                <FormItem
-                    labelCol={{ span: 5 }}
-                    wrapperCol={{ span: 15 }}
-                    label="* App"
-                >
-                    {form.getFieldDecorator("app", {
-                        rules: [{ required: false, message: '服务名过长！', min: 1,max:20 }],
-                    })(<Input placeholder="请输入" />)}
-                </FormItem>
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="* App"
+          >
+            {form.getFieldDecorator("app", {
+              rules: [
+                { required: false, message: "服务名过长！", min: 1, max: 20 }
+              ]
+            })(<Input placeholder="请输入" />)}
+          </FormItem>
           <FormItem
             labelCol={{ span: 5 }}
             wrapperCol={{ span: 15 }}
             label="* InstanceId"
           >
             {form.getFieldDecorator("instanceId", {
-                rules: [{ required: false, message: '实例名过长！', min: 1,max:20 }],
+              rules: [
+                { required: false, message: "实例名过长！", min: 1, max: 20 }
+              ]
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -97,7 +101,14 @@ const CreateForm = Form.create()(props => {
             label="* IpAddr"
           >
             {form.getFieldDecorator("ipAddr", {
-                rules: [{ required: false, message: '请输入正确ip地址', min: 1,max:17 }],
+              rules: [
+                {
+                  required: false,
+                  message: "请输入正确ip地址",
+                  min: 1,
+                  max: 17
+                }
+              ]
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -106,7 +117,14 @@ const CreateForm = Form.create()(props => {
             label="* Port"
           >
             {form.getFieldDecorator("port", {
-                rules: [{ required: false, message: '请输入正确端口号！', min: 1,max:5}],
+              rules: [
+                {
+                  required: false,
+                  message: "请输入正确端口号！",
+                  min: 1,
+                  max: 5
+                }
+              ]
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -115,7 +133,14 @@ const CreateForm = Form.create()(props => {
             label="* userId"
           >
             {form.getFieldDecorator("userId", {
-                rules: [{ required: false, message: '请输入正确的用户ID！', min: 1,max:20 }],
+              rules: [
+                {
+                  required: false,
+                  message: "请输入正确的用户ID！",
+                  min: 1,
+                  max: 20
+                }
+              ]
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -124,7 +149,7 @@ const CreateForm = Form.create()(props => {
             label="* Status"
           >
             {form.getFieldDecorator("status", {
-                rules: [{ required: false, message: '请选择status！'}],
+              rules: [{ required: false, message: "请选择status！" }]
             })(
               <Select style={{ width: "100%" }} /* mode={'multiple'}*/>
                 <Option value={1}>UP</Option>
@@ -138,7 +163,9 @@ const CreateForm = Form.create()(props => {
             label="* hostName"
           >
             {form.getFieldDecorator("hostName", {
-                rules: [{ required: false, message: '主机名名过长！', min: 1,max:20 }],
+              rules: [
+                { required: false, message: "主机名名过长！", min: 1, max: 20 }
+              ]
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -147,7 +174,14 @@ const CreateForm = Form.create()(props => {
             label="overriddenStatus"
           >
             {form.getFieldDecorator("overriddenStatus", {
-                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
+              rules: [
+                {
+                  required: false,
+                  message: "请输入正确格式！",
+                  min: 1,
+                  max: 20
+                }
+              ]
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -156,7 +190,7 @@ const CreateForm = Form.create()(props => {
             label="homePageUrl"
           >
             {form.getFieldDecorator("homePageUrl", {
-                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
+              rules: [{ required: false, message: "请输入正确格式！" }]
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -165,7 +199,7 @@ const CreateForm = Form.create()(props => {
             label="securePort"
           >
             {form.getFieldDecorator("securePort", {
-                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
+              rules: [{ required: false, message: "请输入正确格式！" }]
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -174,7 +208,14 @@ const CreateForm = Form.create()(props => {
             label="countryId"
           >
             {form.getFieldDecorator("countryId", {
-                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
+              rules: [
+                {
+                  required: false,
+                  message: "请输入正确格式！",
+                  min: 1,
+                  max: 20
+                }
+              ]
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -183,7 +224,7 @@ const CreateForm = Form.create()(props => {
             label="dataCenterInfo"
           >
             {form.getFieldDecorator("dataCenterInfo", {
-                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
+              rules: [{ required: false, message: "请输入正确格式！", min: 1 }]
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -192,7 +233,7 @@ const CreateForm = Form.create()(props => {
             label="metadata"
           >
             {form.getFieldDecorator("metadata", {
-                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
+              rules: [{ required: false, message: "请输入正确格式！", min: 1 }]
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -201,7 +242,7 @@ const CreateForm = Form.create()(props => {
             label="statusPageUrl"
           >
             {form.getFieldDecorator("statusPageUrl", {
-                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
+              rules: [{ required: false, message: "请输入正确格式！" }]
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -210,7 +251,7 @@ const CreateForm = Form.create()(props => {
             label="healthCheckUrl"
           >
             {form.getFieldDecorator("healthCheckUrl", {
-                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
+              rules: [{ required: false, message: "请输入正确格式！" }]
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -219,7 +260,7 @@ const CreateForm = Form.create()(props => {
             label="vipAddress"
           >
             {form.getFieldDecorator("vipAddress", {
-                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
+              rules: [{ required: false, message: "请输入正确格式！", min: 1 }]
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -228,7 +269,7 @@ const CreateForm = Form.create()(props => {
             label="secureVipAddress"
           >
             {form.getFieldDecorator("secureVipAddress", {
-                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
+              rules: [{ required: false, message: "请输入正确格式！", min: 1 }]
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -237,7 +278,7 @@ const CreateForm = Form.create()(props => {
             label="lastDirtyTimestamp"
           >
             {form.getFieldDecorator("lastDirtyTimestamp", {
-                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
+              rules: [{ required: false, message: "请输入正确格式！", min: 1 }]
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -246,7 +287,14 @@ const CreateForm = Form.create()(props => {
             label="inputParams"
           >
             {form.getFieldDecorator("inputParams", {
-                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
+              rules: [
+                {
+                  required: false,
+                  message: "请输入正确格式！",
+                  min: 1,
+                  max: 20
+                }
+              ]
             })(<Input placeholder="请输入" />)}
           </FormItem>
           <FormItem
@@ -255,7 +303,14 @@ const CreateForm = Form.create()(props => {
             label="outputParams"
           >
             {form.getFieldDecorator("outputParams", {
-                rules: [{ required: false, message: '请输入正确格式！', min: 1,max:20 }],
+              rules: [
+                {
+                  required: false,
+                  message: "请输入正确格式！",
+                  min: 1,
+                  max: 20
+                }
+              ]
             })(<Input placeholder="请输入" />)}
           </FormItem>
         </TabPane>
@@ -889,23 +944,27 @@ class AppList extends PureComponent {
     dispatch({
       type: "applist/add",
       payload: {
-        instanceId: fields.instanceId,
-        appName: fields.app,
-        ipAddr: fields.ipAddr,
-        status: fields.status,
-        port: fields.port,
-        hostName: fields.hostName,
-        userId: fields.userId,
-        overriddenStatus: fields.overriddenStatus,
-        countryId: fields.countryId,
-        homePageUrl: fields.homePageUrl,
-        statusPageUrl: fields.statusPageUrl,
-        healthCheckUrl: fields.healthCheckUrl,
-        vipAddress: fields.vipAddress,
-        secureVipAddress: fields.secureVipAddress,
-        lastDirtyTimestamp: fields.lastDirtyTimestamp,
-        inputParams: fields.inputParams,
-        outputParams: fields.outputParams
+        instance: {
+          instanceId: fields.instanceId,
+          app: fields.app,
+          ipAddr: fields.ipAddr,
+          status: fields.status,
+          port: {
+            $: fields.port
+          },
+          hostName: fields.hostName,
+          userId: fields.userId,
+          overriddenStatus: fields.overriddenStatus,
+          countryId: fields.countryId,
+          homePageUrl: fields.homePageUrl,
+          statusPageUrl: fields.statusPageUrl,
+          healthCheckUrl: fields.healthCheckUrl,
+          vipAddress: fields.vipAddress,
+          secureVipAddress: fields.secureVipAddress,
+          lastDirtyTimestamp: fields.lastDirtyTimestamp,
+          inputParams: fields.inputParams,
+          outputParams: fields.outputParams
+        }
       }
     });
     message.success("添加成功");

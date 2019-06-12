@@ -33,9 +33,11 @@ export default {
       });
     },
     *add({ payload, callback }, { call, put, select }) {
+      console.log("111");
+      console.log(payload);
       const response = yield (yield call(addAppList, payload)).json();
       let list = yield select(state => state.applist.data.list);
-      list.push(response);
+      list.push(response.instance);
       yield put({
         type: "save",
         payload: {
@@ -47,7 +49,6 @@ export default {
     },
 
     *remove({ payload, callback }, { call, put, select }) {
-      console.log(payload);
       const response = yield call(removeAppList, payload);
       let list = yield select(state => state.applist.data.list);
       for (let i = 0, flag = true; i < list.length; flag ? i++ : i) {
@@ -72,8 +73,8 @@ export default {
     },
     *update({ payload, callback }, { call, put, select }) {
       const response = yield yield call(updateAppList, payload);
-        console.log(response);
-        //console.log(payload);
+      console.log(response);
+      //console.log(payload);
       let list = yield select(state => state.applist.data.list);
       yield list.forEach((value, index, array) => {
         /*let s = array[index];
@@ -102,7 +103,6 @@ export default {
       if (callback) callback();
     },
     *change({ payload, callback }, { call, put, select }) {
-      console.log(payload);
       const response = yield call(changeAppList, payload);
       let list = yield select(state => state.applist.data.list);
       yield list.forEach((value, index, array) => {
@@ -149,7 +149,6 @@ export default {
       if (callback) callback();
     },
     *visible({ payload, callback }, { call, put }) {
-      console.log(payload);
       const response = yield (yield call(visibleSearch, payload)).json();
       yield put({
         type: "save",
@@ -161,7 +160,6 @@ export default {
       if (callback) callback();
     },
     *port({ payload, callback }, { call, put }) {
-      console.log(payload);
       const response = yield (yield call(portSearch, payload)).json();
       yield put({
         type: "save",
@@ -173,7 +171,6 @@ export default {
       if (callback) callback();
     },
     *ipAddr({ payload, callback }, { call, put }) {
-      console.log(payload);
       const response = yield (yield call(ipAddrSearch, payload)).json();
       yield put({
         type: "save",
