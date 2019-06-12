@@ -340,10 +340,10 @@ class Search extends PureComponent {
       title: "角色名称",
       dataIndex: "name"
     },
-    {
-      title: "VALUE",
-      dataIndex: "value"
-    },
+    // {
+    //   title: "VALUE",
+    //   dataIndex: "value"
+    // },
     {
       title: "角色权限",
       dataIndex: "roleMenu"
@@ -469,7 +469,7 @@ class Search extends PureComponent {
       }
     });
     //  console.log(dispatch);
-    message.success("添加成功");
+    //  message.success("添加成功");
 
     this.handleModalVisible();
   };
@@ -495,37 +495,35 @@ class Search extends PureComponent {
   handleMenu = fields => {
     const { dispatch } = this.props;
     let i = 1;
-    let menuA = [];
-    menuA.push({
-      id: i,
-      role: {
-        id: fields.id,
-        name: fields.name,
-        value: fields.value
-      },
-      menu: {
-        id: fields.roleMenu.menus.key,
-        name: fields.roleMenu.menus.label
-      }
-    });
+    // let menuA = [];
+    // menuA.push({
+    //   id: i,
+    //   role: {
+    //     id: fields.id,
+    //     name: fields.name,
+    //     value: fields.value
+    //   },
+    //   menu: {
+    //     id: fields.roleMenu.menus.key,
+    //     name: fields.roleMenu.menus.label
+    //   }
+    // });
     // console.log(JSON.stringify(a));
     dispatch({
       type: "rolesearch/menu",
-      payload: menuA
-      //{
-      //
-      //          id: i,
-      //          role: {
-      //             id: fields.id,
-      //              name: fields.name,
-      //             value: fields.value
-      //            },
-      //         menu: {
-      //               id: fields.roleMenu.menus.key,
-      //               name: fields.roleMenu.menus.label
-      //               }
-      //
-      // }
+      //payload: menuA
+      payload: {
+        id: i,
+        role: {
+          id: fields.id,
+          name: fields.name,
+          value: fields.value
+        },
+        menu: {
+          id: fields.roleMenu.menus.key,
+          name: fields.roleMenu.menus.label
+        }
+      }
     });
 
     message.success("授权成功");

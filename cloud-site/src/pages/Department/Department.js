@@ -215,7 +215,7 @@ class Department extends PureComponent {
 
   componentDidMount() {
     const { dispatch } = this.props;
-    //console.log(dispatch);
+    //console.log(this.props);
     dispatch({
       type: "department/fetch",
       payload: {}
@@ -225,7 +225,7 @@ class Department extends PureComponent {
   handleStandardTableChange = (pagination, filtersArg, sorter) => {
     const { dispatch } = this.props;
     const { formValues } = this.state;
-    console.log();
+    //console.log();
     const filters = Object.keys(filtersArg).reduce((obj, key) => {
       const newObj = { ...obj };
       newObj[key] = getValue(filtersArg[key]);

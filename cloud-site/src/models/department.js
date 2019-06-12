@@ -31,7 +31,7 @@ export default {
     *add({ payload, callback }, { call, put, select }) {
       const response = yield (yield call(addDept, payload)).json();
       // payload[0].id = response;
-      //  console.log(response);
+      console.log(response);
       const list = yield select(state => state.department.data.list);
       list.push(payload);
       //  console.log(list);
