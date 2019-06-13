@@ -48,9 +48,12 @@ public class UserRoleServiceImpl implements UserRoleService {
                 addList.add(userRole);
             }
         }
+        List<UserRole> userRoles = userRoleRepository.getUserRolesByUserId(userId);
         for (Long old : oldList) {
             if (!currList.contains(old)) {
-                userRoleRepository.deleteById(old); //这里可能会出错
+                for (UserRole ur:userRoles)
+                    if (ur.getRole().getId() == old)
+                        userRoleRepository.deleteById(ur.getId());
             }
         }
         return userRoleRepository.saveAll(addList);

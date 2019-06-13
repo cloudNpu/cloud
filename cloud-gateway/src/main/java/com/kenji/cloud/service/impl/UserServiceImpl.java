@@ -71,8 +71,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User updateUser(User user) {
-        Dept dept =deptRepository.findById(user.getDept().getId()).get();
-        user.setDept(dept);
+        User userOldInfo = userRepository.findByUserId(user.getId());
+        user.setCreateDate(userOldInfo.getCreateDate());
+        if (user.getOperator() == null)
+            user.setOperator(userOldInfo.getOperator());
+        if (user.getPassword() == null)
+            user.setPassword(userOldInfo.getPassword());
+        if (user.getDept() == null)
+            user.setDept(userOldInfo.getDept());
+        user.setLastPasswordResetDate(userOldInfo.getLastPasswordResetDate());  //以后可能要修改
         return userRepository.save(user);
     }
 

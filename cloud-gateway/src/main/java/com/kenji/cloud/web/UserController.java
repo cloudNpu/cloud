@@ -9,6 +9,7 @@ import com.kenji.cloud.vo.SaveUserVo;
 import com.kenji.cloud.vo.UserReturnVo;
 import com.kenji.cloud.vo.UserSearchVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -91,23 +92,31 @@ public class UserController {
      * @return org.springframework.http.ResponseEntity<java.lang.String>
      **/
     @PutMapping("/{id}")
-    public ResponseEntity updateUser(@RequestBody User user) {
-        List<UserReturnVo>  userReturnVos = null;
+    public ResponseEntity updateUser(@RequestBody User user, @PathVariable Long id) {
+        if (id != user.getId())
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("ID不一致");
+        //List<UserReturnVo>  userReturnVos = null;
+        UserReturnVo userReturnVo;
         try {
             userService.updateUser(user);
-            UserSearchVo userSearchVo = new UserSearchVo(user.getUsername(),
-                    user.getDept().getId(),
-                    user.getMobile(),
-                    user.getOfficeTel(),
-                    user.getSex(),
-                    //saveUserVo.getUser().getBirthday(),
-                    null,
-                    null);
-            userReturnVos = userService.findSearch(userSearchVo);
-        } catch (Exception e) {
+//            UserSearchVo userSearchVo = new UserSearchVo(user.getUsername(),
+//                    user.getDept().getId(),
+//                    user.getMobile(),
+//                    user.getOfficeTel(),
+//                    user.getSex(),
+//                    //saveUserVo.getUser().getBirthday(),
+//                    null,
+//                    null);
+//            userReturnVos = userService.findSearch(userSearchVo);
+            userReturnVo = userService.findById(id);
+
+        }catch (NullPointerException npe){
+            return ResponseEntity.status(400).body("无该用户");
+        }
+        catch (Exception e) {
             return ResponseEntity.status(400).body("更新用户失败"+e);
         }
-        return ResponseEntity.status(201).body(userReturnVos);
+        return ResponseEntity.status(200).body(userReturnVo);
     }
 
     /**
@@ -176,7 +185,7 @@ public class UserController {
             userRoleService.updateUserRoles(userIds, roleIds, operatorId);
 
         } catch (Exception e) {
-            return ResponseEntity.status(400).body("编辑失败" + e);
+            return ResponseEntity.status(400).body("编辑失败");
         }
         userReturnVos = userService.findAll();
         return ResponseEntity.status(201).body(userReturnVos);
