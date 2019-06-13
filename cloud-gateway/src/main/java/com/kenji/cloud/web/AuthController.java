@@ -1,5 +1,6 @@
 package com.kenji.cloud.web;
 
+import com.kenji.cloud.entity.Dept;
 import com.kenji.cloud.entity.User;
 import com.kenji.cloud.service.AuthService;
 import com.kenji.cloud.vo.JwtAuthenticationResponse;
@@ -29,9 +30,23 @@ public class AuthController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody User user) {
-        final String token = authService.login(user);
+        final Map map = authService.login(user);
+        if (map == null)
+            return ResponseEntity.ok("用户名或密码输入错误");
+//        final String token = authService.login(user);
+        final String token =(String) map.get("token");
+        User userTemp = (User) map.get("user");
         User currentUser = new User();
         BeanUtils.copyProperties(user, currentUser, "dept", "userRoles", "instanceInfos", "userApps", "appLogs", "sysLogs", "operator", "users", "lastPasswordResetDate");
+        currentUser.setSex(userTemp.getSex());
+        currentUser.setBirthday(userTemp.getBirthday());
+        currentUser.setMobile(userTemp.getMobile());
+        currentUser.setOfficeTel(userTemp.getOfficeTel());
+        Dept dept = new Dept();
+        Dept deptTemp = userTemp.getDept();
+        dept.setDeptName(deptTemp.getDeptName());
+        dept.setId(deptTemp.getId());
+        currentUser.setDept(dept);
         Map<String, Object> result = new HashMap<>();
         result.put("currentAuthority", user.getUserRoles().get(0).getRole().getValue());
         result.put("token", token);

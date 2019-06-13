@@ -17,6 +17,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class AuthServiceImpl implements AuthService {
@@ -49,18 +51,38 @@ public class AuthServiceImpl implements AuthService {
         return userRepository.save(user);
     }
 
+//    @Override
+//    public String login(User user) {
+//        User currentUser = userRepository.findUserAndRoleByUsername(user.getUsername());
+//        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
+//        user.setId(currentUser.getId());
+//        final Authentication authentication = authenticationManager.authenticate(authenticationToken);
+//        SecurityContextHolder.getContext().setAuthentication(authentication);
+//        final UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
+//        User u = userRepository.findByUsername(user.getUsername());
+//        user.setUserRoles(u.getUserRoles());
+//        final String token = jwtTokenUtil.generateToken(userDetails);
+//        return token;
+//    }
+
     @Override
-    public String login(User user) {
+    public Map<String, Object> login(User user) {
         User currentUser = userRepository.findUserAndRoleByUsername(user.getUsername());
+        if (currentUser == null)
+            return null;
+        if (!currentUser.getPassword().equals(user.getPassword()))
+            return null;
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
-        user.setId(currentUser.getId());
         final Authentication authentication = authenticationManager.authenticate(authenticationToken);
         SecurityContextHolder.getContext().setAuthentication(authentication);
         final UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
         User u = userRepository.findByUsername(user.getUsername());
         user.setUserRoles(u.getUserRoles());
         final String token = jwtTokenUtil.generateToken(userDetails);
-        return token;
+        Map<String , Object> result = new HashMap<>();
+        result.put("token", token);
+        result.put("user", currentUser);
+        return result;
     }
 
     @Override
