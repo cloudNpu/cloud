@@ -47,7 +47,9 @@ public class UserController {
     public ResponseEntity addUser(@RequestBody SaveUserVo saveUserVo) {
         List<UserReturnVo>  userReturnVos = null;
         try {
-            userService.saveUser(saveUserVo);
+            User user = userService.saveUser(saveUserVo);
+            if (user == null)
+                return ResponseEntity.status(400).body("该用户名已被使用");
             UserSearchVo userSearchVo = new UserSearchVo(saveUserVo.getUser().getUsername(),
                                                          saveUserVo.getUser().getDept().getId(),
                                                          saveUserVo.getUser().getMobile(),

@@ -50,6 +50,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public User saveUser(SaveUserVo saveUserVo) {
         User saveUser = saveUserVo.getUser();
+        User userInDB = userRepository.findByUsername(saveUser.getUsername());
+        if (userInDB != null)
+            return null;
         Long deptId = saveUser.getDept().getId();
         Dept dept = deptRepository.findById(deptId).get();
         saveUser.setDept(dept);
