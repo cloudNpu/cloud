@@ -78,6 +78,7 @@ public class AuthServiceImpl implements AuthService {
         final UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
         User u = userRepository.findByUsername(user.getUsername());
         user.setUserRoles(u.getUserRoles());
+        user.setId(u.getId());
         final String token = jwtTokenUtil.generateToken(userDetails);
         Map<String , Object> result = new HashMap<>();
         result.put("token", token);
