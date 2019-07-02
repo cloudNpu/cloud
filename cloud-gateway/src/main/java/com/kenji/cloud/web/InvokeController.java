@@ -1,12 +1,17 @@
 package com.kenji.cloud.web;
 
 import com.kenji.cloud.entity.InstanceInfo;
+import com.kenji.cloud.entity.UserApp;
 import com.kenji.cloud.loadbalance.DynamicRule;
 import com.kenji.cloud.service.ApplicationService;
+import com.kenji.cloud.service.UserAppService;
+import com.kenji.cloud.vo.UserAppReturnVo;
 import com.netflix.discovery.shared.Application;
+import com.netflix.discovery.util.StringUtil;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.loadbalancer.*;
 import com.sun.org.apache.regexp.internal.RE;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
@@ -19,9 +24,11 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
@@ -40,11 +47,17 @@ public class InvokeController {
     @Autowired
     private ApplicationService applicationService;
 
+    @Autowired
+    private UserAppService userAppService;
+
 
     //    @Autowired
 //    private BaseLoadBalancer baseLoadBalancer;e
     @RequestMapping(value = "/invoke", method = RequestMethod.GET)
-    public String invoke(@RequestParam String serviceName, @RequestParam String param) {
+    public String invoke(@RequestParam String serviceName, @RequestParam String param, HttpServletRequest request, Authentication authentication) {
+        boolean isUserHaveApp = checkSubscription(serviceName, authentication.getName());
+        if (!isUserHaveApp)
+            return "无该服务权限";
         List<InstanceInfo> infos = applicationService.queryByAppName(serviceName);
         if (infos == null || infos.isEmpty())
             return "找不到该服务";
@@ -67,7 +80,10 @@ public class InvokeController {
     }
 
     @RequestMapping(value = "/invoke1", method = RequestMethod.GET)
-    public String invoke1(@RequestParam String serviceName, @RequestParam String param,@RequestParam String strategy) {
+    public String invoke1(@RequestParam String serviceName, @RequestParam String param,@RequestParam String strategy, Authentication authentication) {
+        boolean isUserHaveApp = checkSubscription(serviceName, authentication.getName());
+        if (!isUserHaveApp)
+            return "无该服务权限";
         setStrategy(serviceName,strategy);
         List<InstanceInfo> infos = applicationService.queryByAppName(serviceName);
         if (infos == null || infos.isEmpty())
@@ -93,10 +109,12 @@ public class InvokeController {
 
     //注意请求的数据为x-www-form （带）负载均衡策略的复杂类型调用
     @RequestMapping(value = "/invoke", method = RequestMethod.POST)
-    public String invoke(@RequestParam Map<String, String> requestParams) throws IllegalAccessException, InstantiationException {
-
+    public String invoke(@RequestParam Map<String, String> requestParams, Authentication authentication) throws IllegalAccessException, InstantiationException {
         String strategy = requestParams.get("strategy");
         String[] serviceNames = requestParams.get("serviceName").split("/");
+        boolean isUserHaveApp = checkSubscription(serviceNames[0], authentication.getName());
+        if (!isUserHaveApp)
+            return "无该服务权限";
 
         setStrategy(serviceNames[0],strategy);
 
@@ -194,5 +212,14 @@ public class InvokeController {
             }
         }
         //   ServiceInstance instance = loadBalancer.choose(serviceName);
+    }
+
+    private Boolean checkSubscription(String serviceName, String username){
+        List<UserAppReturnVo> userAppReturnVos = userAppService.findUserAppsByUsername(username);
+        for (UserAppReturnVo ua:userAppReturnVos){
+            if(StringUtils.equals(serviceName, ua.getAppname()))
+                return true;
+        }
+        return false;
     }
 }
