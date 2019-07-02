@@ -186,8 +186,10 @@ public class UserServiceImpl implements UserService {
                 RoleReturnVo roleReturnVo = new RoleReturnVo();
                 BeanUtils.copyProperties(userRole.getRole(), roleReturnVo);
                 roleList.add(roleReturnVo);
-                roles = roles + "," + userRole.getRole().getName();
+                roles = roles + userRole.getRole().getName() + ",";
             }
+            if (!roles.isEmpty())
+                roles = roles.substring(0, roles.length()-1);
             userReturnVo.setRoles(roles);
             userReturnVo.setRoleList(roleList);
 
