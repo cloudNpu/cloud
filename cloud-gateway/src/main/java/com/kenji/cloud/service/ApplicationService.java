@@ -21,7 +21,8 @@ public interface ApplicationService extends Serializable {
     List<InstanceInfo> queryByIpAddr(String ipAddr);
     List<InstanceInfoReturnVo> queryAllInstances();
     String getIpAddrByHostAndPort(String host,Integer port);
-
     String getAppStatus(InstanceInfo info);
+
+    List<InstanceInfoReturnVo> queryByOperatorId(Long userId);
    // List<InstanceInfo> getUserApp(User user);
 }

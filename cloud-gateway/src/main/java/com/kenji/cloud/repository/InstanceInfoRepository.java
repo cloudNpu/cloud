@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 public interface InstanceInfoRepository extends JpaRepository<InstanceInfo,Long> {
     @Modifying
     @Transactional
@@ -14,4 +16,7 @@ public interface InstanceInfoRepository extends JpaRepository<InstanceInfo,Long>
 
     @Query(value="select i.IPADDR from instanceinfo i  WHERE i.HOSTNAME=?1 and i.PORT=?2",nativeQuery = true)
     String getIpAddrByHostAndPort(String host,Long port);
+
+    @Query(value="select * from instanceinfo i  WHERE i.USERID=?1",nativeQuery = true)
+    List<InstanceInfo> findByUserId(Long userId);
 }

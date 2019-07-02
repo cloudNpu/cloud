@@ -165,8 +165,15 @@ public class ApplicationServiceImpl implements ApplicationService {
         return infoVos;
     }
 
-   /* @Override
-    public boolean updateApp(InstanceInfo info){
-        instanceInfoRepository.
-    }*/
+   @Override
+    public List<InstanceInfoReturnVo> queryByOperatorId(Long userId){
+       List<InstanceInfo> infos = instanceInfoRepository.findByUserId(userId);
+       List<InstanceInfoReturnVo> infoVos = new ArrayList<>();
+       for(InstanceInfo info : infos){
+           InstanceInfoReturnVo infoVo = new InstanceInfoReturnVo(info);
+           infoVos.add(infoVo);
+       }
+       return infoVos;
+   }
+
 }

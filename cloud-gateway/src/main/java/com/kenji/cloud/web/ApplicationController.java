@@ -179,4 +179,18 @@ public class ApplicationController {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
         }
     }
+
+    /**
+     * @Author ubeyang
+     * @Fuction 查询某用户注册的所有服务
+     */
+    @GetMapping("/apps/myapps")
+    public ResponseEntity getUserRegisteredApps(@RequestParam("userId") Long userId) {
+        try {
+            List<InstanceInfoReturnVo> infos = applicationService.queryByOperatorId(userId);
+            return ResponseEntity.ok(infos);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("查询失败");
+        }
+    }
 }

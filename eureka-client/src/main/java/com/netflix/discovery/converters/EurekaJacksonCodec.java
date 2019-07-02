@@ -78,7 +78,7 @@ public class EurekaJacksonCodec {
     protected static final String ELEM_OVERRIDDEN_STATUS_LEGACY = "overriddenstatus";
     protected static final String ELEM_HOST = "hostName";
     protected static final String ELEM_INSTANCE_ID = "instanceId";
-    protected static final String ELEM_APP = "app";
+    protected static final String ELEM_APP = "appName";
     protected static final String ELEM_IP = "ipAddr";
     protected static final String ELEM_SID = "sid";
     protected static final String ELEM_STATUS = "status";
