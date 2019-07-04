@@ -93,7 +93,7 @@ class App extends PureComponent {
     {
       title: "Visible",
       dataIndex: "visible",
-      render: visible => <div>{visible ? "可见" : "不可见"}</div>
+      render: visible => <div>{visible ? "已发布" : "未发布"}</div>
     },
     {
       title: "securePortEnabled",

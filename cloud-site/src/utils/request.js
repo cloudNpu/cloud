@@ -81,6 +81,11 @@ export default function request(url, option) {
 
   const defaultOptions = {
     credentials: 'include',
+      headers: {
+          Token: window.localStorage.getItem('TOKEN')
+              ? JSON.parse(window.localStorage.getItem('TOKEN'))
+              : '',
+      },
   };
   const newOptions = { ...defaultOptions, ...options };
   if (

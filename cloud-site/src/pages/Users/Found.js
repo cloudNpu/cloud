@@ -661,10 +661,7 @@ class Found extends PureComponent {
           <Col md={8} sm={24}>
             <FormItem label="部门">
               {getFieldDecorator("dept")(
-                <Select placeholder="请选择" style={{ width: "100%" }}>
-                  <Option value={59}>问问</Option>
-                  <Option value={1}>劳动部</Option>
-                </Select>
+                  <Dept/>
               )}
             </FormItem>
           </Col>
@@ -701,10 +698,7 @@ class Found extends PureComponent {
           <Col md={8} sm={24}>
             <FormItem label="部门">
               {getFieldDecorator("dept")(
-                <Select placeholder="请选择" style={{ width: "100%" }}>
-                  <Option value={59}>问问</Option>
-                  <Option value={1}>劳动部</Option>
-                </Select>
+                  <Dept/>
               )}
             </FormItem>
           </Col>

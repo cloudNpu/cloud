@@ -6,6 +6,7 @@ import {
   Add_user_role,
   Add_user_app
 } from "../services/found";
+import {message} from "antd";
 export default {
   namespace: "found",
 
@@ -31,6 +32,10 @@ export default {
     *add({ payload, callback }, { call, put, select }) {
       console.log(payload);
       const response = yield (yield call(addFound, payload)).json();
+      if (response.status===400){
+        //  message.success("用户名已被占用");
+          //history.goBack();
+      }
       let list = yield select(state => state.found.data.list);
       list.push(response[0]);
       yield put({
@@ -56,7 +61,7 @@ export default {
             flag = true;
           }
         }
-      } //好了，可以删掉31，33了
+      }
       yield put({
         type: "save",
         payload: {
@@ -89,28 +94,29 @@ export default {
       if (callback) callback();
     },
     *add_user_role({ payload, callback }, { call, put, select }) {
-      let list = yield select(state => state.found.data.list);
-      let x = JSON.parse(sessionStorage.getItem("selectedRoleRows"));
-      console.log(x);
-      console.log(x.length);
-      console.log(payload.userIds.length);
-
-      for (let k = 0; k < x.length; k++) {
-        for (let j = 0; j < payload.userIds.length; j++) {
-          for (let i = 0; i < list.length; i++) {
-            if (JSON.parse(list[i].id) === payload.userIds[j]) {
-              var y = list[i].roles + "," + x[k].name;
-              console.log(y);
-              list[i].roles = y;
-            }
-          }
-        }
-      }
-      const response = yield call(Add_user_role, payload);
+      // let list = yield select(state => state.found.data.list);
+      // let x = JSON.parse(sessionStorage.getItem("selectedRoleRows"));
+      //console.log(x);
+      //console.log(x.length);
+     // console.log(payload.userIds.length);
+     //
+     //  for (let k = 0; k < x.length; k++) {
+     //    for (let j = 0; j < payload.userIds.length; j++) {
+     //      for (let i = 0; i < list.length; i++) {
+     //        if (JSON.parse(list[i].id) === payload.userIds[j]) {
+     //          var y = list[i].roles + "," + x[k].name;
+     //          console.log(y);
+     //          list[i].roles = y;
+     //        }
+     //      }
+     //    }
+     //  }
+      const response = yield (yield call(Add_user_role, payload)).json();
+      console.log(response);
       yield put({
         type: "save",
         payload: {
-          list: list,
+          list: response,
           pagination: { pageSize: 6 }
         }
       });

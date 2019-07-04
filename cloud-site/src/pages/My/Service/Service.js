@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { connect } from "dva";
 import { Card, Badge, Table, Divider } from "antd";
 import PageHeaderWrapper from "@/components/PageHeaderWrapper";
-import styles from "./Service.less";
-
+import MyRegistry from "./MyRegistry";
 const Columns = [
   {
     title: "ID",
@@ -29,30 +28,35 @@ const Columns = [
 
 @connect(({ service, loading }) => ({
   service,
-  loading: loading.effects["service/fetch"]
+  loading: loading.effects["service/fetch"],
 }))
 class Service extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch({
       type: "service/fetch"
-      //   payload:localStorageStorage.getItem("antd-pro-authority")
+    });
+    dispatch({
+     type: "myregistry/fetch"
     });
   }
   render() {
     const { service, loading } = this.props;
     const { ServiceData } = service;
-
     return (
       <PageHeaderWrapper title="我的服务">
         <Card bordered={false}>
+          <h3>我可用的服务</h3>
           <Table
             style={{ marginBottom: 16 }}
-            pagination={false}
+            pagination={{ pageSize: 4 }}
             loading={loading}
             dataSource={ServiceData}
             columns={Columns}
           />
+            <Divider />
+            <h3>我注册的服务</h3>
+            <MyRegistry />
         </Card>
       </PageHeaderWrapper>
     );

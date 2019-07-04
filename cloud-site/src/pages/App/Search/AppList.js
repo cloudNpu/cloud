@@ -49,7 +49,7 @@ const CreateForm = Form.create()(props => {
     form.validateFields((err, fieldsValue) => {
       if (err) return;
       form.resetFields();
-      if (fieldsValue.app) {
+      if (fieldsValue.appName) {
         // console.log(fieldsValue);
         handleAdd(fieldsValue);
       } else {
@@ -76,9 +76,9 @@ const CreateForm = Form.create()(props => {
           <FormItem
             labelCol={{ span: 5 }}
             wrapperCol={{ span: 15 }}
-            label="* App"
+            label="* AppName"
           >
-            {form.getFieldDecorator("app", {
+            {form.getFieldDecorator("appName", {
               rules: [
                 { required: false, message: "服务名过长！", min: 1, max: 20 }
               ]
@@ -343,15 +343,18 @@ class UpdateForm extends PureComponent {
     this.state = {
       formVals: {
         instance: {
-          //  id: props.values.id,
-          app: props.values.appName,
+          appName: props.values.appName,
           instanceId: props.values.instanceId,
           ipAddr: props.values.ipAddr,
           status: props.values.status,
           //visible: props.values.visible,
           hostName: props.values.hostName,
+          port:{
+            "@enabled":"true",
+            "$": props.values.port
+          },
           overriddenstatus: props.values.overriddenstatus,
-          // countryId: props.values.countryId,
+          countryId: props.values.countryId,
           homePageUrl: props.values.homePageUrl,
           statusPageUrl: props.values.statusPageUrl,
           healthCheckUrl: props.values.healthCheckUrl,
@@ -371,7 +374,7 @@ class UpdateForm extends PureComponent {
 
   handleNext = currentStep => {
     // var old=[];
-    // old.push(this.state.formVals.instance.app);
+    // old.push(this.state.formVals.instance.appName);
     // old.push(this.state.formVals.instance.instanceId);
     const { form, handleUpdate } = this.props;
     const { formVals: oldValue } = this.state;
@@ -385,7 +388,6 @@ class UpdateForm extends PureComponent {
         () => {
           if (currentStep === 0) {
             var service = JSON.parse(formVals.sdl);
-            //console.log(service);
             handleUpdate(service);
           }
         }
@@ -396,7 +398,7 @@ class UpdateForm extends PureComponent {
   renderContent = (currentStep, formVals) => {
     const { form } = this.props;
     return [
-      <span className={styles.label}>*注意app和instanceId不可更改</span>,
+      <span className={styles.label}>*注意appName和instanceId不可更改</span>,
       <FormItem key="sdl" label="请编辑服务">
         {form.getFieldDecorator("sdl", {
           initialValue: JSON.stringify(formVals)
@@ -580,7 +582,7 @@ class AppList extends PureComponent {
       width: 70
     },
     {
-      title: "App",
+      title: "AppName",
       dataIndex: "appName",
       fixed: "left",
       width: 70
@@ -946,7 +948,7 @@ class AppList extends PureComponent {
       payload: {
         instance: {
           instanceId: fields.instanceId,
-          app: fields.app,
+          appName: fields.appName,
           ipAddr: fields.ipAddr,
           status: fields.status,
           port: {
@@ -1034,7 +1036,7 @@ class AppList extends PureComponent {
       <Form onSubmit={this.handleSearch} layout="inline">
         <Row gutter={{ md: 8, lg: 24, xl: 48 }}>
           <Col md={8} sm={24}>
-            <FormItem label="App">
+            <FormItem label="AppName">
               {getFieldDecorator("appName")(<Input placeholder="请输入" />)}
             </FormItem>
           </Col>
@@ -1069,7 +1071,7 @@ class AppList extends PureComponent {
       <Form onSubmit={this.handleSearch} layout="inline">
         <Row gutter={{ md: 8, lg: 24, xl: 48 }}>
           <Col md={8} sm={24}>
-            <FormItem label="App">
+            <FormItem label="AppName">
               {getFieldDecorator("appName")(<Input placeholder="请输入" />)}
             </FormItem>
           </Col>

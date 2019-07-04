@@ -93,6 +93,7 @@ class AppList extends PureComponent {
         selectedRows={selectedAppRows}
         loading={loading}
         data={data}
+        rowKey={record => record.id}
         columns={this.columns}
         onSelectRow={this.handleSelectRows}
         onChange={this.handleStandardTableChange}

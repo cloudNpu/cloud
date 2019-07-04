@@ -33,8 +33,6 @@ export default {
       });
     },
     *add({ payload, callback }, { call, put, select }) {
-      console.log("111");
-      console.log(payload);
       const response = yield (yield call(addAppList, payload)).json();
       let list = yield select(state => state.applist.data.list);
       list.push(response.instance);
@@ -72,9 +70,9 @@ export default {
       if (callback) callback();
     },
     *update({ payload, callback }, { call, put, select }) {
+        console.log(payload);
       const response = yield yield call(updateAppList, payload);
       console.log(response);
-      //console.log(payload);
       let list = yield select(state => state.applist.data.list);
       yield list.forEach((value, index, array) => {
         /*let s = array[index];

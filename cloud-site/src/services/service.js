@@ -6,6 +6,5 @@ export async function queryService() {
     a = a.replace('"', "");
   }*/
   var a = JSON.parse(sessionStorage.getItem("user")).username;
-  console.log(a);
   return request(`/api/userApps/user/${a}`);
 }

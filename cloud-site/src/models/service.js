@@ -4,12 +4,11 @@ export default {
   namespace: "service",
 
   state: {
-    ServiceData: []
+    ServiceData: [],
   },
 
   effects: {
     *fetch(_, { call, put }) {
-      // console.log(localStorage.getItem("antd-pro-authority"));
       const response = yield (yield call(queryService)).json();
       yield put({
         type: "show",

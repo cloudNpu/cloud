@@ -60,67 +60,36 @@ class Center extends Component {
         Object.keys(form.getFieldsValue()).forEach(key => {
             const obj = {};
             obj[key] = currentUser[key] || null;
-            form.setFieldsValue(obj); //将表中数据根据key值放入表中
-            //console.log(form.getFieldValue('id'));
+            if(key==='dept'){
+                console.log('get');
+                console.log(obj.dept);
+                form.setFieldsValue(obj.dept.deptName);
+            }
+            else {
+                form.setFieldsValue(obj);
+            }//将表中数据根据key值放入表中;
         });
         //console.log(form.getFieldValue('id'));
     };
-    /* getAvatarURL() {
-       const { currentUser } = this.props;
-       if (currentUser.avatar) {
-         return currentUser.avatar;
-       }
-       const url =
-         "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png";
-       return url;
-     }
-     getViewDom = ref => {
-       this.view = ref;
-     };
-   */
-
     handleUpdateForm = fields => {
       const {getFieldValue} = this.props.form;
       const { dispatch} = this.props;
-      // let userNow="{";
-      // console.log(userNow);
-      // userNow.push(getFieldValue('username'));
-      // userNow.push(getFieldValue('id'));
       dispatch({
         type: "center/update",
         payload:{
             id: getFieldValue('id'),
             username: getFieldValue('username'),
-            password: getFieldValue('new_password'),
+            password: getFieldValue('password'),
             sex: getFieldValue('sex'),
             birthday: getFieldValue('birthday'),
             mobile: getFieldValue('mobile'),
             officeTel: getFieldValue('officeTel'),
-            dept: { id: getFieldValue('dept') }
+           // dept: { id: getFieldValue('dept') }
         }
       });
       message.success("修改成功，请重新登录");
       dispatch(routerRedux.push('/user/login'));
     };
-
-    /*handleUpdateForm = currentUser => {
-        const { dispatch } = this.props;
-        dispatch({
-            type: "center/update",
-            payload: {
-                id: currentUser.id,
-                username: currentUser.username,
-                password: currentUser.new_passward,
-                sex: currentUser.sex,
-                birthday: currentUser.birthday,
-                mobile: currentUser.mobile,
-                officeTel: currentUser.officeTel,
-                dept: { id: currentUser.dept }
-            }
-        });
-        message.success("更新成功");
-    };*/
-
     validateToNextPassword = (rule, value, callback) => {
         const form = this.props.form;
         if (value && this.state.confirmDirty) {
@@ -181,6 +150,7 @@ class Center extends Component {
                         </FormItem>
                         <FormItem label={formatMessage({id: "app.settings.basic.dept"})}>
                             {getFieldDecorator("dept", {
+                                initialValue:JSON.parse(sessionStorage.getItem('user')).dept.deptName,
                                 rules: [
                                     {
                                         required: true,
@@ -234,7 +204,7 @@ class Center extends Component {
                             {getFieldDecorator("new_password_again", {})(<Input/>)}
                         </FormItem>*/}
                         <Form.Item label="Password" hasFeedback>
-                            {getFieldDecorator('new_password', {
+                            {getFieldDecorator('password', {
                                 rules: [
                                     {
                                         required: true,
