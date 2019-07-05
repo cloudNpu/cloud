@@ -232,7 +232,7 @@ public final class Converters {
         private static final String ELEM_OVERRIDDEN_STATUS_ALT = "overriddenStatus";
         private static final String ELEM_HOST = "hostName";
         private static final String ELEM_INSTANCE_ID = "instanceId";
-        private static final String ELEM_APP = "appName";
+        private static final String ELEM_APP = "app";
         private static final String ELEM_IP = "ipAddr";
         private static final String ELEM_SID = "sid";
         private static final String ELEM_STATUS = "status";
