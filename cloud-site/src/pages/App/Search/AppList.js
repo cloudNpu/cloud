@@ -343,7 +343,7 @@ class UpdateForm extends PureComponent {
     this.state = {
       formVals: {
         instance: {
-          appName: props.values.appName,
+          app: props.values.appName,
           instanceId: props.values.instanceId,
           ipAddr: props.values.ipAddr,
           status: props.values.status,
@@ -948,7 +948,7 @@ class AppList extends PureComponent {
       payload: {
         instance: {
           instanceId: fields.instanceId,
-          appName: fields.appName,
+          app: fields.appName,
           ipAddr: fields.ipAddr,
           status: fields.status,
           port: {

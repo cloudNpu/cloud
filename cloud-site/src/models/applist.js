@@ -35,6 +35,10 @@ export default {
     *add({ payload, callback }, { call, put, select }) {
       const response = yield (yield call(addAppList, payload)).json();
       let list = yield select(state => state.applist.data.list);
+        // console.log(response.instance.app);
+        // console.log(response.instance.instanceId);
+      response.instance.appName=response.instance.app;
+      delete  response.instance.app;
       list.push(response.instance);
       yield put({
         type: "save",
@@ -70,8 +74,8 @@ export default {
       if (callback) callback();
     },
     *update({ payload, callback }, { call, put, select }) {
-        console.log(payload);
-      const response = yield yield call(updateAppList, payload);
+      console.log(payload);
+      const response = yield(yield call(updateAppList, payload)).json();
       console.log(response);
       let list = yield select(state => state.applist.data.list);
       yield list.forEach((value, index, array) => {
@@ -83,12 +87,15 @@ export default {
         ) {
           array[index] = res_app;
         }*/
-        let user = array[index];
+        let oldApp = array[index];
+        console.log(oldApp);
         if (
-          user.appName === payload.appName &&
-          user.instanceId === payload.instanceId
+          oldApp.appName === payload.instance.app &&
+            oldApp.instanceId === payload.instance.instanceId
         ) {
-          array[index] = payload;
+            response.instance.appName=response.instance.app;
+            delete  response.instance.app;
+           array[index] = response.instance;
         }
       });
       yield put({

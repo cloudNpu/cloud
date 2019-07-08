@@ -38,15 +38,15 @@ export default {
       const response = yield (yield call(addRole, payload)).json();
       // console.log(response);
       // console.log(payload);
-      console.log(state);
-      let flag = true;
-      for (let i = 0; i < response.length - 1; i++) {
-        if (response[i].name === payload.name) {
-          message.error("该角色已存在!");
-          flag = false;
-        }
-      }
-      if (flag === true) message.success("添加成功！");
+      // console.log(state);
+      // let flag = true;
+      // for (let i = 0; i < response.length - 1; i++) {
+      //   if (response[i].name === payload.name) {
+      //     message.error("该角色已存在!");
+      //     flag = false;
+      //   }
+      // }
+      // if (flag === true) message.success("添加成功！");
       yield put({
         type: "save",
         payload: {

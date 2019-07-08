@@ -12,7 +12,7 @@ export async function removeAppList(params) {
 }
 
 export async function addAppList(params) {
-  return request(`/api/cloud/apps/${params.instance.appName}`, {
+  return request(`/api/cloud/apps/${params.instance.app}`, {
     method: "POST",
     body: {
       ...params
@@ -39,7 +39,7 @@ export async function ipAddrSearch(params) {
 //////////////////////////////
 export async function updateAppList(params) {
   return request(
-    `/api/cloud/apps/${params.instance.appName}/${
+    `/api/cloud/apps/${params.instance.app}/${
       params.instance.instanceId
     }/update`,
     {

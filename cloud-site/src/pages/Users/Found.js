@@ -519,6 +519,11 @@ class Found extends PureComponent {
       this.setState({
         formValues: values
       });
+        //console.log(values);
+      if(values.deptId!==undefined) {
+        //console.log('111');
+          values.deptId=values.deptId.depts.key;
+      };
 
       dispatch({
         type: "found/fetch",
@@ -633,7 +638,6 @@ class Found extends PureComponent {
       payload: {
         id: fields.id,
         username: fields.username,
-        password: "888888",
         sex: fields.sex,
         birthday: fields.birthday,
         mobile: fields.mobile,
@@ -660,7 +664,7 @@ class Found extends PureComponent {
           </Col>
           <Col md={8} sm={24}>
             <FormItem label="部门">
-              {getFieldDecorator("dept")(
+              {getFieldDecorator("deptId")(
                   <Dept/>
               )}
             </FormItem>
@@ -697,7 +701,7 @@ class Found extends PureComponent {
           </Col>
           <Col md={8} sm={24}>
             <FormItem label="部门">
-              {getFieldDecorator("dept")(
+              {getFieldDecorator("deptId")(
                   <Dept/>
               )}
             </FormItem>

@@ -76,7 +76,7 @@ export default {
       let list = yield select(state => state.found.data.list);
       yield list.forEach((value, index, array) => {
         let user = array[index];
-        let res_user = response[0];
+        let res_user = response;
         if (user.id === res_user.id) {
           array[index] = res_user;
         }

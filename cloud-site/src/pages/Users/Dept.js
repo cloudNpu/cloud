@@ -49,14 +49,13 @@ class Dept extends PureComponent {
         </Option>
       );
     }
-    // console.log(list);
     return list.map(item => (
       <Option key={item.id} value={item.id}>
         {/*<Option value={item.id}>*/}
         {item.deptName}
       </Option>
     ));
-    //   console.log(item.id);
+    //console.log(item.id);
   };
 
   selectDeptsItem = item => {
@@ -68,6 +67,7 @@ class Dept extends PureComponent {
     onChange({
       depts: item
     });
+    console.log(item);
   };
 
   conversionObject() {
